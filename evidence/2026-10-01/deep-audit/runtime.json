@@ -1,0 +1,123 @@
+{
+  "captured_utc": "2026-10-01T20:22:17.400751+00:00",
+  "kernel": "6.18.11-xenon",
+  "uptime": "865.79 609.58",
+  "interrupts": "CPU0       CPU1       CPU2       CPU3       CPU4       CPU5       \n 16:          0          0          0          0          0          0  XENON-PIC    8 Edge      ipi tick-broadcast\n 17:        476        516        356        332        371        327  XENON-PIC   16 Edge      ipi reschedule\n 20:          6          0          0          0          0          0  XENON-PIC   20 Edge      xenon-smc\n 32:      15028          0          0          0          0          0  XENON-PIC   32 Edge      sata_xenon[0000:01:02.0]\n 36:       2239          0          0          0          0          0  XENON-PIC   36 Edge      sata_xenon[0000:01:01.0]\n 44:         42          0          0          0          0          0  XENON-PIC   44 Edge      ohci_hcd:usb3\n 48:       6134          0          0          0          0          0  XENON-PIC   48 Edge      ehci_hcd:usb2\n 52:       9482          0          0          0          0          0  XENON-PIC   52 Edge      ohci_hcd:usb4\n 56:          4          0          0          0          0          0  XENON-PIC   56 Edge      ehci_hcd:usb1\n 76:      13564          0          0          0          0          0  XENON-PIC   76 Edge      enp1s7\n112:       4857       7729       6579       6344       8419      11896  XENON-PIC  112 Edge      ipi call function\n120:          0          0          0          0          0          0  XENON-PIC  120 Edge      nmi ipi\nLOC:     259698     259724     259733     259718     259713     259732  Local timer interrupts for timer event device\nBCT:          0          0          0          0          0          0  Broadcast timer interrupts for timer event device\nLOC:          0          0          0          0          0          0  Local timer interrupts for others\nSPU:          2          0          2          0          0          0  Spurious interrupts\nPMI:          0          0          0          0          0          0  Performance monitoring interrupts\nMCE:          0          0          0          0          0          0  Machine check exceptions\nNMI:          0          0          0          0          0          0  System Reset interrupts",
+  "root": {
+    "code": 0,
+    "stdout": "/dev/sda1 ext4\n",
+    "stderr": ""
+  },
+  "failed_units": {
+    "code": 0,
+    "stdout": "  UNIT LOAD ACTIVE SUB DESCRIPTION\n\n0 loaded units listed.\n",
+    "stderr": ""
+  },
+  "network": {
+    "enp1s7": {
+      "operstate": "up",
+      "carrier": "1",
+      "speed": "100",
+      "duplex": "full",
+      "statistics": {
+        "collisions": "0",
+        "multicast": "0",
+        "rx_bytes": "2006231",
+        "rx_compressed": "0",
+        "rx_crc_errors": "0",
+        "rx_dropped": "84",
+        "rx_errors": "0",
+        "rx_fifo_errors": "0",
+        "rx_frame_errors": "0",
+        "rx_length_errors": "0",
+        "rx_missed_errors": "0",
+        "rx_nohandler": "0",
+        "rx_over_errors": "0",
+        "rx_packets": "6376",
+        "tx_aborted_errors": "0",
+        "tx_bytes": "91985",
+        "tx_carrier_errors": "0",
+        "tx_compressed": "0",
+        "tx_dropped": "0",
+        "tx_errors": "0",
+        "tx_fifo_errors": "0",
+        "tx_heartbeat_errors": "0",
+        "tx_packets": "442",
+        "tx_window_errors": "0"
+      },
+      "features": {
+        "code": 0,
+        "stdout": "Features for enp1s7:\nrx-checksumming: off [fixed]\ntx-checksumming: off\n\ttx-checksum-ipv4: off [fixed]\n\ttx-checksum-ip-generic: off [fixed]\n\ttx-checksum-ipv6: off [fixed]\n\ttx-checksum-fcoe-crc: off [fixed]\n\ttx-checksum-sctp: off [fixed]\nscatter-gather: off\n\ttx-scatter-gather: off [fixed]\n\ttx-scatter-gather-fraglist: off [fixed]\ntcp-segmentation-offload: off\n\ttx-tcp-segmentation: off [fixed]\n\ttx-tcp-ecn-segmentation: off [fixed]\n\ttx-tcp-mangleid-segmentation: off [fixed]\n\ttx-tcp6-segmentation: off [fixed]\n\ttx-tcp-accecn-segmentation: off [fixed]\ngeneric-segmentation-offload: off [requested on]\ngeneric-receive-offload: off\nlarge-receive-offload: off [fixed]\nrx-vlan-offload: off [fixed]\ntx-vlan-offload: off [fixed]\nntuple-filters: off [fixed]\nreceive-hashing: off [fixed]\nhighdma: off [fixed]\nrx-vlan-filter: off [fixed]\nvlan-challenged: off [fixed]\ntx-gso-robust: off [fixed]\ntx-fcoe-segmentation: off [fixed]\ntx-gre-segmentation: off [fixed]\ntx-gre-csum-segmentation: off [fixed]\ntx-ipxip4-segmentation: off [fixed]\ntx-ipxip6-segmentation: off [fixed]\ntx-udp_tnl-segmentation: off [fixed]\ntx-udp_tnl-csum-segmentation: off [fixed]\ntx-gso-partial: off [fixed]\ntx-tunnel-remcsum-segmentation: off [fixed]\ntx-sctp-segmentation: off [fixed]\ntx-esp-segmentation: off [fixed]\ntx-udp-segmentation: off [fixed]\ntx-gso-list: off [fixed]\ntx-nocache-copy: off\nloopback: off [fixed]\nrx-fcs: off [fixed]\nrx-all: off [fixed]\ntx-vlan-stag-hw-insert: off [fixed]\nrx-vlan-stag-hw-parse: off [fixed]\nrx-vlan-stag-filter: off [fixed]\nl2-fwd-offload: off [fixed]\nhw-tc-offload: off [fixed]\nesp-hw-offload: off [fixed]\nesp-tx-csum-hw-offload: off [fixed]\nrx-udp_tunnel-port-offload: off [fixed]\ntls-hw-tx-offload: off [fixed]\ntls-hw-rx-offload: off [fixed]\nrx-gro-hw: off [fixed]\ntls-hw-record: off [fixed]\nrx-gro-list: off\nmacsec-hw-offload: off [fixed]\nrx-udp-gro-forwarding: off\nhsr-tag-ins-offload: off [fixed]\nhsr-tag-rm-offload: off [fixed]\nhsr-fwd-offload: off [fixed]\nhsr-dup-offload: off [fixed]\n",
+        "stderr": ""
+      }
+    },
+    "sit0": {
+      "operstate": "down",
+      "carrier": {
+        "unavailable": "[Errno 22] Invalid argument"
+      },
+      "speed": {
+        "unavailable": "[Errno 22] Invalid argument"
+      },
+      "duplex": {
+        "unavailable": "[Errno 22] Invalid argument"
+      },
+      "statistics": {
+        "collisions": "0",
+        "multicast": "0",
+        "rx_bytes": "0",
+        "rx_compressed": "0",
+        "rx_crc_errors": "0",
+        "rx_dropped": "0",
+        "rx_errors": "0",
+        "rx_fifo_errors": "0",
+        "rx_frame_errors": "0",
+        "rx_length_errors": "0",
+        "rx_missed_errors": "0",
+        "rx_nohandler": "0",
+        "rx_over_errors": "0",
+        "rx_packets": "0",
+        "tx_aborted_errors": "0",
+        "tx_bytes": "0",
+        "tx_carrier_errors": "0",
+        "tx_compressed": "0",
+        "tx_dropped": "0",
+        "tx_errors": "0",
+        "tx_fifo_errors": "0",
+        "tx_heartbeat_errors": "0",
+        "tx_packets": "0",
+        "tx_window_errors": "0"
+      },
+      "features": {
+        "code": 0,
+        "stdout": "Features for sit0:\nrx-checksumming: off [fixed]\ntx-checksumming: on\n\ttx-checksum-ipv4: off [fixed]\n\ttx-checksum-ip-generic: on\n\ttx-checksum-ipv6: off [fixed]\n\ttx-checksum-fcoe-crc: off [fixed]\n\ttx-checksum-sctp: off [fixed]\nscatter-gather: on\n\ttx-scatter-gather: on\n\ttx-scatter-gather-fraglist: on\ntcp-segmentation-offload: on\n\ttx-tcp-segmentation: on\n\ttx-tcp-ecn-segmentation: on\n\ttx-tcp-mangleid-segmentation: on\n\ttx-tcp6-segmentation: on\n\ttx-tcp-accecn-segmentation: on\ngeneric-segmentation-offload: on\ngeneric-receive-offload: on\nlarge-receive-offload: off [fixed]\nrx-vlan-offload: off [fixed]\ntx-vlan-offload: off [fixed]\nntuple-filters: off [fixed]\nreceive-hashing: off [fixed]\nhighdma: on\nrx-vlan-filter: off [fixed]\nvlan-challenged: off [fixed]\ntx-gso-robust: off [fixed]\ntx-fcoe-segmentation: off [fixed]\ntx-gre-segmentation: off [fixed]\ntx-gre-csum-segmentation: off [fixed]\ntx-ipxip4-segmentation: off [fixed]\ntx-ipxip6-segmentation: off [fixed]\ntx-udp_tnl-segmentation: off [fixed]\ntx-udp_tnl-csum-segmentation: off [fixed]\ntx-gso-partial: off [fixed]\ntx-tunnel-remcsum-segmentation: off [fixed]\ntx-sctp-segmentation: on\ntx-esp-segmentation: off [fixed]\ntx-udp-segmentation: on\ntx-gso-list: on\ntx-nocache-copy: off\nloopback: off [fixed]\nrx-fcs: off [fixed]\nrx-all: off [fixed]\ntx-vlan-stag-hw-insert: off [fixed]\nrx-vlan-stag-hw-parse: off [fixed]\nrx-vlan-stag-filter: off [fixed]\nl2-fwd-offload: off [fixed]\nhw-tc-offload: off [fixed]\nesp-hw-offload: off [fixed]\nesp-tx-csum-hw-offload: off [fixed]\nrx-udp_tunnel-port-offload: off [fixed]\ntls-hw-tx-offload: off [fixed]\ntls-hw-rx-offload: off [fixed]\nrx-gro-hw: off [fixed]\ntls-hw-record: off [fixed]\nrx-gro-list: off\nmacsec-hw-offload: off [fixed]\nrx-udp-gro-forwarding: off\nhsr-tag-ins-offload: off [fixed]\nhsr-tag-rm-offload: off [fixed]\nhsr-fwd-offload: off [fixed]\nhsr-dup-offload: off [fixed]\n",
+        "stderr": ""
+      }
+    }
+  },
+  "drm": {
+    "card0-Unknown-1": {
+      "status": "connected",
+      "enabled": "enabled",
+      "modes": "1280x720"
+    }
+  },
+  "thermal": {
+    "hwmon0": {
+      "temp1_input": "55121",
+      "temp2_input": "49195",
+      "temp3_input": "52925",
+      "temp4_input": "27898"
+    }
+  },
+  "audio_class_present": false,
+  "audio_pci_driver": false,
+  "framebuffer": "1280,720",
+  "kernel_config_subset": [
+    "CONFIG_HZ=300",
+    "CONFIG_MODVERSIONS=y",
+    "# CONFIG_MTD is not set",
+    "CONFIG_DRM_XENOS=y",
+    "# CONFIG_SOUND is not set"
+  ]
+}

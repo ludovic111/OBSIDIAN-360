@@ -1,0 +1,143 @@
+--- a/drivers/leds/leds-xenon.c
++++ b/drivers/leds/leds-xenon.c
+@@ -30,7 +30,7 @@
+ 	"bottom-left",
+ 	"bottom-right"
+ };
+-static struct xenon_led leds[8];
++static struct platform_device *xenon_led_device;
+ 
+ /*
+  * since our led_state is just a byte (as the SMC expects),
+@@ -45,11 +45,12 @@
+ {
+ 	struct xenon_led *led = container_of(cdev, struct xenon_led, cdev);
+ 	unsigned char smc_msg[16];
+-	unsigned char led_state_old = led_state;
++	unsigned char led_state_old;
+ 	unsigned long flags = 0;
+ 
+ 	/* lock it so we can't mangle the led_state if we get here twice */
+ 	spin_lock_irqsave(&led_lock, flags);
++	led_state_old = led_state;
+ 
+ 	/* keep track of this change */
+ 	if (brightness)
+@@ -63,17 +64,17 @@
+ 	smc_msg[1] = 0x01; /* override */
+ 	smc_msg[2] = led_state;
+ 
+-	/* we've completed our use of led_state, release the lock */
++	/* Keep state changes and FIFO writes in the same order.
++	 * This command has no reply, and xenon_smc_message does not sleep.
++	 */
++	xenon_smc_message(smc_msg);
+ 	spin_unlock_irqrestore(&led_lock, flags);
+-
+-	/* apply it */
+-	xenon_smc_message_wait(smc_msg);
+ }
+ 
+ static enum led_brightness xenon_led_get(struct led_classdev *cdev)
+ {
+ 	struct xenon_led *led = container_of(cdev, struct xenon_led, cdev);
+-	if (led_state & (1 << led->id)) {
++	if (READ_ONCE(led_state) & (1 << led->id)) {
+ 		pr_debug("xenon_led_get: id=%d, led_state=0x%02X, ret=1\n", led->id, led_state);
+ 		return 1;
+ 	}
+@@ -86,11 +87,16 @@
+ static int xenon_led_probe(struct platform_device *pdev)
+ {
+ 	int ret, i;
+-	char *color;
++	const char *color;
++	struct xenon_led *leds;
+ 
+ 	/* we really need the SMC to be ready */
+ 	if (!xenon_smc_ready())
+ 		return -EPROBE_DEFER;
++
++	leds = devm_kcalloc(&pdev->dev, 8, sizeof(*leds), GFP_KERNEL);
++	if (!leds)
++		return -ENOMEM;
+ 
+ 	for (i = 0; i < 8; i++) {
+ 		if (i < 4)
+@@ -99,7 +105,9 @@
+ 			color = "green";
+ 
+ 		leds[i].id = i;
+-		leds[i].cdev.name = kasprintf(GFP_KERNEL, "xenon:%s:%s", color, led_positions[i % 4]);
++		leds[i].cdev.name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "xenon:%s:%s", color, led_positions[i % 4]);
++		if (!leds[i].cdev.name)
++			return -ENOMEM;
+ 		leds[i].cdev.max_brightness = 1;
+ 		leds[i].cdev.brightness_get = xenon_led_get;
+ 		leds[i].cdev.brightness_set = xenon_led_set;
+@@ -111,53 +119,42 @@
+ 		xenon_led_set(&leds[i].cdev, 0);
+ 
+ 		/* register */
+-		ret = led_classdev_register(&pdev->dev, &leds[i].cdev);
++		ret = devm_led_classdev_register(&pdev->dev, &leds[i].cdev);
+ 		if (ret)
+ 			return ret;
+ 	}
+ 	return 0;
+ }
+ 
+-static void xenon_led_remove(struct platform_device *pdev)
+-{
+-	int i;
+-
+-	for (i = 0; i < 8; i++) {
+-		led_classdev_unregister(&leds[i].cdev);
+-		kfree(leds[i].cdev.name);
+-	}
+-}
+-
+ static struct platform_driver xenon_led_driver = {
+ 	.probe = xenon_led_probe,
+-	.remove = xenon_led_remove,
+ 	.driver = {
+ 		.name = DRVNAME,
+ 	},
+ };
+ 
+-module_platform_driver(xenon_led_driver);
+-
+ static int __init xenon_led_init(void)
+ {
+ 	int ret;
+-	struct platform_device *pdev;
+ 
+-	pdev = platform_device_register_simple(DRVNAME, -1, NULL, 0);
+-	if (IS_ERR(pdev)) {
+-		ret = PTR_ERR(pdev);
++	ret = platform_driver_register(&xenon_led_driver);
++	if (ret)
++		return ret;
++
++	xenon_led_device = platform_device_register_simple(DRVNAME, -1, NULL, 0);
++	if (IS_ERR(xenon_led_device)) {
++		ret = PTR_ERR(xenon_led_device);
+ 		platform_driver_unregister(&xenon_led_driver);
+-		goto out;
++		return ret;
+ 	}
+ 
+-
+-	pr_info("Xenon Ring of Light LED driver loaded");
+-out:
+-	return ret;
++	pr_info("Xenon Ring of Light LED driver loaded\n");
++	return 0;
+ }
+ 
+ static void __exit xenon_led_exit(void)
+ {
++	platform_device_unregister(xenon_led_device);
+ 	platform_driver_unregister(&xenon_led_driver);
+ }
+ 

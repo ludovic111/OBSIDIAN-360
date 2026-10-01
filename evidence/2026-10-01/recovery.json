@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-01",
+  "ssh": "verified",
+  "root": "/dev/sda1 ext4",
+  "desktop": "IceWM and xbox_desktop.py running after real reboot",
+  "systemd_failed_units": 0,
+  "controller": {
+    "device_open": true,
+    "events": 4557,
+    "js0_present": true,
+    "visible_interactions_confirmed_by_user": false
+  },
+  "recovered_file_sha256": {
+    "smc-status.json": "67f69061986eeaa487681b4d3c561f3331a0d20a75630d51b23c865d3c07fc7f",
+    "platform-read.log": "184c1d964d1008f6b7e6f3aebb3da24f08b79d0ed4319e840893d0c0fe86db3f",
+    "ana-720p.bin": "56ec5a04d871568f64c25663336b47fe5367d910f704d4315def0fb3076a9631",
+    "ana-720p.json": "21f5486ac908e902aca0ef49d700f1eec09890d9c793f0a77b5ba274fbd12399",
+    "gpu-display-registers.json": "8e7431b2979a063111789de366b82429756c4aca12d6292062d7492d46197797"
+  },
+  "remaining_boot_log_issue": "Optional pkcs8_key_parser module not found; no active failed systemd units",
+  "nand_probe_repeated": false
+}

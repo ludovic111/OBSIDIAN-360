@@ -1,0 +1,12 @@
+{
+  "target": "zImage.xenon",
+  "localversion": "-obsidian4",
+  "started_utc": "20261001T212205.887918Z",
+  "status": "succeeded",
+  "container": "obsidian360-kernel-build",
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "log": "build-20261001T212205.887918Z.log",
+  "jobs": 4,
+  "returncode": 0,
+  "finished_utc": "2026-10-01T21:22:23.724611+00:00"
+}

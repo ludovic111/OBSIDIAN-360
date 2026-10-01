@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/techflashYT/linux-custom",
+  "commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "path": "drivers/leds/leds-xenon.c",
+  "sources": {
+    "leds-xenon-original.c": "477a39357cce2369d9a2a04a3e1c428edb50ef4b916f29a8b62eb7e29f2a3ae3",
+    "leds-xenon-fixed.c": "20c6038aac0da67f82fa5c8afea9c106d367ff57f9bc7ca074f9a39064f5b526"
+  },
+  "patch": "research/patches/0005-xenon-led-lifecycle.patch"
+}

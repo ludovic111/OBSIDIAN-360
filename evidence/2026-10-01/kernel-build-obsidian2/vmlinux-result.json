@@ -1,0 +1,12 @@
+{
+  "target": "vmlinux",
+  "localversion": "-obsidian2",
+  "started_utc": "20261001T210859.844738Z",
+  "status": "succeeded",
+  "container": "obsidian360-kernel-build",
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "log": "build-20261001T210859.844738Z.log",
+  "jobs": 4,
+  "returncode": 0,
+  "finished_utc": "2026-10-01T21:09:16.129274+00:00"
+}

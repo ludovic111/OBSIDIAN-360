@@ -1,0 +1,20 @@
+{
+  "scope": "Real callback on host; MMIO simulated. Expected target encoding follows xenon_cause_IPI, not a new hardware measurement.",
+  "source_sha256": "5d34454195ccf64786f8f32c1df860c4977949e47d51c77f417516bf758ca669",
+  "results": [
+    {
+      "variant": "original",
+      "cases": 256,
+      "target_mismatches": 252,
+      "address_error": 0,
+      "passed": true
+    },
+    {
+      "variant": "candidate",
+      "cases": 256,
+      "target_mismatches": 0,
+      "address_error": 0,
+      "passed": true
+    }
+  ]
+}

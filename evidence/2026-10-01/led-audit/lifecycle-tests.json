@@ -1,0 +1,158 @@
+{
+  "source_sha256": "20c6038aac0da67f82fa5c8afea9c106d367ff57f9bc7ca074f9a39064f5b526",
+  "scope": "Real candidate driver, mocked kernel resources and SMC; no hardware",
+  "cases": [
+    {
+      "kind": "success",
+      "index": 0,
+      "returncode": 0,
+      "stdout": "passed success 0; sends=32; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "driver",
+      "index": 0,
+      "returncode": 0,
+      "stdout": "passed driver 0; sends=0; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "device",
+      "index": 0,
+      "returncode": 0,
+      "stdout": "passed device 0; sends=0; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "defer",
+      "index": 0,
+      "returncode": 0,
+      "stdout": "passed defer 0; sends=0; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "alloc",
+      "index": 0,
+      "returncode": 0,
+      "stdout": "passed alloc 0; sends=0; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "alloc",
+      "index": 1,
+      "returncode": 0,
+      "stdout": "passed alloc 1; sends=0; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "alloc",
+      "index": 2,
+      "returncode": 0,
+      "stdout": "passed alloc 2; sends=2; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "alloc",
+      "index": 3,
+      "returncode": 0,
+      "stdout": "passed alloc 3; sends=4; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "alloc",
+      "index": 4,
+      "returncode": 0,
+      "stdout": "passed alloc 4; sends=6; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "alloc",
+      "index": 5,
+      "returncode": 0,
+      "stdout": "passed alloc 5; sends=8; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "alloc",
+      "index": 6,
+      "returncode": 0,
+      "stdout": "passed alloc 6; sends=10; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "alloc",
+      "index": 7,
+      "returncode": 0,
+      "stdout": "passed alloc 7; sends=12; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "alloc",
+      "index": 8,
+      "returncode": 0,
+      "stdout": "passed alloc 8; sends=14; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "led",
+      "index": 0,
+      "returncode": 0,
+      "stdout": "passed led 0; sends=1; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "led",
+      "index": 1,
+      "returncode": 0,
+      "stdout": "passed led 1; sends=3; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "led",
+      "index": 2,
+      "returncode": 0,
+      "stdout": "passed led 2; sends=5; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "led",
+      "index": 3,
+      "returncode": 0,
+      "stdout": "passed led 3; sends=7; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "led",
+      "index": 4,
+      "returncode": 0,
+      "stdout": "passed led 4; sends=9; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "led",
+      "index": 5,
+      "returncode": 0,
+      "stdout": "passed led 5; sends=11; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "led",
+      "index": 6,
+      "returncode": 0,
+      "stdout": "passed led 6; sends=13; no resources remain",
+      "diagnostics": ""
+    },
+    {
+      "kind": "led",
+      "index": 7,
+      "returncode": 0,
+      "stdout": "passed led 7; sends=15; no resources remain",
+      "diagnostics": ""
+    }
+  ],
+  "compile": {
+    "returncode": 0,
+    "diagnostics": ""
+  },
+  "passed": true
+}

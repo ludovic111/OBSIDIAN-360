@@ -1,0 +1,11 @@
+--- a/arch/powerpc/platforms/xenon/interrupt.c
++++ b/arch/powerpc/platforms/xenon/interrupt.c
+@@ -184,7 +184,7 @@
+ {
+ 	int cpu = hard_smp_processor_id();
+ 	out_be64(iic_base + cpu * 0x1000 + 0x10,
+-		 ((cpumask_bits(dest)[0] << 16) & 0x3F) | (data->hwirq & 0x7C));
++		 ((cpumask_bits(dest)[0] & 0x3F) << 16) | (data->hwirq & 0x7C));
+ }
+ 
+ static struct irq_chip xenon_pic = {

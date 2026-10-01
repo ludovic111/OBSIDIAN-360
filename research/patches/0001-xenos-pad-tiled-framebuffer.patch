@@ -1,0 +1,12 @@
+--- a/drivers/gpu/drm/tiny/xenos.c
++++ b/drivers/gpu/drm/tiny/xenos.c
+@@ -92,7 +92,8 @@
+ 					  xenos->real_framebuffer.vaddr,
+ 					  xenos->real_framebuffer.dma_addr);
+ 
+-		xenos->real_framebuffer.size = width * height * cpp;
++		/* The blitter addresses pixels in 32x32 macrotiles. */
++		xenos->real_framebuffer.size = ALIGN(width, 32) * ALIGN(height, 32) * cpp;
+ 		xenos->real_framebuffer.vaddr = dma_alloc_coherent(
+ 			xenos->dev.dev, xenos->real_framebuffer.size,
+ 			&xenos->real_framebuffer.dma_addr, 0);

@@ -1,0 +1,11 @@
+{
+  "photo_file": "IMG_1372.HEIC",
+  "photo_sha256": "52f0123d361eb11f9ebca8a30caf274cbd08d3d8e8d7d374b6aa0c2c43a2162a",
+  "observation": "Photo shows kernel reaching /init, udev hook, USB SanDisk detection, last visible timestamp 4.016710 seconds. No kernel panic visible.",
+  "user_report": "Screen frozen; does not remember selecting a menu entry.",
+  "kernel_release": "unknown",
+  "candidate_selection_confirmed": false,
+  "default_preserved_by_staging": "linux_hdd",
+  "recovery_requested": "Power cycle without Ethernet; explicitly choose linux_hdd; reconnect Ethernet after desktop.",
+  "causal_conclusion": "Cannot attribute this stall to obsidian4."
+}

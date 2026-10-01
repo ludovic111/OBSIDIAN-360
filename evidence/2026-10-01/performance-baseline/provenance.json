@@ -1,0 +1,15 @@
+{
+  "source_sha256": {
+    "tools/collect-baseline.py": "8f5fefccbb8839984131b2720e5c1c20427a8ef4de950c5203a5c588c917b62f",
+    "tools/collect-boot-detail.py": "67edbba481304d5b4a2b8cd7ef09f4a911763e2d1e8660fff3cd6ab9b674be42"
+  },
+  "workload_check": "SHA-256 of the 8 MiB repeated-byte input independently matches on Mac",
+  "failed_attempts": [
+    {
+      "action": "initial targeted collection",
+      "result": "FileNotFoundError for /proc/slabinfo before target queries",
+      "resolution": "Optional interface handled explicitly by committed collector; no attempt to enable kernel debug facilities"
+    }
+  ],
+  "configuration_changes": false
+}

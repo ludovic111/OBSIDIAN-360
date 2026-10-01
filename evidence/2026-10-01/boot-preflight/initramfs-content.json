@@ -1,0 +1,273 @@
+{
+  "extraction_returncode": 0,
+  "extraction_stdout": "",
+  "extraction_stderr": "",
+  "modules": [
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/blake2b_generic.ko",
+      "sha256": "b5ddc8b6c02ee0f35d7f62854418b030c6a0e341a702f6bd9add9989d61099c4",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/ccm.ko",
+      "sha256": "7004771b16c9be8439fcfcd3ee938ec2c680130fb09f41be689a1b424a4d6c6b",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/cmac.ko",
+      "sha256": "6672bd7ec739b49819c0fc9b995fbffae8bff0ff603f4b06eb9d17f7fc421347",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/crc32c-cryptoapi.ko",
+      "sha256": "dab4d62108ed49d6a39c6a00c1bc31a624492ce1c970fe88dbfad87792b8ba86",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/gcm.ko",
+      "sha256": "150ff8e1aa6e0cefbf70de76d26fa73cb2d4c94e10c19aedd7e6caeb52ceccfa",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/hmac.ko",
+      "sha256": "bca645b540a6a1f430f92c105b4e03e36f828bddeb37aa6af135e06e56e72511",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/sha256.ko",
+      "sha256": "b7e30e4dff13ca1dd65caefd6beb550ac88c1ffe5ac39cd9e3ebe538b36cbc18",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/sha512.ko",
+      "sha256": "9221b14dbcc93b2454541e337a86885f194bac8c171f61642ac3b3ed4680bcc9",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/xor.ko",
+      "sha256": "e1492c20365568f6345e41c0842b80b23d210da2d47fafe148d947d7b2ae6fd2",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/crypto/xxhash_generic.ko",
+      "sha256": "ab041df2e7492e2630ef85700a986962588be7052d061b805dc99fb5130ea31d",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/drivers/block/nbd.ko",
+      "sha256": "edc08129df9a141028659a81582042e3146cb2be64c7ee22f018e1c5a14a33ab",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/drivers/block/zram/zram.ko",
+      "sha256": "11cde36c075f9aaad409ce87d9835a18b0668c689f616c1098f104759f674f4a",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/drivers/hid/hid-a4tech.ko",
+      "sha256": "966a4f2440230662c4ee0c9f17d9e13870ecce2ecfbb264972bf146a84696271",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/drivers/hid/hid-cherry.ko",
+      "sha256": "a158fe153fd5170673e20f652a7ca43bc0d7e2a0af7ef5ee151b1ee2c73df963",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/drivers/hid/hid-gyration.ko",
+      "sha256": "b9f812e1b2e887e08b5ee44eb8fe82a447716010af50e383549d7739c3fb375a",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/drivers/hid/hid-nintendo.ko",
+      "sha256": "96e58fb6f1fd8b9bd3ead7a4c31f9bf6c9ff1cfe7ccea2b994e9fc7553099dd9",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/drivers/hid/hid-wiimote.ko",
+      "sha256": "9e7f8252c94ecfc6fac9f193333739872a5d38bbf1bef85ed5baf016e863264c",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/autofs/autofs4.ko",
+      "sha256": "0915aecb7bc9a742739113fc780c48e05a2d8637e3d549753bb83e7b738d4ede",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/btrfs/btrfs.ko",
+      "sha256": "247ba937e40710de55ada1a8f151e3a7f516d4b309c682d7553b59367ef3f825",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/exfat/exfat.ko",
+      "sha256": "0433427f148bf32b920fe48f2a285d2681889c930f7cf0c0a0db212dd4152e57",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/fuse/fuse.ko",
+      "sha256": "b44558424eff11b02615c04dc6c66e8e1f3fa5ffe58f6a2a9e41538ebbfc6cfa",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/hfs/hfs.ko",
+      "sha256": "47e041e1bcf09b28d6731686b4e6531f5e035b070f6b561d33b8c20f53733d25",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/hfsplus/hfsplus.ko",
+      "sha256": "38e89948658668bb17aa74d33573e8b5efc8c20c5a1bb403a75efa6409c98633",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/isofs/isofs.ko",
+      "sha256": "03c811cd6c1ac05a54c4217f1017df3d4d4c8119858771e8da4fe8c446164c7e",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/netfs/netfs.ko",
+      "sha256": "ebef6a7e8e1e5311a54ac85c07f8d6d26625737e8d8dfadcd1ea706e96e781ef",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/nfsd/nfsd.ko",
+      "sha256": "22f237b1a44770339df563296245db672ef25f31f4922b7abbd8b30b8ba35135",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/nls/nls_ucs2_utils.ko",
+      "sha256": "8b844acbf37dbc942520edfc1be8114cf902a58ebe3f39e070f98d81164a8b25",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/ntfs3/ntfs3.ko",
+      "sha256": "a72eafa8ef10e2cc2400f014af7e878057f861973bad6a8d71eb5845550e331f",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/smb/client/cifs.ko",
+      "sha256": "2b8eca59ba9e98ce8ee8682953a809ecf2f5c43ab124cef2be0e08bc1f2b1762",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/smb/common/cifs_md4.ko",
+      "sha256": "42a02463620c6966c818ef075d9a4fd47921ce51b0ec8862f5c7e15bf2ff9c2d",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/smb/server/ksmbd.ko",
+      "sha256": "53e6af0f41c82d477d5daac04fb3273f417d53d92ba2026b774985a72863bcdd",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/udf/udf.ko",
+      "sha256": "ec4e2006295452b7b3ba79f2b32c6f65faee01cb0033b0813e0ffd7bf7269d7a",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/fs/xfs/xfs.ko",
+      "sha256": "e9a7d1c22ae5abd25b5ace8f0cc5afa759de79349482a9af5242ecfbcfc015ff",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/842/842_compress.ko",
+      "sha256": "432aac4423968cb793bad1b985eb5e4a12705da02f6d42afc50bfabec3e75c7a",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/842/842_decompress.ko",
+      "sha256": "3e649d5e6d4f9c2af2a841a871221d2ac4f556d1c8ddff70e10829a35fb41b64",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/asn1_decoder.ko",
+      "sha256": "55f4f6ea9c464106128ba1fcaf6fe285a8a1c88cfaac0099ad08a7a797d815f7",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/crc/crc-itu-t.ko",
+      "sha256": "459478ab457415988148383c4b20b0456b40c7a7281dbb31fa14811b74d59092",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/crypto/libarc4.ko",
+      "sha256": "025835fb15c140d732716da14d452451f84798d1b3c97ecaa730c3b1bdccf5bf",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/crypto/libsha512.ko",
+      "sha256": "81dc5f8ee90394e04f91bb79fd8c81919639dbbe94a5d81c96e24f75efc0f867",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/lz4/lz4_compress.ko",
+      "sha256": "f189b8343a56f9c66787fe6abc368f66d5f14728c186951ee57205be2f2d9ab0",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/lz4/lz4hc_compress.ko",
+      "sha256": "2e63f61a7b9b9bd834b66d0dca6d69fb3ec2986bb73fd131a92ef8c11ab572a6",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/raid6/raid6_pq.ko",
+      "sha256": "440c2c33e45597467f15329330c58d4b2d98d253d904827e6c95bf83837bccd4",
+      "matches_staged": true
+    },
+    {
+      "path": "usr/lib/modules/6.18.11-xenon-obsidian4/kernel/lib/zstd/zstd_compress.ko",
+      "sha256": "634474359d417bc5de3eb88ec4142ae320a0e400c869f1c9fcbc07458f0a9550",
+      "matches_staged": true
+    }
+  ],
+  "files": {
+    "init": {
+      "bytes": 3325,
+      "sha256": "9a25937d2434df2e0cb94f5082c3deafa4fef487b59c88c64e2a584de17d807b",
+      "elf": false
+    },
+    "usr/bin/busybox": {
+      "bytes": 668468,
+      "sha256": "37fea67ea41de291c061ddd7d669cba880e86b5e049cb941638f3ebd57582e42",
+      "elf": true,
+      "elf_class": 1,
+      "byte_order": 2,
+      "machine": 20
+    },
+    "usr/bin/udevadm": {
+      "bytes": 724484,
+      "sha256": "7aa8687a62e443914b4943c48aff2359445dcdb97c28baf82e6576f218c5dc76",
+      "elf": true,
+      "elf_class": 1,
+      "byte_order": 2,
+      "machine": 20
+    },
+    "usr/bin/blkid": {
+      "bytes": 67088,
+      "sha256": "bc20a4dd054cf93f1fce75e6a5c0ba7331837f838ad6f212acec3451763ff7af",
+      "elf": true,
+      "elf_class": 1,
+      "byte_order": 2,
+      "machine": 20
+    },
+    "usr/bin/fsck": {
+      "bytes": 67056,
+      "sha256": "c4f91c9054154e9e084665ef0243af6391cd39d015f849a28aa4056e6468b34c",
+      "elf": true,
+      "elf_class": 1,
+      "byte_order": 2,
+      "machine": 20
+    },
+    "usr/bin/e2fsck": {
+      "bytes": 407504,
+      "sha256": "71f13da2d2e84ee4bd6ed2a2fcf1a0a2db6e8329c57726ef526d9782f74b92de",
+      "elf": true,
+      "elf_class": 1,
+      "byte_order": 2,
+      "machine": 20
+    }
+  },
+  "module_count": 43,
+  "module_directories": [
+    "6.18.11-xenon-obsidian4"
+  ]
+}

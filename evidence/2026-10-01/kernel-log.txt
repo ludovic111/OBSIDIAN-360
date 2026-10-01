@@ -1,0 +1,722 @@
+[    0.000000] hash-mmu: Page sizes from device-tree:
+[    0.000000] hash-mmu: base_shift=12: shift=12, sllp=0x0000, avpnm=0x00000000, tlbiel=1, penc=0
+[    0.000000] hash-mmu: base_shift=16: shift=16, sllp=0x0100, avpnm=0x00000000, tlbiel=1, penc=0
+[    0.000000] hash-mmu: base_shift=24: shift=24, sllp=0x0110, avpnm=0x00000001, tlbiel=0, penc=1
+[    0.000000] Page orders: linear mapping = 24, virtual = 16, io = 16
+[    0.000000] hash-mmu: Initializing hash mmu with SLB
+[    0.000000] Linux version 6.18.11-xenon (linux-xenon@archpower) (powerpc64-unknown-linux-gnu-gcc (GCC) 15.2.1 20260103, GNU ld (GNU Binutils) 2.45.1) #1 SMP Wed, 18 Feb 2026 08:26:42 +0000
+[    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+[    0.000000] Found initrd at 0xc000000006000000:0xc000000006ebf086
+[    0.000000] ioremap() called early from udbg_init_xenon_virtual+0x24/0x5c. Use early_ioremap() instead
+[    0.000000] Hardware name: Xenon Game Console Xenon 0x710500 Xenon
+[    0.000000] printk: legacy bootconsole [udbg0] enabled
+[    0.000000] CPU maps initialized for 2 threads per core
+[    0.000000]  (thread shift is 1)
+[    0.000000] Allocated 2992 bytes for 6 pacas
+[    0.000000] -----------------------------------------------------
+[    0.000000] phys_mem_size     = 0x1e000000
+[    0.000000] dcache_bsize      = 0x80
+[    0.000000] icache_bsize      = 0x80
+[    0.000000] cpu_features      = 0x00000000009c0180
+[    0.000000]   possible        = 0x003ffbebfbffb18f
+[    0.000000]   always          = 0x0000000000000180
+[    0.000000] cpu_user_features = 0xcc004000 0x00000000
+[    0.000000] mmu_features      = 0x2c000001
+[    0.000000] firmware_features = 0x0000000000000000
+[    0.000000] vmalloc start     = 0xc008000000000000
+[    0.000000] IO start          = 0xc00a000000000000
+[    0.000000] vmemmap start     = 0xc00c000000000000
+[    0.000000] hash-mmu: ppc64_pft_size    = 0x0
+[    0.000000] hash-mmu: htab_hash_mask    = 0xfff
+[    0.000000] -----------------------------------------------------
+[    0.000000] barrier-nospec: using ORI speculation barrier
+[    0.000000] barrier-nospec: patched 265 locations
+[    0.000000] Top of RAM: 0x1e000000, Total RAM: 0x1e000000
+[    0.000000] Memory hole size: 0MB
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000000000000-0x000000001dffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x000000001dffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000001dffffff]
+[    0.000000] percpu: Embedded 2 pages/cpu s39336 r0 d91736 u131072
+[    0.000000] pcpu-alloc: s39336 r0 d91736 u131072 alloc=1*1048576
+[    0.000000] pcpu-alloc: [0] 0 1 2 3 4 5 - - 
+[    0.000000] Kernel command line: root=UUID=e9584d6f-d7ed-40ba-80a2-6834f8d91f31 coherent_pool=16M rw
+[    0.000000] printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+[    0.000000] Dentry cache hash table entries: 65536 (order: 3, 524288 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 2, 262144 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 7680
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] SLUB: HWalign=128, Order=0-3, MinObjects=0, CPUs=6, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 30 jiffies.
+[    0.000000] RCU Tasks Trace: Setting shift to 3 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=6.
+[    0.000000] NR_IRQS: 384, nr_irqs: 384, preallocated irqs: 16
+[    0.000000] xenon IIC: init
+[    0.000000] xenon IIC: init on cpu 0
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] time_init: decrementer frequency = 50.000000 MHz
+[    0.000000] time_init: processor frequency   = 3200.000000 MHz
+[    0.000002] clocksource: timebase: mask: 0xffffffffffffffff max_cycles: 0xb8812736b, max_idle_ns: 440795202655 ns
+[    0.000517] clocksource: timebase mult[14000000] shift[24] registered
+[    0.090475] clockevent: decrementer mult[ccccccd] shift[32] cpu[0]
+[    0.090861] Console: colour dummy device 80x25
+[    0.180759] printk: legacy console [tty0] enabled
+[    0.181001] printk: legacy bootconsole [udbg0] disabled
+[    0.270958] pid_max: default: 32768 minimum: 301
+[    0.271076] LSM: initializing lsm=capability
+[    0.271238] Mount-cache hash table entries: 8192 (order: 0, 65536 bytes, linear)
+[    0.271266] Mountpoint-cache hash table entries: 8192 (order: 0, 65536 bytes, linear)
+[    0.272490] xenon IIC: connect irq 0x08
+[    0.272534] xenon IIC: connect irq 0x70
+[    0.272558] xenon IIC: connect irq 0x10
+[    0.272581] xenon IIC: connect irq 0x78
+[    0.273641] xenon_early_init
+[    0.273792] rcu: Hierarchical SRCU implementation.
+[    0.273805] rcu: 	Max phase no-delay instances is 1000.
+[    0.274602] smp: Bringing up secondary CPUs ...
+[    0.275109] xenon IIC: init on cpu 1
+[    0.276450] xenon IIC: init on cpu 2
+[    0.277652] xenon IIC: init on cpu 3
+[    0.278904] xenon IIC: init on cpu 4
+[    0.280119] xenon IIC: init on cpu 5
+[    0.280545] smp: Brought up 1 node, 6 CPUs
+[    0.281962] Memory: 445504K/491520K available (11520K kernel code, 1216K rwdata, 4864K rodata, 576K init, 549K bss, 37568K reserved, 0K cma-reserved)
+[    0.282763] devtmpfs: initialized
+[    0.285230] PCI host bridge /pci (primary) ranges:
+[    0.285302]  MEM 0x0000020080000000..0x00000200ffffffff -> 0x0000000080000000 
+[    0.285350]  MEM 0x0000000000000000..0x000000001fffffff -> 0x0000000000000000 
+[    0.285389] platform xenon-pci: PCI initialized
+[    0.285417] Found 1 instances
+[    0.285792] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 6370867519511994 ns
+[    0.285868] posixtimers hash table entries: 4096 (order: 1, 131072 bytes, linear)
+[    0.286354] futex hash table entries: 2048 (262144 bytes on 1 NUMA nodes, total 256 KiB, linear).
+[    0.287803] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.289857] DMA: preallocated 16384 KiB GFP_KERNEL pool for atomic allocations
+[    0.294895] HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
+[    0.294951] HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
+[    0.297295] SCSI subsystem initialized
+[    0.297622] libata version 3.00 loaded.
+[    0.298042] usbcore: registered new interface driver usbfs
+[    0.298146] usbcore: registered new interface driver hub
+[    0.298238] usbcore: registered new device driver usb
+[    0.298407] pps_core: LinuxPPS API ver. 1 registered
+[    0.298434] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.298488] PTP clock support registered
+[    0.299927] PCI: Probing PCI hardware
+[    0.300122] platform xenon-pci: PCI host bridge to bus 0000:01
+[    0.300165] pci_bus 0000:01: root bus resource [mem 0x20080000000-0x200ffffffff] (bus address [0x80000000-0xffffffff])
+[    0.300212] pci_bus 0000:01: root bus resource [mem 0x00000000-0x1fffffff]
+[    0.300248] pci_bus 0000:01: root bus resource [bus 01-0f]
+[    0.300281] pci_bus 0000:01: busn_res: [bus 01-0f] end is updated to ff
+[    0.300317] pci_bus 0000:01: scanning bus
+[    0.300398] pci 0000:01:00.0: [1414:5801] type 00 class 0x000000 conventional PCI endpoint
+[    0.300496] pci 0000:01:00.0: BAR 0 [mem 0x200ea001800-0x200ea001bff]
+[    0.300856] pci 0000:01:01.0: [1414:5802] type 00 class 0x010600 conventional PCI endpoint
+[    0.300952] pci 0000:01:01.0: BAR 0 [mem 0x200ea001200-0x200ea00121f]
+[    0.300989] pci 0000:01:01.0: BAR 1 [mem 0x200ea001220-0x200ea00122f]
+[    0.301087] pci 0000:01:01.0: PME# supported from D3cold
+[    0.301152] pci 0000:01:01.0: PME# disabled
+[    0.301452] pci 0000:01:02.0: [1414:5803] type 00 class 0x010600 conventional PCI endpoint
+[    0.301548] pci 0000:01:02.0: BAR 0 [mem 0x200ea001300-0x200ea00131f]
+[    0.301584] pci 0000:01:02.0: BAR 1 [mem 0x200ea001320-0x200ea00132f]
+[    0.301680] pci 0000:01:02.0: PME# supported from D3cold
+[    0.301714] pci 0000:01:02.0: PME# disabled
+[    0.302039] pci 0000:01:04.0: [1414:5804] type 00 class 0x0c0310 conventional PCI endpoint
+[    0.302135] pci 0000:01:04.0: BAR 0 [mem 0x200ea002000-0x200ea002fff]
+[    0.302452] pci 0000:01:04.1: [1414:5805] type 00 class 0x0c0320 conventional PCI endpoint
+[    0.302549] pci 0000:01:04.1: BAR 0 [mem 0x200ea003000-0x200ea003fff]
+[    0.302648] pci 0000:01:04.1: PME# supported from D0 D3hot D3cold
+[    0.302684] pci 0000:01:04.1: PME# disabled
+[    0.302988] pci 0000:01:05.0: [1414:5806] type 00 class 0x0c0310 conventional PCI endpoint
+[    0.303084] pci 0000:01:05.0: BAR 0 [mem 0x200ea004000-0x200ea004fff]
+[    0.303401] pci 0000:01:05.1: [1414:5807] type 00 class 0x0c0320 conventional PCI endpoint
+[    0.303498] pci 0000:01:05.1: BAR 0 [mem 0x200ea005000-0x200ea005fff]
+[    0.303596] pci 0000:01:05.1: PME# supported from D0 D3hot D3cold
+[    0.303633] pci 0000:01:05.1: PME# disabled
+[    0.303956] pci 0000:01:07.0: [1414:580a] type 00 class 0x020000 conventional PCI endpoint
+[    0.304050] pci 0000:01:07.0: BAR 0 [mem 0x200ea001400-0x200ea00147f]
+[    0.304407] pci 0000:01:08.0: [1414:580b] type 00 class 0x050100 conventional PCI endpoint
+[    0.304518] pci 0000:01:08.0: BAR 0 [mem 0x200ea00c000-0x200ea00c3ff]
+[    0.304556] pci 0000:01:08.0: BAR 1 [mem 0x200c8000000-0x200c8ffffff]
+[    0.304864] pci 0000:01:09.0: [1414:580c] type 00 class 0x040100 conventional PCI endpoint
+[    0.304961] pci 0000:01:09.0: BAR 0 [mem 0x200ea001600-0x200ea00163f]
+[    0.305299] pci 0000:01:0a.0: [1414:580d] type 00 class 0x000000 conventional PCI endpoint
+[    0.305395] pci 0000:01:0a.0: BAR 0 [mem 0x200ea001000-0x200ea0010ff]
+[    0.305747] pci 0000:01:0f.0: [1414:5831] type 00 class 0x038000 conventional PCI endpoint
+[    0.305822] pci 0000:01:0f.0: BAR 0 [mem 0x200ec800000-0x200ec81ffff]
+[    0.305894] pci 0000:01:0f.0: supports D1 D2
+[    0.306293] pci_bus 0000:01: fixups for bus
+[    0.306324] pci_bus 0000:01: bus scan returning with max=01
+[    0.306354] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+[    0.306531] PCI 0000:01 Cannot reserve VGA memory [mem 0x000a0000-0x000bffff]
+[    0.306586] pci_bus 0000:01: resource 4 [mem 0x20080000000-0x200ffffffff]
+[    0.306622] pci_bus 0000:01: resource 5 [mem 0x00000000-0x1fffffff]
+[    0.306777] pci 0000:01:00.0: save config 0x00: 0x58011414
+[    0.306812] pci 0000:01:00.0: save config 0x04: 0x02000002
+[    0.306845] pci 0000:01:00.0: save config 0x08: 0x00000000
+[    0.306877] pci 0000:01:00.0: save config 0x0c: 0x00000000
+[    0.306908] pci 0000:01:00.0: save config 0x10: 0xea001800
+[    0.306941] pci 0000:01:00.0: save config 0x14: 0x00000000
+[    0.306972] pci 0000:01:00.0: save config 0x18: 0x00000000
+[    0.307004] pci 0000:01:00.0: save config 0x1c: 0x00000000
+[    0.307035] pci 0000:01:00.0: save config 0x20: 0x00000000
+[    0.307067] pci 0000:01:00.0: save config 0x24: 0x00000000
+[    0.307098] pci 0000:01:00.0: save config 0x28: 0x00000000
+[    0.307129] pci 0000:01:00.0: save config 0x2c: 0x00000000
+[    0.307161] pci 0000:01:00.0: save config 0x30: 0x00000000
+[    0.307193] pci 0000:01:00.0: save config 0x34: 0x00000000
+[    0.307225] pci 0000:01:00.0: save config 0x38: 0x00000000
+[    0.307256] pci 0000:01:00.0: save config 0x3c: 0x00000100
+[    0.307418] pci 0000:01:01.0: save config 0x00: 0x58021414
+[    0.307453] pci 0000:01:01.0: save config 0x04: 0x02300006
+[    0.307485] pci 0000:01:01.0: save config 0x08: 0x01060000
+[    0.307517] pci 0000:01:01.0: save config 0x0c: 0x00000000
+[    0.307548] pci 0000:01:01.0: save config 0x10: 0xea001200
+[    0.307580] pci 0000:01:01.0: save config 0x14: 0xea001220
+[    0.307611] pci 0000:01:01.0: save config 0x18: 0x00000000
+[    0.307642] pci 0000:01:01.0: save config 0x1c: 0x00000000
+[    0.307674] pci 0000:01:01.0: save config 0x20: 0x00000000
+[    0.307705] pci 0000:01:01.0: save config 0x24: 0x00000000
+[    0.307737] pci 0000:01:01.0: save config 0x28: 0x00000000
+[    0.307768] pci 0000:01:01.0: save config 0x2c: 0x00000000
+[    0.307816] pci 0000:01:01.0: save config 0x30: 0x00000000
+[    0.307850] pci 0000:01:01.0: save config 0x34: 0x00000058
+[    0.307882] pci 0000:01:01.0: save config 0x38: 0x00000000
+[    0.307913] pci 0000:01:01.0: save config 0x3c: 0x00000100
+[    0.308046] pci 0000:01:02.0: save config 0x00: 0x58031414
+[    0.308081] pci 0000:01:02.0: save config 0x04: 0x02380006
+[    0.308114] pci 0000:01:02.0: save config 0x08: 0x01060000
+[    0.308145] pci 0000:01:02.0: save config 0x0c: 0x00000000
+[    0.308177] pci 0000:01:02.0: save config 0x10: 0xea001300
+[    0.308209] pci 0000:01:02.0: save config 0x14: 0xea001320
+[    0.308241] pci 0000:01:02.0: save config 0x18: 0x00000000
+[    0.308273] pci 0000:01:02.0: save config 0x1c: 0x00000000
+[    0.308304] pci 0000:01:02.0: save config 0x20: 0x00000000
+[    0.308336] pci 0000:01:02.0: save config 0x24: 0x00000000
+[    0.308368] pci 0000:01:02.0: save config 0x28: 0x00000000
+[    0.308399] pci 0000:01:02.0: save config 0x2c: 0x00000000
+[    0.308431] pci 0000:01:02.0: save config 0x30: 0x00000000
+[    0.308462] pci 0000:01:02.0: save config 0x34: 0x00000058
+[    0.308495] pci 0000:01:02.0: save config 0x38: 0x00000000
+[    0.308526] pci 0000:01:02.0: save config 0x3c: 0x00000100
+[    0.308656] pci 0000:01:04.0: save config 0x00: 0x58041414
+[    0.308691] pci 0000:01:04.0: save config 0x04: 0x02800156
+[    0.308724] pci 0000:01:04.0: save config 0x08: 0x0c03100f
+[    0.308756] pci 0000:01:04.0: save config 0x0c: 0x00800000
+[    0.308788] pci 0000:01:04.0: save config 0x10: 0xea002000
+[    0.308820] pci 0000:01:04.0: save config 0x14: 0x00000000
+[    0.308852] pci 0000:01:04.0: save config 0x18: 0x00000000
+[    0.308883] pci 0000:01:04.0: save config 0x1c: 0x00000000
+[    0.308915] pci 0000:01:04.0: save config 0x20: 0x00000000
+[    0.308947] pci 0000:01:04.0: save config 0x24: 0x00000000
+[    0.308978] pci 0000:01:04.0: save config 0x28: 0x00000000
+[    0.309010] pci 0000:01:04.0: save config 0x2c: 0x58041414
+[    0.309042] pci 0000:01:04.0: save config 0x30: 0x00000000
+[    0.309074] pci 0000:01:04.0: save config 0x34: 0x00000000
+[    0.309106] pci 0000:01:04.0: save config 0x38: 0x00000000
+[    0.309137] pci 0000:01:04.0: save config 0x3c: 0x50000100
+[    0.309282] pci 0000:01:04.1: save config 0x00: 0x58051414
+[    0.309317] pci 0000:01:04.1: save config 0x04: 0x02900106
+[    0.309350] pci 0000:01:04.1: save config 0x08: 0x0c032001
+[    0.309382] pci 0000:01:04.1: save config 0x0c: 0x00000000
+[    0.309413] pci 0000:01:04.1: save config 0x10: 0xea003000
+[    0.309444] pci 0000:01:04.1: save config 0x14: 0x00000000
+[    0.309475] pci 0000:01:04.1: save config 0x18: 0x00000000
+[    0.309508] pci 0000:01:04.1: save config 0x1c: 0x00000000
+[    0.309539] pci 0000:01:04.1: save config 0x20: 0x00000000
+[    0.309571] pci 0000:01:04.1: save config 0x24: 0x00000000
+[    0.309603] pci 0000:01:04.1: save config 0x28: 0x00000000
+[    0.309635] pci 0000:01:04.1: save config 0x2c: 0x58051414
+[    0.309666] pci 0000:01:04.1: save config 0x30: 0x00000000
+[    0.309698] pci 0000:01:04.1: save config 0x34: 0x00000050
+[    0.309730] pci 0000:01:04.1: save config 0x38: 0x00000000
+[    0.309761] pci 0000:01:04.1: save config 0x3c: 0x50000400
+[    0.309901] pci 0000:01:05.0: save config 0x00: 0x58061414
+[    0.309937] pci 0000:01:05.0: save config 0x04: 0x02800156
+[    0.309969] pci 0000:01:05.0: save config 0x08: 0x0c03100f
+[    0.310001] pci 0000:01:05.0: save config 0x0c: 0x00800000
+[    0.310032] pci 0000:01:05.0: save config 0x10: 0xea004000
+[    0.310065] pci 0000:01:05.0: save config 0x14: 0x00000000
+[    0.310096] pci 0000:01:05.0: save config 0x18: 0x00000000
+[    0.310129] pci 0000:01:05.0: save config 0x1c: 0x00000000
+[    0.310161] pci 0000:01:05.0: save config 0x20: 0x00000000
+[    0.310193] pci 0000:01:05.0: save config 0x24: 0x00000000
+[    0.310225] pci 0000:01:05.0: save config 0x28: 0x00000000
+[    0.310258] pci 0000:01:05.0: save config 0x2c: 0x58061414
+[    0.310290] pci 0000:01:05.0: save config 0x30: 0x00000000
+[    0.310321] pci 0000:01:05.0: save config 0x34: 0x00000000
+[    0.310353] pci 0000:01:05.0: save config 0x38: 0x00000000
+[    0.310385] pci 0000:01:05.0: save config 0x3c: 0x50000100
+[    0.310522] pci 0000:01:05.1: save config 0x00: 0x58071414
+[    0.310557] pci 0000:01:05.1: save config 0x04: 0x02900106
+[    0.310590] pci 0000:01:05.1: save config 0x08: 0x0c032001
+[    0.310623] pci 0000:01:05.1: save config 0x0c: 0x00000000
+[    0.310654] pci 0000:01:05.1: save config 0x10: 0xea005000
+[    0.310686] pci 0000:01:05.1: save config 0x14: 0x00000000
+[    0.310718] pci 0000:01:05.1: save config 0x18: 0x00000000
+[    0.310750] pci 0000:01:05.1: save config 0x1c: 0x00000000
+[    0.310781] pci 0000:01:05.1: save config 0x20: 0x00000000
+[    0.310812] pci 0000:01:05.1: save config 0x24: 0x00000000
+[    0.310843] pci 0000:01:05.1: save config 0x28: 0x00000000
+[    0.310875] pci 0000:01:05.1: save config 0x2c: 0x58071414
+[    0.310907] pci 0000:01:05.1: save config 0x30: 0x00000000
+[    0.310939] pci 0000:01:05.1: save config 0x34: 0x00000050
+[    0.310971] pci 0000:01:05.1: save config 0x38: 0x00000000
+[    0.311002] pci 0000:01:05.1: save config 0x3c: 0x50000400
+[    0.311147] pci 0000:01:07.0: save config 0x00: 0x580a1414
+[    0.311197] pci 0000:01:07.0: save config 0x04: 0x02100006
+[    0.311229] pci 0000:01:07.0: save config 0x08: 0x02000001
+[    0.311261] pci 0000:01:07.0: save config 0x0c: 0x00000000
+[    0.311292] pci 0000:01:07.0: save config 0x10: 0xea001400
+[    0.311324] pci 0000:01:07.0: save config 0x14: 0x00000000
+[    0.311356] pci 0000:01:07.0: save config 0x18: 0x00000000
+[    0.311388] pci 0000:01:07.0: save config 0x1c: 0x00000000
+[    0.311419] pci 0000:01:07.0: save config 0x20: 0x00000000
+[    0.311451] pci 0000:01:07.0: save config 0x24: 0x00000000
+[    0.311483] pci 0000:01:07.0: save config 0x28: 0x00000000
+[    0.311515] pci 0000:01:07.0: save config 0x2c: 0x00000000
+[    0.311546] pci 0000:01:07.0: save config 0x30: 0x00000000
+[    0.311578] pci 0000:01:07.0: save config 0x34: 0x00000040
+[    0.311610] pci 0000:01:07.0: save config 0x38: 0x00000000
+[    0.311642] pci 0000:01:07.0: save config 0x3c: 0x00000100
+[    0.311788] pci 0000:01:08.0: save config 0x00: 0x580b1414
+[    0.311823] pci 0000:01:08.0: save config 0x04: 0x02000006
+[    0.311855] pci 0000:01:08.0: save config 0x08: 0x05010001
+[    0.311887] pci 0000:01:08.0: save config 0x0c: 0x00000000
+[    0.311916] pci 0000:01:08.0: save config 0x10: 0xea00c000
+[    0.311950] pci 0000:01:08.0: save config 0x14: 0xc8000000
+[    0.311981] pci 0000:01:08.0: save config 0x18: 0x00000000
+[    0.312014] pci 0000:01:08.0: save config 0x1c: 0x00000000
+[    0.312045] pci 0000:01:08.0: save config 0x20: 0x00000000
+[    0.312077] pci 0000:01:08.0: save config 0x24: 0x00000000
+[    0.312108] pci 0000:01:08.0: save config 0x28: 0x00000000
+[    0.312140] pci 0000:01:08.0: save config 0x2c: 0x00000000
+[    0.312171] pci 0000:01:08.0: save config 0x30: 0x00000000
+[    0.312202] pci 0000:01:08.0: save config 0x34: 0x00000000
+[    0.312234] pci 0000:01:08.0: save config 0x38: 0x00000000
+[    0.312265] pci 0000:01:08.0: save config 0x3c: 0x00000100
+[    0.312432] pci 0000:01:09.0: save config 0x00: 0x580c1414
+[    0.312467] pci 0000:01:09.0: save config 0x04: 0x02880006
+[    0.312500] pci 0000:01:09.0: save config 0x08: 0x04010001
+[    0.312531] pci 0000:01:09.0: save config 0x0c: 0x00000000
+[    0.312562] pci 0000:01:09.0: save config 0x10: 0xea001600
+[    0.312594] pci 0000:01:09.0: save config 0x14: 0x00000000
+[    0.312627] pci 0000:01:09.0: save config 0x18: 0x00000000
+[    0.312658] pci 0000:01:09.0: save config 0x1c: 0x00000000
+[    0.312690] pci 0000:01:09.0: save config 0x20: 0x00000000
+[    0.312721] pci 0000:01:09.0: save config 0x24: 0x00000000
+[    0.312752] pci 0000:01:09.0: save config 0x28: 0x00000000
+[    0.312784] pci 0000:01:09.0: save config 0x2c: 0x75011039
+[    0.312816] pci 0000:01:09.0: save config 0x30: 0x00000000
+[    0.312847] pci 0000:01:09.0: save config 0x34: 0x00000000
+[    0.312878] pci 0000:01:09.0: save config 0x38: 0x00000000
+[    0.312909] pci 0000:01:09.0: save config 0x3c: 0x0b340100
+[    0.313070] pci 0000:01:0a.0: save config 0x00: 0x580d1414
+[    0.313105] pci 0000:01:0a.0: save config 0x04: 0x02000002
+[    0.313138] pci 0000:01:0a.0: save config 0x08: 0x00000000
+[    0.313169] pci 0000:01:0a.0: save config 0x0c: 0x00000000
+[    0.313200] pci 0000:01:0a.0: save config 0x10: 0xea001000
+[    0.313232] pci 0000:01:0a.0: save config 0x14: 0x00000000
+[    0.313264] pci 0000:01:0a.0: save config 0x18: 0x00000000
+[    0.313295] pci 0000:01:0a.0: save config 0x1c: 0x00000000
+[    0.313326] pci 0000:01:0a.0: save config 0x20: 0x00000000
+[    0.313358] pci 0000:01:0a.0: save config 0x24: 0x00000000
+[    0.313389] pci 0000:01:0a.0: save config 0x28: 0x00000000
+[    0.313421] pci 0000:01:0a.0: save config 0x2c: 0x00000000
+[    0.313452] pci 0000:01:0a.0: save config 0x30: 0x00000000
+[    0.313484] pci 0000:01:0a.0: save config 0x34: 0x00000000
+[    0.313516] pci 0000:01:0a.0: save config 0x38: 0x00000000
+[    0.313548] pci 0000:01:0a.0: save config 0x3c: 0x00000100
+[    0.313712] pci 0000:01:0f.0: save config 0x00: 0x58311414
+[    0.313746] pci 0000:01:0f.0: save config 0x04: 0x00100002
+[    0.313778] pci 0000:01:0f.0: save config 0x08: 0x03800011
+[    0.313809] pci 0000:01:0f.0: save config 0x0c: 0x00000000
+[    0.313840] pci 0000:01:0f.0: save config 0x10: 0xec800000
+[    0.313871] pci 0000:01:0f.0: save config 0x14: 0xffffffff
+[    0.313902] pci 0000:01:0f.0: save config 0x18: 0xffffffff
+[    0.313934] pci 0000:01:0f.0: save config 0x1c: 0xffffffff
+[    0.313965] pci 0000:01:0f.0: save config 0x20: 0xffffffff
+[    0.313997] pci 0000:01:0f.0: save config 0x24: 0xffffffff
+[    0.314029] pci 0000:01:0f.0: save config 0x28: 0xffffffff
+[    0.314060] pci 0000:01:0f.0: save config 0x2c: 0x00000000
+[    0.314091] pci 0000:01:0f.0: save config 0x30: 0xffffffff
+[    0.314122] pci 0000:01:0f.0: save config 0x34: 0x00000050
+[    0.314153] pci 0000:01:0f.0: save config 0x38: 0xffffffff
+[    0.314185] pci 0000:01:0f.0: save config 0x3c: 0xffffffff
+[    0.314224] PCI: Probing PCI hardware done
+[    0.314702] vgaarb: loaded
+[    0.315127] clocksource: Switched to clocksource timebase
+[    0.316160] VFS: Disk quotas dquot_6.6.0
+[    0.316321] VFS: Dquot-cache hash table entries: 8192 (order 0, 65536 bytes)
+[    0.329633] NET: Registered PF_INET protocol family
+[    0.329906] IP idents hash table entries: 8192 (order: 0, 65536 bytes, linear)
+[    0.331237] tcp_listen_portaddr_hash hash table entries: 2048 (order: 0, 65536 bytes, linear)
+[    0.331419] Table-perturb hash table entries: 65536 (order: 2, 262144 bytes, linear)
+[    0.331462] TCP established hash table entries: 8192 (order: 0, 65536 bytes, linear)
+[    0.331895] TCP bind hash table entries: 8192 (order: 3, 524288 bytes, linear)
+[    0.333010] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.333297] UDP hash table entries: 512 (order: 1, 81920 bytes, linear)
+[    0.333630] UDP-Lite hash table entries: 512 (order: 1, 81920 bytes, linear)
+[    0.334113] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.334890] RPC: Registered named UNIX socket transport module.
+[    0.334924] RPC: Registered udp transport module.
+[    0.334949] RPC: Registered tcp transport module.
+[    0.334973] RPC: Registered tcp-with-tls transport module.
+[    0.334998] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.335430] PCI: CLS 0 bytes, default 128
+[    0.335903] Unpacking initramfs...
+[    0.337244] workingset: timestamp_bits=46 max_order=13 bucket_order=0
+[    0.338008] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.338569] NFS: Registering the id_resolver key type
+[    0.338659] Key type id_resolver registered
+[    0.338681] Key type id_legacy registered
+[    0.338733] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.338758] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    0.339207] io scheduler mq-deadline registered
+[    0.339235] io scheduler kyber registered
+[    0.342597] Xenon Ring of Light LED driver loaded
+[    0.343085] ledtrig-cpu: registered to indicate activity on CPUs
+[    0.428998] Xenon XBOX 360 serial driver
+[    0.429335] Xenon UART: ttyS0 at MMIO 0x200ea001010 (irq = 0, base_baud = 115200) is a Xenon SMC
+[    0.429892] Xenon SMC char driver version 0.2
+[    0.430093] Xenon (H)ana char driver version 0.2
+[    0.430466] xenos 0000:01:0f.0: vgaarb: pci_notify
+[    0.430520] xenos 0000:01:0f.0: runtime IRQ mapping not provided by arch
+[    0.431587] [drm] Initialized xenos 1.0.0 for 0000:01:0f.0 on minor 0
+[    0.451002] xenos 0000:01:0f.0: [drm] Using 1280x720 (384000) fb
+[    0.494762] Console: switching to colour frame buffer device 160x45
+[    0.551185] xenos 0000:01:0f.0: [drm] fb0: xenosdrmfb frame buffer device
+[    0.553328] xenos 0000:01:0f.0: vgaarb: pci_notify
+[    0.555864] loop: module loaded
+[    0.556907] sata_xenon 0000:01:01.0: vgaarb: pci_notify
+[    0.557208] sata_xenon 0000:01:01.0: runtime IRQ mapping not provided by arch
+[    0.557475] sata_xenon 0000:01:01.0: version 0.1.1
+[    0.558304] xenon IIC: connect irq 0x24
+[    0.560886] scsi host0: sata_xenon
+[    0.562131] ata1: SATA max UDMA/133 irq 36 lpm-pol 0
+[    0.562442] sata_xenon 0000:01:01.0: vgaarb: pci_notify
+[    0.562825] sata_xenon 0000:01:02.0: vgaarb: pci_notify
+[    0.563141] sata_xenon 0000:01:02.0: runtime IRQ mapping not provided by arch
+[    0.564051] xenon IIC: connect irq 0x20
+[    0.566808] scsi host1: sata_xenon
+[    0.567928] ata2: SATA max UDMA/133 irq 32 lpm-pol 0
+[    0.568253] sata_xenon 0000:01:02.0: vgaarb: pci_notify
+[    0.572064] sis190 0000:01:07.0: vgaarb: pci_notify
+[    0.572406] sis190 0000:01:07.0: runtime IRQ mapping not provided by arch
+[    0.572610] sis190: sis190 Gigabit Ethernet driver 1.4 loaded
+[    0.579134] sis190: 0000:01:07.0: Read MAC address from EEPROM
+[    0.585463] sis190: 0000:01:07.0: Error EEPROM read 0
+[    0.591435] sis190: 0000:01:07.0: HACK: hardcoding MAC address
+[    0.635204] sis190: 0000:01:07.0: unknown PHY 0x15:0xf440 transceiver at address 1
+[    0.722348] ata1.00: ATAPI: PLDS    DG-16D2S, 02510C, max UDMA/100
+[    0.725624] ata1.00: Features: HIPM DIPM
+[    0.729057] ata1.00: applying bridge limits
+[    0.729259] ata2.00: ATA-8: Hitachi HTS542512K9SA00, BB2OC3JP, max UDMA/133
+[    0.736824] ata2.00: 234441648 sectors, multi 0: LBA48 
+[    0.743657] ata2.00: Features: HIPM DIPM
+[    0.842467] scsi 0:0:0:0: CD-ROM            PLDS     DG-16D2S         0251 PQ: 0 ANSI: 5
+[    1.068502] sis190: 0000:01:07.0: Using transceiver at address 1 as default
+[    1.075992] sr 0:0:0:0: [sr0] scsi-1 drive
+[    1.079680] cdrom: Uniform CD-ROM driver Revision: 3.20
+[    1.099510] sis190 0000:01:07.0 eth0: 0000:01:07.0: Xenon PCI Fast Ethernet adapter at (____ptrval____) (IRQ: 76), REDACTED_MAC_ADDRESS
+[    1.102261] sis190 0000:01:07.0 eth0: GMII mode.
+[    1.106006] sis190 0000:01:07.0 eth0: Enabling Auto-negotiation
+[    1.135213] sis190 0000:01:07.0: vgaarb: pci_notify
+[    1.139262] usbcore: registered new interface driver ax88179_178a
+[    1.143112] usbcore: registered new interface driver cdc_ether
+[    1.146977] usbcore: registered new interface driver plusb
+[    1.150752] usbcore: registered new interface driver cdc_ncm
+[    1.154533] usbcore: registered new interface driver r8153_ecm
+[    1.159002] ehci-pci 0000:01:04.1: vgaarb: pci_notify
+[    1.159092] ohci-pci 0000:01:04.0: vgaarb: pci_notify
+[    1.160722] ehci-pci 0000:01:04.1: runtime IRQ mapping not provided by arch
+[    1.162375] ohci-pci 0000:01:04.0: runtime IRQ mapping not provided by arch
+[    1.162397] ehci-pci 0000:01:05.1: vgaarb: pci_notify
+[    1.162467] ehci-pci 0000:01:05.1: runtime IRQ mapping not provided by arch
+[    1.162582] ehci-pci 0000:01:05.1: enabling bus mastering
+[    1.162674] ehci-pci 0000:01:05.1: EHCI Host Controller
+[    1.163294] ehci-pci 0000:01:05.1: new USB bus registered, assigned bus number 1
+[    1.164273] ehci-pci 0000:01:04.1: enabling bus mastering
+[    1.164684] xenon IIC: connect irq 0x38
+[    1.164793] ehci-pci 0000:01:05.1: irq 56, io mem 0x200ea005000
+[    1.165993] ohci-pci 0000:01:04.0: enabling bus mastering
+[    1.171880] ehci-pci 0000:01:05.1: USB 2.0 started, EHCI 1.00
+[    1.191338] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.18
+[    1.193810] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.196332] usb usb1: Product: EHCI Host Controller
+[    1.199070] usb usb1: Manufacturer: Linux 6.18.11-xenon ehci_hcd
+[    1.201554] usb usb1: SerialNumber: 0000:01:05.1
+[    1.205307] hub 1-0:1.0: USB hub found
+[    1.207983] hub 1-0:1.0: 5 ports detected
+[    1.211631] ehci-pci 0000:01:05.1: vgaarb: pci_notify
+[    1.211714] ehci-pci 0000:01:04.1: EHCI Host Controller
+[    1.218210] ehci-pci 0000:01:04.1: new USB bus registered, assigned bus number 2
+[    1.223122] xenon IIC: connect irq 0x30
+[    1.226673] ehci-pci 0000:01:04.1: irq 48, io mem 0x200ea003000
+[    1.238529] ehci-pci 0000:01:04.1: USB 2.0 started, EHCI 1.00
+[    1.242317] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.18
+[    1.245804] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.249302] usb usb2: Product: EHCI Host Controller
+[    1.252752] usb usb2: Manufacturer: Linux 6.18.11-xenon ehci_hcd
+[    1.256238] usb usb2: SerialNumber: 0000:01:04.1
+[    1.260610] hub 2-0:1.0: USB hub found
+[    1.264108] hub 2-0:1.0: 4 ports detected
+[    1.268394] ehci-pci 0000:01:04.1: vgaarb: pci_notify
+[    1.268418] ohci-pci 0000:01:04.0: OHCI PCI host controller
+[    1.273504] ohci-pci 0000:01:04.0: new USB bus registered, assigned bus number 3
+[    1.277164] xenon IIC: connect irq 0x2C
+[    1.280758] ohci-pci 0000:01:04.0: irq 44, io mem 0x200ea002000
+[    1.327337] sr 0:0:0:0: Attached scsi CD-ROM sr0
+[    1.332447] sr 0:0:0:0: Attached scsi generic sg0 type 5
+[    1.336546] usb usb3: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 6.18
+[    1.339391] scsi 1:0:0:0: Direct-Access     ATA      Hitachi HTS54251 C3JP PQ: 0 ANSI: 5
+[    1.339389] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.345248] usb usb3: Product: OHCI PCI host controller
+[    1.345989] sd 1:0:0:0: [sda] 234441648 512-byte logical blocks: (120 GB/112 GiB)
+[    1.347062] usb usb3: Manufacturer: Linux 6.18.11-xenon ohci_hcd
+[    1.348993] sd 1:0:0:0: Attached scsi generic sg1 type 0
+[    1.350488] usb usb3: SerialNumber: 0000:01:04.0
+[    1.352297] sd 1:0:0:0: [sda] Write Protect is off
+[    1.355104] hub 3-0:1.0: USB hub found
+[    1.355954] sd 1:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[    1.357736] hub 3-0:1.0: 4 ports detected
+[    1.359653] sd 1:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    1.362412] ohci-pci 0000:01:04.0: vgaarb: pci_notify
+[    1.363608] sd 1:0:0:0: [sda] Preferred minimum I/O size 512 bytes
+[    1.365585] ohci-pci 0000:01:05.0: vgaarb: pci_notify
+[    1.369785] ohci-pci 0000:01:05.0: runtime IRQ mapping not provided by arch
+[    1.373761] ohci-pci 0000:01:05.0: enabling bus mastering
+[    1.377704] ohci-pci 0000:01:05.0: OHCI PCI host controller
+[    1.382029] ohci-pci 0000:01:05.0: new USB bus registered, assigned bus number 4
+[    1.386299] xenon IIC: connect irq 0x34
+[    1.390144] ohci-pci 0000:01:05.0: irq 52, io mem 0x200ea004000
+[    1.445517] usb usb4: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 6.18
+[    1.449836] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.454081] usb usb4: Product: OHCI PCI host controller
+[    1.458346] usb usb4: Manufacturer: Linux 6.18.11-xenon ohci_hcd
+[    1.462535] usb usb4: SerialNumber: 0000:01:05.0
+[    1.468839] hub 4-0:1.0: USB hub found
+[    1.476483] hub 4-0:1.0: 5 ports detected
+[    1.486818] ohci-pci 0000:01:05.0: vgaarb: pci_notify
+[    1.551853] usb 2-1: new high-speed USB device number 2 using ehci-pci
+[    1.668124] Freeing initrd memory: 15040K
+[    1.727198] usb 2-1: New USB device found, idVendor=0781, idProduct=5581, bcdDevice= 1.00
+[    1.731007] usb 2-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    1.734768] usb 2-1: Product:  SanDisk 3.2Gen1
+[    1.738486] usb 2-1: Manufacturer:  USB
+[    1.742169] usb 2-1: SerialNumber: 09019b5610900de8ac94f07a5d18d43b21aeb92dd770715d268738a5cef614316412000000000000000000002155ad6e00125520815581079caa0383
+[    1.785159] usb 4-5: new full-speed USB device number 2 using ohci-pci
+[    1.827207]  sda: sda1 sda2
+[    1.833579] sd 1:0:0:0: [sda] Attached SCSI disk
+[    2.033790] usb 4-5: New USB device found, idVendor=045e, idProduct=0291, bcdDevice= 2.07
+[    2.037983] usb 4-5: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.135151] usb 3-2: new full-speed USB device number 2 using ohci-pci
+[    2.381641] usb 3-2: New USB device found, idVendor=045e, idProduct=028f, bcdDevice= 2.04
+[    2.385912] usb 3-2: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.785405] usbcore: registered new interface driver uas
+[    2.795545] usb-storage 2-1:1.0: USB Mass Storage device detected
+[    2.805671] scsi host2: usb-storage 2-1:1.0
+[    2.815264] usbcore: registered new interface driver usb-storage
+[    2.823085] mousedev: PS/2 mouse device common for all mice
+[    2.831540] rtc-xenon rtc-xenon: registered as rtc0
+[    2.839096] rtc-xenon rtc-xenon: setting system clock to 2001-11-15T00:00:00 UTC (1005782400)
+[    2.846759] xenon_rtc_probe((____ptrval____)) = (____ptrval____)
+[    2.854539] xenon_rtc_init() = 0
+[    2.862439] xenon_hwmon_init() = 0
+[    2.870441] hid: raw HID events driver (C) Jiri Kosina
+[    2.879819] usbcore: registered new interface driver usbhid
+[    2.887152] usbhid: USB HID core driver
+[    2.894263] xenon_smc_core 0000:01:0a.0: vgaarb: pci_notify
+[    2.901751] xenon_smc_core 0000:01:0a.0: runtime IRQ mapping not provided by arch
+[    2.909229] xenon_smc_core 0000:01:0a.0: version 0.1
+[    2.916542] attached to xenon SMC
+[    2.923532] xenon IIC: connect irq 0x14
+[    2.931138] xenon_smc_core 0000:01:0a.0: vgaarb: pci_notify
+[    2.939283] xenon_nand 0000:01:08.0: vgaarb: pci_notify
+[    2.946508] xenon_nand 0000:01:08.0: runtime IRQ mapping not provided by arch
+[    2.953308] Xenon Nand PCI Probe
+[    2.960686] xenon_nand 0000:01:08.0: vgaarb: pci_notify
+[    2.969426] NET: Registered PF_INET6 protocol family
+[    2.980294] Segment Routing with IPv6
+[    2.984403] In-situ OAM (IOAM) with IPv6
+[    2.988494] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    2.993511] NET: Registered PF_PACKET protocol family
+[    2.997588] Key type dns_resolver registered
+[    3.019282] registered taskstats version 1
+[    3.038854] zswap: loaded using pool lzo
+[    3.045230] netconsole: network logging started
+[    3.050201] Freeing unused kernel image (initmem) memory: 576K
+[    3.054292] Warning: Unable to mark rodata read only on this CPU.
+[    3.058136] Run /init as init process
+[    3.061855]   with arguments:
+[    3.065516]     /init
+[    3.069057]   with environment:
+[    3.072543]     HOME=/
+[    3.075984]     TERM=linux
+[    3.840056] scsi 2:0:0:0: Direct-Access      USB      SanDisk 3.2Gen1 1.00 PQ: 0 ANSI: 6
+[    3.876571] sd 2:0:0:0: Attached scsi generic sg2 type 0
+[    3.878798] sd 2:0:0:0: [sdb] 240353280 512-byte logical blocks: (123 GB/115 GiB)
+[    3.912640] sd 2:0:0:0: [sdb] Write Protect is off
+[    3.916114] sd 2:0:0:0: [sdb] Mode Sense: 43 00 00 00
+[    3.920740] sd 2:0:0:0: [sdb] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    4.041053]  sdb: sdb1
+[    4.046623] sd 2:0:0:0: [sdb] Attached SCSI removable disk
+[    8.930682] random: crng init done
+[   11.953275] EXT4-fs (sda1): mounted filesystem e9584d6f-d7ed-40ba-80a2-6834f8d91f31 r/w with ordered data mode. Quota mode: none.
+[   14.133690] systemd[1]: System time advanced to timestamp on /usr/lib/clock-epoch: Tue 2026-06-02 11:05:25 CEST
+[   14.397467] systemd[1]: Inserted module 'autofs4'
+[   14.578651] systemd[1]: systemd 259-2-arch running in system mode (+PAM +AUDIT -SELINUX +APPARMOR -IMA +IPE +SMACK -SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK -BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE)
+[   14.590645] systemd[1]: Detected architecture ppc64.
+[   14.666961] systemd[1]: Hostname set to <xbox-linux>.
+[   15.478314] systemd[1]: bpf-restrict-fs: BPF LSM hook not enabled in the kernel, BPF LSM not supported.
+[   17.639782] systemd[1]: Queued start job for default target Graphical Interface.
+[   20.248021] systemd[1]: Created slice Slice /system/dirmngr.
+[   20.281729] systemd[1]: Created slice Slice /system/getty.
+[   20.311958] systemd[1]: Created slice Slice /system/gpg-agent.
+[   20.342023] systemd[1]: Created slice Slice /system/gpg-agent-browser.
+[   20.372508] systemd[1]: Created slice Slice /system/gpg-agent-extra.
+[   20.402529] systemd[1]: Created slice Slice /system/gpg-agent-ssh.
+[   20.433164] systemd[1]: Created slice Slice /system/keyboxd.
+[   20.464306] systemd[1]: Created slice Slice /system/modprobe.
+[   20.493566] systemd[1]: Created slice User and Session Slice.
+[   20.505052] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[   20.516763] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[   20.528345] systemd[1]: Arbitrary Executable File Formats File System Automount Point was skipped because of an unmet condition check (ConditionPathExists=/proc/sys/fs/binfmt_misc).
+[   20.538996] systemd[1]: Expecting device /dev/disk/by-uuid/59f3e035-07cf-404f-8f89-48012d60ee21...
+[   20.550957] systemd[1]: Expecting device /sys/subsystem/net/devices/enp1s7...
+[   20.562805] systemd[1]: Reached target Local Encrypted Volumes.
+[   20.575020] systemd[1]: Reached target Image Downloads.
+[   20.586829] systemd[1]: Reached target Local Integrity Protected Volumes.
+[   20.598608] systemd[1]: Reached target Path Units.
+[   20.609617] systemd[1]: Reached target Remote File Systems.
+[   20.620261] systemd[1]: Reached target Slice Units.
+[   20.631281] systemd[1]: Reached target Local Verity Protected Volumes.
+[   20.643016] systemd[1]: Listening on Device-mapper event daemon FIFOs.
+[   20.655014] systemd[1]: Listening on LVM2 poll daemon socket.
+[   20.687439] systemd[1]: Listening on Query the User Interactively for a Password.
+[   20.714707] systemd[1]: Listening on Process Core Dump Socket.
+[   20.739917] systemd[1]: Listening on Credential Encryption/Decryption.
+[   20.773408] systemd[1]: Listening on Factory Reset Management.
+[   20.785595] systemd[1]: Listening on Journal Socket (/dev/log).
+[   20.797552] systemd[1]: Listening on Journal Sockets.
+[   20.854698] systemd[1]: Listening on Console Output Muting Service Socket.
+[   20.867646] systemd[1]: Listening on Network Management Resolve Hook Socket.
+[   20.880467] systemd[1]: Listening on Network Management Varlink Socket.
+[   20.893103] systemd[1]: Listening on Network Management Netlink Socket.
+[   20.919208] systemd[1]: Listening on Disk Repartitioning Service Socket.
+[   20.930617] systemd[1]: Listening on Resolve Monitor Varlink Socket.
+[   20.941666] systemd[1]: Listening on Resolve Service Varlink Socket.
+[   20.952839] systemd[1]: Listening on udev Control Socket.
+[   20.963639] systemd[1]: Listening on udev Kernel Socket.
+[   20.974797] systemd[1]: Listening on udev Varlink Socket.
+[   20.985655] systemd[1]: Listening on User Database Manager Socket.
+[   21.062349] systemd[1]: Mounting Huge Pages File System...
+[   21.113147] systemd[1]: Mounting POSIX Message Queue File System...
+[   21.156577] systemd[1]: Mounting Kernel Debug File System...
+[   21.164578] systemd[1]: Kernel Trace File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/tracing).
+[   21.192715] systemd[1]: Starting Create List of Static Device Nodes...
+[   21.226003] systemd[1]: Starting Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling...
+[   21.238838] systemd[1]: Load Kernel Module configfs was skipped because of an unmet condition check (ConditionKernelModuleLoaded=!configfs).
+[   21.267428] systemd[1]: Mounting Kernel Configuration File System...
+[   21.275258] systemd[1]: Load Kernel Module drm was skipped because of an unmet condition check (ConditionKernelModuleLoaded=!drm).
+[   21.318222] systemd[1]: Starting Load Kernel Module fuse...
+[   21.326048] systemd[1]: File System Check on Root Device was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/).
+[   21.329711] systemd[1]: Clear Stale Hibernate Storage Info was skipped because of an unmet condition check (ConditionPathExists=/sys/firmware/efi/efivars/HibernateLocation-8cf2644b-4b0b-428f-9387-6d876050dc67).
+[   21.364719] systemd[1]: Starting Journal Service...
+[   21.585658] systemd[1]: Starting Load Kernel Modules...
+[   21.643349] systemd[1]: Starting Remount Root and Kernel File Systems...
+[   21.666139] fuse: init (API version 7.45)
+[   21.705832] systemd[1]: Starting Load udev Rules from Credentials...
+[   21.762801] systemd[1]: Starting Coldplug All udev Devices...
+[   21.846292] systemd-journald[424]: Collecting audit messages is disabled.
+[   21.889062] EXT4-fs (sda1): re-mounted e9584d6f-d7ed-40ba-80a2-6834f8d91f31.
+[   22.346241] systemd[1]: Mounted Huge Pages File System.
+[   22.359763] systemd[1]: Mounted POSIX Message Queue File System.
+[   22.372844] systemd[1]: Mounted Kernel Debug File System.
+[   22.403695] systemd[1]: Finished Create List of Static Device Nodes.
+[   22.477533] systemd[1]: Finished Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling.
+[   22.501177] systemd[1]: Mounted Kernel Configuration File System.
+[   22.527923] systemd[1]: modprobe@fuse.service: Deactivated successfully.
+[   22.557073] systemd[1]: Finished Load Kernel Module fuse.
+[   22.625826] systemd[1]: Finished Load Kernel Modules.
+[   22.665635] systemd[1]: Finished Remount Root and Kernel File Systems.
+[   22.736392] systemd[1]: Finished Load udev Rules from Credentials.
+[   22.812310] systemd[1]: Mounting FUSE Control File System...
+[   22.846130] systemd[1]: Rebuild Hardware Database was skipped because no trigger condition checks were met.
+[   22.870433] systemd[1]: Starting Load/Save OS Random Seed...
+[   22.901215] systemd[1]: Starting Apply Kernel Variables...
+[   22.935590] systemd[1]: Starting Create Static Device Nodes in /dev gracefully...
+[   22.958224] systemd[1]: Started Journal Service.
+[   23.230309] systemd-journald[424]: Received client request to flush runtime journal.
+[   26.786376] sis190 0000:01:07.0 enp1s7: renamed from eth0
+[   28.173762] usbcore: registered new interface driver xpad
+[   28.187704] input: Xbox 360 Wireless Receiver (XBOX) as /devices/platform/xenon-pci/pci0000:01/0000:01:05.0/usb4/4-5/4-5:1.0/input/input0
+[   28.299952] xenon IIC: connect irq 0x4C
+[   28.328498] sis190 0000:01:07.0 enp1s7: auto-negotiating...
+[   31.869328] Adding 2097088k swap on /dev/sda2.  Priority:-2 extents:1 across:2097088k 
+[  118.805123] sis190 0000:01:07.0 enp1s7: mii ext = 0000
+[  118.825124] sis190 0000:01:07.0 enp1s7: mii lpa=c1e1 adv=01e1 exp=000f
+[  118.825282] sis190 0000:01:07.0 enp1s7: link on 100 Mbps Full Duplex mode
+[ 1191.314372] systemd[1]: systemd 260.2-2.2-arch running in system mode (+PAM +AUDIT -SELINUX +APPARMOR -IMA +IPE +SMACK -SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK -BTF +XKBCOMMON +UTMP +LIBARCHIVE)
+[ 1191.319446] systemd[1]: Detected architecture ppc64.
+[ 1192.265013] systemd[1]: bpf-restrict-fs: BPF LSM hook not enabled in the kernel, BPF LSM not supported.
+[ 1339.770990] systemd-journald[424]: Received SIGTERM from PID 1 (systemd).
+[ 1339.773864] systemd[1]: Stopping Journal Service...
+[ 1339.777255] systemd[1]: Stopping Network Name Resolution...
+[ 1339.811094] systemd[1]: Stopping Network Time Synchronization...
+[ 1339.815422] systemd[1]: Stopping Rule-based Manager for Device Events and Files...
+[ 1339.822663] systemd[1]: Stopping User Database Manager...
+[ 1339.860669] systemd[1]: systemd-journald.service: Deactivated successfully.
+[ 1339.863933] systemd[1]: Stopped Journal Service.
+[ 1340.087749] systemd[1]: systemd-journald.service: Consumed 1.766s CPU time over 21min 58.497s wall clock time, 27.8M memory peak, 3.7M memory swap peak.
+[ 1340.103601] systemd[1]: systemd-userdbd.service: Deactivated successfully.
+[ 1340.107143] systemd[1]: Stopped User Database Manager.
+[ 1340.108477] systemd[1]: systemd-userdbd.service: Consumed 1.764s CPU time over 21min 56.756s wall clock time, 33M memory peak, 2M memory swap peak.
+[ 1340.115213] systemd[1]: systemd-timesyncd.service: Deactivated successfully.
+[ 1340.153194] systemd[1]: Stopped Network Time Synchronization.
+[ 1340.244692] systemd[1]: Starting Journal Service...
+[ 1340.263499] systemd[1]: Starting Network Time Synchronization...
+[ 1340.282790] systemd[1]: Starting User Database Manager...
+[ 1340.294518] systemd[1]: systemd-resolved.service: Deactivated successfully.
+[ 1340.297982] systemd[1]: Stopped Network Name Resolution.
+[ 1340.298689] systemd[1]: systemd-resolved.service: Consumed 12.322s CPU time over 21min 55.993s wall clock time, 31.6M memory peak, 1M memory swap peak.
+[ 1340.315333] systemd[1]: systemd-udevd.service: Deactivated successfully.
+[ 1340.319528] systemd[1]: Stopped Rule-based Manager for Device Events and Files.
+[ 1340.321079] systemd[1]: systemd-udevd.service: Consumed 11.136s CPU time over 21min 55.460s wall clock time, 112.6M memory peak, 40.5M memory swap peak.
+[ 1340.359442] systemd[1]: Starting Network Name Resolution...
+[ 1340.375136] systemd[1]: Starting Rule-based Manager for Device Events and Files...
+[ 1340.618904] systemd-journald[6818]: Collecting audit messages is disabled.
+[ 1340.645281] systemd[1]: Started Journal Service.
+[ 2023.451405] usb 1-3: new high-speed USB device number 3 using ehci-pci
+[ 2023.589030] usb 1-3: New USB device found, idVendor=41e4, idProduct=211a, bcdDevice= 1.16
+[ 2023.589227] usb 1-3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[ 2023.589373] usb 1-3: Product: Jet75-II
+[ 2023.594498] usb 1-3: Manufacturer: MCHOSE
+[ 2023.597400] usb 1-3: SerialNumber: 2024-04-25
+[ 2023.642377] input: MCHOSE Jet75-II as /devices/platform/xenon-pci/pci0000:01/0000:01:05.1/usb1/1-3/1-3:1.0/0003:41E4:211A.0001/input/input1
+[ 2023.788695] hid-generic 0003:41E4:211A.0001: input,hidraw0: USB HID v1.11 Keyboard [MCHOSE Jet75-II] on usb-0000:01:05.1-3/input0
+[ 2023.832581] input: MCHOSE Jet75-II as /devices/platform/xenon-pci/pci0000:01/0000:01:05.1/usb1/1-3/1-3:1.1/0003:41E4:211A.0002/input/input2
+[ 2023.873181] hid-generic 0003:41E4:211A.0002: input,hidraw1: USB HID v1.10 Device [MCHOSE Jet75-II] on usb-0000:01:05.1-3/input1
+[ 2023.915492] input: MCHOSE Jet75-II Keyboard as /devices/platform/xenon-pci/pci0000:01/0000:01:05.1/usb1/1-3/1-3:1.2/0003:41E4:211A.0003/input/input3
+[ 2023.971998] input: MCHOSE Jet75-II Mouse as /devices/platform/xenon-pci/pci0000:01/0000:01:05.1/usb1/1-3/1-3:1.2/0003:41E4:211A.0003/input/input4
+[ 2024.012776] input: MCHOSE Jet75-II Wireless Radio Control as /devices/platform/xenon-pci/pci0000:01/0000:01:05.1/usb1/1-3/1-3:1.2/0003:41E4:211A.0003/input/input5
+[ 2024.057910] hid-generic 0003:41E4:211A.0003: input,hidraw2: USB HID v1.10 Keyboard [MCHOSE Jet75-II] on usb-0000:01:05.1-3/input2
+[ 2226.804191] usb 3-2: USB disconnect, device number 2
+[ 2228.358720] usb 1-3: USB disconnect, device number 3
+[ 2240.398044] usb 2-2: new high-speed USB device number 4 using ehci-pci
+[ 2240.575724] usb 2-2: New USB device found, idVendor=41e4, idProduct=211a, bcdDevice= 1.16
+[ 2240.581158] usb 2-2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[ 2240.586565] usb 2-2: Product: Jet75-II
+[ 2240.592053] usb 2-2: Manufacturer: MCHOSE
+[ 2240.597465] usb 2-2: SerialNumber: 2024-04-25
+[ 2240.641675] input: MCHOSE Jet75-II as /devices/platform/xenon-pci/pci0000:01/0000:01:04.1/usb2/2-2/2-2:1.0/0003:41E4:211A.0004/input/input6
+[ 2240.785198] hid-generic 0003:41E4:211A.0004: input,hidraw0: USB HID v1.11 Keyboard [MCHOSE Jet75-II] on usb-0000:01:04.1-2/input0
+[ 2240.825845] input: MCHOSE Jet75-II as /devices/platform/xenon-pci/pci0000:01/0000:01:04.1/usb2/2-2/2-2:1.1/0003:41E4:211A.0005/input/input7
+[ 2240.865835] hid-generic 0003:41E4:211A.0005: input,hidraw1: USB HID v1.10 Device [MCHOSE Jet75-II] on usb-0000:01:04.1-2/input1
+[ 2240.908601] input: MCHOSE Jet75-II Keyboard as /devices/platform/xenon-pci/pci0000:01/0000:01:04.1/usb2/2-2/2-2:1.2/0003:41E4:211A.0006/input/input8
+[ 2240.965264] input: MCHOSE Jet75-II Mouse as /devices/platform/xenon-pci/pci0000:01/0000:01:04.1/usb2/2-2/2-2:1.2/0003:41E4:211A.0006/input/input9
+[ 2241.005364] input: MCHOSE Jet75-II Wireless Radio Control as /devices/platform/xenon-pci/pci0000:01/0000:01:04.1/usb2/2-2/2-2:1.2/0003:41E4:211A.0006/input/input10
+[ 2241.049592] hid-generic 0003:41E4:211A.0006: input,hidraw2: USB HID v1.10 Keyboard [MCHOSE Jet75-II] on usb-0000:01:04.1-2/input2

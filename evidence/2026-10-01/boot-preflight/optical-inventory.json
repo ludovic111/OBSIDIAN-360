@@ -1,0 +1,29 @@
+{
+  "observed_utc": "2026-10-01T21:29:44.277125+00:00",
+  "scope": "Existing sysfs/proc/journal only; no eject, reset, write or disc-read command",
+  "device": {
+    "vendor": "PLDS",
+    "model": "DG-16D2S",
+    "rev": "0251",
+    "type": "5",
+    "state": "running"
+  },
+  "cdrom_info": "CD-ROM information, Id: cdrom.c 3.20 2003/12/17\n\ndrive name:\t\tsr0\ndrive speed:\t\t1\ndrive # of slots:\t1\nCan close tray:\t\t1\nCan open tray:\t\t1\nCan lock tray:\t\t1\nCan change speed:\t0\nCan select disk:\t0\nCan read multisession:\t1\nCan read MCN:\t\t1\nReports media changed:\t1\nCan play audio:\t\t1\nCan write CD-R:\t\t0\nCan write CD-RW:\t0\nCan read DVD:\t\t0\nCan write DVD-R:\t0\nCan write DVD-RAM:\t0\nCan read MRW:\t\t0\nCan write MRW:\t\t0\nCan write RAM:\t\t0\n\n\n",
+  "kernel_messages": [
+    "[    0.581511] ata2: SATA max UDMA/133 irq 32 lpm-pol 0",
+    "[    0.743022] ata2.00: ATA-8: Hitachi HTS542512K9SA00, BB2OC3JP, max UDMA/133",
+    "[    0.746645] ata2.00: 234441648 sectors, multi 0: LBA48 ",
+    "[    0.750196] ata2.00: Features: HIPM DIPM",
+    "[    0.791207] ata1.00: ATAPI: PLDS    DG-16D2S, 02510C, max UDMA/100",
+    "[    0.916268] scsi 0:0:0:0: CD-ROM            PLDS     DG-16D2S         0251 PQ: 0 ANSI: 5",
+    "[    1.300059] sr 0:0:0:0: [sr0] scsi-1 drive",
+    "[    1.302892] cdrom: Uniform CD-ROM driver Revision: 3.20",
+    "[    1.653027] sr 0:0:0:0: Attached scsi CD-ROM sr0"
+  ],
+  "available_tools": {
+    "smartctl": "/usr/bin/smartctl",
+    "sg_inq": null,
+    "sg_turs": null,
+    "dvd+rw-mediainfo": null
+  }
+}

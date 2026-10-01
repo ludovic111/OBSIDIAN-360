@@ -1,0 +1,92 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/build'
+  GEN     Makefile
+  UPD     include/generated/compile.h
+  CALL    /src/scripts/checksyscalls.sh
+  CC      init/version.o
+  AR      init/built-in.a
+  AR      built-in.a
+  AR      vmlinux.a
+  LD      vmlinux.o
+  GEN     .vmlinux.objs
+  MODPOST vmlinux.symvers
+  UPD     include/generated/utsversion.h
+  CC      init/version-timestamp.o
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD      .tmp_vmlinux1
+  NM      .tmp_vmlinux1.syms
+  KSYMS   .tmp_vmlinux1.kallsyms.S
+  AS      .tmp_vmlinux1.kallsyms.o
+  LD      .tmp_vmlinux2
+  NM      .tmp_vmlinux2.syms
+  KSYMS   .tmp_vmlinux2.kallsyms.S
+  AS      .tmp_vmlinux2.kallsyms.o
+  LD      vmlinux.unstripped
+  NM      System.map
+  SORTTAB vmlinux.unstripped
+make[4]: Nothing to be done for 'vmlinux.unstripped'.
+  OBJCOPY vmlinux
+  GEN     modules.builtin.modinfo
+  GEN     modules.builtin
+/src/arch/powerpc/boot/Makefile:402: warning: overriding recipe for target 'arch/powerpc/boot/zImage.xenon'
+/src/arch/powerpc/boot/Makefile:387: warning: ignoring old recipe for target 'arch/powerpc/boot/zImage.xenon'
+llvm-strip -s -R .comment vmlinux -o arch/powerpc/boot/vmlinux.strip
+  BOOTAS  arch/powerpc/boot/crt0.o
+  BOOTAS  arch/powerpc/boot/crtsavres.o
+  BOOTCC  arch/powerpc/boot/cuboot.o
+  COPY    arch/powerpc/boot/zlib.h
+  COPY    arch/powerpc/boot/zconf.h
+  COPY    arch/powerpc/boot/zutil.h
+  COPY    arch/powerpc/boot/inffast.h
+  COPY    arch/powerpc/boot/inffixed.h
+  COPY    arch/powerpc/boot/inflate.h
+  COPY    arch/powerpc/boot/inftrees.h
+  COPY    arch/powerpc/boot/infutil.h
+  BOOTCC  arch/powerpc/boot/devtree.o
+  BOOTAS  arch/powerpc/boot/div64.o
+  BOOTCC  arch/powerpc/boot/elf_util.o
+  COPY    arch/powerpc/boot/fdt.h
+  COPY    arch/powerpc/boot/libfdt.h
+  COPY    arch/powerpc/boot/libfdt_internal.h
+  COPY    arch/powerpc/boot/inffast.c
+  COPY    arch/powerpc/boot/inflate.c
+  COPY    arch/powerpc/boot/inftrees.c
+  BOOTCC  arch/powerpc/boot/libfdt-wrapper.o
+  BOOTCC  arch/powerpc/boot/main.o
+  BOOTCC  arch/powerpc/boot/ns16550.o
+  BOOTCC  arch/powerpc/boot/ofconsole.o
+  BOOTCC  arch/powerpc/boot/oflib.o
+  BOOTCC  arch/powerpc/boot/serial.o
+  BOOTCC  arch/powerpc/boot/simple_alloc.o
+  BOOTCC  arch/powerpc/boot/stdio.o
+  BOOTCC  arch/powerpc/boot/stdlib.o
+  BOOTAS  arch/powerpc/boot/string.o
+  BOOTAS  arch/powerpc/boot/util.o
+  BOOTCC  arch/powerpc/boot/epapr.o
+  BOOTCC  arch/powerpc/boot/of.o
+  LDS     arch/powerpc/boot/zImage.lds
+  HOSTCC  arch/powerpc/boot/addnote
+  HOSTCC  arch/powerpc/boot/hack-coff
+  HOSTCC  arch/powerpc/boot/mktree
+  COPY    arch/powerpc/boot/decompress_inflate.c
+  COPY    arch/powerpc/boot/fdt.c
+  COPY    arch/powerpc/boot/fdt_ro.c
+  COPY    arch/powerpc/boot/fdt_rw.c
+  COPY    arch/powerpc/boot/fdt_strerror.c
+  COPY    arch/powerpc/boot/fdt_sw.c
+  COPY    arch/powerpc/boot/fdt_wip.c
+  BOOTCC  arch/powerpc/boot/inffast.o
+  BOOTCC  arch/powerpc/boot/inflate.o
+  BOOTCC  arch/powerpc/boot/inftrees.o
+  BOOTCC  arch/powerpc/boot/empty.o
+  BOOTCC  arch/powerpc/boot/decompress.o
+  BOOTCC  arch/powerpc/boot/fdt.o
+  BOOTCC  arch/powerpc/boot/fdt_ro.o
+  BOOTCC  arch/powerpc/boot/fdt_rw.o
+  BOOTCC  arch/powerpc/boot/fdt_strerror.o
+  BOOTCC  arch/powerpc/boot/fdt_sw.o
+  BOOTCC  arch/powerpc/boot/fdt_wip.o
+  BOOTAR  arch/powerpc/boot/wrapper.a
+make[1]: Leaving directory '/build'
+make: Leaving directory '/src'

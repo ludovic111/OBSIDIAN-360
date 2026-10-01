@@ -1,0 +1,13 @@
+Host xbox
+    HostName XBOX_LINUX_IP
+    User root
+    IdentityFile /ABSOLUTE/PATH/TO/PRIVATE_KEY
+    IdentitiesOnly yes
+    IdentityAgent none
+    BatchMode yes
+    BindInterface en0
+    ConnectTimeout 5
+    ServerAliveInterval 15
+    ServerAliveCountMax 3
+    UserKnownHostsFile /ABSOLUTE/PATH/TO/KNOWN_HOSTS
+    StrictHostKeyChecking yes

@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = openssh
+
+[Action]
+Description = Restarting Xbox remote access after OpenSSH upgrade...
+When = PostTransaction
+Exec = /usr/bin/systemctl try-restart sshd.service

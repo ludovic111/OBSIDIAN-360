@@ -1,0 +1,32 @@
+{
+  "observed_utc": "2026-10-01T21:22:30.001484+00:00",
+  "mode": "read-only",
+  "files": {
+    "kboot.conf": {
+      "bytes": 870,
+      "sha256": "5f906be9d2852690530f2b0c5ab3a3f48240c27c2caaad6b6aaae9b368f21b66",
+      "text": "timeout=10\ndefault=linux_hdd\nlinux_hdd=\"uda0:/linux-hdd/vmlinuz-linux-xenon root=UUID=e9584d6f-d7ed-40ba-80a2-6834f8d91f31 initrd=uda0:/linux-hdd/initramfs-linux-xenon.img coherent_pool=16M rw\"\n# Linux live USB - Xbox 360 Xenon. No disk installer is launched by this configuration.\n# FAT32 volume label must be ARCH.\n\nlinux_usb_uda1=\"uda1:/arch/boot/ppc/vmlinuz-linux-xenon arch=ppc archisobasedir=arch archisolabel=ARCH initrd=uda1:/arch/boot/ppc/initramfs-linux-xenon.img coherent_pool=16M read-only\"\nlinux_usb_uda0=\"uda0:/arch/boot/ppc/vmlinuz-linux-xenon arch=ppc archisobasedir=arch archisolabel=ARCH initrd=uda0:/arch/boot/ppc/initramfs-linux-xenon.img coherent_pool=16M read-only\"\nlinux_usb_uda=\"uda:/arch/boot/ppc/vmlinuz-linux-xenon arch=ppc archisobasedir=arch archisolabel=ARCH initrd=uda:/arch/boot/ppc/initramfs-linux-xenon.img coherent_pool=16M read-only\"\n"
+    },
+    "linux-hdd/vmlinuz-linux-xenon": {
+      "bytes": 18637932,
+      "sha256": "a499ab2816bd5a94843442b0a8b89d18af4c1f98f4f264a83b0da5940c8bed66"
+    },
+    "linux-hdd/initramfs-linux-xenon.img": {
+      "bytes": 15462534,
+      "sha256": "f01d99340d4e1539c0f4c52721f44fa715db0218b62cc94950040f28d53d3b09"
+    },
+    "Recovery/kboot-live-before-install.conf": {
+      "bytes": 709,
+      "sha256": "b7c0323e246f869144cb505cc9a7b8151723f0011c48101ce9520df09953c3e3",
+      "text": "# Linux live USB - Xbox 360 Xenon. No disk installer is launched by this configuration.\n# FAT32 volume label must be ARCH.\ntimeout=3\ndefault=linux_usb_uda0\n\nlinux_usb_uda1=\"uda1:/arch/boot/ppc/vmlinuz-linux-xenon arch=ppc archisobasedir=arch archisolabel=ARCH initrd=uda1:/arch/boot/ppc/initramfs-linux-xenon.img coherent_pool=16M read-only\"\nlinux_usb_uda0=\"uda0:/arch/boot/ppc/vmlinuz-linux-xenon arch=ppc archisobasedir=arch archisolabel=ARCH initrd=uda0:/arch/boot/ppc/initramfs-linux-xenon.img coherent_pool=16M read-only\"\nlinux_usb_uda=\"uda:/arch/boot/ppc/vmlinuz-linux-xenon arch=ppc archisobasedir=arch archisolabel=ARCH initrd=uda:/arch/boot/ppc/initramfs-linux-xenon.img coherent_pool=16M read-only\"\n"
+    },
+    "arch/boot/ppc/vmlinuz-linux-xenon": {
+      "bytes": 18637932,
+      "sha256": "a499ab2816bd5a94843442b0a8b89d18af4c1f98f4f264a83b0da5940c8bed66"
+    },
+    "arch/boot/ppc/initramfs-linux-xenon.img": {
+      "bytes": 14681764,
+      "sha256": "4aa814cbffaf6f27d2633584785664c2ae2401b6531c40f69421bea17a5689bc"
+    }
+  }
+}

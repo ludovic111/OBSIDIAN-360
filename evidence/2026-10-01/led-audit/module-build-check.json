@@ -1,0 +1,23 @@
+{
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "results": [
+    {
+      "variant": "original",
+      "returncode": 2,
+      "expected_success": false,
+      "diagnostics": [
+        "leds-xenon.c:147:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]",
+        "leds-xenon.c:164:1: error: redefinition of '__inittest'",
+        "leds-xenon.c:164:1: error: redefinition of 'init_module'",
+        "leds-xenon.c:165:1: error: redefinition of '__exittest'",
+        "leds-xenon.c:165:1: error: redefinition of 'cleanup_module'"
+      ]
+    },
+    {
+      "variant": "candidate",
+      "returncode": 2,
+      "expected_success": true,
+      "diagnostics": []
+    }
+  ]
+}

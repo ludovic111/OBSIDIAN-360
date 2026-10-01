@@ -1,0 +1,13 @@
+{
+  "source_commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "source_archive_sha256": "b3e0b3a92523f334e594e07b57da58e459b4d21630ec1366aba48297da9282f0",
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "patches": {
+    "0001-xenos-pad-tiled-framebuffer.patch": "4ec86b7195f2055e6ea947181abb86edc77160370f4c714e6bf4b3abee48843c",
+    "0004-xenon-bound-smc-reply-cache.patch": "16a54127f135251b606291889c8c30c7c0b7485cb1c1f889656e2347c23fb9d0",
+    "0007-xenon-isolate-boot-image-recipe.patch": "239ab2f346e6665ecbb9b81075d97e39763cb66987c6a66a38320301b8435b37",
+    "0005-xenon-led-lifecycle.patch": "599b6ed6be32ff6ca18a59a5ffaca1e93f92d06bcc7fa42971718f30c0e66cb2",
+    "0003-xenon-preserve-ipi-target-mask.patch": "7a0e22ee397cac76327d95190db59379df9b5d94a25b3f8869c639200370a01d",
+    "0006-xenon-export-smc-ready.patch": "f0b3e2d483e32334eaeb7370aa19cefa9fcb413f8f3cafc73407fc556daf4ea5"
+  }
+}

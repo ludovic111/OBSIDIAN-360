@@ -1,0 +1,34 @@
+[
+  {
+    "width": 640,
+    "height": 480,
+    "linear_allocation_bytes": 1228800,
+    "max_addressed_end_bytes": 1228800,
+    "out_of_bounds_four_pixel_groups": 0,
+    "padded_allocation_bytes": 1228800
+  },
+  {
+    "width": 1280,
+    "height": 720,
+    "linear_allocation_bytes": 3686400,
+    "max_addressed_end_bytes": 3766272,
+    "out_of_bounds_four_pixel_groups": 2560,
+    "padded_allocation_bytes": 3768320
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "linear_allocation_bytes": 8294400,
+    "max_addressed_end_bytes": 8354816,
+    "out_of_bounds_four_pixel_groups": 2880,
+    "padded_allocation_bytes": 8355840
+  },
+  {
+    "width": 1280,
+    "height": 768,
+    "linear_allocation_bytes": 3932160,
+    "max_addressed_end_bytes": 3932160,
+    "out_of_bounds_four_pixel_groups": 0,
+    "padded_allocation_bytes": 3932160
+  }
+]

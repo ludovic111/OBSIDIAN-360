@@ -1,0 +1,4 @@
+# Preserve formatting of captured command output.
+evidence/** -whitespace
+# Unified diff context preserves upstream indentation and blank lines.
+research/patches/*.patch -whitespace

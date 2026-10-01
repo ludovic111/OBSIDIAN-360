@@ -1,0 +1,43 @@
+
+/input/vmlinux-6.18.11-xenon:     file format elf64-powerpc
+
+
+Disassembly of section .head.text:
+
+Disassembly of section .text:
+
+c0000000000532a0 <xenon_pci_ecam_map_bus>:
+c0000000000532a0:	7c 69 1b 78 	mr      r9,r3
+c0000000000532a4:	e8 63 00 c8 	ld      r3,200(r3)
+c0000000000532a8:	2c 23 00 00 	cmpdi   r3,0
+c0000000000532ac:	4d 82 00 20 	beqlr
+c0000000000532b0:	89 49 00 d8 	lbz     r10,216(r9)
+c0000000000532b4:	28 0a 00 10 	cmplwi  r10,16
+c0000000000532b8:	41 81 00 58 	bgt     c000000000053310 <xenon_pci_ecam_map_bus+0x70>
+c0000000000532bc:	28 0a 00 01 	cmplwi  r10,1
+c0000000000532c0:	54 89 07 7e 	clrlwi  r9,r4,29
+c0000000000532c4:	54 84 06 38 	rlwinm  r4,r4,0,24,28
+c0000000000532c8:	41 82 00 30 	beq     c0000000000532f8 <xenon_pci_ecam_map_bus+0x58>
+c0000000000532cc:	55 4a a0 16 	slwi    r10,r10,20
+c0000000000532d0:	7d 29 23 78 	or      r9,r9,r4
+c0000000000532d4:	e8 63 01 28 	ld      r3,296(r3)
+c0000000000532d8:	54 a5 05 3e 	clrlwi  r5,r5,20
+c0000000000532dc:	55 29 60 26 	slwi    r9,r9,12
+c0000000000532e0:	7c a5 53 78 	or      r5,r5,r10
+c0000000000532e4:	7d 29 2b 78 	or      r9,r9,r5
+c0000000000532e8:	79 29 00 20 	clrldi  r9,r9,32
+c0000000000532ec:	7c 63 4a 14 	add     r3,r3,r9
+c0000000000532f0:	4e 80 00 20 	blr
+c0000000000532f4:	60 00 00 00 	nop
+c0000000000532f8:	28 04 00 78 	cmplwi  r4,120
+c0000000000532fc:	3d 40 00 10 	lis     r10,16
+c000000000053300:	40 82 ff d0 	bne     c0000000000532d0 <xenon_pci_ecam_map_bus+0x30>
+c000000000053304:	39 40 00 00 	li      r10,0
+c000000000053308:	38 80 00 10 	li      r4,16
+c00000000005330c:	4b ff ff c4 	b       c0000000000532d0 <xenon_pci_ecam_map_bus+0x30>
+c000000000053310:	38 60 00 00 	li      r3,0
+c000000000053314:	4e 80 00 20 	blr
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

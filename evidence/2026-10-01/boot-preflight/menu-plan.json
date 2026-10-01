@@ -1,0 +1,9 @@
+{
+  "original_kboot_sha256": "5f906be9d2852690530f2b0c5ab3a3f48240c27c2caaad6b6aaae9b368f21b66",
+  "candidate_kboot_sha256": "ffdec658e3fc84f6fee93a4ba2c58a528f259425265be3d2149d54f1feb37d6a",
+  "default": "linux_hdd",
+  "candidate_label": "obsidian4",
+  "candidate_entry": "obsidian4=\"uda0:/obsidian4/kernel root=UUID=e9584d6f-d7ed-40ba-80a2-6834f8d91f31 initrd=uda0:/obsidian4/initrd coherent_pool=16M rw\"",
+  "entry_payload_bytes": 120,
+  "installed": false
+}

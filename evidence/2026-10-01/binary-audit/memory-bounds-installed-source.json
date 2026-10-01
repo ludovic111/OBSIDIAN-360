@@ -1,0 +1,97 @@
+{
+  "scope": "Actual upstream C, host ASan, mocked hardware; no deployed binary or hardware validation",
+  "xenos_sha256": "f0134ec14b3ba4c3a1580560e6d623671765670061a3f27038b2cb3add7260c3",
+  "xell_sha256": "03842d9e4d2853c638787aa8fe454b6f40342863edac94adad5b6471008012b1",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "cases": [
+    {
+      "case": "xenos_640x480_padded0",
+      "passed": true,
+      "returncode": 0,
+      "expected_sanitizer_failure": false,
+      "diagnostics": [],
+      "stdout": "blit completed: 640x480, allocation=1228800"
+    },
+    {
+      "case": "xenos_640x480_padded1",
+      "passed": true,
+      "returncode": 0,
+      "expected_sanitizer_failure": false,
+      "diagnostics": [],
+      "stdout": "blit completed: 640x480, allocation=1228800"
+    },
+    {
+      "case": "xenos_1280x720_padded0",
+      "passed": true,
+      "returncode": 1,
+      "expected_sanitizer_failure": true,
+      "diagnostics": [
+        "ERROR: AddressSanitizer: heap-buffer-overflow on address 0x0001089c0800 at pc 0x000100b90f3c bp 0x00016f26e450 sp 0x00016f26e448",
+        "SUMMARY: AddressSanitizer: heap-buffer-overflow xenos_1280x720_padded0.c:26 in xenos_blit"
+      ],
+      "stdout": ""
+    },
+    {
+      "case": "xenos_1280x720_padded1",
+      "passed": true,
+      "returncode": 0,
+      "expected_sanitizer_failure": false,
+      "diagnostics": [],
+      "stdout": "blit completed: 1280x720, allocation=3768320"
+    },
+    {
+      "case": "xenos_1920x1080_padded0",
+      "passed": true,
+      "returncode": 1,
+      "expected_sanitizer_failure": true,
+      "diagnostics": [
+        "ERROR: AddressSanitizer: heap-buffer-overflow on address 0x00010b2cd800 at pc 0x000102c7cf3c bp 0x00016d182430 sp 0x00016d182428",
+        "SUMMARY: AddressSanitizer: heap-buffer-overflow xenos_1920x1080_padded0.c:26 in xenos_blit"
+      ],
+      "stdout": ""
+    },
+    {
+      "case": "xenos_1920x1080_padded1",
+      "passed": true,
+      "returncode": 0,
+      "expected_sanitizer_failure": false,
+      "diagnostics": [],
+      "stdout": "blit completed: 1920x1080, allocation=8355840"
+    },
+    {
+      "case": "xenos_1280x768_padded0",
+      "passed": true,
+      "returncode": 0,
+      "expected_sanitizer_failure": false,
+      "diagnostics": [],
+      "stdout": "blit completed: 1280x768, allocation=3932160"
+    },
+    {
+      "case": "xenos_1280x768_padded1",
+      "passed": true,
+      "returncode": 0,
+      "expected_sanitizer_failure": false,
+      "diagnostics": [],
+      "stdout": "blit completed: 1280x768, allocation=3932160"
+    },
+    {
+      "case": "xell_fixed0",
+      "passed": true,
+      "returncode": 1,
+      "expected_sanitizer_failure": true,
+      "diagnostics": [
+        "ERROR: AddressSanitizer: dynamic-stack-buffer-overflow on address 0x00016db36360 at pc 0x000102aaafbc bp 0x00016db36100 sp 0x00016db360d8",
+        "SUMMARY: AddressSanitizer: dynamic-stack-buffer-overflow xell_fixed0.c:25 in sfcx_read_page"
+      ],
+      "stdout": ""
+    },
+    {
+      "case": "xell_fixed1",
+      "passed": true,
+      "returncode": 0,
+      "expected_sanitizer_failure": false,
+      "diagnostics": [],
+      "stdout": "two raw pages transferred: 1056 bytes"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+--- a/drivers/xenon/smc-core.c
++++ b/drivers/xenon/smc-core.c
+@@ -52,6 +52,7 @@
+ int xenon_smc_ready(void) {
+ 	return smc.base != NULL;
+ }
++EXPORT_SYMBOL_GPL(xenon_smc_ready);
+ 
+ static void _xenon_smc_send(void *msg)
+ {

@@ -1,0 +1,55 @@
+{
+  "commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "files": {
+    "drivers/gpu/drm/tiny/xenos.c": {
+      "url": "https://raw.githubusercontent.com/techflashYT/linux-custom/a293dd19311668900eb1eeb2f6cb01dcac54f330/drivers/gpu/drm/tiny/xenos.c",
+      "sha256": "f0134ec14b3ba4c3a1580560e6d623671765670061a3f27038b2cb3add7260c3"
+    },
+    "arch/powerpc/platforms/xenon/setup.c": {
+      "url": "https://raw.githubusercontent.com/techflashYT/linux-custom/a293dd19311668900eb1eeb2f6cb01dcac54f330/arch/powerpc/platforms/xenon/setup.c",
+      "sha256": "2c1b9e52a1ba190edc84e82045e8cafc6cbf8c4826d1ff2c5ba29f2d7dec4dd2"
+    },
+    "arch/powerpc/platforms/xenon/pci.c": {
+      "url": "https://raw.githubusercontent.com/techflashYT/linux-custom/a293dd19311668900eb1eeb2f6cb01dcac54f330/arch/powerpc/platforms/xenon/pci.c",
+      "sha256": "a2b98f595d5b3e70229a03a127c9e78de8d88cf32c6539fd12e849f48311b234"
+    },
+    "arch/powerpc/platforms/xenon/interrupt.c": {
+      "url": "https://raw.githubusercontent.com/techflashYT/linux-custom/a293dd19311668900eb1eeb2f6cb01dcac54f330/arch/powerpc/platforms/xenon/interrupt.c",
+      "sha256": "5d34454195ccf64786f8f32c1df860c4977949e47d51c77f417516bf758ca669"
+    },
+    "kernel/dma/direct.c": {
+      "url": "https://raw.githubusercontent.com/techflashYT/linux-custom/a293dd19311668900eb1eeb2f6cb01dcac54f330/kernel/dma/direct.c",
+      "sha256": "c6f1fc1286ddb13a2ed47b46b2dffa125b202bc4c7794a4d4988c3a6e7476165"
+    },
+    "kernel/dma/pool.c": {
+      "url": "https://raw.githubusercontent.com/techflashYT/linux-custom/a293dd19311668900eb1eeb2f6cb01dcac54f330/kernel/dma/pool.c",
+      "sha256": "e57925895047f1d6c74fa2a6c895632858cad387abe8f9891efa613049039c59"
+    },
+    "arch/powerpc/mm/dma-noncoherent.c": {
+      "url": "https://raw.githubusercontent.com/techflashYT/linux-custom/a293dd19311668900eb1eeb2f6cb01dcac54f330/arch/powerpc/mm/dma-noncoherent.c",
+      "sha256": "7c73d1e87503b39dbeffe7c45acfcdb04918c4c653cfbb2bed67a1972571b69a"
+    },
+    "arch/powerpc/platforms/xenon/smp.c": {
+      "url": "https://raw.githubusercontent.com/techflashYT/linux-custom/a293dd19311668900eb1eeb2f6cb01dcac54f330/arch/powerpc/platforms/xenon/smp.c",
+      "sha256": "e66595490267aae5872861b39c7daad90ecd6dbc3e49e76bfd2d2e691ac3ba1d"
+    }
+  },
+  "package_recipe": {
+    "repository": "https://github.com/kth5/archpower",
+    "commit": "b166195754bd59ec1cbb4392dee6ae0f1ded87e4",
+    "files": {
+      "PKGBUILD": {
+        "sha256": "3b24bfedde58a614d2e7f5ab8aafcc9f64a7c6c339b1a7fd172c9aaeb40b9922",
+        "url": "https://github.com/kth5/archpower/blob/b166195754bd59ec1cbb4392dee6ae0f1ded87e4/kernels/powerpc/linux-xenon/PKGBUILD"
+      },
+      "config": {
+        "sha256": "d17aae9336e77f54b44488fa8e2cd23222a0f79afa7eb7c1a039271dcd4e5634",
+        "url": "https://github.com/kth5/archpower/blob/b166195754bd59ec1cbb4392dee6ae0f1ded87e4/kernels/powerpc/linux-xenon/config"
+      },
+      ".SRCINFO": {
+        "sha256": "d65faa2ec0a2d86418a0a88cd2a08fa13c72127e77daa58df861db2a5bcd4ee9",
+        "url": "https://github.com/kth5/archpower/blob/b166195754bd59ec1cbb4392dee6ae0f1ded87e4/kernels/powerpc/linux-xenon/.SRCINFO"
+      }
+    }
+  }
+}

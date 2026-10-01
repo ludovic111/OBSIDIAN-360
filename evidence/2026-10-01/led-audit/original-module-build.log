@@ -1,0 +1,99 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/probe/original'
+  CC [M]  leds-xenon.o
+make[1]: Leaving directory '/probe/original'
+make: Leaving directory '/src'
+leds-xenon.c:147:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        if (IS_ERR(pdev)) {
+            ^~~~~~~~~~~~
+leds-xenon.c:156:9: note: uninitialized use occurs here
+        return ret;
+               ^~~
+leds-xenon.c:147:2: note: remove the 'if' if its condition is always true
+        if (IS_ERR(pdev)) {
+        ^~~~~~~~~~~~~~~~~~
+leds-xenon.c:143:9: note: initialize the variable 'ret' to silence this warning
+        int ret;
+               ^
+                = 0
+leds-xenon.c:164:1: error: redefinition of '__inittest'
+module_init(xenon_led_init);
+^
+/src/include/linux/module.h:132:42: note: expanded from macro 'module_init'
+        static inline initcall_t __maybe_unused __inittest(void)                \
+                                                ^
+leds-xenon.c:139:1: note: previous definition is here
+module_platform_driver(xenon_led_driver);
+^
+/src/include/linux/platform_device.h:292:2: note: expanded from macro 'module_platform_driver'
+        module_driver(__platform_driver, platform_driver_register, \
+        ^
+/src/include/linux/device/driver.h:261:3: note: expanded from macro 'module_driver'
+} \
+  ^
+/src/include/linux/module.h:132:42: note: expanded from macro '\
+module_init'
+        static inline initcall_t __maybe_unused __inittest(void)                \
+                                                ^
+leds-xenon.c:164:1: error: redefinition of 'init_module'
+module_init(xenon_led_init);
+^
+/src/include/linux/module.h:134:6: note: expanded from macro 'module_init'
+        int init_module(void) __copy(initfn)                    \
+            ^
+leds-xenon.c:139:1: note: previous definition is here
+module_platform_driver(xenon_led_driver);
+^
+/src/include/linux/platform_device.h:292:2: note: expanded from macro 'module_platform_driver'
+        module_driver(__platform_driver, platform_driver_register, \
+        ^
+/src/include/linux/device/driver.h:261:3: note: expanded from macro 'module_driver'
+} \
+  ^
+/src/include/linux/module.h:134:6: note: expanded from macro '\
+module_init'
+        int init_module(void) __copy(initfn)                    \
+            ^
+leds-xenon.c:165:1: error: redefinition of '__exittest'
+module_exit(xenon_led_exit);
+^
+/src/include/linux/module.h:140:42: note: expanded from macro 'module_exit'
+        static inline exitcall_t __maybe_unused __exittest(void)                \
+                                                ^
+leds-xenon.c:139:1: note: previous definition is here
+module_platform_driver(xenon_led_driver);
+^
+/src/include/linux/platform_device.h:292:2: note: expanded from macro 'module_platform_driver'
+        module_driver(__platform_driver, platform_driver_register, \
+        ^
+/src/include/linux/device/driver.h:266:3: note: expanded from macro 'module_driver'
+} \
+  ^
+/src/include/linux/module.h:140:42: note: expanded from macro '\
+module_exit'
+        static inline exitcall_t __maybe_unused __exittest(void)                \
+                                                ^
+leds-xenon.c:165:1: error: redefinition of 'cleanup_module'
+module_exit(xenon_led_exit);
+^
+/src/include/linux/module.h:142:7: note: expanded from macro 'module_exit'
+        void cleanup_module(void) __copy(exitfn)                \
+             ^
+leds-xenon.c:139:1: note: previous definition is here
+module_platform_driver(xenon_led_driver);
+^
+/src/include/linux/platform_device.h:292:2: note: expanded from macro 'module_platform_driver'
+        module_driver(__platform_driver, platform_driver_register, \
+        ^
+/src/include/linux/device/driver.h:266:3: note: expanded from macro 'module_driver'
+} \
+  ^
+/src/include/linux/module.h:142:7: note: expanded from macro '\
+module_exit'
+        void cleanup_module(void) __copy(exitfn)                \
+             ^
+1 warning and 4 errors generated.
+make[3]: *** [/src/scripts/Makefile.build:287: leds-xenon.o] Error 1
+make[2]: *** [/src/Makefile:2011: .] Error 2
+make[1]: *** [/src/Makefile:248: __sub-make] Error 2
+make: *** [Makefile:248: __sub-make] Error 2

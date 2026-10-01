@@ -1,0 +1,13 @@
+adresse,classe,fabricant,produit,description,pilote
+01:00.0,0000,1414,5801,Microsoft Corporation XMA Decoder (Xenon),aucun indiqué
+01:01.0,0106,1414,5802,Microsoft Corporation SATA Controller - CdRom (Xenon),sata_xenon
+01:02.0,0106,1414,5803,Microsoft Corporation SATA Controller - Disk (Xenon),sata_xenon
+01:04.0,0c03,1414,5804,Microsoft Corporation OHCI Controller 0 (Xenon),ohci-pci
+01:04.1,0c03,1414,5805,Microsoft Corporation EHCI Controller 0 (Xenon),ehci-pci
+01:05.0,0c03,1414,5806,Microsoft Corporation OHCI Controller 1 (Xenon),ohci-pci
+01:05.1,0c03,1414,5807,Microsoft Corporation EHCI Controller 1 (Xenon),ehci-pci
+01:07.0,0200,1414,580a,Microsoft Corporation Fast Ethernet Adapter (Xenon),sis190
+01:08.0,0501,1414,580b,Microsoft Corporation Secure Flash Controller (Xenon),xenon_nand
+01:09.0,0401,1414,580c,Microsoft Corporation Device,aucun indiqué
+01:0a.0,0000,1414,580d,Microsoft Corporation System Management Controller (Xenon),xenon_smc_core
+01:0f.0,0380,1414,5831,Microsoft Corporation Xenos GPU (Jasper),xenos

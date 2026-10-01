@@ -1,0 +1,36 @@
+xenosdrmfb
+1280,720
+32
+1280x720
+Screen 0: minimum 320 x 200, current 1280 x 720, maximum 4096 x 4096
+None-1 connected primary 1280x720+0+0 (0x41) normal (normal left inverted right x axis y axis) 0mm x 0mm
+	Identifier: 0x3f
+	Timestamp:  2480346
+	Subpixel:   unknown
+	Gamma:      1.0:1.0:1.0
+	Brightness: 1.0
+	Clones:    
+	CRTC:       0
+	CRTCs:      0
+	Transform:  1.000000 0.000000 0.000000
+	            0.000000 1.000000 0.000000
+	            0.000000 0.000000 1.000000
+	           filter: 
+	link-status: Good 
+		supported: Good, Bad
+	CONNECTOR_ID: 33 
+		supported: 33
+	non-desktop: 0 
+		range: (0, 1)
+  1280x720 (0x41) 55.296MHz *current +preferred
+        h: width  1280 start 1280 end 1280 total 1280 skew    0 clock  43.20KHz
+        v: height  720 start  720 end  720 total  720           clock  60.00Hz
+cat: /proc/asound/cards: No such file or directory
+cat: /proc/asound/pcm: No such file or directory
+crw-------  1 root root   10, 258 Oct  1 21:28 /dev/ana
+crw-rw----+ 1 root video 226,   0 Oct  1 21:47 /dev/dri/card0
+crw-------  1 root root   10, 257 Oct  1 21:28 /dev/smc
+
+/dev/dri/by-path:
+total 0
+lrwxrwxrwx 1 root root 8 Jun  2 11:05 platform-xenon-pci-pci-0000:01:0f.0-card -> ../card0

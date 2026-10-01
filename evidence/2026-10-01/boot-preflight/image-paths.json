@@ -1,0 +1,8 @@
+{
+  "init": "init",
+  "usr/bin/busybox": "usr/bin/busybox",
+  "usr/bin/udevadm": "usr/bin/udevadm",
+  "usr/bin/blkid": "usr/bin/blkid",
+  "usr/bin/fsck": "usr/bin/fsck",
+  "usr/bin/e2fsck": "usr/bin/e2fsck"
+}

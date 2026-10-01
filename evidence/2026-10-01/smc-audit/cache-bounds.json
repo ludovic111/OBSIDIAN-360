@@ -1,0 +1,46 @@
+{
+  "scope": "Real cache table and lookup compiled on host; no message sent to SMC.",
+  "source_sha256": "87bb7876e93f2896b1694e44d29d22af36270751c12eed9815572985918215d7",
+  "candidate_sha256": "e37b3b440d50ef11dc6522b711eb342c71efc6fcac915843374663347367f395",
+  "results": [
+    {
+      "variant": "original",
+      "scope": "known",
+      "expected_failure": false,
+      "passed": true,
+      "returncode": 0,
+      "stdout": "13 known reply IDs preserved",
+      "diagnostics": []
+    },
+    {
+      "variant": "original",
+      "scope": "all",
+      "expected_failure": true,
+      "passed": true,
+      "returncode": 1,
+      "stdout": "",
+      "diagnostics": [
+        "ERROR: AddressSanitizer: global-buffer-overflow on address 0x000102b740d0 at pc 0x000102b6ce54 bp 0x00016d292560 sp 0x00016d292558",
+        "SUMMARY: AddressSanitizer: global-buffer-overflow original.c:23 in _xenon_smc_cache_lookup"
+      ]
+    },
+    {
+      "variant": "candidate",
+      "scope": "known",
+      "expected_failure": false,
+      "passed": true,
+      "returncode": 0,
+      "stdout": "13 known reply IDs preserved",
+      "diagnostics": []
+    },
+    {
+      "variant": "candidate",
+      "scope": "all",
+      "expected_failure": false,
+      "passed": true,
+      "returncode": 0,
+      "stdout": "256 IDs checked; exactly 13 cache hits",
+      "diagnostics": []
+    }
+  ]
+}

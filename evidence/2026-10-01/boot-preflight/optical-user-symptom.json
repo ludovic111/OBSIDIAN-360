@@ -1,0 +1,11 @@
+{
+  "reported_symptom": "Tray opens but no discs are read",
+  "source": "User reply in current conversation",
+  "observed_device": {
+    "vendor": "PLDS",
+    "model": "DG-16D2S",
+    "rev": "0251",
+    "type": "5",
+    "state": "running"
+  }
+}

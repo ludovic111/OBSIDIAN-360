@@ -1,0 +1,363 @@
+{
+  "release": "6.18.11-xenon-obsidian2",
+  "source_commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "patches": {
+    "0001-xenos-pad-tiled-framebuffer.patch": "4ec86b7195f2055e6ea947181abb86edc77160370f4c714e6bf4b3abee48843c",
+    "0004-xenon-bound-smc-reply-cache.patch": "16a54127f135251b606291889c8c30c7c0b7485cb1c1f889656e2347c23fb9d0",
+    "0005-xenon-led-lifecycle.patch": "599b6ed6be32ff6ca18a59a5ffaca1e93f92d06bcc7fa42971718f30c0e66cb2",
+    "0003-xenon-preserve-ipi-target-mask.patch": "7a0e22ee397cac76327d95190db59379df9b5d94a25b3f8869c639200370a01d"
+  },
+  "artifacts": {
+    "vmlinux": {
+      "sha256": "6e980f349c0a6915b2ea02474799a21ff012ff261dccef5be045fb3d263ea3d2",
+      "bytes": 23352192
+    },
+    "System.map": {
+      "sha256": "7c15b4433e8f2a6bb721f1b3cfd4d84af7596969000bac17171f5227b491d133",
+      "bytes": 2334198
+    },
+    "Module.symvers": {
+      "sha256": "7a9dcd371e86b4877d340ed3f2bc196447242a5cb5984767db7db2c09103a546",
+      "bytes": 530484
+    },
+    "arch/powerpc/boot/zImage.xenon": {
+      "sha256": "f941261684035bc83f643b72acb4e6cc0b8c862099b4314a36e4c865f2537c44",
+      "bytes": 19420244
+    },
+    ".config": {
+      "sha256": "e9aa296780be69de6e76e39d3fc3036aa84666d545e6572c3a63d6a506c5f4c6",
+      "bytes": 108443
+    }
+  },
+  "module_count": 65,
+  "modules": [
+    {
+      "path": "crypto/ansi_cprng.ko",
+      "sha256": "a6af115b1b786047354f2a031c356ca3e141f5605a8ef34c72f9e8dcb6bb5890",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/blake2b_generic.ko",
+      "sha256": "27fc145c02e1006bc2922475a7efada6a1f5d1ef93a3da609021f3e6b67ef89a",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ccm.ko",
+      "sha256": "21905d44a590a50b68656ef2183142a401b9ec949c2e92f3f0cd93c256681d24",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/cmac.ko",
+      "sha256": "0fe4401997158fc1d276ff9c64ab79fc21b7c5856a3b707525d9603c84dbe80d",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/crc32c-cryptoapi.ko",
+      "sha256": "0c6271d169d2823e961f97fbd86a38122b6e8a1f3a162e4bfe408c192bb3fe7c",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ctr.ko",
+      "sha256": "54e2ffeea0eb785debb6763cbd4768f1a4b27b690a61f938b03325c6eb0f9413",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/drbg.ko",
+      "sha256": "30a85e9ba26c3dabf34569e8393eca90ac80df28e274a5c7dd0e475aacf0aea4",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/echainiv.ko",
+      "sha256": "0bc90ed7d9a82a3c7691c313118a4a054fdbe014582b104600baae7d2b5a235b",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/gcm.ko",
+      "sha256": "f1a5c5aee139c1f62f326bdd262bd137504ca1c2794b842f308853b80dcab3f4",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/geniv.ko",
+      "sha256": "3fe2c4c8784e37f680035894e9af1d88b441e193a0988b8e927634d53b45bc47",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ghash-generic.ko",
+      "sha256": "f287c4f2c29e424f14f241e47b5f3bd73e7d77a5b19f2d19f526855f598f2919",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/hmac.ko",
+      "sha256": "1dd2685fed634138c18e39562804bcdde99b145b5f455b23bbe7cd6747fa67a4",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/jitterentropy_rng.ko",
+      "sha256": "8fa6bad8262f7315b680ac065494d2e2bde0083910dfb15774fc0848deeddcc8",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/sha256.ko",
+      "sha256": "2fbc4d6c9169f7cbc679a6ab0c12efa2b27830c2f3acc5016ac95f12b0309568",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/sha3_generic.ko",
+      "sha256": "91a51f22f15f3b8bec58291e4a3c82d30a1beb576d2d251195833383da336cf5",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/sha512.ko",
+      "sha256": "12989af69e6d7e64b0ed7ba5109a20545d1c41accff39989a5bfa02efb7acb67",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/xor.ko",
+      "sha256": "5044cd28167869970f842f3dbb9c68436bb5296f236ee45c18a54daf50aae5fe",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/xxhash_generic.ko",
+      "sha256": "5823c581d1a4babd59561e37b54c267b54035fd62d937b4128a418fe033ad199",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/block/nbd.ko",
+      "sha256": "dc3ff3c5d92d57ebf2b7441fd592fce830ffc9bbc2edbb9f47e30a6aa0c7a9ea",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/block/zram/zram.ko",
+      "sha256": "b6a7ed8e2b9709428aaac9b33a2419e219ca3f3ef908a10cdf27f886e453eea4",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/connector/cn.ko",
+      "sha256": "6a6a0b72effb3a8689fde38cd8c26f1988399c34f44d04de4246c505bd9b1fc2",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-a4tech.ko",
+      "sha256": "5b679f20f4e44fecc64672148e95009dbdda791a497fe808420da3540df2eebc",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-cherry.ko",
+      "sha256": "10823c171abbf9564a2d156b4353a2e924afa674b4b89330e969d88dc917f418",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-gyration.ko",
+      "sha256": "eb99d18e1884682e74de24d744ab1263a57039eb026207f44da7ec4213a37880",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-nintendo.ko",
+      "sha256": "5b38dd5f6d8151e2828a0cb71c45b7c338f42d93805ed4c6b8aed2d833104f06",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-wiimote.ko",
+      "sha256": "4105ea35f02e8674baa3669f8220151f31da6a3128c2784a5db9787b5738a2a4",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/i2c/busses/i2c-sis96x.ko",
+      "sha256": "5c5cac628a96a2ba936f8c41c1ddd1148b994cabbc4b29eef4b65ee5d24b5051",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/evdev.ko",
+      "sha256": "eef3f4a341e388dfb61eefd8cdde2546b7f6e55e3adeba2d607468066c8b8cde",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/joydev.ko",
+      "sha256": "80a3f7cff1b7fe6912b9fa448b672e02a556589c2e64205cf8837c9d5f6724fe",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/joystick/xpad.ko",
+      "sha256": "84bde191f896fe1ffe39e140ba0d5bf0c0ac245d86fd09bbb794c7929823ab00",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/misc/uinput.ko",
+      "sha256": "7418fae89e47bb8a5ba22c6c0443c9193a364d9b31e25470f3f5b4bb237fe3eb",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/class/cdc-acm.ko",
+      "sha256": "59364d2352ea8c81c75fc66dd0ad9b7e065f6eddc47382fb4346815a98f17e42",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/serial/ftdi_sio.ko",
+      "sha256": "760b1336761e06c8307b40af78bd8c38317c1cabe9c504ded85fbfa4d25cf3ec",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/serial/pl2303.ko",
+      "sha256": "20c63cd3c4b1ab14014a9a043b4e9307b1d206d5bac831ed35d4dcc00b39cc90",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/serial/usbserial.ko",
+      "sha256": "2627fded656be85902d17f7716f3cdda720d5ffe44acdc51e60760ac3d130108",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/usbip/usbip-core.ko",
+      "sha256": "39530d9dded7942ed8c4b006bdc814380ea7419b277ad9a705df9de9f0517792",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/usbip/usbip-host.ko",
+      "sha256": "9a21f0ec69976eff5aca6b950741418d52af8ac1cd700630dc4dd57bbdbc18a3",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/usbip/vhci-hcd.ko",
+      "sha256": "091f798047ca7e3eed7a1912487c5d8229c22dad8b26a78179fc8e371baa2466",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/autofs/autofs4.ko",
+      "sha256": "de3992e9dd92d7439546ff194a24c0a5d9855656e376fa9bbe7735a600c26e0b",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/btrfs/btrfs.ko",
+      "sha256": "55a1fd58a074612474a63e9c49ba1dff9ee3e67531e414a3ca50ed03f74efc07",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/exfat/exfat.ko",
+      "sha256": "ea1ecd282e141069393e7fcb6a438c6d503b196849ce2bd89f37b2914310242a",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/fuse/fuse.ko",
+      "sha256": "979cb21e7237bcea4afa744ad12fb21996f90663ccfcec7d7c0b10f4b6111b63",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/hfs/hfs.ko",
+      "sha256": "c27abc355b280dd760a17a0caeec1511d4d0d0cb8d860473ee84f1e81371de57",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/hfsplus/hfsplus.ko",
+      "sha256": "b2286c79eab075d59d56166087833fda649a859194c726cc18966511a9099f61",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/isofs/isofs.ko",
+      "sha256": "c35b6a50bf814001022ca988e78a20d7a7ca506f36d5308d5e446e4810929f27",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/netfs/netfs.ko",
+      "sha256": "7c913cf8f3a7c3293a4b6c9dd03174718b4afae72201ac784072db0389b529f2",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/nfsd/nfsd.ko",
+      "sha256": "fb62db9a606e876380c4a7df78d4c556a5edc5f99f62c817a0739d3b022cbd8d",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/nls/nls_ucs2_utils.ko",
+      "sha256": "5b5d46ceaf27ecbf8675a3727a6189ae77227b964f59381c16a0cad349811e6d",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/ntfs3/ntfs3.ko",
+      "sha256": "fc41c3b2c11848f08e4b0fab50cce4a8d80b6f36706fe0cfe177118967f34cbe",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/smb/client/cifs.ko",
+      "sha256": "fdf67a7416cbc0195b8ad990ec2fa53c4bb5249a123749ed3e92138ff8592d9b",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/smb/common/cifs_md4.ko",
+      "sha256": "21c1c6ea0b2a92655beb0412e475ec6416967bf5025dabf3f9802b1040bd9bcb",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/smb/server/ksmbd.ko",
+      "sha256": "34e920e97b35115404f172e59aa8212b8d40c5a2b23f80c70a822f986ee477b9",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/udf/udf.ko",
+      "sha256": "218fcc15874a7d2850b209e810324805d05fb856909b04e12586733a928e1527",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/xfs/xfs.ko",
+      "sha256": "1b987c6b13c206855d5ef4aa06e6775ef3f17db8a3678bbff6a04fd2184a4298",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/842/842_compress.ko",
+      "sha256": "fd11a30883419799ec60cf4cac95203698296417ad0484ea51a9c30b0892838a",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/842/842_decompress.ko",
+      "sha256": "24053faa3cd559af6ab610603596674debf20b8a47b676ed465681345daa27cf",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/asn1_decoder.ko",
+      "sha256": "db62e1fef7c08e2bb310cdc6109d8a60993a8378d3017df8061a6977b139a370",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crc/crc-itu-t.ko",
+      "sha256": "eec839fdf6a1671519213fb4b3b2962488f4652e4e31e039f062c01fae931e04",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crypto/gf128mul.ko",
+      "sha256": "2915913642910cc1e14922cbc8d90bb7534a38a7f591a249075efadf2b05eac8",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crypto/libarc4.ko",
+      "sha256": "66e3bf82045efe6e035289199df5361fdf695865f9e3bc4d6fe7f342efd373b9",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crypto/libsha512.ko",
+      "sha256": "7eb826f4d31599807b5e18fa9b9aa612e50da163626addbfddfaa06b703e7e6c",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/lz4/lz4_compress.ko",
+      "sha256": "3a1a72494a047847113e04c625db9a8dc89865105f806cae482f5e62c63a1741",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/lz4/lz4hc_compress.ko",
+      "sha256": "9127704a08f0d489c224292a14c2e7cb68c5f3249b91bd546e9403437b33fc4d",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/raid6/raid6_pq.ko",
+      "sha256": "77c20fda459d9e440789b2c7d53ad0b179eeddfecc70129e354f4e9c6d966ee8",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/zstd/zstd_compress.ko",
+      "sha256": "b8b1da1add76c2ec071b7595739525c9eeca433eb61006630c148a9e0f4237b7",
+      "vermagic": "6.18.11-xenon-obsidian2 SMP mod_unload modversions "
+    }
+  ],
+  "booted": false,
+  "deployed": false
+}

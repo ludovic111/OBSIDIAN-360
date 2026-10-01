@@ -1,0 +1,25 @@
+# Accès local, clés et acquisitions sensibles
+.local/
+private/
+dumps-local/
+*.xex
+*.xcp
+*.stfs
+*.vhd
+*.vhdx
+*.key
+id_ed25519*
+id_rsa*
+*keyvault*
+*cpukey*
+*nand*.bin
+*flashdmp*
+updflash.bin
+updxell.bin
+# Fichiers de travail
+__pycache__/
+*.pyc
+.DS_Store
+*.iso
+*.sfs
+*.pkg.tar.*

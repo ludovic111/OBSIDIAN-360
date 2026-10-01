@@ -1,0 +1,20 @@
+--- a/arch/powerpc/boot/Makefile
++++ b/arch/powerpc/boot/Makefile
+@@ -383,7 +383,7 @@
+ $(obj)/zImage.initrd.%: vmlinux $(wrapperbits) FORCE
+ 	$(call if_changed,wrap,$*,,,$(obj)/ramdisk.image.gz)
+ 
+-$(addprefix $(obj)/, $(sort $(filter zImage.%, $(image-y)))): vmlinux $(wrapperbits) FORCE
++$(addprefix $(obj)/, $(sort $(filter-out zImage.xenon, $(filter zImage.%, $(image-y))))): vmlinux $(wrapperbits) FORCE
+ 	$(call if_changed,wrap,$(subst $(obj)/zImage.,,$@))
+ 
+ # dtbImage% - a dtbImage is a zImage with an embedded device tree blob
+@@ -400,8 +400,6 @@
+ 
+ $(obj)/zImage.xenon: $(obj)/vmlinux.strip
+ 	@$(OBJCOPY) -O elf32-powerpc $< $@
+-	@test -e /mnt/e/Misc/tftpd64 && \
+-	   cp -f $@ /mnt/e/Misc/tftpd64/vmlinux || true
+ 
+ $(obj)/uImage: vmlinux $(wrapperbits) FORCE
+ 	$(call if_changed,wrap,uboot)

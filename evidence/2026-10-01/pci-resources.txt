@@ -1,0 +1,215 @@
+01:00.0 Non-VGA unclassified device [0000]: Microsoft Corporation XMA Decoder (Xenon) [1414:5801]
+01:01.0 SATA controller [0106]: Microsoft Corporation SATA Controller - CdRom (Xenon) [1414:5802]
+	Kernel driver in use: sata_xenon
+	Kernel modules: sata_xenon
+01:02.0 SATA controller [0106]: Microsoft Corporation SATA Controller - Disk (Xenon) [1414:5803]
+	Kernel driver in use: sata_xenon
+	Kernel modules: sata_xenon
+01:04.0 USB controller [0c03]: Microsoft Corporation OHCI Controller 0 (Xenon) [1414:5804] (rev 0f)
+	Subsystem: Microsoft Corporation OHCI Controller 0 (Xenon) [1414:5804]
+	Kernel driver in use: ohci-pci
+	Kernel modules: ohci_pci
+01:04.1 USB controller [0c03]: Microsoft Corporation EHCI Controller 0 (Xenon) [1414:5805] (rev 01)
+	Subsystem: Microsoft Corporation EHCI Controller 0 (Xenon) [1414:5805]
+	Kernel driver in use: ehci-pci
+	Kernel modules: ehci_pci
+01:05.0 USB controller [0c03]: Microsoft Corporation OHCI Controller 1 (Xenon) [1414:5806] (rev 0f)
+	Subsystem: Microsoft Corporation OHCI Controller 1 (Xenon) [1414:5806]
+	Kernel driver in use: ohci-pci
+	Kernel modules: ohci_pci
+01:05.1 USB controller [0c03]: Microsoft Corporation EHCI Controller 1 (Xenon) [1414:5807] (rev 01)
+	Subsystem: Microsoft Corporation EHCI Controller 1 (Xenon) [1414:5807]
+	Kernel driver in use: ehci-pci
+	Kernel modules: ehci_pci
+01:07.0 Ethernet controller [0200]: Microsoft Corporation Fast Ethernet Adapter (Xenon) [1414:580a] (rev 01)
+	Kernel driver in use: sis190
+	Kernel modules: sis190
+01:08.0 FLASH memory [0501]: Microsoft Corporation Secure Flash Controller (Xenon) [1414:580b] (rev 01)
+	Kernel driver in use: xenon_nand
+	Kernel modules: xenon_nand
+01:09.0 Multimedia audio controller [0401]: Microsoft Corporation Device [1414:580c] (rev 01)
+	Subsystem: Silicon Integrated Systems [SiS] Device [1039:7501]
+01:0a.0 Non-VGA unclassified device [0000]: Microsoft Corporation System Management Controller (Xenon) [1414:580d]
+	Kernel driver in use: xenon_smc_core
+	Kernel modules: smc_core
+01:0f.0 Display controller [0380]: Microsoft Corporation Xenos GPU (Jasper) [1414:5831] (rev 11)
+	Kernel driver in use: xenos
+	Kernel modules: xenos
+01:00.0 Non-VGA unclassified device [0000]: Microsoft Corporation XMA Decoder (Xenon) [1414:5801]
+	Control: I/O- Mem+ BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap- 66MHz- UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Interrupts: pin B routed to IRQ 64
+	Region 0: Memory at 200ea001800 (32-bit, non-prefetchable) [size=1K]
+
+01:01.0 SATA controller [0106]: Microsoft Corporation SATA Controller - CdRom (Xenon) [1414:5802] (prog-if 00 [Vendor specific])
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz+ UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupts: pin B routed to IRQ 36
+	Region 0: Memory at 200ea001200 (32-bit, non-prefetchable) [size=32]
+	Region 1: Memory at 200ea001220 (32-bit, non-prefetchable) [size=16]
+	Capabilities: [58] Power Management version 2
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold+)
+		Status: D0 NoSoftRst- PME-Enable- DSel=0 DScale=0 PME-
+	Kernel driver in use: sata_xenon
+	Kernel modules: sata_xenon
+
+01:02.0 SATA controller [0106]: Microsoft Corporation SATA Controller - Disk (Xenon) [1414:5803] (prog-if 00 [Vendor specific])
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz+ UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupts: pin B routed to IRQ 32
+	Region 0: Memory at 200ea001300 (32-bit, non-prefetchable) [size=32]
+	Region 1: Memory at 200ea001320 (32-bit, non-prefetchable) [size=16]
+	Capabilities: [58] Power Management version 2
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold+)
+		Status: D0 NoSoftRst- PME-Enable- DSel=0 DScale=0 PME-
+	Kernel driver in use: sata_xenon
+	Kernel modules: sata_xenon
+
+01:04.0 USB controller [0c03]: Microsoft Corporation OHCI Controller 0 (Xenon) [1414:5804] (rev 0f) (prog-if 10 [OHCI])
+	Subsystem: Microsoft Corporation OHCI Controller 0 (Xenon) [1414:5804]
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV+ VGASnoop- ParErr+ Stepping- SERR+ FastB2B- DisINTx-
+	Status: Cap- 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0 (20000ns max)
+	Interrupts: pin B routed to IRQ 44
+	Region 0: Memory at 200ea002000 (32-bit, non-prefetchable) [size=4K]
+	Kernel driver in use: ohci-pci
+	Kernel modules: ohci_pci
+
+01:04.1 USB controller [0c03]: Microsoft Corporation EHCI Controller 0 (Xenon) [1414:5805] (rev 01) (prog-if 20 [EHCI])
+	Subsystem: Microsoft Corporation EHCI Controller 0 (Xenon) [1414:5805]
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0 (20000ns max)
+	Interrupts: pin E routed to IRQ 48
+	Region 0: Memory at 200ea003000 (32-bit, non-prefetchable) [size=4K]
+	Capabilities: [50] Power Management version 2
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=375mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 NoSoftRst- PME-Enable- DSel=0 DScale=0 PME-
+	Kernel driver in use: ehci-pci
+	Kernel modules: ehci_pci
+
+01:05.0 USB controller [0c03]: Microsoft Corporation OHCI Controller 1 (Xenon) [1414:5806] (rev 0f) (prog-if 10 [OHCI])
+	Subsystem: Microsoft Corporation OHCI Controller 1 (Xenon) [1414:5806]
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV+ VGASnoop- ParErr+ Stepping- SERR+ FastB2B- DisINTx-
+	Status: Cap- 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0 (20000ns max)
+	Interrupts: pin B routed to IRQ 52
+	Region 0: Memory at 200ea004000 (32-bit, non-prefetchable) [size=4K]
+	Kernel driver in use: ohci-pci
+	Kernel modules: ohci_pci
+
+01:05.1 USB controller [0c03]: Microsoft Corporation EHCI Controller 1 (Xenon) [1414:5807] (rev 01) (prog-if 20 [EHCI])
+	Subsystem: Microsoft Corporation EHCI Controller 1 (Xenon) [1414:5807]
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0 (20000ns max)
+	Interrupts: pin E routed to IRQ 56
+	Region 0: Memory at 200ea005000 (32-bit, non-prefetchable) [size=4K]
+	Capabilities: [50] Power Management version 2
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=375mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 NoSoftRst- PME-Enable- DSel=0 DScale=0 PME-
+	Kernel driver in use: ehci-pci
+	Kernel modules: ehci_pci
+
+01:07.0 Ethernet controller [0200]: Microsoft Corporation Fast Ethernet Adapter (Xenon) [1414:580a] (rev 01)
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupts: pin B routed to IRQ 76
+	Region 0: Memory at 200ea001400 (32-bit, non-prefetchable) [size=128]
+	Capabilities: [40] Power Management version 2
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 NoSoftRst- PME-Enable- DSel=0 DScale=0 PME-
+	Kernel driver in use: sis190
+	Kernel modules: sis190
+
+01:08.0 FLASH memory [0501]: Microsoft Corporation Secure Flash Controller (Xenon) [1414:580b] (rev 01)
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap- 66MHz- UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupts: pin B routed to IRQ 24
+	Region 0: Memory at 200ea00c000 (32-bit, non-prefetchable) [size=1K]
+	Region 1: Memory at 200c8000000 (32-bit, non-prefetchable) [size=16M]
+	Kernel driver in use: xenon_nand
+	Kernel modules: xenon_nand
+
+01:09.0 Multimedia audio controller [0401]: Microsoft Corporation Device [1414:580c] (rev 01)
+	Subsystem: Silicon Integrated Systems [SiS] Device [1039:7501]
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap- 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx+
+	Latency: 0 (13000ns min, 2750ns max)
+	Interrupts: pin B routed to IRQ 68
+	Region 0: Memory at 200ea001600 (32-bit, non-prefetchable) [size=64]
+
+01:0a.0 Non-VGA unclassified device [0000]: Microsoft Corporation System Management Controller (Xenon) [1414:580d]
+	Control: I/O- Mem+ BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap- 66MHz- UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Interrupts: pin B routed to IRQ 20
+	Region 0: Memory at 200ea001000 (32-bit, non-prefetchable) [size=256]
+	Kernel driver in use: xenon_smc_core
+	Kernel modules: smc_core
+
+01:0f.0 Display controller [0380]: Microsoft Corporation Xenos GPU (Jasper) [1414:5831] (rev 11)
+	Control: I/O- Mem+ BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Interrupts: pin #255 routed to IRQ 88
+	Region 0: Memory at 200ec800000 (32-bit, non-prefetchable) [size=128K]
+	Expansion ROM at <ignored>
+	Capabilities: [50] Power Management version 2
+		Flags: PMEClk- DSI- D1+ D2+ AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 NoSoftRst- PME-Enable- DSel=0 DScale=0 PME-
+	Kernel driver in use: xenos
+	Kernel modules: xenos
+
+00000000-1fffffff : pci
+  00000000-1dffffff : System RAM
+d0000000-d1000000 : xenon-pci PCI ECAM
+20080000000-200ffffffff : pci
+  200c8000000-200c8ffffff : 0000:01:08.0
+  200ea001000-200ea0010ff : 0000:01:0a.0
+    200ea001000-200ea0010ff : xenon_smc_core
+  200ea001200-200ea00121f : 0000:01:01.0
+    200ea001200-200ea00121f : sata_xenon
+  200ea001220-200ea00122f : 0000:01:01.0
+    200ea001220-200ea00122f : sata_xenon
+  200ea001300-200ea00131f : 0000:01:02.0
+    200ea001300-200ea00131f : sata_xenon
+  200ea001320-200ea00132f : 0000:01:02.0
+    200ea001320-200ea00132f : sata_xenon
+  200ea001400-200ea00147f : 0000:01:07.0
+    200ea001400-200ea00147f : sis190
+  200ea001600-200ea00163f : 0000:01:09.0
+  200ea001800-200ea001bff : 0000:01:00.0
+  200ea002000-200ea002fff : 0000:01:04.0
+    200ea002000-200ea002fff : ohci_hcd
+  200ea003000-200ea003fff : 0000:01:04.1
+    200ea003000-200ea003fff : ehci_hcd
+  200ea004000-200ea004fff : 0000:01:05.0
+    200ea004000-200ea004fff : ohci_hcd
+  200ea005000-200ea005fff : 0000:01:05.1
+    200ea005000-200ea005fff : ehci_hcd
+  200ea00c000-200ea00c3ff : 0000:01:08.0
+  200ec800000-200ec81ffff : 0000:01:0f.0
+    200ec800000-200ec81ffff : xenos
+           CPU0       CPU1       CPU2       CPU3       CPU4       CPU5       
+ 16:          0          0          0          0          0          0  XENON-PIC    8 Edge      ipi tick-broadcast
+ 17:       2993       2661       2053       1378       2401       2436  XENON-PIC   16 Edge      ipi reschedule
+ 20:         14          0          0          0          0          0  XENON-PIC   20 Edge      xenon-smc
+ 32:     110498          0          0          0          0          0  XENON-PIC   32 Edge      sata_xenon[0000:01:02.0]
+ 36:       7792          0          0          0          0          0  XENON-PIC   36 Edge      sata_xenon[0000:01:01.0]
+ 44:         44          0          0          0          0          0  XENON-PIC   44 Edge      ohci_hcd:usb3
+ 48:      18054          0          0          0          0          0  XENON-PIC   48 Edge      ehci_hcd:usb2
+ 52:        976          0          0          0          0          0  XENON-PIC   52 Edge      ohci_hcd:usb4
+ 56:        178          0          0          0          0          0  XENON-PIC   56 Edge      ehci_hcd:usb1
+ 76:     849024          0          0          0          0          0  XENON-PIC   76 Edge      enp1s7
+112:      36399      57929      46770      63581      42252      41598  XENON-PIC  112 Edge      ipi call function
+120:          0          0          0          0          0          0  XENON-PIC  120 Edge      nmi ipi
+LOC:     896462     896479     896472     896457     896476     896453  Local timer interrupts for timer event device
+BCT:          0          0          0          0          0          0  Broadcast timer interrupts for timer event device
+LOC:          0          0          0          0          1          0  Local timer interrupts for others
+SPU:          2          0          2          0          0          0  Spurious interrupts
+PMI:          0          0          0          0          0          0  Performance monitoring interrupts
+MCE:          0          0          0          0          0          0  Machine check exceptions
+NMI:          0          0          0          0          0          0  System Reset interrupts

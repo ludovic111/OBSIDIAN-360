@@ -1,0 +1,8 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/probe/candidate'
+  MODPOST Module.symvers
+  CC [M]  leds-xenon.mod.o
+  CC [M]  .module-common.o
+  LD [M]  leds-xenon.ko
+make[1]: Leaving directory '/probe/candidate'
+make: Leaving directory '/src'

@@ -1,0 +1,8 @@
+Thu Oct  1 20:30:48 UTC 2026
+ 22:30:48 up 22 min,  2 users,  load average: 0.25, 0.15, 0.18
+[    0.442187] [drm] Initialized xenos 1.0.0 for 0000:01:0f.0 on minor 0
+[    0.461271] xenos 0000:01:0f.0: [drm] Using 1280x720 (384000) fb
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+
+0 loaded units listed.
+446 python3 /usr/local/lib/xbox-desktop/xbox_desktop.py

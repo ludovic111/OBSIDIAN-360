@@ -1,0 +1,26 @@
+Name            : linux-xenon
+Version         : 6.18.11-1
+Description     : The Linux (powerpc64 / Microsoft Xbox 360) kernel and modules
+Architecture    : any
+URL             : https://kernel.org
+Licenses        : GPL2
+Groups          : None
+Provides        : KSMBD-MODULE  VIRTUALBOX-GUEST-MODULES  WIREGUARD-MODULE
+Depends On      : coreutils  initramfs  kmod
+Optional Deps   : wireless-regdb: to set the correct wireless channels of your country [installed]
+                  linux-firmware: firmware images needed for some devices
+Required By     : None
+Optional For    : None
+Conflicts With  : None
+Replaces        : virtualbox-guest-modules-arch  wireguard-arch
+Installed Size  : 46.08 MiB
+Packager        : Alexander Baldeck <alex.bldck@gmail.com>
+Build Date      : Wed Feb 18 09:26:42 2026
+Install Date    : Tue Jun  2 11:05:25 2026
+Install Reason  : Explicitly installed
+Install Script  : No
+Validated By    : SHA-256 Sum  Signature
+
+Linux version 6.18.11-xenon (linux-xenon@archpower) (powerpc64-unknown-linux-gnu-gcc (GCC) 15.2.1 20260103, GNU ld (GNU Binutils) 2.45.1) #1 SMP Wed, 18 Feb 2026 08:26:42 +0000
+446 python3 /usr/local/lib/xbox-desktop/xbox_desktop.py
+-- No entries --

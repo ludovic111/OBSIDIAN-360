@@ -1,0 +1,75 @@
+
+/input/vmlinux-6.18.11-xenon:     file format elf64-powerpc
+
+
+Disassembly of section .head.text:
+
+Disassembly of section .text:
+
+c00000000062e908 <xenon_led_set>:
+c00000000062e908:	3c 4c 00 7c 	addis   r2,r12,124
+c00000000062e90c:	38 42 96 f8 	addi    r2,r2,-26888
+c00000000062e910:	fb a1 ff e8 	std     r29,-24(r1)
+c00000000062e914:	3f a2 00 34 	addis   r29,r2,52
+c00000000062e918:	39 20 00 00 	li      r9,0
+c00000000062e91c:	fb c1 ff f0 	std     r30,-16(r1)
+c00000000062e920:	3b bd 98 98 	addi    r29,r29,-26472
+c00000000062e924:	7c 08 02 a6 	mflr    r0
+c00000000062e928:	7c 7e 1b 78 	mr      r30,r3
+c00000000062e92c:	fb e1 ff f8 	std     r31,-8(r1)
+c00000000062e930:	7f a3 eb 78 	mr      r3,r29
+c00000000062e934:	f8 01 00 10 	std     r0,16(r1)
+c00000000062e938:	7c 9f 23 78 	mr      r31,r4
+c00000000062e93c:	f8 21 ff a1 	stdu    r1,-96(r1)
+c00000000062e940:	e9 4d 0a f0 	ld      r10,2800(r13)
+c00000000062e944:	f9 41 00 38 	std     r10,56(r1)
+c00000000062e948:	39 40 00 00 	li      r10,0
+c00000000062e94c:	f9 21 00 30 	std     r9,48(r1)
+c00000000062e950:	f9 21 00 28 	std     r9,40(r1)
+c00000000062e954:	48 50 1a f5 	bl      c000000000b30448 <_raw_spin_lock_irqsave+0x8>
+c00000000062e958:	60 00 00 00 	nop
+c00000000062e95c:	81 5e 01 d8 	lwz     r10,472(r30)
+c00000000062e960:	3d 02 00 45 	addis   r8,r2,69
+c00000000062e964:	39 20 00 01 	li      r9,1
+c00000000062e968:	7c 64 1b 78 	mr      r4,r3
+c00000000062e96c:	7d 29 50 30 	slw     r9,r9,r10
+c00000000062e970:	2c 3f 00 00 	cmpdi   r31,0
+c00000000062e974:	89 08 95 f0 	lbz     r8,-27152(r8)
+c00000000062e978:	7d 0a 48 78 	andc    r10,r8,r9
+c00000000062e97c:	41 82 00 08 	beq     c00000000062e984 <xenon_led_set+0x7c>
+c00000000062e980:	7d 2a 43 78 	or      r10,r9,r8
+c00000000062e984:	3d 22 00 45 	addis   r9,r2,69
+c00000000062e988:	99 41 00 2a 	stb     r10,42(r1)
+c00000000062e98c:	38 e0 00 00 	li      r7,0
+c00000000062e990:	39 00 99 01 	li      r8,-26367
+c00000000062e994:	99 49 95 f0 	stb     r10,-27152(r9)
+c00000000062e998:	7f a3 eb 78 	mr      r3,r29
+c00000000062e99c:	98 e1 00 37 	stb     r7,55(r1)
+c00000000062e9a0:	39 20 00 00 	li      r9,0
+c00000000062e9a4:	b1 01 00 28 	sth     r8,40(r1)
+c00000000062e9a8:	39 41 00 2b 	addi    r10,r1,43
+c00000000062e9ac:	91 21 00 33 	stw     r9,51(r1)
+c00000000062e9b0:	f9 2a 00 00 	std     r9,0(r10)
+c00000000062e9b4:	48 50 1c 95 	bl      c000000000b30648 <_raw_spin_unlock_irqrestore+0x8>
+c00000000062e9b8:	60 00 00 00 	nop
+c00000000062e9bc:	38 61 00 28 	addi    r3,r1,40
+c00000000062e9c0:	48 25 8f 29 	bl      c0000000008878e8 <xenon_smc_message_wait+0x8>
+c00000000062e9c4:	60 00 00 00 	nop
+c00000000062e9c8:	e9 41 00 38 	ld      r10,56(r1)
+c00000000062e9cc:	e9 2d 0a f0 	ld      r9,2800(r13)
+c00000000062e9d0:	7d 4a 4a 79 	xor.    r10,r10,r9
+c00000000062e9d4:	39 20 00 00 	li      r9,0
+c00000000062e9d8:	40 82 00 20 	bne     c00000000062e9f8 <xenon_led_set+0xf0>
+c00000000062e9dc:	38 21 00 60 	addi    r1,r1,96
+c00000000062e9e0:	e8 01 00 10 	ld      r0,16(r1)
+c00000000062e9e4:	eb a1 ff e8 	ld      r29,-24(r1)
+c00000000062e9e8:	eb c1 ff f0 	ld      r30,-16(r1)
+c00000000062e9ec:	7c 08 03 a6 	mtlr    r0
+c00000000062e9f0:	eb e1 ff f8 	ld      r31,-8(r1)
+c00000000062e9f4:	4e 80 00 20 	blr
+c00000000062e9f8:	48 4f 64 51 	bl      c000000000b24e48 <__stack_chk_fail+0x8>
+c00000000062e9fc:	60 00 00 00 	nop
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

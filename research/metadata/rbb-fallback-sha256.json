@@ -1,0 +1,10 @@
+{
+  "BadUpdatePayload/xke_update.bin": "88f456c0b0091d691b3723dea190b428b3002443c13b7171b0ae9dafc92b5402",
+  "BadUpdatePayload/BadUpdateExploit-3rdStage.bin": "8e3ab4a77ab60146e8ce3c7fec382574af0cc6dacb496577957de595b8839c63",
+  "BadUpdatePayload/BadUpdateExploit-2ndStage.bin": "852e45553d14a47ec1b7413c57f1e4cdd45b11d92bfdbf75ff1342c1943cf02f",
+  "BadUpdatePayload/BadUpdateExploit-Data.bin": "3be04877001617305ec9d1c34e03ecd117af4f7586441e49c6cc9347302e492d",
+  "BadUpdatePayload/BadUpdateExploit-4thStage.bin": "25a75b533b110973ea1b94967bf0dff1bbb82e621fa145f12b7862f1e13d3cc9",
+  "BadUpdatePayload/update_data.bin": "141604af68d4ccd24663ce7cad56ad1e2a9ed9467dbb629159ad4d2d6c837cb7",
+  "Content/0000000000000000/5841122D/000D0000/DD774F20C36263F22AFD0A8B6FD742AC9E400B0A58": "d9538189ecdc68dee20c9f5b291d83ae376182ef7ef01c0ef011b1802b909709",
+  "Content/0000000000000000/5841122D/00000001/DaTArrest_Xbox360BadUpdate": "bc140cde71af8281147458856b0142a766135efe6cf0fa630093d29ba77172e4"
+}

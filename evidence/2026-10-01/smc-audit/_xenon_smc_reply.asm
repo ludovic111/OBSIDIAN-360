@@ -1,0 +1,96 @@
+
+/input/vmlinux-6.18.11-xenon:     file format elf64-powerpc
+
+
+Disassembly of section .head.text:
+
+Disassembly of section .text:
+
+c000000000887a88 <_xenon_smc_reply>:
+c000000000887a88:	3c 4c 00 56 	addis   r2,r12,86
+c000000000887a8c:	38 42 05 78 	addi    r2,r2,1400
+c000000000887a90:	fb c1 ff f0 	std     r30,-16(r1)
+c000000000887a94:	3f c2 00 45 	addis   r30,r2,69
+c000000000887a98:	fb e1 ff f8 	std     r31,-8(r1)
+c000000000887a9c:	7c 08 02 a6 	mflr    r0
+c000000000887aa0:	3b de 10 68 	addi    r30,r30,4200
+c000000000887aa4:	f8 01 00 10 	std     r0,16(r1)
+c000000000887aa8:	7c 7f 1b 78 	mr      r31,r3
+c000000000887aac:	fb 81 ff e0 	std     r28,-32(r1)
+c000000000887ab0:	7f c3 f3 78 	mr      r3,r30
+c000000000887ab4:	fb a1 ff e8 	std     r29,-24(r1)
+c000000000887ab8:	f8 21 ff c1 	stdu    r1,-64(r1)
+c000000000887abc:	48 2a 89 8d 	bl      c000000000b30448 <_raw_spin_lock_irqsave+0x8>
+c000000000887ac0:	60 00 00 00 	nop
+c000000000887ac4:	3d 42 00 45 	addis   r10,r2,69
+c000000000887ac8:	7c 7c 1b 78 	mr      r28,r3
+c000000000887acc:	e9 2a 10 38 	ld      r9,4152(r10)
+c000000000887ad0:	39 29 00 94 	addi    r9,r9,148
+c000000000887ad4:	7c 00 04 ac 	hwsync
+c000000000887ad8:	7d 20 4c 2c 	lwbrx   r9,0,r9
+c000000000887adc:	0c 09 00 00 	twi     0,r9,0
+c000000000887ae0:	4c 00 01 2c 	isync
+c000000000887ae4:	71 29 00 04 	andi.   r9,r9,4
+c000000000887ae8:	41 82 00 a8 	beq     c000000000887b90 <_xenon_smc_reply+0x108>
+c000000000887aec:	e9 2a 10 38 	ld      r9,4152(r10)
+c000000000887af0:	39 40 00 04 	li      r10,4
+c000000000887af4:	39 29 00 94 	addi    r9,r9,148
+c000000000887af8:	7c 00 04 ac 	hwsync
+c000000000887afc:	7d 40 4d 2c 	stwbrx  r10,0,r9
+c000000000887b00:	a1 4d 0a f8 	lhz     r10,2808(r13)
+c000000000887b04:	55 48 04 3e 	clrlwi  r8,r10,16
+c000000000887b08:	2c 08 00 00 	cmpwi   r8,0
+c000000000887b0c:	41 82 00 08 	beq     c000000000887b14 <_xenon_smc_reply+0x8c>
+c000000000887b10:	b1 4d 0a fa 	sth     r10,2810(r13)
+c000000000887b14:	3f a2 00 45 	addis   r29,r2,69
+c000000000887b18:	7f e4 fb 78 	mr      r4,r31
+c000000000887b1c:	38 a0 00 04 	li      r5,4
+c000000000887b20:	e8 7d 10 38 	ld      r3,4152(r29)
+c000000000887b24:	38 63 00 90 	addi    r3,r3,144
+c000000000887b28:	4b 79 7e 29 	bl      c00000000001f950 <_insl>
+c000000000887b2c:	60 00 00 00 	nop
+c000000000887b30:	e9 3d 10 38 	ld      r9,4152(r29)
+c000000000887b34:	39 40 00 00 	li      r10,0
+c000000000887b38:	39 29 00 94 	addi    r9,r9,148
+c000000000887b3c:	7c 00 04 ac 	hwsync
+c000000000887b40:	7d 40 4d 2c 	stwbrx  r10,0,r9
+c000000000887b44:	a1 4d 0a f8 	lhz     r10,2808(r13)
+c000000000887b48:	55 48 04 3e 	clrlwi  r8,r10,16
+c000000000887b4c:	2c 08 00 00 	cmpwi   r8,0
+c000000000887b50:	41 82 00 08 	beq     c000000000887b58 <_xenon_smc_reply+0xd0>
+c000000000887b54:	b1 4d 0a fa 	sth     r10,2810(r13)
+c000000000887b58:	7f 84 e3 78 	mr      r4,r28
+c000000000887b5c:	7f c3 f3 78 	mr      r3,r30
+c000000000887b60:	3b a0 00 01 	li      r29,1
+c000000000887b64:	48 2a 8a e5 	bl      c000000000b30648 <_raw_spin_unlock_irqrestore+0x8>
+c000000000887b68:	60 00 00 00 	nop
+c000000000887b6c:	38 21 00 40 	addi    r1,r1,64
+c000000000887b70:	7b a3 07 e0 	clrldi  r3,r29,63
+c000000000887b74:	e8 01 00 10 	ld      r0,16(r1)
+c000000000887b78:	eb 81 ff e0 	ld      r28,-32(r1)
+c000000000887b7c:	eb a1 ff e8 	ld      r29,-24(r1)
+c000000000887b80:	7c 08 03 a6 	mtlr    r0
+c000000000887b84:	eb c1 ff f0 	ld      r30,-16(r1)
+c000000000887b88:	eb e1 ff f8 	ld      r31,-8(r1)
+c000000000887b8c:	4e 80 00 20 	blr
+c000000000887b90:	39 20 00 00 	li      r9,0
+c000000000887b94:	7f 84 e3 78 	mr      r4,r28
+c000000000887b98:	7f c3 f3 78 	mr      r3,r30
+c000000000887b9c:	f9 3f 00 00 	std     r9,0(r31)
+c000000000887ba0:	f9 3f 00 08 	std     r9,8(r31)
+c000000000887ba4:	3b a0 00 00 	li      r29,0
+c000000000887ba8:	48 2a 8a a1 	bl      c000000000b30648 <_raw_spin_unlock_irqrestore+0x8>
+c000000000887bac:	60 00 00 00 	nop
+c000000000887bb0:	38 21 00 40 	addi    r1,r1,64
+c000000000887bb4:	7b a3 07 e0 	clrldi  r3,r29,63
+c000000000887bb8:	e8 01 00 10 	ld      r0,16(r1)
+c000000000887bbc:	eb 81 ff e0 	ld      r28,-32(r1)
+c000000000887bc0:	eb a1 ff e8 	ld      r29,-24(r1)
+c000000000887bc4:	7c 08 03 a6 	mtlr    r0
+c000000000887bc8:	eb c1 ff f0 	ld      r30,-16(r1)
+c000000000887bcc:	eb e1 ff f8 	ld      r31,-8(r1)
+c000000000887bd0:	4e 80 00 20 	blr
+
+Disassembly of section .init.text:
+
+Disassembly of section .exit.text:

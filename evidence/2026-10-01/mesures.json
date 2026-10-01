@@ -1,0 +1,160 @@
+{
+  "type": "Relevés matériels et analyse de pilotes; rétro-ingénierie intégrale non achevée",
+  "date_locale": "2026-10-01 Europe/Zurich",
+  "pci": [
+    {
+      "adresse": "01:00.0",
+      "classe": "0000",
+      "fabricant": "1414",
+      "produit": "5801",
+      "description": "Microsoft Corporation XMA Decoder (Xenon)",
+      "pilote": "aucun indiqué"
+    },
+    {
+      "adresse": "01:01.0",
+      "classe": "0106",
+      "fabricant": "1414",
+      "produit": "5802",
+      "description": "Microsoft Corporation SATA Controller - CdRom (Xenon)",
+      "pilote": "sata_xenon"
+    },
+    {
+      "adresse": "01:02.0",
+      "classe": "0106",
+      "fabricant": "1414",
+      "produit": "5803",
+      "description": "Microsoft Corporation SATA Controller - Disk (Xenon)",
+      "pilote": "sata_xenon"
+    },
+    {
+      "adresse": "01:04.0",
+      "classe": "0c03",
+      "fabricant": "1414",
+      "produit": "5804",
+      "description": "Microsoft Corporation OHCI Controller 0 (Xenon)",
+      "pilote": "ohci-pci"
+    },
+    {
+      "adresse": "01:04.1",
+      "classe": "0c03",
+      "fabricant": "1414",
+      "produit": "5805",
+      "description": "Microsoft Corporation EHCI Controller 0 (Xenon)",
+      "pilote": "ehci-pci"
+    },
+    {
+      "adresse": "01:05.0",
+      "classe": "0c03",
+      "fabricant": "1414",
+      "produit": "5806",
+      "description": "Microsoft Corporation OHCI Controller 1 (Xenon)",
+      "pilote": "ohci-pci"
+    },
+    {
+      "adresse": "01:05.1",
+      "classe": "0c03",
+      "fabricant": "1414",
+      "produit": "5807",
+      "description": "Microsoft Corporation EHCI Controller 1 (Xenon)",
+      "pilote": "ehci-pci"
+    },
+    {
+      "adresse": "01:07.0",
+      "classe": "0200",
+      "fabricant": "1414",
+      "produit": "580a",
+      "description": "Microsoft Corporation Fast Ethernet Adapter (Xenon)",
+      "pilote": "sis190"
+    },
+    {
+      "adresse": "01:08.0",
+      "classe": "0501",
+      "fabricant": "1414",
+      "produit": "580b",
+      "description": "Microsoft Corporation Secure Flash Controller (Xenon)",
+      "pilote": "xenon_nand"
+    },
+    {
+      "adresse": "01:09.0",
+      "classe": "0401",
+      "fabricant": "1414",
+      "produit": "580c",
+      "description": "Microsoft Corporation Device",
+      "pilote": "aucun indiqué"
+    },
+    {
+      "adresse": "01:0a.0",
+      "classe": "0000",
+      "fabricant": "1414",
+      "produit": "580d",
+      "description": "Microsoft Corporation System Management Controller (Xenon)",
+      "pilote": "xenon_smc_core"
+    },
+    {
+      "adresse": "01:0f.0",
+      "classe": "0380",
+      "fabricant": "1414",
+      "produit": "5831",
+      "description": "Microsoft Corporation Xenos GPU (Jasper)",
+      "pilote": "xenos"
+    }
+  ],
+  "cpu": {
+    "threads_linux": 6,
+    "pvr": "00710500",
+    "clock_reported_mhz": 3200,
+    "timebase_hz": 50000000,
+    "kernel_arch": "ppc64",
+    "userspace_arch": "powerpc 32 bits",
+    "memtotal_kib": 469568,
+    "ram_linux_address_range": "0x00000000–0x1dffffff (480 MiB)"
+  },
+  "smc": {
+    "version_response_hex": "12410203000000000000000000000000",
+    "avpack_response_hex": "0f1f0000000000000000000000000000",
+    "temperatures_C": {
+      "CPU": 55.25,
+      "GPU": 49.21,
+      "EDRAM": 52.953,
+      "carte_mere": 28.0
+    },
+    "provenance": "Sortie SSH vérifiée; fichiers bruts restent à recopier de la console"
+  },
+  "video": {
+    "active": [
+      1280,
+      720
+    ],
+    "hz_reported": 60,
+    "raw_ana_bytes_acquired_on_console": 1024,
+    "ana_local_copy": false,
+    "display_registers_verified": {
+      "D1GRPH_PITCH": "0x500",
+      "D1GRPH_X_END": "0x500",
+      "D1GRPH_Y_END": "0x2d0",
+      "D1MODE_VIEWPORT_SIZE": "0x050002d0",
+      "D1SCL_SCALER_ENABLE": "0x0",
+      "D1GRPH_PRIMARY_SURFACE_ADDRESS": "0x04000000"
+    },
+    "warning": "Certains offsets de timing nommés dans les sources ont des valeurs incohérentes; ne pas les employer comme timings 1080p validés."
+  },
+  "nand": {
+    "controller": "1414:580b",
+    "linux_driver": "xenon_nand (probe-only stub)",
+    "mtd_enabled": false,
+    "mapped_window_bytes": 16777216,
+    "valid_dump_obtained": false,
+    "read_attempt_result": "Perte de SSH et de ping pendant lecture de BAR1 en mmap PROT_READ; cause matérielle exacte non établie. Utilisateur confirme que l’image est figée ; redémarrage manuel demandé.",
+    "writes_to_flash": false
+  },
+  "pending": [
+    "Rétablissement de la console après perte réseau",
+    "Copie locale des acquisitions ANA et SMC",
+    "Confirmation visuelle de la révision de carte mère",
+    "Dump NAND brut avec zones de réserve/ECC et vérifications",
+    "Analyse spécifique des bootloaders de cet exemplaire",
+    "Confirmation physique manette",
+    "Support 1080p et audio",
+    "Démarrage indépendant du système Xbox"
+  ]
+}

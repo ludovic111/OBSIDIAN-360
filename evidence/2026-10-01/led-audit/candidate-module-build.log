@@ -1,0 +1,11 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/probe/candidate'
+  CC [M]  leds-xenon.o
+  MODPOST Module.symvers
+make[1]: Leaving directory '/probe/candidate'
+make: Leaving directory '/src'
+ERROR: modpost: "xenon_smc_ready" [leds-xenon.ko] undefined!
+make[3]: *** [/src/scripts/Makefile.modpost:147: Module.symvers] Error 1
+make[2]: *** [/src/Makefile:1961: modpost] Error 2
+make[1]: *** [/src/Makefile:248: __sub-make] Error 2
+make: *** [Makefile:248: __sub-make] Error 2

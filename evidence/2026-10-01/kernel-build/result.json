@@ -1,0 +1,39 @@
+{
+  "target": "vmlinux",
+  "started_utc": "20261001T205402.551203Z",
+  "status": "succeeded",
+  "container": "obsidian360-kernel-build",
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "log": "build-20261001T205402.551203Z.log",
+  "jobs": 4,
+  "returncode": 0,
+  "finished_utc": "2026-10-01T21:00:03.066760+00:00",
+  "release": "6.18.11-xenon-obsidian1",
+  "artifacts": {
+    "vmlinux": {
+      "bytes": 23352392,
+      "sha256": "34da8563558009ef6473e56b6f44fccea31a9c080d7d6382af8b5ec5e0dd16df"
+    },
+    "System.map": {
+      "bytes": 2334383,
+      "sha256": "14ce49d49cd6ab8eb44d051bf9f009ee787623c8638333ba7804afab12572820"
+    },
+    ".config": {
+      "bytes": 108443,
+      "sha256": "e9aa296780be69de6e76e39d3fc3036aa84666d545e6572c3a63d6a506c5f4c6"
+    }
+  },
+  "patches": {
+    "0001-xenos-pad-tiled-framebuffer.patch": "4ec86b7195f2055e6ea947181abb86edc77160370f4c714e6bf4b3abee48843c",
+    "0004-xenon-bound-smc-reply-cache.patch": "16a54127f135251b606291889c8c30c7c0b7485cb1c1f889656e2347c23fb9d0",
+    "0003-xenon-preserve-ipi-target-mask.patch": "7a0e22ee397cac76327d95190db59379df9b5d94a25b3f8869c639200370a01d"
+  },
+  "source_commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "source_archive_sha256": "b3e0b3a92523f334e594e07b57da58e459b4d21630ec1366aba48297da9282f0",
+  "elf64_big_endian_powerpc": true,
+  "deployed": false,
+  "boot_tested": false,
+  "warnings": [
+    "leds-xenon.c:147: ret may be uninitialized on success path"
+  ]
+}

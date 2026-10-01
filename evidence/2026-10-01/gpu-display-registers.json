@@ -1,0 +1,62 @@
+{
+  "D1CRTC_H_TOTAL": {
+    "offset": "0x6000",
+    "value": "0x671"
+  },
+  "D1CRTC_H_BLANK_START_END": {
+    "offset": "0x6004",
+    "value": "0x1030603"
+  },
+  "D1CRTC_V_TOTAL": {
+    "offset": "0x6020",
+    "value": "0x0"
+  },
+  "D1CRTC_V_BLANK_START_END": {
+    "offset": "0x6024",
+    "value": "0xae368ae"
+  },
+  "D1GRPH_ENABLE": {
+    "offset": "0x6100",
+    "value": "0x1"
+  },
+  "D1GRPH_CONTROL": {
+    "offset": "0x6104",
+    "value": "0x2"
+  },
+  "D1GRPH_PRIMARY_SURFACE_ADDRESS": {
+    "offset": "0x6110",
+    "value": "0x4000000"
+  },
+  "D1GRPH_PITCH": {
+    "offset": "0x6120",
+    "value": "0x500"
+  },
+  "D1GRPH_X_END": {
+    "offset": "0x6134",
+    "value": "0x500"
+  },
+  "D1GRPH_Y_END": {
+    "offset": "0x6138",
+    "value": "0x2d0"
+  },
+  "D1MODE_DATA_FORMAT": {
+    "offset": "0x6528",
+    "value": "0x0"
+  },
+  "D1MODE_DESKTOP_HEIGHT": {
+    "offset": "0x652c",
+    "value": "0x300"
+  },
+  "D1MODE_VIEWPORT_START": {
+    "offset": "0x6580",
+    "value": "0x0"
+  },
+  "D1MODE_VIEWPORT_SIZE": {
+    "offset": "0x6584",
+    "value": "0x50002d0"
+  },
+  "D1SCL_SCALER_ENABLE": {
+    "offset": "0x6590",
+    "value": "0x0"
+  }
+}

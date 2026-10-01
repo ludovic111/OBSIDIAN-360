@@ -1,0 +1,12 @@
+uid=0(root) gid=0(root) groups=0(root)
+/etc/pacman.d/gnupg/
+ls: cannot access '/etc/pacman.d/gnupg/pubring.gpg': No such file or directory
+drwxr-xr-x 2 root root  200 Oct  1 22:25 /etc/pacman.d/gnupg
+-rw------- 1 root root 1200 Oct  1 22:25 /etc/pacman.d/gnupg/trustdb.gpg
+rw,noatime
+[   42.434831] xenon IIC: connect irq 0x4C
+[   46.142042] Adding 2097088k swap on /dev/sda2.  Priority:-2 extents:1 across:2097088k 
+[   52.612354] sis190 0000:01:07.0 enp1s7: mii ext = 0000
+[   52.632304] sis190 0000:01:07.0 enp1s7: mii lpa=c1e1 adv=01e1 exp=000f
+[   52.632487] sis190 0000:01:07.0 enp1s7: link on 100 Mbps Full Duplex mode
+[  233.705806] systemd-journald[231]: Under memory pressure, flushing caches.

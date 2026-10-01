@@ -1,0 +1,11 @@
+2026-10-01T22:13:02+02:00
+ 22:13:02 up 5 min,  2 users,  load average: 0.93, 0.68, 0.32
+/dev/sda1 ext4
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+
+0 loaded units listed.
+436 dbus-run-session -- icewm-session
+441 icewm-session
+442 icewm --notify
+446 python3 /usr/local/lib/xbox-desktop/xbox_desktop.py
+{"device_open": true, "events": 4557, "last_event": {"type": 2, "number": 0, "value": -946}}Oct 01 21:58:25 xbox-linux systemd-modules-load[233]: Failed to find module 'pkcs8_key_parser'

@@ -1,0 +1,12 @@
+{
+  "smc_version": {
+    "command": "0x12",
+    "reply_hex": "12410203000000000000000000000000",
+    "matching_reply": true
+  },
+  "av_pack": {
+    "command": "0xf",
+    "reply_hex": "0f1f0000000000000000000000000000",
+    "matching_reply": true
+  }
+}

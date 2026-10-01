@@ -1,0 +1,10 @@
+# Licences et provenance
+
+La licence MIT à la racine couvre les outils, tests et textes originaux du projet. Elle ne remplace pas les licences des sources amont, extraits, diffs et sorties dérivées.
+
+- Les correctifs Linux 0001, 0003–0007 ciblent `techflashYT/linux-custom@a293dd19311668900eb1eeb2f6cb01dcac54f330`. Leurs parties dérivées du noyau restent sous GPL-2.0 ; texte dans `LICENSES/GPL-2.0.txt`. Les désassemblages conservés comme preuves proviennent de ce noyau, pas de jeux propriétaires.
+- Les fonctions vidéo analysées viennent de Free60Project/libxenon au commit `a333adef440f28b436a667be0a4f014afce6349d`. Le code complet n'est pas embarqué ; le banc l'extrait de la copie amont locale. Notice BSD conservée dans `LICENSES/libxenon-BSD.txt`.
+- Le correctif expérimental XeLL 0002 et les copies d'initramfs tierces restent hors de l'export public initial en attendant la vérification complète de leur provenance et de leur licence. Leur analyse reste documentée ; aucun firmware n'est distribué.
+- Les outils peuvent analyser des fichiers fournis localement par l'opérateur. Cela ne donne aucun droit de redistribuer ces fichiers. Jeux, assets, exécutables propriétaires, images de disque, secrets et firmware restent hors de Git.
+
+Les auteurs amont conservent leurs droits. Les liens vers leurs dépôts et les révisions exactes sont dans `docs/SOURCES.md` et les rapports de provenance. Aucun composant amont n'est présenté comme une découverte ou une création originale d'OBSIDIAN-360.

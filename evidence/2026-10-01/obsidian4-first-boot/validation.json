@@ -1,0 +1,45 @@
+{
+  "captured_utc": "2026-10-01T21:45:48.247252+00:00",
+  "checks": {
+    "kernel": {
+      "code": 0,
+      "stdout": "6.18.11-xenon-obsidian4\n",
+      "stderr": ""
+    },
+    "root": {
+      "code": 0,
+      "stdout": "/dev/sda1 ext4\n",
+      "stderr": ""
+    },
+    "desktop": {
+      "code": 0,
+      "stdout": "422 /usr/lib/Xorg -nolisten tcp :0 vt1 -keeptty -auth /tmp/serverauth.UrWoTs4VYt\n431 icewm-session\n432 icewm --notify\n",
+      "stderr": ""
+    },
+    "graphics_log": {
+      "code": 0,
+      "stdout": "[    0.438871] xenos 0000:01:0f.0: vgaarb: pci_notify\n[    0.438967] xenos 0000:01:0f.0: runtime IRQ mapping not provided by arch\n[    0.440234] [drm] Initialized xenos 1.0.0 for 0000:01:0f.0 on minor 0\n[    0.459824] xenos 0000:01:0f.0: [drm] Using 1280x720 (398000) fb\n[    0.550607] xenos 0000:01:0f.0: [drm] fb0: xenosdrmfb frame buffer device\n[    0.563009] xenos 0000:01:0f.0: vgaarb: pci_notify\n[   21.691013] systemd[1]: Load Kernel Module drm skipped, unmet condition check ConditionKernelModuleLoaded=!drm\n",
+      "stderr": ""
+    },
+    "warnings": {
+      "code": 0,
+      "stdout": "[    0.000000] ioremap() called early from udbg_init_xenon_virtual+0x24/0x68. Use early_ioremap() instead\n[    0.273643] xenon_early_init\n[    2.927511] xenon_rtc_probe((____ptrval____)) = (____ptrval____)\n[    2.935943] xenon_rtc_init() = 0\n[    2.945782] xenon_hwmon_init() = 0\n[    3.153598] Warning: Unable to mark rodata read only on this CPU.\n[   28.365656] sis190 0000:01:07.0 enp1s7: auto-negotiating...\n",
+      "stderr": ""
+    },
+    "input_devices": {
+      "code": 0,
+      "stdout": "I: Bus=0003 Vendor=045e Product=02a1 Version=0207\nN: Name=\"Xbox 360 Wireless Receiver (XBOX)\"\nP: Phys=usb-0000:01:05.0-5/input0\nS: Sysfs=/devices/platform/xenon-pci/pci0000:01/0000:01:05.0/usb4/4-5/4-5:1.0/input/input0\nU: Uniq=\nH: Handlers=js0 event0 \nB: PROP=0\nB: EV=20000b\nB: KEY=f 0 0 0 0 0 0 0 7cdb0000 0 0 0 0 0 0 0 0 0\nB: ABS=3003f\nB: FF=1 7030000 0 0\n\n",
+      "stderr": ""
+    },
+    "udev": {
+      "code": 0,
+      "stdout": "active\n",
+      "stderr": ""
+    },
+    "display": {
+      "code": 0,
+      "stdout": "Screen 0: minimum 320 x 200, current 1280 x 720, maximum 4096 x 4096\nNone-1 connected primary 1280x720+0+0 (normal left inverted right x axis y axis) 0mm x 0mm\n   1280x720      60.00*+\n",
+      "stderr": ""
+    }
+  }
+}

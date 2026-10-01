@@ -1,0 +1,15 @@
+a51fb462247102de87b49f3047bb7b96dc8c8c40a5a488cc98ad8f2a919d95aa  /usr/lib/modules/6.18.11-xenon/build/vmlinux
+6e67b74e4e568c03c18874ccb222905ab13b003d16cac3eb7b85c196363e0f90  /usr/lib/modules/6.18.11-xenon/build/System.map
+e7d0659d44fe202c3937e70731e48712beb53d821df0e7964e6fb48ce9e0f1bf  /usr/lib/modules/6.18.11-xenon/build/.config
+65536
+c000000000104ba8 t __dma_alloc_pages
+c000000000105208 T dma_alloc_attrs
+c000000000105788 T dma_direct_alloc
+c000000000105bd8 T dma_direct_alloc_pages
+c000000000746188 t xenos_pci_remove
+c0000000007461b8 t xenos_disable
+c000000000746230 t xenos_enable
+c0000000007463b0 t xenos_connector_helper_get_modes
+c0000000007463e8 t xenos_pci_probe
+c0000000007466a0 t xenos_update
+c000000001032360 t xenos_pci_driver_init

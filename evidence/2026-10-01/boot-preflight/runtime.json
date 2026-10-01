@@ -1,0 +1,41 @@
+{
+  "observed_utc": "2026-10-01T21:21:44.112852+00:00",
+  "uname": {
+    "returncode": 0,
+    "stdout": "6.18.11-xenon\n",
+    "stderr": ""
+  },
+  "uptime": {
+    "returncode": 0,
+    "stdout": " 23:21:44 up  1:13,  2 users,  load average: 0.26, 0.11, 0.04\n",
+    "stderr": ""
+  },
+  "root": {
+    "returncode": 0,
+    "stdout": "/dev/sda1 ext4 /\n",
+    "stderr": ""
+  },
+  "failed_units": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "mkinitcpio_help": {
+    "returncode": 0,
+    "stdout": "mkinitcpio 40\nusage: mkinitcpio [options]\n\n  Options:\n   -A, --addhooks <hooks>       Add specified hooks, comma separated, to image\n   -c, --config <config>        Use alternate config file. (default: /etc/mkinitcpio.conf)\n   -g, --generate <path>        Generate cpio image and write to specified path\n   -H, --hookhelp <hookname>    Display help for given hook and exit\n   -h, --help                   Display this message and exit\n   -k, --kernel <kernelver>     Use specified kernel version (default: 6.18.11-xenon)\n   -L, --listhooks              List all available hooks\n   -M, --automods               Display modules found via autodetection\n   -n, --nocolor                Disable colorized output messages\n       --nopost                 Disable post hooks\n   -p, --preset <file>          Build specified preset from /etc/mkinitcpio.d\n   -P, --allpresets             Process all preset files in /etc/mkinitcpio.d\n   -R, --remove                 Remove specified preset images\n                                This option can only be used with either '-p|--presets' or '-P|--allpresets'\n   -r, --moduleroot <dir>       Root directory for modules (default: /)\n   -S, --skiphooks <hooks>      Skip specified hooks, comma-separated, during build\n   -s, --save                   Save build directory. (default: no)\n   -d, --generatedir <dir>      Write generated image into <dir>\n   -t, --builddir <dir>         Use DIR as the temporary build directory\n   -D, --hookdir <dir>          Specify where to look for hooks\n   -U, --uki <path>             Build a unified kernel image\n   -V, --version                Display version information and exit\n   -v, --verbose                Verbose output (default: no)\n   -z, --compress <program>     Use an alternate compressor on the image (cat, xz, lz4, zstd)\n\n  Options for unified kernel image (-U, --uki):\n   --cmdline <path>             Set kernel command line from file\n                                (default: /etc/kernel/cmdline or /proc/cmdline)\n   --no-cmdline                 Do not embed a kernel command line\n   --osrelease <path>           Include os-release (default: /etc/os-release)\n   --splash <path>              Include bitmap splash\n   --kernelimage <path>         Kernel image\n   --uefistub <path>            Location of UEFI stub loader\n   --ukiconfig <path>           Location of configuration file for UKIs, used for signing, etc.\n\n",
+    "stderr": ""
+  },
+  "initramfs_info": {
+    "returncode": 0,
+    "stdout": "==> Image: /boot/initramfs-linux-xenon.img\n==> Created with mkinitcpio 40\n==> Kernel: 6.18.11-xenon\n==> Early CPIO: 10 KiB\n==> Size: 15.71 MiB\n==> Compressed with: zstd\n  -> Uncompressed size: 36.52 MiB (.430 ratio)\n  -> Estimated decompression time: 1.828s\n\n==> Included modules (43):\n  842_compress\t\t  hfs\t\t\t  netfs\n  842_decompress\t  hfsplus\t\t  nfsd\n  asn1_decoder\t\t  hid-a4tech\t\t  nls_ucs2_utils\n  autofs4\t\t  hid-cherry\t\t  ntfs3\n  blake2b_generic\t  hid-gyration\t\t  raid6_pq\n  btrfs\t\t\t  hid-nintendo\t\t  sha256\n  ccm\t\t\t  hid-wiimote\t\t  sha512\n  cifs\t\t\t  hmac\t\t\t  udf\n  cifs_md4\t\t  isofs\t\t\t  xfs\n  cmac\t\t\t  ksmbd\t\t\t  xor\n  crc-itu-t\t\t  libarc4\t\t  xxhash_generic\n  crc32c-cryptoapi\t  libsha512\t\t  zram\n  exfat\t\t\t  lz4_compress\t\t  zstd_compress\n  fuse\t\t\t  lz4hc_compress\n  gcm\t\t\t  nbd\n\n==> Included binaries (22):\n  blkid\t\t\t  fsck.minix\t\t  switch_root\n  busybox\t\t  fsck.xfs\t\t  systemd-mstack\n  e2fsck\t\t  kmod\t\t\t  systemd-tmpfiles\n  fsck\t\t\t  lowntfs-3g\t\t  udevadm\n  fsck.btrfs\t\t  mount\t\t\t  umount\n  fsck.cramfs\t\t  mount.nfs\t\t  xfs_repair\n  fsck.exfat\t\t  mount.nilfs2\n  fsck.fat\t\t  ntfs-3g\n\n==> Early hook run order:\n  udev\n\n==> Hook run order:\n  udev\n\n==> Cleanup hook run order:\n  udev\n\n",
+    "stderr": "tput: No value for $TERM and no -T specified\n"
+  },
+  "hashes": {
+    "returncode": 0,
+    "stdout": "5f906be9d2852690530f2b0c5ab3a3f48240c27c2caaad6b6aaae9b368f21b66  /boot/kboot.conf\na499ab2816bd5a94843442b0a8b89d18af4c1f98f4f264a83b0da5940c8bed66  /boot/vmlinuz-linux-xenon\n85bac23a4451de74345b218e8d74b33a10f8e325837a1cd76ba83807a8741d5a  /boot/initramfs-linux-xenon.img\n",
+    "stderr": ""
+  },
+  "/boot/kboot.conf": "timeout=10\ndefault=linux_hdd\nlinux_hdd=\"uda0:/linux-hdd/vmlinuz-linux-xenon root=UUID=e9584d6f-d7ed-40ba-80a2-6834f8d91f31 initrd=uda0:/linux-hdd/initramfs-linux-xenon.img coherent_pool=16M rw\"\n# Linux live USB - Xbox 360 Xenon. No disk installer is launched by this configuration.\n# FAT32 volume label must be ARCH.\n\nlinux_usb_uda1=\"uda1:/arch/boot/ppc/vmlinuz-linux-xenon arch=ppc archisobasedir=arch archisolabel=ARCH initrd=uda1:/arch/boot/ppc/initramfs-linux-xenon.img coherent_pool=16M read-only\"\nlinux_usb_uda0=\"uda0:/arch/boot/ppc/vmlinuz-linux-xenon arch=ppc archisobasedir=arch archisolabel=ARCH initrd=uda0:/arch/boot/ppc/initramfs-linux-xenon.img coherent_pool=16M read-only\"\nlinux_usb_uda=\"uda:/arch/boot/ppc/vmlinuz-linux-xenon arch=ppc archisobasedir=arch archisolabel=ARCH initrd=uda:/arch/boot/ppc/initramfs-linux-xenon.img coherent_pool=16M read-only\"\n",
+  "/etc/mkinitcpio.conf": "MODULES=()\nBINARIES=()\nFILES=()\nHOOKS=(base udev modconf block filesystems keyboard fsck)\nCOMPRESSION=\"zstd\"\nCOMPRESSION_OPTIONS=(-1 -T1)\n",
+  "/proc/cmdline": "root=UUID=e9584d6f-d7ed-40ba-80a2-6834f8d91f31 coherent_pool=16M rw\n"
+}

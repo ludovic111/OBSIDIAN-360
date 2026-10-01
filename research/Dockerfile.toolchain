@@ -1,0 +1,9 @@
+# Analysis/build tools are isolated from macOS and the running Xbox.
+# Record the resolved base digest and installed package versions with each build.
+FROM debian:bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    binutils-multiarch llvm clang lld \
+    gcc make bc bison flex libssl-dev libelf-dev \
+    python3 git ca-certificates xz-utils cpio pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /workspace

@@ -1,0 +1,65 @@
+{
+  "libxenon": {
+    "repository": "https://github.com/Free60Project/libxenon",
+    "commit": "a333adef440f28b436a667be0a4f014afce6349d",
+    "files": {
+      "libxenon/drivers/xenos/xenos.c": {
+        "sha256": "8568baa0ec5e9ab92c26b8987cd3fdcc5a14558cafda91c42c7f6c9006b42263",
+        "url": "https://github.com/Free60Project/libxenon/blob/a333adef440f28b436a667be0a4f014afce6349d/libxenon/drivers/xenos/xenos.c"
+      },
+      "libxenon/drivers/xenos/xenos_videomodesdata.h": {
+        "sha256": "9da1e8e5cc72e145d3cb8f815dad8bd75caa35d24cd62d19ee67538ba05f0123",
+        "url": "https://github.com/Free60Project/libxenon/blob/a333adef440f28b436a667be0a4f014afce6349d/libxenon/drivers/xenos/xenos_videomodesdata.h"
+      },
+      "libxenon/drivers/xenos/xenos_videomodes.h": {
+        "sha256": "472ab62efa1f2b9da00e20c7185b0a4470d3728e6c7e15c464a4da9edebfc850",
+        "url": "https://github.com/Free60Project/libxenon/blob/a333adef440f28b436a667be0a4f014afce6349d/libxenon/drivers/xenos/xenos_videomodes.h"
+      },
+      "libxenon/drivers/xenon_nand/xenon_sfcx.c": {
+        "sha256": "01bd793cd74feb7f38510de2e87203c9ea6a2eacb57565dc1d41f6ce5979c992",
+        "url": "https://github.com/Free60Project/libxenon/blob/a333adef440f28b436a667be0a4f014afce6349d/libxenon/drivers/xenon_nand/xenon_sfcx.c"
+      }
+    }
+  },
+  "xell-reloaded": {
+    "repository": "https://github.com/Free60Project/xell-reloaded",
+    "commit": "a36ed6b7dae940e47e472a20fd14b0616ddc8cef",
+    "files": {
+      "source/lv2/httpd/httpd_flash.c": {
+        "sha256": "03842d9e4d2853c638787aa8fe454b6f40342863edac94adad5b6471008012b1",
+        "url": "https://github.com/Free60Project/xell-reloaded/blob/a36ed6b7dae940e47e472a20fd14b0616ddc8cef/source/lv2/httpd/httpd_flash.c"
+      }
+    }
+  },
+  "linux-kernel-xbox360": {
+    "repository": "https://github.com/Free60Project/linux-kernel-xbox360",
+    "commit": "498bbe1910f707ceba0535276d75a3e6ad0b7df4",
+    "files": {
+      "patch-6.18-xenon0.30.diff": {
+        "sha256": "d5d79cd502f859311dd2f2b834b57a489fead1e8e622deb55c6a70f79df604ad",
+        "url": "https://github.com/Free60Project/linux-kernel-xbox360/blob/498bbe1910f707ceba0535276d75a3e6ad0b7df4/patch-6.18-xenon0.30.diff"
+      },
+      "xenon-6.18.defconfig": {
+        "sha256": "bfc977dc361ba68aeef856bb96faf050f5c3d174c9a2bddfc5637052e1e66572",
+        "url": "https://github.com/Free60Project/linux-kernel-xbox360/blob/498bbe1910f707ceba0535276d75a3e6ad0b7df4/xenon-6.18.defconfig"
+      }
+    }
+  },
+  "linux-api-headers": {
+    "tag": "v6.18",
+    "files": {
+      "timer.h": {
+        "sha256": "7b819326e4d7f782a0896088c1696f5dd5b3942fbe33b6ffec54e2e65842e3e1",
+        "url": "https://github.com/torvalds/linux/blob/v6.18/include/linux/timer.h"
+      },
+      "dma-mapping.h": {
+        "sha256": "55be82715eae2704a8e88bfd16e1b6efb0693e517025c5355f11feec81a3d667",
+        "url": "https://github.com/torvalds/linux/blob/v6.18/include/linux/dma-mapping.h"
+      },
+      "pci.h": {
+        "sha256": "1797970ab2d2f3fd19fdd64f8b70319b5ffde98368c94b5defec0b4c16fe2b76",
+        "url": "https://github.com/torvalds/linux/blob/v6.18/include/linux/pci.h"
+      }
+    }
+  }
+}
