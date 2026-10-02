@@ -1,0 +1,83 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/build'
+  GEN     Makefile
+#
+# No change to .config
+#
+  GEN     Makefile
+  UPD     include/config/kernel.release
+  UPD     include/generated/compile.h
+  UPD     include/generated/utsrelease.h
+  CALL    /src/scripts/checksyscalls.sh
+  CC      init/version.o
+  AR      init/built-in.a
+  CC      kernel/sys.o
+  CC      kernel/module/main.o
+  AR      kernel/module/built-in.a
+  AR      kernel/built-in.a
+  CC      drivers/base/firmware_loader/main.o
+  AR      drivers/base/firmware_loader/built-in.a
+  AR      drivers/base/built-in.a
+  AR      drivers/built-in.a
+  AR      built-in.a
+  AR      vmlinux.a
+  LD      vmlinux.o
+  GEN     .vmlinux.objs
+  MODPOST vmlinux.symvers
+  UPD     include/generated/utsversion.h
+  CC      init/version-timestamp.o
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD      .tmp_vmlinux1
+  NM      .tmp_vmlinux1.syms
+  KSYMS   .tmp_vmlinux1.kallsyms.S
+  AS      .tmp_vmlinux1.kallsyms.o
+  LD      .tmp_vmlinux2
+  NM      .tmp_vmlinux2.syms
+  KSYMS   .tmp_vmlinux2.kallsyms.S
+  AS      .tmp_vmlinux2.kallsyms.o
+  LD      vmlinux.unstripped
+  NM      System.map
+  SORTTAB vmlinux.unstripped
+make[5]: Nothing to be done for 'vmlinux.unstripped'.
+  OBJCOPY vmlinux
+  GEN     modules.builtin.modinfo
+  GEN     modules.builtin
+  GEN     Makefile
+  CALL    /src/scripts/checksyscalls.sh
+  CC [M]  sound/pci/snd-xenon.o
+In file included from /src/sound/pci/snd-xenon.c:45:
+In file included from /src/sound/pci/xenon-pcm-queue.c:2:
+/src/sound/pci/xenon-pcm-queue.h:55:67: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+int obs_audio_forward_delta(obs_audio_u64 previous, obs_audio_u64 current,
+                                                                  ^
+/src/arch/powerpc/include/asm/current.h:26:28: note: expanded from macro 'current'
+#define current get_current()
+                           ^
+In file included from /src/sound/pci/snd-xenon.c:45:
+/src/sound/pci/xenon-pcm-queue.c:123:67: error: a function declaration without a prototype is deprecated in all versions of C [-Werror,-Wstrict-prototypes]
+int obs_audio_forward_delta(obs_audio_u64 previous, obs_audio_u64 current,
+                                                                  ^
+/src/arch/powerpc/include/asm/current.h:26:28: note: expanded from macro 'current'
+#define current get_current()
+                           ^
+/src/sound/pci/snd-xenon.c:503:48: error: incompatible integer to pointer conversion passing 'snd_pcm_uframes_t' (aka 'unsigned long') to parameter of type 'obs_audio_u64 (*)()' (aka 'unsigned long long (*)()') [-Wint-conversion]
+        if (obs_audio_forward_delta(device->appl_ptr, runtime->control->appl_ptr,
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/src/sound/pci/xenon-pcm-queue.c:123:67: note: passing argument to parameter 'get_current' here
+int obs_audio_forward_delta(obs_audio_u64 previous, obs_audio_u64 current,
+                                                                  ^
+/src/arch/powerpc/include/asm/current.h:26:17: note: expanded from macro 'current'
+#define current get_current()
+                ^
+3 errors generated.
+make[6]: *** [/src/scripts/Makefile.build:287: sound/pci/snd-xenon.o] Error 1
+make[5]: *** [/src/scripts/Makefile.build:544: sound/pci] Error 2
+make[4]: *** [/src/scripts/Makefile.build:544: sound] Error 2
+make[4]: *** Waiting for unfinished jobs....
+make[3]: *** [/src/Makefile:2011: .] Error 2
+make[2]: *** [/src/Makefile:369: __build_one_by_one] Error 2
+make[1]: Leaving directory '/build'
+make[1]: *** [/src/Makefile:248: __sub-make] Error 2
+make: Leaving directory '/src'
+make: *** [Makefile:248: __sub-make] Error 2

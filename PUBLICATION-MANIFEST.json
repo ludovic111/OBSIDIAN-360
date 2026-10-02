@@ -1,6 +1,6 @@
 {
   "scope": "Reviewed public text snapshot; original local history is not included.",
-  "source_commit": "cce314a576b6993f07546db907f0851d36fe2fb2",
+  "source_commit": "e75a30a53525f450604209c0ada159781f5efdd7",
   "files": [
     {
       "path": ".gitattributes",
@@ -58,8 +58,8 @@
     },
     {
       "path": "README.md",
-      "source_sha256": "f00d60d5294bde3e66a5f428fd3b31ed568ab3ebb3c7c053b511c3e1d33cd500",
-      "public_sha256": "f00d60d5294bde3e66a5f428fd3b31ed568ab3ebb3c7c053b511c3e1d33cd500",
+      "source_sha256": "baa9a9f81464bd1eb94bb0fdbf7dcb2924c98001d04a506d7251887edf76c904",
+      "public_sha256": "baa9a9f81464bd1eb94bb0fdbf7dcb2924c98001d04a506d7251887edf76c904",
       "sanitized": false
     },
     {
@@ -96,6 +96,12 @@
       "path": "docs/ARCHITECTURE.md",
       "source_sha256": "c34b244ab3eca0c984fea74659d94a882b5d2d08f6130e99ed870a5bcc11846f",
       "public_sha256": "c34b244ab3eca0c984fea74659d94a882b5d2d08f6130e99ed870a5bcc11846f",
+      "sanitized": false
+    },
+    {
+      "path": "docs/AUDIO-ALSA-ADAPTER.md",
+      "source_sha256": "05723d9347df61541c3c1547664a18e03564ec00640e149fb1a9619c45afb861",
+      "public_sha256": "05723d9347df61541c3c1547664a18e03564ec00640e149fb1a9619c45afb861",
       "sanitized": false
     },
     {
@@ -172,14 +178,14 @@
     },
     {
       "path": "docs/EXPERIMENTS.md",
-      "source_sha256": "f16a8b4b57666c52eb34b7292df35a6731e0f40d89df61be764650608a6d2ad0",
-      "public_sha256": "f16a8b4b57666c52eb34b7292df35a6731e0f40d89df61be764650608a6d2ad0",
+      "source_sha256": "b8d81a2625ebf97a7f0414b57853b9675bd34eaf19e5b456872aa64d91dcc56c",
+      "public_sha256": "b8d81a2625ebf97a7f0414b57853b9675bd34eaf19e5b456872aa64d91dcc56c",
       "sanitized": false
     },
     {
       "path": "docs/JOURNAL.md",
-      "source_sha256": "b1ebdfa11e59186ebd160353286107bff86d9b204c58bf079b68d17f4e2278a3",
-      "public_sha256": "b1ebdfa11e59186ebd160353286107bff86d9b204c58bf079b68d17f4e2278a3",
+      "source_sha256": "2916df3605461e49084d77402b854a2d0200ad8d8322b586c38506d750e451fb",
+      "public_sha256": "2916df3605461e49084d77402b854a2d0200ad8d8322b586c38506d750e451fb",
       "sanitized": false
     },
     {
@@ -196,8 +202,8 @@
     },
     {
       "path": "docs/NEXT.md",
-      "source_sha256": "321957a8a58f4a4a9a3aeadd59176029877e6a819c21401fd2492ad447f07a18",
-      "public_sha256": "321957a8a58f4a4a9a3aeadd59176029877e6a819c21401fd2492ad447f07a18",
+      "source_sha256": "9c49cbeeca197f3e4e8d2b629fa842706f610b07611eb453b7ca751638ee4132",
+      "public_sha256": "9c49cbeeca197f3e4e8d2b629fa842706f610b07611eb453b7ca751638ee4132",
       "sanitized": false
     },
     {
@@ -238,8 +244,8 @@
     },
     {
       "path": "docs/PUBLICATION.md",
-      "source_sha256": "05c8db3a8a2b33c9780d9a61f8d9ecfe6ffac0aa20613640ee059f5e736457fb",
-      "public_sha256": "05c8db3a8a2b33c9780d9a61f8d9ecfe6ffac0aa20613640ee059f5e736457fb",
+      "source_sha256": "870cfde27129b28f867701b22dfe103672d7d32ddd9428b729e380e95c46354c",
+      "public_sha256": "870cfde27129b28f867701b22dfe103672d7d32ddd9428b729e380e95c46354c",
       "sanitized": false
     },
     {
@@ -274,8 +280,8 @@
     },
     {
       "path": "docs/STATE.md",
-      "source_sha256": "a03dfda3eeead0d7f985ccc7215c69865fab0c8c9de9de57ef08f216b7bc0153",
-      "public_sha256": "a03dfda3eeead0d7f985ccc7215c69865fab0c8c9de9de57ef08f216b7bc0153",
+      "source_sha256": "9781bc467c3672a934c52f8e279956089426616494a337caefe79f0033a75621",
+      "public_sha256": "9781bc467c3672a934c52f8e279956089426616494a337caefe79f0033a75621",
       "sanitized": false
     },
     {
@@ -993,6 +999,90 @@
       "sanitized": false
     },
     {
+      "path": "evidence/2026-10-02/audio-adapter/artifacts.json",
+      "source_sha256": "06b78ab9e5738b51071631525edd20381a2c6d8741916b44d6dd7b5efce40efb",
+      "public_sha256": "06b78ab9e5738b51071631525edd20381a2c6d8741916b44d6dd7b5efce40efb",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/build.json",
+      "source_sha256": "ceef4ea4d3961fc468145acd92fbdffc82f246c374bcb5958c2075ca0b3bd07c",
+      "public_sha256": "ceef4ea4d3961fc468145acd92fbdffc82f246c374bcb5958c2075ca0b3bd07c",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/build.log",
+      "source_sha256": "f0ce5038ac3d002e4ac4074b7582d812bf907edbfbbb780a5a7f9685ea976e20",
+      "public_sha256": "f0ce5038ac3d002e4ac4074b7582d812bf907edbfbbb780a5a7f9685ea976e20",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/console-status.json",
+      "source_sha256": "d2da3d70e61b3a7337b5b3a98cef739af0b6bf21fe150acb511b7da778bcd138",
+      "public_sha256": "d2da3d70e61b3a7337b5b3a98cef739af0b6bf21fe150acb511b7da778bcd138",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/first-attempt.json",
+      "source_sha256": "0f7838f39916828227e07433a99be2569ed64f425305aa86258b2e237f56d8c0",
+      "public_sha256": "0f7838f39916828227e07433a99be2569ed64f425305aa86258b2e237f56d8c0",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/first-build.json",
+      "source_sha256": "cffee5ab59eb44a2a6e1f18cb1531ccb232850c6d0b2d5f0c17d55ec70f9bf87",
+      "public_sha256": "cffee5ab59eb44a2a6e1f18cb1531ccb232850c6d0b2d5f0c17d55ec70f9bf87",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/first-build.log",
+      "source_sha256": "88793e74b21244cab9586e495f8b23a1722916ea19842de4fec92e43d5ce7a3a",
+      "public_sha256": "88793e74b21244cab9586e495f8b23a1722916ea19842de4fec92e43d5ce7a3a",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/lifecycle.json",
+      "source_sha256": "1d8f31fafb6683b9a3f13774d20292fbdae99f647bf7bc6f3cc43d439be1df52",
+      "public_sha256": "1d8f31fafb6683b9a3f13774d20292fbdae99f647bf7bc6f3cc43d439be1df52",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/method.json",
+      "source_sha256": "a6b2662f7f3fd7314ff99aacc57976c10de5302c9379a1d53550510ee2e230a4",
+      "public_sha256": "a6b2662f7f3fd7314ff99aacc57976c10de5302c9379a1d53550510ee2e230a4",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/patch-reconstruction.json",
+      "source_sha256": "2ea6c0e33844e63692799716529d129d017d1b8aadc5a651e5c726f751405c74",
+      "public_sha256": "2ea6c0e33844e63692799716529d129d017d1b8aadc5a651e5c726f751405c74",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/queue-regression.json",
+      "source_sha256": "f07664e17dd11c778bb6dd332b574bda168bdafce6f8326ef9b02678c3a6ea39",
+      "public_sha256": "f07664e17dd11c778bb6dd332b574bda168bdafce6f8326ef9b02678c3a6ea39",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/second-build.json",
+      "source_sha256": "d4c92297799ffce60be14903ee586669b274a7cc66e058d0f0811a33ba98f999",
+      "public_sha256": "d4c92297799ffce60be14903ee586669b274a7cc66e058d0f0811a33ba98f999",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/second-build.log",
+      "source_sha256": "e84d762a5522bfc1d889de7fab2257b4e0a573fc1cff2dfed1e48480e37d95d5",
+      "public_sha256": "e84d762a5522bfc1d889de7fab2257b4e0a573fc1cff2dfed1e48480e37d95d5",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-adapter/validation.json",
+      "source_sha256": "af03a99dbc7a60a8f91ab3860f38ec187f2687da6f36c6c8a9b421d7d7199587",
+      "public_sha256": "af03a99dbc7a60a8f91ab3860f38ec187f2687da6f36c6c8a9b421d7d7199587",
+      "sanitized": false
+    },
+    {
       "path": "evidence/2026-10-02/audio-buffers/method.json",
       "source_sha256": "938d5468885a38246fe6b7a04de4609469dc70646138dbc1912f6546a327b9af",
       "public_sha256": "938d5468885a38246fe6b7a04de4609469dc70646138dbc1912f6546a327b9af",
@@ -1431,6 +1521,12 @@
       "sanitized": false
     },
     {
+      "path": "evidence/2026-10-02/public-audit/queue-publication.json",
+      "source_sha256": "81a7e1d725ed390a23632283c2791966eed84b769a62843e8b11a6c705528577",
+      "public_sha256": "81a7e1d725ed390a23632283c2791966eed84b769a62843e8b11a6c705528577",
+      "sanitized": false
+    },
+    {
       "path": "evidence/2026-10-02/public-audit/resize-publication.json",
       "source_sha256": "7f684ffec5e80a73effba831a5f19a1c7e6afd310ec2ad38502b632e333acca8",
       "public_sha256": "7f684ffec5e80a73effba831a5f19a1c7e6afd310ec2ad38502b632e333acca8",
@@ -1600,20 +1696,20 @@
     },
     {
       "path": "research/audio/README.md",
-      "source_sha256": "8aba94df134395e244e15bec3f9e8bd0c6bab0289b3060bf4761520972a4e6da",
-      "public_sha256": "8aba94df134395e244e15bec3f9e8bd0c6bab0289b3060bf4761520972a4e6da",
+      "source_sha256": "743d066c3447bd3609895f7abbd6dcc8b3bc4ec5b57a2844a8b74cf30a8dc0bb",
+      "public_sha256": "743d066c3447bd3609895f7abbd6dcc8b3bc4ec5b57a2844a8b74cf30a8dc0bb",
       "sanitized": false
     },
     {
       "path": "research/audio/pcm_queue.c",
-      "source_sha256": "83223fdc6504a19edbc582127dab6b72ba6022716c3a48fd817210f662b36e19",
-      "public_sha256": "83223fdc6504a19edbc582127dab6b72ba6022716c3a48fd817210f662b36e19",
+      "source_sha256": "b944ac428738b1eaafd25e7e19dec9c058991573b0f0f7d186bb630750b4c730",
+      "public_sha256": "b944ac428738b1eaafd25e7e19dec9c058991573b0f0f7d186bb630750b4c730",
       "sanitized": false
     },
     {
       "path": "research/audio/pcm_queue.h",
-      "source_sha256": "1159015050653beff7f096e6e4c23ad9cba11a386828be73aec6ff92c5462447",
-      "public_sha256": "1159015050653beff7f096e6e4c23ad9cba11a386828be73aec6ff92c5462447",
+      "source_sha256": "0532feaaf9bb1a68fe7795405b65627275b6bfb9142f22be7132542702317e3c",
+      "public_sha256": "0532feaaf9bb1a68fe7795405b65627275b6bfb9142f22be7132542702317e3c",
       "sanitized": false
     },
     {
@@ -1695,6 +1791,12 @@
       "sanitized": false
     },
     {
+      "path": "research/patches/0013-xenon-audio-submission.patch",
+      "source_sha256": "86a677dc8841fcc8d3477bfd9c2f64f5a2df8c3155c8f78f62df498f350116b4",
+      "public_sha256": "86a677dc8841fcc8d3477bfd9c2f64f5a2df8c3155c8f78f62df498f350116b4",
+      "sanitized": false
+    },
+    {
       "path": "research/patches/README.md",
       "source_sha256": "36b0d4319e7b0bd69d928adb3cec3e9916315f806a5a7fa44344f6342cedebd5",
       "public_sha256": "36b0d4319e7b0bd69d928adb3cec3e9916315f806a5a7fa44344f6342cedebd5",
@@ -1702,8 +1804,8 @@
     },
     {
       "path": "research/tests/README.md",
-      "source_sha256": "da28ff6a27ea0740a8dba880c4f412b98094bb3da3b973c057ca994a4444e60f",
-      "public_sha256": "da28ff6a27ea0740a8dba880c4f412b98094bb3da3b973c057ca994a4444e60f",
+      "source_sha256": "0fdbcb793c96eafd9379cd2403b848ad0213bbc4598e3afacec6303ad0df51f3",
+      "public_sha256": "0fdbcb793c96eafd9379cd2403b848ad0213bbc4598e3afacec6303ad0df51f3",
       "sanitized": false
     },
     {
@@ -1725,6 +1827,12 @@
       "sanitized": false
     },
     {
+      "path": "research/tests/check-audio-adapter.py",
+      "source_sha256": "7d04fa5a2485aa00966f33bd745657c7fc732661dd3c3235ebdb7700c7adbb71",
+      "public_sha256": "7d04fa5a2485aa00966f33bd745657c7fc732661dd3c3235ebdb7700c7adbb71",
+      "sanitized": false
+    },
+    {
       "path": "research/tests/check-audio-buffers.py",
       "source_sha256": "ebb6dca6fde981d23eb4ca54d64c6b9719df2dc47988e9b6f6b3425b80465c4f",
       "public_sha256": "ebb6dca6fde981d23eb4ca54d64c6b9719df2dc47988e9b6f6b3425b80465c4f",
@@ -1732,8 +1840,8 @@
     },
     {
       "path": "research/tests/check-audio-lifecycle.py",
-      "source_sha256": "a568c39367e412a238cc2c6ba91d13c51fd6305f4cd2ffb5ead5b98b690ef0ca",
-      "public_sha256": "a568c39367e412a238cc2c6ba91d13c51fd6305f4cd2ffb5ead5b98b690ef0ca",
+      "source_sha256": "86931e62e33fa8f04423e960b877f69dcaf49097c9609b22727e67d1e3b6aa7e",
+      "public_sha256": "86931e62e33fa8f04423e960b877f69dcaf49097c9609b22727e67d1e3b6aa7e",
       "sanitized": false
     },
     {

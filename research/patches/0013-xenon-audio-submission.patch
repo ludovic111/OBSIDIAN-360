@@ -1,0 +1,606 @@
+--- a/sound/pci/snd-xenon.c
++++ b/sound/pci/snd-xenon.c
+@@ -41,6 +41,9 @@
+ #include <sound/pcm-indirect.h>
+ #include <sound/asoundef.h>
+ 
++/* Original accounting component; compiled in this translation unit. */
++#include "xenon-pcm-queue.c"
++
+ #define DESCRIPTOR_BUFFER_SIZE (32 * sizeof(u32) * 2)
+ #define XENON_POLL_NS 200000
+ #define XENON_BYTES_PER_SECOND (48000 * 2 * 2)
+@@ -69,6 +72,10 @@
+ 	unsigned int last_position;
+ 	unsigned int period_progress;
+ 	ktime_t last_poll;
++	ktime_t last_progress;
++	struct obs_audio_queue queue;
++	u64 appl_ptr;
++	bool dma_started;
+ 	struct snd_pcm_substream *playback_substream;
+ 
+ 	int state;
+@@ -79,7 +86,6 @@
+ 	int period_bytes;
+ 	int descr_bytes;
+ 	int gap;
+-	int wptr;
+ };
+ 
+ struct snd_xenon {
+@@ -127,10 +133,10 @@
+ 	struct snd_xenon *chip = device->chip;
+ 	struct snd_pcm_substream *substream;
+ 	unsigned long flags;
+-	unsigned int position, delta;
++	unsigned int position, delta, logical;
+ 	ktime_t now;
+ 	u64 ring_ns;
+-	s64 elapsed_ns;
++	s64 elapsed_ns, idle_ns;
+ 	bool notify = false, late = false;
+ 	enum hrtimer_restart restart = HRTIMER_NORESTART;
+ 
+@@ -145,22 +151,38 @@
+ 			  XENON_BYTES_PER_SECOND);
+ 	/* With only a modulo position, a whole unobserved ring is ambiguous. */
+ 	elapsed_ns = ktime_to_ns(ktime_sub(now, device->last_poll));
+-	if (elapsed_ns < 0 || (u64)elapsed_ns >= ring_ns) {
+-		device->state = 4;
+-		writel(0, chip->iobase_virt + 0x08 + device->dev_id * 0x10);
+-		readl(chip->iobase_virt + 0x08 + device->dev_id * 0x10);
++	idle_ns = ktime_to_ns(ktime_sub(now, device->last_progress));
++	if (elapsed_ns < 0 || (u64)elapsed_ns >= ring_ns ||
++	    idle_ns < 0 || (u64)idle_ns >= ring_ns) {
+ 		late = true;
+-	} else {
++	} else if (device->dma_started) {
+ 		position = snd_xenon_position(device);
+ 		delta = (position + device->buffer_bytes - device->last_position) %
+ 			device->buffer_bytes;
+-		device->last_position = position;
+-		device->last_poll = now;
+-		device->period_progress += delta;
+-		if (device->period_progress >= (unsigned int)device->period_bytes) {
+-			device->period_progress %= device->period_bytes;
+-			notify = true;
++		/* Only descriptor-index advances are modeled here. A zero residual
++		 * on the last descriptor is NOT proof of completion at startup.
++		 * Final-descriptor completion remains an activation blocker.
++		 */
++		if (obs_audio_queue_consume(&device->queue, delta, &logical)) {
++			late = true;
++		} else {
++			device->last_position = position;
++			if (delta)
++				device->last_progress = now;
++			device->period_progress += logical;
++			if (device->period_progress >= (unsigned int)device->period_bytes ||
++			    (logical && device->queue.draining && !device->queue.logical_bytes)) {
++				device->period_progress %= device->period_bytes;
++				notify = true;
++			}
+ 		}
++	}
++	device->last_poll = now;
++	if (late) {
++		device->state = 4;
++		device->dma_started = false;
++		writel(0, chip->iobase_virt + 0x08 + device->dev_id * 0x10);
++		readl(chip->iobase_virt + 0x08 + device->dev_id * 0x10);
+ 	}
+ 	spin_unlock_irqrestore(&chip->lock, flags);
+ 
+@@ -207,7 +229,10 @@
+ 	.info =			(SNDRV_PCM_INFO_MMAP |
+ 				SNDRV_PCM_INFO_INTERLEAVED |
+ 				SNDRV_PCM_INFO_BLOCK_TRANSFER |
+-				SNDRV_PCM_INFO_MMAP_VALID),
++				SNDRV_PCM_INFO_MMAP_VALID |
++				SNDRV_PCM_INFO_NO_REWINDS |
++				SNDRV_PCM_INFO_SYNC_APPLPTR |
++				SNDRV_PCM_INFO_DRAIN_TRIGGER),
+ 	.formats =              SNDRV_PCM_FMTBIT_S16_LE,
+ 	.rates =                SNDRV_PCM_RATE_48000,
+ 	.rate_min =		48000,
+@@ -227,7 +252,10 @@
+ 	.info =                 (SNDRV_PCM_INFO_MMAP |
+ 				SNDRV_PCM_INFO_INTERLEAVED |
+ 				SNDRV_PCM_INFO_BLOCK_TRANSFER |
+-				SNDRV_PCM_INFO_MMAP_VALID),
++				SNDRV_PCM_INFO_MMAP_VALID |
++				SNDRV_PCM_INFO_NO_REWINDS |
++				SNDRV_PCM_INFO_SYNC_APPLPTR |
++				SNDRV_PCM_INFO_DRAIN_TRIGGER),
+ 	.formats =              SNDRV_PCM_FMTBIT_S16_LE,
+ 	.rates =                SNDRV_PCM_RATE_48000,
+ 	.rate_min =             48000,
+@@ -274,6 +302,7 @@
+ 	device->descr_bytes = 0;
+ 	device->period_progress = 0;
+ 	device->last_position = 0;
++	device->dma_started = false;
+ 	device->playback_substream = substream;
+ 
+ 	writel(0x2000000, chip->iobase_virt + 0x08 + dev_id * 0x10);
+@@ -342,6 +371,7 @@
+ 		writel(0, chip->iobase_virt + 0x08 + i * 0x10);
+ 		readl(chip->iobase_virt + 0x08 + i * 0x10);
+ 		device->state = 1;
++		device->dma_started = false;
+ 		device->buffer_bytes = 0;
+ 		device->period_bytes = 0;
+ 		device->descr_bytes = 0;
+@@ -390,7 +420,10 @@
+ 	device->descr_bytes = (device->buffer_bytes + 31 ) / 32;
+ 	device->gap = (device->descr_bytes << 5) -
+ 			    device->buffer_bytes;
+-	device->wptr = -1;
++	obs_audio_queue_init(&device->queue, device->buffer_bytes);
++	/* prepare precedes the core RESET/post_prepare that rebases appl_ptr. */
++	device->appl_ptr = 0;
++	device->dma_started = false;
+ 	device->period_progress = 0;
+ 	device->last_position = 0;
+ 
+@@ -406,6 +439,8 @@
+ 	/* Publish coherent samples and descriptors before handing them to DMA. */
+ 	dma_wmb();
+ 
++	/* Rewind the channel for every prepare, not just the first open. */
++	writel(0x2000000, chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 	writel(device->descr_base_phys, chip->iobase_virt + 0x00 + dev_id * 0x10);
+ 	writel(0x1c08001c, chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 	writel((dev_id==0)?0x1c:0x02009902, chip->iobase_virt + 0x0c + dev_id * 0x10);
+@@ -414,11 +449,118 @@
+ 	return 0;
+ }
+ 
++/* All helpers below run under chip->lock. Data must precede publication. */
++static void snd_xenon_publish(struct playback_device *device,
++			     const struct obs_audio_plan *plan)
++{
++	struct snd_pcm_runtime *runtime = device->playback_substream->runtime;
++
++	if (!plan->publish)
++		return;
++	if (plan->zero_bytes)
++		memset(runtime->dma_area + plan->zero_offset, 0, plan->zero_bytes);
++	dma_wmb();
++	writel(plan->last_descriptor << 8,
++	       device->chip->iobase_virt + 0x04 + device->dev_id * 0x10);
++}
++
++static bool snd_xenon_start_position_ok(struct playback_device *device,
++				      const struct obs_audio_queue *queue)
++{
++	return device->dma_started || !queue->queued_bytes ||
++	       snd_xenon_position(device) == queue->read_pos;
++}
++
++static void snd_xenon_start_dma(struct playback_device *device)
++{
++	struct snd_xenon *chip = device->chip;
++	u32 reg;
++
++	if (device->state != 3 || device->dma_started || !device->queue.queued_bytes)
++		return;
++	device->last_position = device->queue.read_pos;
++	device->last_poll = device->last_progress = ktime_get();
++	dma_wmb();
++	reg = readl(chip->iobase_virt + 0x08 + device->dev_id * 0x10);
++	writel(reg | 0x1000000, chip->iobase_virt + 0x08 + device->dev_id * 0x10);
++	device->dma_started = true;
++}
++
++static int snd_xenon_ack(struct snd_pcm_substream *substream)
++{
++	struct snd_xenon *chip = snd_pcm_substream_chip(substream);
++	struct playback_device *device = &chip->devices[0];
++	struct snd_pcm_runtime *runtime = substream->runtime;
++	struct obs_audio_queue next;
++	struct obs_audio_plan plan;
++	unsigned int frames;
++	int ret = -EINVAL;
++
++	spin_lock(&chip->lock);
++	if (device->playback_substream != substream)
++		device = &chip->devices[1];
++	if (chip->shutting_down || device->playback_substream != substream ||
++	    (device->state != 2 && device->state != 3) || !device->buffer_bytes)
++		goto out;
++	if (obs_audio_forward_delta(device->appl_ptr, runtime->control->appl_ptr,
++				    runtime->boundary, device->buffer_bytes / 4, &frames))
++		goto out;
++	next = device->queue;
++	if (obs_audio_queue_push(&next, frames * 4, &plan))
++		goto out;
++	if (device->state == 3 && !snd_xenon_start_position_ok(device, &next)) {
++		ret = -EIO;
++		goto out;
++	}
++	/* No fallible operation after commit: ALSA rolls appl_ptr back on error. */
++	device->queue = next;
++	device->appl_ptr = runtime->control->appl_ptr;
++	snd_xenon_publish(device, &plan);
++	snd_xenon_start_dma(device);
++	ret = 0;
++out:
++	spin_unlock(&chip->lock);
++	return ret;
++}
++
++/* RESET is nonatomic. Preserve lock order: ALSA stream, then chip.
++ * Rebasing a nonempty/running ring is deliberately unsupported for now.
++ */
++static int snd_xenon_ioctl(struct snd_pcm_substream *substream,
++			  unsigned int cmd, void *arg)
++{
++	struct snd_xenon *chip = snd_pcm_substream_chip(substream);
++	struct playback_device *device = &chip->devices[0];
++	unsigned long flags;
++	int ret = -EBUSY;
++
++	if (cmd != SNDRV_PCM_IOCTL1_RESET)
++		return snd_pcm_lib_ioctl(substream, cmd, arg);
++	snd_pcm_stream_lock_irqsave(substream, flags);
++	spin_lock(&chip->lock);
++	if (device->playback_substream != substream)
++		device = &chip->devices[1];
++	if (!chip->shutting_down && device->playback_substream == substream &&
++	    device->state == 2 && !device->queue.logical_bytes &&
++	    !device->queue.queued_bytes && !device->queue.write_pos &&
++	    !device->queue.draining) {
++		device->appl_ptr = 0;
++		substream->runtime->status->hw_ptr = 0;
++		substream->runtime->hw_ptr_wrap = 0;
++		ret = 0;
++	}
++	spin_unlock(&chip->lock);
++	snd_pcm_stream_unlock_irqrestore(substream, flags);
++	return ret;
++}
++
+ static int snd_xenon_trigger(struct snd_pcm_substream *substream, int cmd)
+ {
+ 	struct snd_xenon *chip = snd_pcm_substream_chip(substream);
+ 	struct playback_device *device = &chip->devices[0];
+ 	int dev_id = 0, ret = 0;
++	struct obs_audio_queue next;
++	struct obs_audio_plan plan;
+ 	u32 reg;
+ 
+ 	if (device->playback_substream != substream) {
+@@ -438,20 +580,40 @@
+ 			ret = -EINVAL;
+ 			break;
+ 		}
+-		device->last_position = snd_xenon_position(device);
++		if (!snd_xenon_start_position_ok(device, &device->queue)) {
++			ret = -EIO;
++			break;
++		}
+ 		device->period_progress = 0;
+-		device->last_poll = ktime_get();
+-		dma_wmb();
++		device->last_poll = device->last_progress = ktime_get();
+ 		device->state = 3;
+-
+-		reg = readl(chip->iobase_virt + 0x08 + dev_id * 0x10);
+-		writel(reg | 0x1000000, chip->iobase_virt + 0x08 + dev_id * 0x10);
++		snd_xenon_start_dma(device);
+ 		hrtimer_start(&device->timer, ns_to_ktime(XENON_POLL_NS),
+ 			      HRTIMER_MODE_REL_SOFT);
+ 		break;
+ 
++	case SNDRV_PCM_TRIGGER_DRAIN:
++		if (chip->shutting_down || device->state != 3) {
++			ret = -EINVAL;
++			break;
++		}
++		next = device->queue;
++		if (obs_audio_queue_drain(&next, &plan)) {
++			ret = -EINVAL;
++			break;
++		}
++		if (!snd_xenon_start_position_ok(device, &next)) {
++			ret = -EIO;
++			break;
++		}
++		device->queue = next;
++		snd_xenon_publish(device, &plan);
++		snd_xenon_start_dma(device);
++		break;
++
+ 	case SNDRV_PCM_TRIGGER_STOP:
+ 		device->state = 4;
++		device->dma_started = false;
+ 		reg = readl(chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 		writel(reg & ~0x1000000, chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 		readl(chip->iobase_virt + 0x08 + dev_id * 0x10);
+@@ -466,70 +628,45 @@
+ 	return ret;
+ }
+ 
++/* Position queries never publish application data or touch MMIO. */
+ static snd_pcm_uframes_t snd_xenon_pointer(struct snd_pcm_substream *substream)
+ {
+ 	struct snd_xenon *chip = snd_pcm_substream_chip(substream);
+-	struct snd_pcm_runtime *runtime = substream->runtime;
+ 	struct playback_device *device = &chip->devices[0];
+-
+-	int dev_id = 0;
+-	int app_ptr, app_descr, bytes;
+-	u32 reg;
+-
+-	if (device->playback_substream != substream) {
+-		dev_id = 1;
++	snd_pcm_uframes_t frames = 0;
++
++	spin_lock(&chip->lock);
++	if (device->playback_substream != substream)
+ 		device = &chip->devices[1];
+-	}
+-
+-	spin_lock(&chip->lock);
+-
+-	if (device->playback_substream != substream ||
+-	    !device->buffer_bytes || !device->descr_bytes) {
+-		spin_unlock(&chip->lock);
+-		return 0;
+-	}
+-	app_ptr = frames_to_bytes(runtime, runtime->control->appl_ptr) %
+-		      device->buffer_bytes;
+-
+-	if (app_ptr != device->wptr)
+-		dma_wmb();
+-
+-	app_descr = app_ptr / device->descr_bytes;
+-	reg = readl(chip->iobase_virt + 0x04 + dev_id * 0x10);
+-	if (app_descr == (( reg & 0x1f00) >> 8))
+-	    app_descr -= 1;
+-	if (app_descr < 0) app_descr += 32;
+-
+-	device->wptr = app_ptr;
+-
+-	writel(app_descr << 8, chip->iobase_virt + 0x04 + dev_id * 0x10);
+-
+-	bytes = (reg & 0x1f) * device->descr_bytes;
++	if (device->playback_substream == substream && device->buffer_bytes)
++		frames = device->queue.logical_read_pos / 4;
+ 	spin_unlock(&chip->lock);
+-	return bytes_to_frames(substream->runtime, bytes);
++	return frames;
+ }
+ 
+ static struct snd_pcm_ops snd_xenon_ana_playback_ops = {
+ 	.open =		snd_xenon_ana_playback_open,
+ 	.close =	snd_xenon_playback_close,
+-	.ioctl =	snd_pcm_lib_ioctl,
++	.ioctl =	snd_xenon_ioctl,
+ 	.hw_params =	snd_xenon_pcm_hw_params,
+ 	.hw_free =	snd_xenon_pcm_hw_free,
+ 	.prepare =	snd_xenon_playback_prepare,
+ 	.sync_stop =	snd_xenon_sync_stop,
+ 	.trigger =	snd_xenon_trigger,
++	.ack =		snd_xenon_ack,
+ 	.pointer =	snd_xenon_pointer,
+ };
+ 
+ static struct snd_pcm_ops snd_xenon_spdif_playback_ops = {
+ 	.open =         snd_xenon_spdif_playback_open,
+ 	.close =        snd_xenon_playback_close,
+-	.ioctl =        snd_pcm_lib_ioctl,
++	.ioctl =        snd_xenon_ioctl,
+ 	.hw_params =    snd_xenon_pcm_hw_params,
+ 	.hw_free =      snd_xenon_pcm_hw_free,
+ 	.prepare =      snd_xenon_playback_prepare,
+ 	.sync_stop =    snd_xenon_sync_stop,
+ 	.trigger =      snd_xenon_trigger,
++	.ack =          snd_xenon_ack,
+ 	.pointer =      snd_xenon_pointer,
+ };
+ 
+--- /dev/null
++++ b/sound/pci/xenon-pcm-queue.c
+@@ -0,0 +1,138 @@
++/* SPDX-License-Identifier: MIT */
++#include "xenon-pcm-queue.h"
++
++static int queue_valid(const struct obs_audio_queue *q)
++{
++    if (!q || q->buffer_bytes < 128 || q->buffer_bytes > 65536 ||
++        q->buffer_bytes % 128 || q->block_bytes != q->buffer_bytes / 32)
++        return 0;
++    if (q->write_pos >= q->buffer_bytes || q->published_pos >= q->buffer_bytes ||
++        q->read_pos >= q->buffer_bytes || q->logical_read_pos >= q->buffer_bytes ||
++        q->write_pos % 4 || q->logical_read_pos % 4 ||
++        q->published_pos % q->block_bytes || q->read_pos % q->block_bytes ||
++        q->queued_bytes > q->buffer_bytes || q->queued_bytes % q->block_bytes ||
++        q->tail_bytes >= q->block_bytes || q->tail_bytes % 4 ||
++        q->logical_bytes > q->buffer_bytes || q->logical_bytes % 4 ||
++        q->draining > 1)
++        return 0;
++    if ((q->read_pos + q->queued_bytes) % q->buffer_bytes != q->published_pos ||
++        (q->logical_read_pos + q->logical_bytes) % q->buffer_bytes != q->write_pos)
++        return 0;
++    if (q->draining)
++        return !q->tail_bytes && q->logical_bytes <= q->queued_bytes &&
++               q->queued_bytes - q->logical_bytes < q->block_bytes;
++    return q->logical_bytes == q->queued_bytes + q->tail_bytes &&
++           q->logical_read_pos == q->read_pos;
++}
++
++static struct obs_audio_plan publication(const struct obs_audio_queue *q,
++                                        obs_audio_u32 bytes)
++{
++    struct obs_audio_plan p = {0};
++    if (bytes) {
++        p.publish = 1;
++        p.last_descriptor = (q->published_pos / q->block_bytes + 31) % 32;
++    }
++    return p;
++}
++
++int obs_audio_queue_init(struct obs_audio_queue *q, obs_audio_u32 bytes)
++{
++    struct obs_audio_queue next = {0};
++    if (!q || bytes < 128 || bytes > 65536 || bytes % 128)
++        return OBS_AUDIO_INVALID;
++    next.buffer_bytes = bytes;
++    next.block_bytes = bytes / 32;
++    *q = next;
++    return OBS_AUDIO_OK;
++}
++
++int obs_audio_queue_push(struct obs_audio_queue *q, obs_audio_u32 bytes,
++                         struct obs_audio_plan *plan)
++{
++    struct obs_audio_queue next;
++    struct obs_audio_plan p;
++    obs_audio_u32 complete;
++    if (!queue_valid(q) || !plan || bytes % 4)
++        return OBS_AUDIO_INVALID;
++    if (q->draining)
++        return OBS_AUDIO_DRAINING;
++    if (bytes > q->buffer_bytes - q->logical_bytes)
++        return OBS_AUDIO_FULL;
++    next = *q;
++    complete = (next.tail_bytes + bytes) / next.block_bytes * next.block_bytes;
++    next.tail_bytes = (next.tail_bytes + bytes) % next.block_bytes;
++    next.logical_bytes += bytes;
++    next.queued_bytes += complete;
++    next.write_pos = (next.write_pos + bytes) % next.buffer_bytes;
++    next.published_pos = (next.published_pos + complete) % next.buffer_bytes;
++    p = publication(&next, complete);
++    if (!queue_valid(&next))
++        return OBS_AUDIO_INVALID;
++    *q = next;
++    *plan = p;
++    return OBS_AUDIO_OK;
++}
++
++int obs_audio_queue_drain(struct obs_audio_queue *q, struct obs_audio_plan *plan)
++{
++    struct obs_audio_queue next;
++    struct obs_audio_plan p = {0};
++    if (!queue_valid(q) || !plan)
++        return OBS_AUDIO_INVALID;
++    next = *q;
++    if (!next.draining && next.tail_bytes) {
++        next.published_pos = (next.published_pos + next.block_bytes) % next.buffer_bytes;
++        next.queued_bytes += next.block_bytes;
++        p = publication(&next, next.block_bytes);
++        p.zero_offset = next.write_pos;
++        p.zero_bytes = next.block_bytes - next.tail_bytes;
++        next.tail_bytes = 0;
++        if (p.zero_offset + p.zero_bytes > next.buffer_bytes)
++            return OBS_AUDIO_INVALID;
++    }
++    next.draining = 1;
++    if (!queue_valid(&next))
++        return OBS_AUDIO_INVALID;
++    *q = next;
++    *plan = p;
++    return OBS_AUDIO_OK;
++}
++
++int obs_audio_queue_consume(struct obs_audio_queue *q, obs_audio_u32 bytes,
++                            obs_audio_u32 *logical_bytes)
++{
++    struct obs_audio_queue next;
++    obs_audio_u32 data;
++    if (!queue_valid(q) || !logical_bytes || bytes % q->block_bytes ||
++        bytes > q->queued_bytes)
++        return OBS_AUDIO_INVALID;
++    next = *q;
++    data = bytes < next.logical_bytes ? bytes : next.logical_bytes;
++    next.queued_bytes -= bytes;
++    next.logical_bytes -= data;
++    next.read_pos = (next.read_pos + bytes) % next.buffer_bytes;
++    next.logical_read_pos = (next.logical_read_pos + data) % next.buffer_bytes;
++    if (!queue_valid(&next))
++        return OBS_AUDIO_INVALID;
++    *q = next;
++    *logical_bytes = data;
++    return OBS_AUDIO_OK;
++}
++
++int obs_audio_forward_delta(obs_audio_u64 previous, obs_audio_u64 position,
++                            obs_audio_u64 boundary, obs_audio_u32 buffer_frames,
++                            obs_audio_u32 *frames)
++{
++    obs_audio_u64 delta;
++    if (!frames || !buffer_frames || buffer_frames > 16384 ||
++        buffer_frames > boundary / 2 || boundary % buffer_frames ||
++        previous >= boundary || position >= boundary)
++        return OBS_AUDIO_INVALID;
++    /* On the wrapped branch position < previous, so the sum is < boundary. */
++    delta = position >= previous ? position - previous : boundary - previous + position;
++    if (delta > buffer_frames)
++        return OBS_AUDIO_INVALID;
++    *frames = (obs_audio_u32)delta;
++    return OBS_AUDIO_OK;
++}
+--- /dev/null
++++ b/sound/pci/xenon-pcm-queue.h
+@@ -0,0 +1,58 @@
++/* SPDX-License-Identifier: MIT */
++#ifndef OBSIDIAN_PCM_QUEUE_H
++#define OBSIDIAN_PCM_QUEUE_H
++
++#ifdef __KERNEL__
++#include <linux/types.h>
++typedef u32 obs_audio_u32;
++typedef u64 obs_audio_u64;
++#else
++#include <stdint.h>
++typedef uint32_t obs_audio_u32;
++typedef uint64_t obs_audio_u64;
++#endif
++
++/* Pure accounting, no MMIO, allocation, copying, barriers or locking.
++ * Caller serializes access and performs zeroing before publishing a plan.
++ * Descriptor interpretation is NOT established by this component.
++ */
++enum obs_audio_result {
++    OBS_AUDIO_OK = 0,
++    OBS_AUDIO_INVALID = -1,
++    OBS_AUDIO_FULL = -2,
++    OBS_AUDIO_DRAINING = -3
++};
++
++struct obs_audio_queue {
++    obs_audio_u32 buffer_bytes;
++    obs_audio_u32 block_bytes;
++    obs_audio_u32 write_pos;
++    obs_audio_u32 published_pos;
++    obs_audio_u32 read_pos;
++    obs_audio_u32 logical_read_pos;
++    obs_audio_u32 queued_bytes;
++    obs_audio_u32 tail_bytes;
++    obs_audio_u32 logical_bytes;
++    obs_audio_u32 draining;
++};
++
++struct obs_audio_plan {
++    obs_audio_u32 publish;
++    obs_audio_u32 last_descriptor;
++    obs_audio_u32 zero_offset;
++    obs_audio_u32 zero_bytes;
++};
++
++/* All rejected operations leave state AND output arguments unchanged. */
++int obs_audio_queue_init(struct obs_audio_queue *q, obs_audio_u32 buffer_bytes);
++int obs_audio_queue_push(struct obs_audio_queue *q, obs_audio_u32 bytes,
++                         struct obs_audio_plan *plan);
++int obs_audio_queue_drain(struct obs_audio_queue *q, struct obs_audio_plan *plan);
++/* A hardware adapter must prove completion of these physical bytes first. */
++int obs_audio_queue_consume(struct obs_audio_queue *q, obs_audio_u32 bytes,
++                            obs_audio_u32 *logical_bytes);
++/* Frames, not bytes. Use before any potentially overflowing unit conversion. */
++int obs_audio_forward_delta(obs_audio_u64 previous, obs_audio_u64 position,
++                            obs_audio_u64 boundary, obs_audio_u32 buffer_frames,
++                            obs_audio_u32 *frames);
++#endif

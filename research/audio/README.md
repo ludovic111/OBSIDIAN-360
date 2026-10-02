@@ -1,6 +1,6 @@
 # File PCM originale — composant logiciel, E59
 
-`pcm_queue.c` et `pcm_queue.h` sont un composant original sous MIT destiné au remplacement de la soumission audio historique. Ils ne constituent pas un pilote et ne sont pas encore intégrés à `snd-xenon`. Aucun accès matériel, allocation, copie de son, barrière ou verrou n’est effectué ici.
+`pcm_queue.c` et `pcm_queue.h` sont un composant original sous MIT destiné au remplacement de la soumission audio historique. Ils ne constituent pas un pilote. Depuis E60, le correctif 0013 les intègre au candidat `snd-xenon`, sans activation matérielle ; voir `docs/AUDIO-ALSA-ADAPTER.md`. Aucun accès matériel, allocation, copie de son, barrière ou verrou n’est effectué ici.
 
 Le composant conserve séparément la fin des données engagées, les blocs publiables, la portion incomplète, la consommation physique et la consommation logique. La taille est comprise entre 128 et 65 536 octets par pas de 128 ; le modèle utilise 32 blocs égaux et des frames de quatre octets. Chaque instance représente un flux et doit être protégée par le verrou de son appelant.
 
@@ -51,6 +51,8 @@ Puis `make -C SOURCE O=BUILD M=MODULE ARCH=powerpc LLVM=1 LOCALVERSION=-audio-po
 
 Le modèle suppose des blocs consommés en ordre et une publication du dernier bloc valide. Il ne démontre ni les bits du registre, ni l’encodage de longueur, ni la fin effective d’un bloc, ni l’absence de prélecture DMA. Le pilote devra traduire les registres en consommations vérifiées et ne jamais prendre une position modulo inchangée pour la preuve d’une file vide.
 
-L’adaptateur devra ensuite relier `.ack`, START, DRAIN, `.pointer`, les callbacks de suivi et les resets du cœur ALSA ; propager correctement les erreurs/rollback ; et respecter l’ordre entre remplissage, barrière et publication. Tant que cet adaptateur et les hypothèses du contrôleur ne sont pas validés, le défaut E58 demeure dans le pilote candidat. Ce composant prépare son remplacement et ne prétend pas avoir activé le son.
+L’adaptateur devra ensuite relier `.ack`, START, DRAIN, `.pointer`, les callbacks de suivi et les resets du cœur ALSA ; propager correctement les erreurs/rollback ; et respecter l’ordre entre remplissage, barrière et publication. E60 remplace les publications depuis pointer par un adaptateur testé hors console. La fin du dernier bloc reste non décodée, ce qui bloque une validation matérielle du drain et de l’audio.
 
 Preuves : `evidence/2026-10-02/audio-queue/`. Dernier état matériel inchangé : E56 ; aucune interaction Xbox durant E59.
+
+E60 : le paramètre `current` devient `position` pour éviter sa collision avec une macro du noyau dans la compilation intégrée. Algorithme inchangé et banc complet réexécuté.

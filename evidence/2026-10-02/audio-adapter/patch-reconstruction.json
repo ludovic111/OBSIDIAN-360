@@ -1,0 +1,15 @@
+{
+  "patch": "research/patches/0013-xenon-audio-submission.patch",
+  "files": {
+    "snd-xenon.c": "a39bd72c3c1f79c91bc81a24a1dccbe4173b36d34ceb9f8a5cee768c93007b35",
+    "xenon-pcm-queue.c": "b52f9fc5c0cd1c05f0c9b8465690ef475eaf60392a18066b4a5c68824bf906b4",
+    "xenon-pcm-queue.h": "0532feaaf9bb1a68fe7795405b65627275b6bfb9142f22be7132542702317e3c"
+  },
+  "apply": {
+    "code": 0,
+    "stdout": "patching file 'sound/pci/snd-xenon.c'\npatching file 'sound/pci/xenon-pcm-queue.c'\npatching file 'sound/pci/xenon-pcm-queue.h'\n",
+    "stderr": ""
+  },
+  "canonical_queue_equal": true,
+  "passed": true
+}

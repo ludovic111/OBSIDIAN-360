@@ -1,0 +1,7 @@
+{
+  "checked_at": "2026-10-02T10:49:58.112905+00:00",
+  "scope": "Read-only standard kernel and systemd interfaces; not visual responsiveness or audio validation.",
+  "code": 0,
+  "stdout": "6.18.11-xenon-obsidian4\n9327.35 6951.41\n1280,720\n",
+  "stderr": ""
+}

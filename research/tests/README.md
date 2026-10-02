@@ -69,3 +69,7 @@ Le parseur Rust et les neuf essais de sa CLI sont décrits dans `game-analysis/x
 Recettes et limites dans `docs/AUDIO-PCM-DMA.md`, `docs/AUDIO-STREAM-POLLING.md` et `docs/AUDIO-SUBMISSION-AUDIT.md`. ASan/UBSan ne remplace ni tests matériels, ni preuves générales de concurrence. `check-kernel-artifacts.py --kernel-only` valide noyau/modules sans exiger d’image de démarrage.
 
 `check-audio-queue.py` teste le composant original de `research/audio/` avec une file de contenu de référence, 512 tailles et deux flux entrelacés. Il compare les frames synthétiques et le silence final, pas des registres ou de la mémoire DMA réelle. Voir `research/audio/README.md`.
+
+## Adaptateur ALSA (E60)
+
+`check-audio-adapter.py --source CANDIDAT --kernel SOURCE_LINUX --output RAPPORT` extrait les callbacks du correctif 0013, le rollback applicatif réel et les gardes mmap ALSA. Quinze scénarios, dont les 512 tailles et une fermeture concurrente contrôlée. Les registres et achèvements DMA sont simulés ; la stagnation du dernier bloc doit produire une erreur, pas un succès. Voir `docs/AUDIO-ALSA-ADAPTER.md`.

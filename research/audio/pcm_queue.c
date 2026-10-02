@@ -120,17 +120,17 @@ int obs_audio_queue_consume(struct obs_audio_queue *q, obs_audio_u32 bytes,
     return OBS_AUDIO_OK;
 }
 
-int obs_audio_forward_delta(obs_audio_u64 previous, obs_audio_u64 current,
+int obs_audio_forward_delta(obs_audio_u64 previous, obs_audio_u64 position,
                             obs_audio_u64 boundary, obs_audio_u32 buffer_frames,
                             obs_audio_u32 *frames)
 {
     obs_audio_u64 delta;
     if (!frames || !buffer_frames || buffer_frames > 16384 ||
         buffer_frames > boundary / 2 || boundary % buffer_frames ||
-        previous >= boundary || current >= boundary)
+        previous >= boundary || position >= boundary)
         return OBS_AUDIO_INVALID;
-    /* On the wrapped branch current < previous, so the sum is < boundary. */
-    delta = current >= previous ? current - previous : boundary - previous + current;
+    /* On the wrapped branch position < previous, so the sum is < boundary. */
+    delta = position >= previous ? position - previous : boundary - previous + position;
     if (delta > buffer_frames)
         return OBS_AUDIO_INVALID;
     *frames = (obs_audio_u32)delta;

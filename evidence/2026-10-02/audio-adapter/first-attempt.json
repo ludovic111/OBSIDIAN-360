@@ -1,0 +1,17 @@
+{
+  "scope": "Extracted candidate callbacks plus actual pinned pcm_lib_apply_appl_ptr; modeled registers/time/reset/ALSA services. No audio hardware or general concurrency proof. Final descriptor may stall and is explicitly expected to fail via XRUN.",
+  "driver_sha256": "f268bc0e7fe7a2768b8cfab3459cbd2f75670a0ca67a52a91cad25050143b9e1",
+  "pcm_lib_sha256": "9cea91e8f6f5b9b465357cd4fa0e41ebc16c2b14a65baae739d03a685bed0991",
+  "cases": [],
+  "wiring": {
+    "SNDRV_PCM_INFO_NO_REWINDS": true,
+    "SNDRV_PCM_INFO_DRAIN_TRIGGER": true,
+    "both_ack": true,
+    "both_ioctl": true
+  },
+  "compile": {
+    "code": 1,
+    "diagnostics": "HOST_TEST/test.c:570:13: error: comparison of integers of different signs: 'snd_pcm_sframes_t' (aka 'long') and 'unsigned long' [-Werror,-Wsign-compare]\n  570 |                         if (diff > runtime->buffer_size)\n      |                             ~~~~ ^ ~~~~~~~~~~~~~~~~~~~~\n1 error generated.\n"
+  },
+  "passed": false
+}

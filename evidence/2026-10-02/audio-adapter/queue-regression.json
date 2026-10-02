@@ -1,0 +1,27 @@
+{
+  "scope": "Original software queue; byte/sample oracle, modeled publication and physical-block completion. No ALSA adapter, hardware protocol, DMA, timing or concurrent execution.",
+  "sources": {
+    "research/audio/pcm_queue.c": "b944ac428738b1eaafd25e7e19dec9c058991573b0f0f7d186bb630750b4c730",
+    "research/audio/pcm_queue.h": "0532feaaf9bb1a68fe7795405b65627275b6bfb9142f22be7132542702317e3c",
+    "research/tests/audio-queue-main.c": "f8f79907763edf3511045cf3faade37d633c7853c4692532d6f21e2d5722e709"
+  },
+  "compile": {
+    "code": 0,
+    "diagnostics": ""
+  },
+  "run": {
+    "code": 0,
+    "diagnostics": "",
+    "stdout": "{\"all_buffer_sizes\":512,\"randomized_steps\":44800,\"operations\":54008,\"rejections\":4333,\"drains\":2496,\"publications\":20038,\"logical_frames_checked\":24544033}",
+    "result": {
+      "all_buffer_sizes": 512,
+      "randomized_steps": 44800,
+      "operations": 54008,
+      "rejections": 4333,
+      "drains": 2496,
+      "publications": 20038,
+      "logical_frames_checked": 24544033
+    }
+  },
+  "passed": true
+}

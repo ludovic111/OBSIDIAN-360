@@ -201,3 +201,17 @@ Publication E57/E58 vérifiée à 2026-10-02T10:19:25.216637+00:00 : commit publ
 - Résultat : analyse Clang sans diagnostic ; objet PPC64 freestanding puis module de liaison avec __KERNEL__ contre audio-poll, sans avertissement, fonctions et vermagic vérifiés. Sources/build noyau montés en lecture seule. Aucun module chargé.
 - Limites : algorithme de file testé, pas protocole de registres ni achèvement DMA. Le pilote historique conserve E58 tant que son adaptateur ne remplace pas pointer/ack ; reset ALSA, drain réel et prélecture à vérifier.
 - Suite : intégrer le contrat de file aux callbacks tout en conservant la séparation entre tests logiciels et preuves matérielles. Aucun contrôle vivant supplémentaire.
+
+Publication E59 vérifiée à 2026-10-02T10:36:04.104109+00:00 : commit public `3a98dcf5b0977a33251748255f186c25cfcf2da0`, 324 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/queue-publication.json`. File PCM testée et liée pour PowerPC, non intégrée au pilote et non chargée.
+
+
+## 2026-10-02T10:56:46.731605+00:00 — E60/E61 — adaptateur audio et contrôle vivant
+
+- Objectif : retirer la publication instable de pointer et intégrer les engagements ALSA sans perdre le rollback.
+- Action : correctif 0013 avec ack transactionnel, SYNC_APPLPTR/NO_REWINDS, démarrage différé jusqu'au premier bloc, drain avec silence, position logique en cache et RESET limité aux files préparées vides. Reprise de prepare après STOP, suivi et fermeture synchronisée conservés.
+- Observation : quinze scénarios passent avec callbacks réels et trois fonctions ALSA extraites, dont 512 tailles et fermeture concurrente contrôlée. Vingt scénarios de ressources ; file : 54 008 opérations, 24 544 033 frames comparées.
+- Échecs conservés : comparaison signée du code ALSA refusée par le banc ; montage Docker de fichiers nouveaux impossible sous source en lecture seule ; paramètre current en collision avec macro noyau lors de la compilation intégrée. Corrections de portée explicite, aucun échec masqué comme succès.
+- Résultat : construction audio-submit terminée code 0 à 2026-10-02T10:52:58.835912+00:00, zéro avertissement, 70 modules PowerPC et vermagic vérifiés. Reconstruction du patch et identité du composant canonique contrôlées.
+- Limite : fin du dernier descripteur non décodée ; un résiduel nul inchangé ne vaut pas preuve de lecture. Stagnation simulée se termine volontairement en XRUN. Drain sonore, longueur/adresses DMA, prélecture, initialisation HDMI et comportement réel restent ouverts. Aucun chargement ni démarrage de cette variante.
+- Mesure E61 distincte : SSH à 10:49:58 UTC, obsidian4, uptime 9 327,35 s, aucune unité en échec listée, framebuffer 720p. Pas de test visuel ; configuration console inchangée.
+- Suite : résoudre le dernier bloc et confronter le protocole aux références avant toute activation. Publication uniquement depuis l'export audité.

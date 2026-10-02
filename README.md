@@ -59,3 +59,5 @@ Le premier appel nécessite la configuration locale créée sur ce Mac et la cl�
 Chaque expérience doit préciser : objectif, état initial, action, preuve, résultat et récupération. Les instructions de travail sont dans [AGENTS.md](AGENTS.md).
 
 L'export public exclut les données privées et les binaires non redistribuables ; certaines preuves restent locales. Lire [la procédure de publication](docs/PUBLICATION.md) et [les licences](THIRD_PARTY.md). La recherche est incomplète et aucun installateur universel n'est fourni.
+
+Adaptateur audio E60 : [soumission ALSA, tests et limite du dernier bloc](docs/AUDIO-ALSA-ADAPTER.md). Candidat non installé ; aucune lecture sonore validée.

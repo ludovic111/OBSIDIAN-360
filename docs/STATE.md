@@ -1,5 +1,14 @@
 # État courant — 2 octobre 2026
 
+## Adaptateur audio candidat — E60 ; contrôle vivant E61
+
+Le correctif 0013 relie la file aux engagements ALSA, au drain et aux resets ; `.pointer` ne touche plus aux registres. Quinze scénarios de callbacks, vingt de ressources et la régression complète de la file passent hors console. La fin du dernier descripteur reste non décodée : le test de stagnation produit un XRUN, aucun succès audio revendiqué. Voir `docs/AUDIO-ALSA-ADAPTER.md` ; aucun chargement.
+
+Noyau `6.18.11-xenon-audio-submit` et 70 modules compilés sans avertissement à 10:52:58 UTC ; formats ELF PowerPC et vermagic vérifiés. Aucune installation ni image de démarrage produite.
+
+E61 : SSH vérifié à 2026-10-02T10:49:58.112905+00:00 sous obsidian4, uptime 9 327,35 s, aucune unité en échec listée, framebuffer 1280 × 720. Réactivité visuelle non testée ; aucune configuration matérielle changée.
+
+
 ## File audio logicielle — E59
 
 Un nouveau composant C original distingue blocs prêts, données partielles et silence de fin de flux. Vérifié sur 512 tailles, 54 008 opérations et 24 544 033 frames synthétiques ; ASan/UBSan et analyse statique sans diagnostic après correction d’un réglage d’outillage. Compilation et liaison PowerPC contre le noyau réussies. Il reste séparé de snd-xenon : adaptateur ALSA et fin réelle des blocs DMA non validés, aucun son activé. Voir `research/audio/README.md`.
@@ -161,3 +170,5 @@ Publication E53/E54 vérifiée à 2026-10-02T08:57:54.026744+00:00 : commit publ
 Publication E55/E56 vérifiée à 2026-10-02T09:45:58.581719+00:00 : commit public `74ba6693755aaef77e96d016bbcbc6e7cf473713`, 287 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/pcm-publication.json`. Candidat audio-pcm non installé.
 
 Publication E57/E58 vérifiée à 2026-10-02T10:19:25.216637+00:00 : commit public `987fea14abdeb6059b4b8d4a6b1215345cefabbe`, 312 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/poll-publication.json`. Noyau audio-poll compilé, non installé ; soumission encore à corriger.
+
+Publication E59 vérifiée à 2026-10-02T10:36:04.104109+00:00 : commit public `3a98dcf5b0977a33251748255f186c25cfcf2da0`, 324 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/queue-publication.json`. File PCM testée et liée pour PowerPC, non intégrée au pilote et non chargée.

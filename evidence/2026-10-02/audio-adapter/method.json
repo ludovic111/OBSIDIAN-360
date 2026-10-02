@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-10-02T10:55:14.814743+00:00",
+  "experiment": "E60",
+  "kernel_commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "docker_image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "sources": {
+    "research/audio/pcm_queue.c": "b944ac428738b1eaafd25e7e19dec9c058991573b0f0f7d186bb630750b4c730",
+    "research/audio/pcm_queue.h": "0532feaaf9bb1a68fe7795405b65627275b6bfb9142f22be7132542702317e3c",
+    "research/tests/check-audio-adapter.py": "7d04fa5a2485aa00966f33bd745657c7fc732661dd3c3235ebdb7700c7adbb71",
+    "research/patches/0013-xenon-audio-submission.patch": "86a677dc8841fcc8d3477bfd9c2f64f5a2df8c3155c8f78f62df498f350116b4",
+    "kernel/sound/core/pcm_native.c": "8c0d15c8edb8ee6ac77cfe2193c0f425e4768b133edd637a95822add9436fc9b",
+    "kernel/sound/core/pcm_lib.c": "9cea91e8f6f5b9b465357cd4fa0e41ebc16c2b14a65baae739d03a685bed0991",
+    "kernel/include/uapi/sound/asound.h": "385128b181838629772b810045139d62748ed3d8b7e5725806f4f25cf21de59c"
+  },
+  "scope": "Original accounting plus candidate ALSA callbacks. No hardware activation. Final descriptor completion unresolved.",
+  "final_build": {
+    "release": "6.18.11-xenon-audio-submit",
+    "modules": 70,
+    "warnings": 0,
+    "finished_at": "2026-10-02T10:52:58.835912+00:00",
+    "verified": true,
+    "booted": false
+  }
+}

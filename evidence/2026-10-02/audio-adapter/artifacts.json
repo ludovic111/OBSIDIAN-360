@@ -1,0 +1,379 @@
+{
+  "release": "6.18.11-xenon-audio-submit",
+  "artifacts": {
+    "vmlinux": {
+      "bytes": 23355328,
+      "sha256": "9b0501137691e57cde8d64f8adcc6c449928d169f3c9013a831a02f48871b8d4"
+    },
+    "System.map": {
+      "bytes": 2336567,
+      "sha256": "063a49059b860f487896a02ebdee3e473a20b57fb1ad6237b4f4fcae4fda61cf"
+    },
+    "Module.symvers": {
+      "bytes": 541824,
+      "sha256": "cd1e048a45d5243bd25466519e8fb45343684a607e672f06263a4d0a42f18954"
+    },
+    ".config": {
+      "bytes": 111340,
+      "sha256": "72bb3f2a5397173c772ad04a603950ba8a49cb9f0b2e084e5ca7d319a96cb849"
+    }
+  },
+  "modules": [
+    {
+      "path": "fs/nls/nls_ucs2_utils.ko",
+      "sha256": "e71f0b81622338880521154e1e2f1fec52b5c3225cf47092ec2d86fa4486d1eb",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/netfs/netfs.ko",
+      "sha256": "8341479c2f6f31072f62072ef983cbec79759ae0a31d10c35691490b65c22c52",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/exfat/exfat.ko",
+      "sha256": "37964cdc8c0fe376f44ccb2d59eb3237a2d0b2c603f90f4f240418525cdc5a62",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/isofs/isofs.ko",
+      "sha256": "1b891d2fc61ae85fe13fcebfb2c70c3e5eaa94bffde08f7c32a0f78762402380",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/hfsplus/hfsplus.ko",
+      "sha256": "2e174f062847a6d8c9e663ae2464fd1bd6d084f65054ce1b2ef0d75d0d018b9a",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/hfs/hfs.ko",
+      "sha256": "d76f871cf0d5f255a37cf8a546307e3beba5d2b09d42315f15f335033a436ef2",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/nfsd/nfsd.ko",
+      "sha256": "335c9e4ce7ebe1e4900e127b381a82e4a97e812792531868bd6e5cd1e302be08",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/smb/common/cifs_md4.ko",
+      "sha256": "e1c27d3e3455b75e0d03aa75042a3c051c6d6f43d7df7a761cdaaeb52ff856d2",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/smb/client/cifs.ko",
+      "sha256": "1dabf59d10a82b503100b2b77c19c1cd1f954cc9a665919b861fcd71f625e89c",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/smb/server/ksmbd.ko",
+      "sha256": "f832471785b230deaaaeb2a86cc84450322e3c9e414eb5ccad1d3d1fed8c8e29",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/ntfs3/ntfs3.ko",
+      "sha256": "509eeaa51663269c3fc32d248bf774b47b61e00f5b3ab13fc562326b219f4662",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/autofs/autofs4.ko",
+      "sha256": "ac23ed4ff906bf7dd8bf6ab0e7699aee7372ceebbdbaf7a6a3b1e947f01f1b30",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/fuse/fuse.ko",
+      "sha256": "4d04a3de3c1c739ecf1471776867e9915eacbe2a850dc9c4a61da747cd83d020",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/udf/udf.ko",
+      "sha256": "06473e9b41d4d7ba4b5cbe6521121c47d71b9c11dc674f651e106c67b5c11a90",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/xfs/xfs.ko",
+      "sha256": "e823cc276d92fddbbe12c7c3049e9f50295b70bd701e9d4b412b48bc5c5af1f6",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/btrfs/btrfs.ko",
+      "sha256": "5a3d50dc0e39bc08364b42451ce5ff7e687108235ecdebba1e037f9a277fd73e",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/geniv.ko",
+      "sha256": "53d459840f0fcfe778df8e628823bce5a07f69965926a587c2a986d09e42882a",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/echainiv.ko",
+      "sha256": "90d86c46af62d1a31f1715851f9b067599579bb8c519b9650ce14530b2964119",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/cmac.ko",
+      "sha256": "039f0c0ead69bc1b36e077659fdd2aff03541f2d7c92f45c2f5e4b7e239b36bf",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/hmac.ko",
+      "sha256": "77782374a536b757440f5eba52cae2db5029bc1b27209444cbce46feef859cd3",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/sha256.ko",
+      "sha256": "92f33048dd30b563d5c86398c1cfd0341cd104d5bf2fc9c720015e0e6f0ff5c2",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/sha512.ko",
+      "sha256": "c083b866fa3c12034d76a6e2af7734c35864fed36f02607b326b15afe4c46640",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/sha3_generic.ko",
+      "sha256": "e5b03015a593a7a965a4bce83fdb207adbc21f284cee0d6a224a8fe75a00596f",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/blake2b_generic.ko",
+      "sha256": "b6f334c8cc162cd1e1aad3d5b8c5356503e0dec21b8721b3c266ba9850ae5276",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ctr.ko",
+      "sha256": "a532399828f49abe0eec3f9aaa2bd7811caa8ee2f8c8d7bd0f999784e93c0455",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/gcm.ko",
+      "sha256": "078b4383524aa67a8c6c277859945864d34c1d66812669d348a676ad849c59fc",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ccm.ko",
+      "sha256": "7fdc2cc1e46d30ca2fd63b58d5c10aaf0aa1f01b42e961cb0d17663ab283bc78",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/crc32c-cryptoapi.ko",
+      "sha256": "1d1e29f4b556ad66322052ad2cfba3e9067b65e503f55a2de2e51a2263c58f20",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/xxhash_generic.ko",
+      "sha256": "1890f66771954774e73527b59b92cb6b469fb7cfa2d30ea072c51e26975f4781",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ansi_cprng.ko",
+      "sha256": "32b15bd62d0cbcd7cc7bb865ead88aab0810516467b0028cfd189d4230947877",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/drbg.ko",
+      "sha256": "41c96a7f3727f8e2b350522d5bf580879435e0c0462cc12d127efb9de18f3f37",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/jitterentropy_rng.ko",
+      "sha256": "ad7716db8236de4d4964c1f623d1f7cd443fbe568cf64bd686f4d88e469e5c73",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ghash-generic.ko",
+      "sha256": "2e4b612ca69a3cafbd1c3686aaa127d7e5fef8734493a98edc8dc53ae67f7c2d",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/xor.ko",
+      "sha256": "1b5b33e9e5ddc68361897682d9c378194dff20ce2a792d3206e707d0dd35ac50",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crc/crc-itu-t.ko",
+      "sha256": "ef01b43777845ead7b98316f096f4a75d290c144ef1997d0e1c518015dc4aec1",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crypto/libarc4.ko",
+      "sha256": "891e5e9f19d8c6e563f4300ecbfae6543a18bd2c7a727e0995b7327b076e51da",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crypto/gf128mul.ko",
+      "sha256": "664e6a1bda5c291c9aa82f79976f0bc1815c4e02778fb747448413644ced61f7",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crypto/libsha512.ko",
+      "sha256": "52c407b2c05746c5b89c0c799a831c144f4e9cf7b09514aa9d7cbbb9cb0ccecc",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/lz4/lz4_compress.ko",
+      "sha256": "cd9a00a554938a5bac7c1b1d166ae5bb2fac8463b7cfd2e8a7ddb57ead58e802",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/lz4/lz4hc_compress.ko",
+      "sha256": "d52640b460996338259047f1e303b841c96b49770bf662d6287056ead1af53d0",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/zstd/zstd_compress.ko",
+      "sha256": "c1365052aeff43800e308987b296dc521c5f3d984a8e85b17979af0a5392aa52",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/842/842_compress.ko",
+      "sha256": "63d155f07bdebdd3b16ad499ca7dad61eae909026465839c0c1c98bdf3699362",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/842/842_decompress.ko",
+      "sha256": "6548e524e2e6a4e98c9fc142a089fd75e948fc9ad840ec2de148345b1b57730a",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/raid6/raid6_pq.ko",
+      "sha256": "264fc91104bc0c73f8b7d63253adad5b00b6007bd7f473e31fadbd91840db80b",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/asn1_decoder.ko",
+      "sha256": "545e7551d571484832c38c1f4de0fae7578fdd5c77d55fabce64f732de074363",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/block/nbd.ko",
+      "sha256": "674ebb9b89a708027bfd5777e5698a74eb053fd97691d330e2df8370c02ca545",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/block/zram/zram.ko",
+      "sha256": "cf28bdb7d1a949abadbd50a9ac2957c3595d50047c4ed6337fb5ad1067e6afa2",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/class/cdc-acm.ko",
+      "sha256": "d78af43d4b694a99d2298661d7f76059a7cbad7a030d8b003e1c5cce0d20cd6a",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/serial/usbserial.ko",
+      "sha256": "0f39a7ca515542bac1d2d866367e2c4c92ad28b5298e587998f5e0199df90f48",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/serial/ftdi_sio.ko",
+      "sha256": "700c78e9f318a3330412d5737d3bf37d74eb6bb63bb851caa722f72fbf5a02d1",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/serial/pl2303.ko",
+      "sha256": "bcf5daee3a01738e9feba378fdb4ead81938c83e2b0a03b9adcd99c03aaf28a4",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/usbip/usbip-core.ko",
+      "sha256": "a2ca3a3d4df1b8b79514db4b856256e7fc49d7a3a606204607ce2ead28fa4ca0",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/usbip/vhci-hcd.ko",
+      "sha256": "5545e6936f7f3168467430c1c2e97a9d158548de2cc5ca314076104db9b8912c",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/usbip/usbip-host.ko",
+      "sha256": "c2bc3958e1dd975c525ae7cc7aed57219161864e35fa1c4bb65ffd4d5f12c3a0",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/joystick/xpad.ko",
+      "sha256": "96e79544663c34a76f16158b9f86c03fae6c5d6538fcaaa1c39b14917094ae0e",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/misc/uinput.ko",
+      "sha256": "9a4d6f4db8ff6e381da25e7ee0074e6f0ae675809f4d82ef2d8103d7a0520e52",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/joydev.ko",
+      "sha256": "0c72da42e72dedb92fa093fa47023297e7fcb35cd03ad52d725fab3e1febec5c",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/evdev.ko",
+      "sha256": "89b66b74bfbb4ae2a3957bb362fa972926209fdeb33f358a3a226ea74199e1af",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/i2c/busses/i2c-sis96x.ko",
+      "sha256": "a2df1d0d6374421854c693b6ba32bf82adb1727afec78a2a966b216e73dae665",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-a4tech.ko",
+      "sha256": "ad40dac392328bee7ab7527170f2caba589f81a011c4d9c5d81a6942018a5638",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-cherry.ko",
+      "sha256": "80d8deb09ef935a005e04db75070bb8bb47f3054596a13b4b4faf14060264bf0",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-gyration.ko",
+      "sha256": "b4ed66b8107f71e3866170abdec54307449756ad5d95867b33e588096827fa0a",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-nintendo.ko",
+      "sha256": "4a34a042641f3d9e097b481404e9df9774038a621a5f9b27eaeab9d01c1cd87d",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-wiimote.ko",
+      "sha256": "03352e65441f25a4f61dde27a34e99aa2f1366c32e32e379116d534948a89133",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/connector/cn.ko",
+      "sha256": "adfb066441fcf4173c3f48c26f538defec1ecc014de14f28d113818473b97ba5",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "sound/soundcore.ko",
+      "sha256": "899e51050ea24a839f75a3483a0604f05dc5c917a56600f6a5ecceca7a3540f5",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "sound/core/snd.ko",
+      "sha256": "460652b6e9d9fa3b278683e70cfa7e26585934ad0b140e4d341664bc1a525c68",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "sound/core/snd-timer.ko",
+      "sha256": "6dfdaea40b89998573d28fa222bfdf22039e5c0d3edea91c92c58c9fc492288d",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "sound/core/snd-pcm.ko",
+      "sha256": "964355b96a02200e673b5cbdd4c4e49549a3b1187d413c72a77a3e6c0eb376f3",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    },
+    {
+      "path": "sound/pci/snd-xenon.ko",
+      "sha256": "e3c00df39f35df0508d413b7cb2d2fcf9d1d01722b6f2e30dee6b6cef3f28248",
+      "vermagic": "6.18.11-xenon-audio-submit SMP mod_unload modversions "
+    }
+  ],
+  "booted": false,
+  "deployed": false,
+  "boot_image_checked": false,
+  "payload_sections": {},
+  "module_count": 70,
+  "verified": true
+}

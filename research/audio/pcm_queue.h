@@ -52,7 +52,7 @@ int obs_audio_queue_drain(struct obs_audio_queue *q, struct obs_audio_plan *plan
 int obs_audio_queue_consume(struct obs_audio_queue *q, obs_audio_u32 bytes,
                             obs_audio_u32 *logical_bytes);
 /* Frames, not bytes. Use before any potentially overflowing unit conversion. */
-int obs_audio_forward_delta(obs_audio_u64 previous, obs_audio_u64 current,
+int obs_audio_forward_delta(obs_audio_u64 previous, obs_audio_u64 position,
                             obs_audio_u64 boundary, obs_audio_u32 buffer_frames,
                             obs_audio_u32 *frames);
 #endif

@@ -35,3 +35,5 @@ Publication E53/E54 vérifiée à 2026-10-02T08:57:54.026744+00:00 : commit publ
 Publication E55/E56 vérifiée à 2026-10-02T09:45:58.581719+00:00 : commit public `74ba6693755aaef77e96d016bbcbc6e7cf473713`, 287 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/pcm-publication.json`. Candidat audio-pcm non installé.
 
 Publication E57/E58 vérifiée à 2026-10-02T10:19:25.216637+00:00 : commit public `987fea14abdeb6059b4b8d4a6b1215345cefabbe`, 312 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/poll-publication.json`. Noyau audio-poll compilé, non installé ; soumission encore à corriger.
+
+Publication E59 vérifiée à 2026-10-02T10:36:04.104109+00:00 : commit public `3a98dcf5b0977a33251748255f186c25cfcf2da0`, 324 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/queue-publication.json`. File PCM testée et liée pour PowerPC, non intégrée au pilote et non chargée.

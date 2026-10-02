@@ -82,6 +82,9 @@
 
 | E59 | Écrire une file PCM originale avec engagements partiels, drain silencieux et compteur borné | 512 tailles, 54 008 opérations, 24 544 033 frames comparées ; compilation et module de liaison PPC ; audio-queue/ | Aucun adaptateur ALSA ni accès matériel ; protocole/achèvement DMA encore ouverts |
 
+| E60 | Intégrer file, ack, drain/reset et suivi au pilote candidat ; tester les callbacks et le rollback ALSA réels | 15 scénarios dont 512 géométries et fermeture concurrente contrôlée, 20 ressources, régression de file ; noyau + 70 modules sans avertissement ; audio-adapter/ | Fin du dernier bloc non décodée, stagnation = XRUN ; aucun chargement |
+| E61 | Reconnexion SSH par interfaces standard en lecture seule | obsidian4, uptime 9 327,35 s, aucun service en échec listé, framebuffer 720p ; audio-adapter/console-status.json | Réactivité visuelle et audio non vérifiés |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.

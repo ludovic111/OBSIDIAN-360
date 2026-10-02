@@ -32,7 +32,9 @@ def harness(source, base, candidate):
     else:
         prelude += 'static int snd_xenon_interrupt(int irq, void *data) { (void)irq; (void)data; return 1; }\nstatic int snd_xenon_free(struct snd_xenon *);\nstatic int snd_xenon_dev_free(struct snd_device *);\n'
         names = ['snd_xenon_set_irq_flag', 'snd_xenon_new_pcm', 'snd_xenon_init', 'snd_xenon_create', 'snd_xenon_dev_free', 'snd_xenon_free', 'snd_xenon_probe', 'snd_xenon_remove']
-    return (base/'audio-lifecycle-stubs.h').read_text() + structs + prelude + '\n'.join(function(source, n) for n in names) + (base/'audio-lifecycle-main.c').read_text()
+    queue_header = (base.parent/'audio/pcm_queue.h').read_text() if 'struct obs_audio_queue queue;' in source else ''
+    queue_header += '\ntypedef uint64_t u64;\n'
+    return (base/'audio-lifecycle-stubs.h').read_text() + queue_header + structs + prelude + '\n'.join(function(source, n) for n in names) + (base/'audio-lifecycle-main.c').read_text()
 
 
 def main():
