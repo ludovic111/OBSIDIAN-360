@@ -67,3 +67,5 @@ Le parseur Rust et les neuf essais de sa CLI sont décrits dans `game-analysis/x
 - `check-audio-submission.py` : reproduit 96 cas de publication non idempotente, un débordement signé attendu dans les helpers ALSA et un cas de bloc partiel sous hypothèse de protocole. Il ne valide pas une correction.
 
 Recettes et limites dans `docs/AUDIO-PCM-DMA.md`, `docs/AUDIO-STREAM-POLLING.md` et `docs/AUDIO-SUBMISSION-AUDIT.md`. ASan/UBSan ne remplace ni tests matériels, ni preuves générales de concurrence. `check-kernel-artifacts.py --kernel-only` valide noyau/modules sans exiger d’image de démarrage.
+
+`check-audio-queue.py` teste le composant original de `research/audio/` avec une file de contenu de référence, 512 tailles et deux flux entrelacés. Il compare les frames synthétiques et le silence final, pas des registres ou de la mémoire DMA réelle. Voir `research/audio/README.md`.

@@ -1,0 +1,17 @@
+{
+  "returncode": 0,
+  "module_sha256": "a39fcb75c6821c6c84299936ba5daed254d59e0f211e7c5cf6ac0342ff0c9afe",
+  "elf": "ELF64 PowerPC big-endian",
+  "vermagic": "6.18.11-xenon-audio-poll SMP mod_unload modversions ",
+  "functions_present": [
+    "obs_audio_queue_init",
+    "obs_audio_queue_push",
+    "obs_audio_queue_drain",
+    "obs_audio_queue_consume",
+    "obs_audio_forward_delta"
+  ],
+  "text_bytes": 1816,
+  "loaded": false,
+  "hardware_driver": false,
+  "scope": "Link check against audio-poll kernel headers and symbols. Wrapper contains module metadata only; no PCI driver or hardware operations."
+}

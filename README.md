@@ -36,6 +36,8 @@ Laboratoire d’analyse d'une Xbox 360 : matériel, chaîne de démarrage, pilot
 
 15. [Tampons audio ALSA](docs/AUDIO-PCM-DMA.md), [suivi et fermeture des flux](docs/AUDIO-STREAM-POLLING.md), [audit de la soumission](docs/AUDIO-SUBMISSION-AUDIT.md).
 
+16. [File PCM originale et gestion de la fin de flux](research/audio/README.md), testée mais non intégrée au pilote.
+
 ## Organisation
 
 - `evidence/` : relevés datés et sommes SHA-256 ; observations ponctuelles, pas état courant garanti.

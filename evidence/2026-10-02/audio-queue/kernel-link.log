@@ -1,0 +1,11 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/module'
+  CC [M]  pcm_queue.o
+  CC [M]  build_check.o
+  LD [M]  obsidian_pcm_queue.o
+  MODPOST Module.symvers
+  CC [M]  obsidian_pcm_queue.mod.o
+  CC [M]  .module-common.o
+  LD [M]  obsidian_pcm_queue.ko
+make[1]: Leaving directory '/module'
+make: Leaving directory '/src'

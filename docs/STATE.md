@@ -1,5 +1,9 @@
 # État courant — 2 octobre 2026
 
+## File audio logicielle — E59
+
+Un nouveau composant C original distingue blocs prêts, données partielles et silence de fin de flux. Vérifié sur 512 tailles, 54 008 opérations et 24 544 033 frames synthétiques ; ASan/UBSan et analyse statique sans diagnostic après correction d’un réglage d’outillage. Compilation et liaison PowerPC contre le noyau réussies. Il reste séparé de snd-xenon : adaptateur ALSA et fin réelle des blocs DMA non validés, aucun son activé. Voir `research/audio/README.md`.
+
 E58 : 96 cas reproduisent une file modifiée par des demandes de position identiques ; débordement de conversion signé également reproduit avec une valeur synthétique native 64 bits. Aucun défaut vivant revendiqué. Le contrôleur audio de l’émulateur Xenon examiné est un stub et ne valide pas le protocole. Soumission et fin de flux à résoudre avant activation ; voir `docs/AUDIO-SUBMISSION-AUDIT.md`.
 
 ## Suivi audio compilé et soumission à corriger — E57/E58
@@ -155,3 +159,5 @@ Publication E49–E52 vérifiée à 2026-10-02T08:25:04.519035+00:00 : commit pu
 Publication E53/E54 vérifiée à 2026-10-02T08:57:54.026744+00:00 : commit public `5dd3293b9936669ba7a8e25935de8dd6b918fafc`, 273 fichiers, parent et arbre GitHub conformes après audits. Preuve `evidence/2026-10-02/public-audit/smc-publication.json`. Deux builds audio complets validés, aucun installé.
 
 Publication E55/E56 vérifiée à 2026-10-02T09:45:58.581719+00:00 : commit public `74ba6693755aaef77e96d016bbcbc6e7cf473713`, 287 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/pcm-publication.json`. Candidat audio-pcm non installé.
+
+Publication E57/E58 vérifiée à 2026-10-02T10:19:25.216637+00:00 : commit public `987fea14abdeb6059b4b8d4a6b1215345cefabbe`, 312 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/poll-publication.json`. Noyau audio-poll compilé, non installé ; soumission encore à corriger.

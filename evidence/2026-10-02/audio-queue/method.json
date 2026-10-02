@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-10-02T10:33:39.076776+00:00",
+  "image": "obsidian360-kernel:llvm16",
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "cross_compile": "clang --target=powerpc64-linux-gnu -ffreestanding -std=c11 -O2 -Wall -Wextra -Werror -c /queue/pcm_queue.c -o /out/pcm_queue.ppc64.o",
+  "kernel_link": "make -C /src O=/build M=/module ARCH=powerpc LLVM=1 LOCALVERSION=-audio-poll modules",
+  "kernel_and_build_mounts": "read-only",
+  "module_wrapper": "/* SPDX-License-Identifier: MIT */\n#include <linux/module.h>\nMODULE_LICENSE(\"Dual MIT/GPL\");\nMODULE_DESCRIPTION(\"OBSIDIAN-360 PCM queue build check; no hardware driver\");\n",
+  "module_makefile": "obj-m += obsidian_pcm_queue.o\nobsidian_pcm_queue-y := pcm_queue.o build_check.o\n",
+  "console_interaction": false,
+  "kernel_driver_integration": false
+}

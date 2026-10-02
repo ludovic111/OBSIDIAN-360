@@ -1,0 +1,12 @@
+{
+  "verified_utc": "2026-10-02T10:29:41.340917+00:00",
+  "cross_compile_code": 0,
+  "clang_analyzer_code": 0,
+  "analyzer_diagnostics": [],
+  "elf_class": 64,
+  "elf_endian": "big",
+  "elf_machine": 21,
+  "object_sha256": "1b191b1eae81c6b8a606d619c1addaf3e12a5594df92bf47004afb9124440b3b",
+  "source_sha256": "83223fdc6504a19edbc582127dab6b72ba6022716c3a48fd817210f662b36e19",
+  "scope": "Freestanding PowerPC64 object, not linked as a Linux module, installed or run on the console. Static analysis and tests are not a proof of all inputs."
+}

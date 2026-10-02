@@ -80,6 +80,8 @@
 
 | E58 | Exécuter la routine pointer et les conversions ALSA réelles ; examiner le contrat ack et un émulateur | 96 cas de file alternante sans nouvelles données, débordement signé attendu, publication partielle conditionnelle ; audio-submission/ | Remplacement à concevoir avec drain/reset ; émulateur audio insuffisant pour valider le protocole |
 
+| E59 | Écrire une file PCM originale avec engagements partiels, drain silencieux et compteur borné | 512 tailles, 54 008 opérations, 24 544 033 frames comparées ; compilation et module de liaison PPC ; audio-queue/ | Aucun adaptateur ALSA ni accès matériel ; protocole/achèvement DMA encore ouverts |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.

@@ -188,3 +188,16 @@ Publication E55/E56 vérifiée à 2026-10-02T09:45:58.581719+00:00 : commit publ
 - Analyse : ack doit préserver rollback, retour de boundary, tampon complet, écritures partielles, drain et reset. Déplacer simplement les écritures ne suffirait pas.
 - Référence examinée : xenon-emu/xenon au commit 0284bbe6c8125935d97bf54ab3132089c6c65c8b ; classe audio sans consommation de descripteurs, donc pas de validation du protocole.
 - Suite : documenter et publier après audit ; concevoir soumission/fins de flux, sans activer les noyaux audio encore incomplets. Dernier relevé matériel inchangé : E56.
+
+Publication E57/E58 vérifiée à 2026-10-02T10:19:25.216637+00:00 : commit public `987fea14abdeb6059b4b8d4a6b1215345cefabbe`, 312 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/poll-publication.json`. Noyau audio-poll compilé, non installé ; soumission encore à corriger.
+
+
+## 2026-10-02T10:33:39.076776+00:00 — E59 — file PCM logicielle
+
+- Objectif : remplacer les calculs de soumission instables sans perdre les écritures partielles ou la fin de flux.
+- Action : composant C original sans MMIO/allocation ; états physiques/logiques séparés, blocs complets publiables, reste non publié, plan de silence au drain, deltas en frames bornés avant conversion. Erreurs sans mutation.
+- Observation : test indépendant de contenu sur 512 tailles et deux files entrelacées ; 54 008 opérations, 24 544 033 frames logiques comparées, 4 333 refus attendus. Aucun diagnostic ASan/UBSan.
+- Échec conservé : LeakSanitizer indisponible sur ce Mac ; premier lancement arrêté avant les cas, option désactivée puis tests réussis.
+- Résultat : analyse Clang sans diagnostic ; objet PPC64 freestanding puis module de liaison avec __KERNEL__ contre audio-poll, sans avertissement, fonctions et vermagic vérifiés. Sources/build noyau montés en lecture seule. Aucun module chargé.
+- Limites : algorithme de file testé, pas protocole de registres ni achèvement DMA. Le pilote historique conserve E58 tant que son adaptateur ne remplace pas pointer/ack ; reset ALSA, drain réel et prélecture à vérifier.
+- Suite : intégrer le contrat de file aux callbacks tout en conservant la séparation entre tests logiciels et preuves matérielles. Aucun contrôle vivant supplémentaire.

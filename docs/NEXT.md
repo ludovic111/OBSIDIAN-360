@@ -9,7 +9,7 @@ Priorités issues de l'analyse approfondie :
 - Évaluer la correction du masque IPI dans cette branche, avec compilation puis test ciblé du chemin concerné ; ne pas attribuer au callback dormant les symptômes du chemin SMP ordinaire.
 - Pour une acquisition par XeLL, identifier le binaire réellement utilisé et vérifier/corriger le tampon de page physique HTTP ainsi que les erreurs SFCX. Ne pas assimiler une réponse HTTP complète à une sauvegarde NAND validée.
 - Résoudre l'observation de trousseau pacman manquant avant toute nouvelle installation de paquets ; conserver les signatures activées.
-- Poursuivre après 0008–0012 : contrat de soumission via ack, écritures partielles, drain et reset ; limites d’adresses et encodage des longueurs. DMA PCM et suivi par sortie testés hors console ; noyau haute résolution et 70 modules compilés. Mesurer précision/cadence/coût CPU lors d’un futur essai coordonné. Vieux chemins SMC encore non bornés ; activation audio différée tant que le protocole et la soumission restent ouverts.
+- Poursuivre après 0008–0012 : intégrer la file logicielle E59 à ack, drain et reset après validation de l’achèvement des blocs ; limites d’adresses et encodage des longueurs. DMA PCM et suivi par sortie testés hors console ; noyau haute résolution et 70 modules compilés. Mesurer précision/cadence/coût CPU lors d’un futur essai coordonné. Vieux chemins SMC encore non bornés ; activation audio différée tant que le protocole et la soumission restent ouverts.
 
 État des étapes historiques :
 
