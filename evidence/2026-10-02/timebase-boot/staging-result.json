@@ -1,0 +1,23 @@
+{
+  "console_started_utc": "2026-10-02T13:35:59.267507+00:00",
+  "operations": [
+    "installed 65 modules in distinct release directory",
+    "created obsidian-clock USB directory",
+    "saved previous kboot.conf",
+    "added optional obsidian_clock; preserved linux_hdd default"
+  ],
+  "release": "6.18.11-xenon-obsidian-clock",
+  "default": "linux_hdd",
+  "rebooted": false,
+  "success": true,
+  "kernel_sha256": "85b39fd069950625ad6e6cb8f5c17c71aa2755c7d325d3459cf848b69fa241cb",
+  "initramfs_sha256": "0f2bea5579d397127a75b9daa27aa724a24deb2d2be3984749de64c16e937eef",
+  "menu_sha256": "f579e15e9a61544a0eae37c5b55b1fd54294a79784abea83413aea2d740bf72a",
+  "backup_sha256": "ffdec658e3fc84f6fee93a4ba2c58a528f259425265be3d2149d54f1feb37d6a",
+  "prior_boot_files_unchanged": true,
+  "modules_verified": 65,
+  "usb_unmounted": true,
+  "console_finished_utc": "2026-10-02T13:36:27.172962+00:00",
+  "host_started_utc": "2026-10-02T13:36:32.633043+00:00",
+  "host_received_utc": "2026-10-02T13:37:16.363397+00:00"
+}

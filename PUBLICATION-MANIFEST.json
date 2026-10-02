@@ -1,6 +1,6 @@
 {
   "scope": "Reviewed public text snapshot; original local history is not included.",
-  "source_commit": "9765ad1b405be072ade0cad8be7ca610021c30ee",
+  "source_commit": "ce451f8af7dbecadf2824a6928cb349de6b3405f",
   "files": [
     {
       "path": ".gitattributes",
@@ -166,8 +166,8 @@
     },
     {
       "path": "docs/BLOCKED.md",
-      "source_sha256": "78162143a9d12a2607c29261105bbbbe682b8244a14b1c183c3c23306734a53b",
-      "public_sha256": "78162143a9d12a2607c29261105bbbbe682b8244a14b1c183c3c23306734a53b",
+      "source_sha256": "9ce89e416835a5bd19e3aa4b82aeaed036cd409ced91e0b2d2910dc18d88b151",
+      "public_sha256": "9ce89e416835a5bd19e3aa4b82aeaed036cd409ced91e0b2d2910dc18d88b151",
       "sanitized": false
     },
     {
@@ -202,14 +202,14 @@
     },
     {
       "path": "docs/EXPERIMENTS.md",
-      "source_sha256": "5236009f643e2bb025834ffb73cb9e4c58358097d68bd0a5e5a56a19ea08c89f",
-      "public_sha256": "5236009f643e2bb025834ffb73cb9e4c58358097d68bd0a5e5a56a19ea08c89f",
+      "source_sha256": "fd609c3d4b65f7603b567de7df8db767b523c209ac644661de88e2b0be85ea9f",
+      "public_sha256": "fd609c3d4b65f7603b567de7df8db767b523c209ac644661de88e2b0be85ea9f",
       "sanitized": false
     },
     {
       "path": "docs/JOURNAL.md",
-      "source_sha256": "57a932e47c2577d6d37554bb4fc758a767fa31477243463dcf52a78974a55d98",
-      "public_sha256": "57a932e47c2577d6d37554bb4fc758a767fa31477243463dcf52a78974a55d98",
+      "source_sha256": "510a23036cb5114ee69e0684e42525a8e902fabeffc1ef3a89e464c856c9edbd",
+      "public_sha256": "510a23036cb5114ee69e0684e42525a8e902fabeffc1ef3a89e464c856c9edbd",
       "sanitized": false
     },
     {
@@ -226,8 +226,8 @@
     },
     {
       "path": "docs/NEXT.md",
-      "source_sha256": "b8e62421ef5670fcf554ed9452f6c5f70a11bc7844c401f6bf6f2aa605d525fa",
-      "public_sha256": "b8e62421ef5670fcf554ed9452f6c5f70a11bc7844c401f6bf6f2aa605d525fa",
+      "source_sha256": "a160024ce01dd8af3f07728a8e0048fb5f406cd2ec66fad2bdfc8bbabf950b0a",
+      "public_sha256": "a160024ce01dd8af3f07728a8e0048fb5f406cd2ec66fad2bdfc8bbabf950b0a",
       "sanitized": false
     },
     {
@@ -268,8 +268,8 @@
     },
     {
       "path": "docs/PUBLICATION.md",
-      "source_sha256": "e51ff5c1a2d0918f63a679d1717283d76158554fd33b3f2d0a8423a23119c29e",
-      "public_sha256": "e51ff5c1a2d0918f63a679d1717283d76158554fd33b3f2d0a8423a23119c29e",
+      "source_sha256": "7cf0602c53274a8d3089999bb3a656c8ffb4457e54df3d1e871d731de89e5f6d",
+      "public_sha256": "7cf0602c53274a8d3089999bb3a656c8ffb4457e54df3d1e871d731de89e5f6d",
       "sanitized": false
     },
     {
@@ -304,14 +304,20 @@
     },
     {
       "path": "docs/STATE.md",
-      "source_sha256": "fea68f08558cec3fc0579fa18b56cc0156c9562cc7f17b5a897001d380a7c464",
-      "public_sha256": "fea68f08558cec3fc0579fa18b56cc0156c9562cc7f17b5a897001d380a7c464",
+      "source_sha256": "3a586c3e409b9d88eb52c5407486e1a0044e7e137c2f32eb42fa312f8d96effe",
+      "public_sha256": "3a586c3e409b9d88eb52c5407486e1a0044e7e137c2f32eb42fa312f8d96effe",
+      "sanitized": false
+    },
+    {
+      "path": "docs/TIMEBASE-BOOT.md",
+      "source_sha256": "a3bced47c5709868faee7daa03e2d5fb4aa87bdf97d54ca22fbe03961760e1cd",
+      "public_sha256": "a3bced47c5709868faee7daa03e2d5fb4aa87bdf97d54ca22fbe03961760e1cd",
       "sanitized": false
     },
     {
       "path": "docs/TIMEBASE-CALIBRATION.md",
-      "source_sha256": "53a90a121cf6fcf5c1bbb008edf36cac4bcc20e80f76b15ad8e25daf551193cc",
-      "public_sha256": "53a90a121cf6fcf5c1bbb008edf36cac4bcc20e80f76b15ad8e25daf551193cc",
+      "source_sha256": "718ebfee92f14040c26269b45cb10b5c86187e35f26ce9ad16e917a25dff5771",
+      "public_sha256": "718ebfee92f14040c26269b45cb10b5c86187e35f26ce9ad16e917a25dff5771",
       "sanitized": false
     },
     {
@@ -1785,6 +1791,12 @@
       "sanitized": false
     },
     {
+      "path": "evidence/2026-10-02/clock-calibration/effective-timebase.json",
+      "source_sha256": "10f7cbe360208048bddefdafb81cdf73d7a3b6fc8489945b66c0f1131bfbba9c",
+      "public_sha256": "10f7cbe360208048bddefdafb81cdf73d7a3b6fc8489945b66c0f1131bfbba9c",
+      "sanitized": false
+    },
+    {
       "path": "evidence/2026-10-02/clock-calibration/reproducible-analysis.json",
       "source_sha256": "8381795c12bf042edf31b7340b86332516ebc847e304177c2b1a8254c087eedd",
       "public_sha256": "8381795c12bf042edf31b7340b86332516ebc847e304177c2b1a8254c087eedd",
@@ -2007,6 +2019,12 @@
       "sanitized": false
     },
     {
+      "path": "evidence/2026-10-02/public-audit/timebase-publication.json",
+      "source_sha256": "89c8346f871425d2a8d30d3d205df7732b7c8bbffea6d3318232192b0d2fb410",
+      "public_sha256": "89c8346f871425d2a8d30d3d205df7732b7c8bbffea6d3318232192b0d2fb410",
+      "sanitized": false
+    },
+    {
       "path": "evidence/2026-10-02/public-audit/video-publication.json",
       "source_sha256": "ac328da64b29f48ee95bc32a0934ef500c591a78a00c58d060258a8ee386a2d2",
       "public_sha256": "ac328da64b29f48ee95bc32a0934ef500c591a78a00c58d060258a8ee386a2d2",
@@ -2082,6 +2100,48 @@
       "path": "evidence/2026-10-02/stock-dvd/observation.json",
       "source_sha256": "7aa2b6d62cb6a88dfe83de80086bbccdf640afc6ef6262a458ab05f2d7921d96",
       "public_sha256": "7aa2b6d62cb6a88dfe83de80086bbccdf640afc6ef6262a458ab05f2d7921d96",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/timebase-boot/build-transport.json",
+      "source_sha256": "2778ae9690bd9c679876187ed67f6fbc819cf045c354ece3a74725f7cd5a437e",
+      "public_sha256": "2778ae9690bd9c679876187ed67f6fbc819cf045c354ece3a74725f7cd5a437e",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/timebase-boot/build.json",
+      "source_sha256": "4e27c863bbebd907100f6673ca6a055deaa55c79e78d864d4d5347b91f62751a",
+      "public_sha256": "4e27c863bbebd907100f6673ca6a055deaa55c79e78d864d4d5347b91f62751a",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/timebase-boot/bundle.json",
+      "source_sha256": "6441a96e60b39aaecae8532afdc5603831f59ef88fd7ac84750b8af467433775",
+      "public_sha256": "6441a96e60b39aaecae8532afdc5603831f59ef88fd7ac84750b8af467433775",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/timebase-boot/inspection.json",
+      "source_sha256": "49f79c78518c1a30016e5227365a02d37cb4e3a3b63682f6ad98d81dbf8c3202",
+      "public_sha256": "49f79c78518c1a30016e5227365a02d37cb4e3a3b63682f6ad98d81dbf8c3202",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/timebase-boot/procedure-hashes.json",
+      "source_sha256": "fd4641964927982c12986278d92fe8d2ad0e2c23b49c330d6562e527dfa77c26",
+      "public_sha256": "fd4641964927982c12986278d92fe8d2ad0e2c23b49c330d6562e527dfa77c26",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/timebase-boot/staging-result.json",
+      "source_sha256": "de84f1f1c052c3638620aa877fff579b7e39258fec31f611ba6b53ec48d181b0",
+      "public_sha256": "de84f1f1c052c3638620aa877fff579b7e39258fec31f611ba6b53ec48d181b0",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/timebase-boot/verification.json",
+      "source_sha256": "40f5e356322d51dc523404ad890fb263fdbab273b1fc384aaff33a0fd21b04a0",
+      "public_sha256": "40f5e356322d51dc523404ad890fb263fdbab273b1fc384aaff33a0fd21b04a0",
       "sanitized": false
     },
     {
@@ -2647,11 +2707,16 @@
     "evidence/2026-10-01/device-tree.tar.gz",
     "evidence/2026-10-02/SHA256SUMS",
     "research/archive/backup-system-to-usb.sh.txt",
+    "research/archive/build-initramfs-20261002.py.txt",
     "research/archive/finalize-boot.sh.txt",
+    "research/archive/inspect-boot-20261002.py.txt",
     "research/archive/install-internal.sh.txt",
+    "research/archive/prepare-boot-20261002.py.txt",
     "research/archive/resume-internal.sh.txt",
     "research/archive/setup-desktop.sh.txt",
+    "research/archive/stage-clock-20261002.py.txt",
     "research/archive/stage-obsidian4.py.txt",
+    "research/archive/verify-staged-20261002.py.txt",
     "research/blocked/README.md",
     "research/blocked/read-flash-window.py.txt",
     "research/metadata/installed-state.json",

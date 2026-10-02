@@ -1,0 +1,257 @@
+{
+  "console_observed_utc": "2026-10-02T13:35:07.418482+00:00",
+  "current_release": "6.18.11-xenon-obsidian4",
+  "modules_verified": [
+    {
+      "path": "crypto/blake2b_generic.ko",
+      "sha256": "2ccffea5259f02441b4d6a91fdbdcfc3946e566d592646aeffb7e0efea4b8ad2"
+    },
+    {
+      "path": "crypto/ccm.ko",
+      "sha256": "b3379c6cc493c678b6621cd9a7d8a0ea56f022c897034fee412fb0b04a80f0bf"
+    },
+    {
+      "path": "crypto/cmac.ko",
+      "sha256": "65f9d1e0e554646d3fa7dad8cc918da4572b1fe4081eae5eb6d5b3084875dd34"
+    },
+    {
+      "path": "crypto/crc32c-cryptoapi.ko",
+      "sha256": "b2a583e050a1b6c0feff47ff8a36701172051d629adb25792155320dc5b1b617"
+    },
+    {
+      "path": "crypto/gcm.ko",
+      "sha256": "24b20becc946f6486be307274fcc0ea4cff4e3115c1f75e4dca0e824a574e135"
+    },
+    {
+      "path": "crypto/hmac.ko",
+      "sha256": "0317d47bfed88e8b1f8cf7509448d366cda7f00ecf40103502d6d2d399f47947"
+    },
+    {
+      "path": "crypto/sha256.ko",
+      "sha256": "47c439c91a6cc46b53c9f1e999a03a296561579b88bf440363c646a97b94574e"
+    },
+    {
+      "path": "crypto/sha512.ko",
+      "sha256": "4dfbdc18a42ae5eea15ae04785e5da292a3c5c06ea11b647575b51391facbb9c"
+    },
+    {
+      "path": "crypto/xor.ko",
+      "sha256": "2d16ffb6cd0320d0982fa342d0d0f028c16b6a7cf8a82117eb6da782e31e1e4d"
+    },
+    {
+      "path": "crypto/xxhash_generic.ko",
+      "sha256": "9ea1931983e50a11d434466c4f520620e2c48b981d7f6c019980d2b8d09e1fcd"
+    },
+    {
+      "path": "drivers/block/nbd.ko",
+      "sha256": "af981cbb7bf860ac175e1fa47edb04df2fad3630338f96312facf5040fab8cc4"
+    },
+    {
+      "path": "drivers/block/zram/zram.ko",
+      "sha256": "cd089c5cfa4460e230b699416ce860a22c5394ad833bbc483ec1e6db853e6d39"
+    },
+    {
+      "path": "drivers/hid/hid-a4tech.ko",
+      "sha256": "3966f70da16303aae80b446e19ae227887d2eea294549834faddf9016a544bff"
+    },
+    {
+      "path": "drivers/hid/hid-cherry.ko",
+      "sha256": "b30f5b18b107a947e6362da64cbf25ea993ab84beb8832739ce0f6b7cd3ec332"
+    },
+    {
+      "path": "drivers/hid/hid-gyration.ko",
+      "sha256": "7f97331564d1cb0747dc3432ee752105e8a8c264bb6ce86a075b134a9deb768d"
+    },
+    {
+      "path": "drivers/hid/hid-nintendo.ko",
+      "sha256": "a12616847fce5ee37547619fd8d2181e7d4864dace19a89a519583c6d7bc2b01"
+    },
+    {
+      "path": "drivers/hid/hid-wiimote.ko",
+      "sha256": "6830a7a399fea2905c89c54c7cdc3804bdc93d7991a2333bfe59e66e4228d94c"
+    },
+    {
+      "path": "fs/autofs/autofs4.ko",
+      "sha256": "54ef2dc5ed5144c2ee2ec338f165a0271770e03009e6affd2b6fa5ce89e6a86b"
+    },
+    {
+      "path": "fs/btrfs/btrfs.ko",
+      "sha256": "5cb52ea4f90b0b8fca4035b1f8fe9db20498589c76f2edd4a7f29a40acd02802"
+    },
+    {
+      "path": "fs/exfat/exfat.ko",
+      "sha256": "40d976301c58b455d7d854cd0e36f3ad62257e505673f6d883daf0a78884a237"
+    },
+    {
+      "path": "fs/fuse/fuse.ko",
+      "sha256": "c3d508916c753b961b9d93b2bc1e80c785800925ef637fff9a7f0ce076ecce29"
+    },
+    {
+      "path": "fs/hfs/hfs.ko",
+      "sha256": "f69946a4b353962aa0f1086f205acc27458e3000c6d3d0e8ddd0481407375f13"
+    },
+    {
+      "path": "fs/hfsplus/hfsplus.ko",
+      "sha256": "8424314042737db59c7b45943f913a54bd896a85db499973afbab908d0bdd760"
+    },
+    {
+      "path": "fs/isofs/isofs.ko",
+      "sha256": "3422ad8455650a5e4c5795a5ef917991e1d59660cdc3f98bd4c2980d769def85"
+    },
+    {
+      "path": "fs/netfs/netfs.ko",
+      "sha256": "0fb5a3fe1185c141a8683ff91ff1b74f6b718e6d9c149b6d3af5d3c6a239233c"
+    },
+    {
+      "path": "fs/nfsd/nfsd.ko",
+      "sha256": "1690ca833b48c2902d79d1896aa3c4764e4ed5d13dc3eecdf494a36e30d999e8"
+    },
+    {
+      "path": "fs/nls/nls_ucs2_utils.ko",
+      "sha256": "65adf304ade2789e1a86ed4421721b111a9ddebe54fad18f490829a6c6df222b"
+    },
+    {
+      "path": "fs/ntfs3/ntfs3.ko",
+      "sha256": "e6b297b4f2fe94df8acbb2fba46502f7c45816323152cc15d7b23f6e82a7f7c7"
+    },
+    {
+      "path": "fs/smb/client/cifs.ko",
+      "sha256": "0960b0e703f63a6d2a40bd2eb3032c7cef4ee131091ba287c067f8240314ccb5"
+    },
+    {
+      "path": "fs/smb/common/cifs_md4.ko",
+      "sha256": "de3f5abaab4547ec14a0e87610b3747d38e774b5a8409a3d6c5da60306d6d77c"
+    },
+    {
+      "path": "fs/smb/server/ksmbd.ko",
+      "sha256": "c7cfa49895e0a216f1a874c4b40e54dc8f2759b3466cac1cb4310e33764bfd6f"
+    },
+    {
+      "path": "fs/udf/udf.ko",
+      "sha256": "6359f7ef203b4ef242b418b931aa6c2ce8c6c566bb2b2ab6e0e890110104d272"
+    },
+    {
+      "path": "fs/xfs/xfs.ko",
+      "sha256": "ed43f63242c0f9bd9c1f07dd3d3d760a9db117bf5061a9d947192a41b09314ab"
+    },
+    {
+      "path": "lib/842/842_compress.ko",
+      "sha256": "732e304a51614c974937dd8e6751b3cd70549d9c7bdb0c737c2dc79d7ebbbed7"
+    },
+    {
+      "path": "lib/842/842_decompress.ko",
+      "sha256": "2e79c6cee41b29962bb7b1b14d06be6599af85d6e38977affa0cfebca6fe1385"
+    },
+    {
+      "path": "lib/asn1_decoder.ko",
+      "sha256": "6e11308d528108db18f71cebd50629a6e008f90700b8bee125a6c9c2f9ccab7b"
+    },
+    {
+      "path": "lib/crc/crc-itu-t.ko",
+      "sha256": "0fcabe2595851079de6ee393defd94d84a055b712bcdff272b43d7979d619eb8"
+    },
+    {
+      "path": "lib/crypto/libarc4.ko",
+      "sha256": "3afe2c3a99319120f1689d808a5ba4e2b2312b261d1e4fb2af7f957641335b18"
+    },
+    {
+      "path": "lib/crypto/libsha512.ko",
+      "sha256": "ef5a70e882ba2d8da161b4b83552603d910b03dd6bb078ff27e0e487c720165c"
+    },
+    {
+      "path": "lib/lz4/lz4_compress.ko",
+      "sha256": "d23b4c7a23534a78c9d46ab3d45b4ad27a71470fef6928713159fd2bf47b7813"
+    },
+    {
+      "path": "lib/lz4/lz4hc_compress.ko",
+      "sha256": "94489a362b437c522d12196b2cd816c8be56a3facf0511953371a477191d39eb"
+    },
+    {
+      "path": "lib/raid6/raid6_pq.ko",
+      "sha256": "6229bcf380edb1e1fa8c8e8942787f4efea6e2dd80e9b995621eeda4d67bcda7"
+    },
+    {
+      "path": "lib/zstd/zstd_compress.ko",
+      "sha256": "8aba71dbb8a4f38ca62711fca71b885d28de62262786f774be4fafd67f673b3f"
+    }
+  ],
+  "binaries": [
+    {
+      "path": "usr/bin/busybox",
+      "sha256": "37fea67ea41de291c061ddd7d669cba880e86b5e049cb941638f3ebd57582e42",
+      "format": "ELF32 big-endian PowerPC"
+    },
+    {
+      "path": "usr/bin/udevadm",
+      "sha256": "7aa8687a62e443914b4943c48aff2359445dcdb97c28baf82e6576f218c5dc76",
+      "format": "ELF32 big-endian PowerPC"
+    },
+    {
+      "path": "usr/bin/mount",
+      "sha256": "375f77c7fada6df4f5ecb1d8ccc5224f23eaa73f9dc24c2e5ff0489d24f6aa06",
+      "format": "ELF32 big-endian PowerPC"
+    },
+    {
+      "path": "usr/bin/switch_root",
+      "sha256": "21d006182e4378729929596fafa6e3eb3ede8d0ffaace8af6423d4ff19a94b6b",
+      "format": "ELF32 big-endian PowerPC"
+    },
+    {
+      "path": "usr/bin/e2fsck",
+      "sha256": "71f13da2d2e84ee4bd6ed2a2fcf1a0a2db6e8329c57726ef526d9782f74b92de",
+      "format": "ELF32 big-endian PowerPC"
+    },
+    {
+      "path": "usr/bin/kmod",
+      "sha256": "a0dff247577327db5d6588664c21fef25810d47ef3a62229b9a8d99b3ae23a80",
+      "format": "ELF32 big-endian PowerPC"
+    }
+  ],
+  "init_sha256": "9a25937d2434df2e0cb94f5082c3deafa4fef487b59c88c64e2a584de17d807b",
+  "udev_hook_sha256": "5f17add5ee7b6f3c329cdeb536f37e2128ed3dc6fb9e5e3a78b3c5ae74e380bc",
+  "usb_baseline": {
+    "kboot.conf": {
+      "sha256": "ffdec658e3fc84f6fee93a4ba2c58a528f259425265be3d2149d54f1feb37d6a",
+      "bytes": 1068
+    },
+    "obsidian4/kernel": {
+      "sha256": "2494bf14ba87dfec5af130ae0780788028635e2f2226e4facc697b108fa4229f",
+      "bytes": 19420244
+    },
+    "obsidian4/initrd": {
+      "sha256": "87c91934ead6d828fcaaf0bc5b6bfe78fc011c8a895b53441cdfb404f208e7b5",
+      "bytes": 16169156
+    },
+    "linux-hdd/vmlinuz-linux-xenon": {
+      "sha256": "a499ab2816bd5a94843442b0a8b89d18af4c1f98f4f264a83b0da5940c8bed66",
+      "bytes": 18637932
+    },
+    "linux-hdd/initramfs-linux-xenon.img": {
+      "sha256": "f01d99340d4e1539c0f4c52721f44fa715db0218b62cc94950040f28d53d3b09",
+      "bytes": 15462534
+    },
+    "arch/boot/ppc/vmlinuz-linux-xenon": {
+      "sha256": "a499ab2816bd5a94843442b0a8b89d18af4c1f98f4f264a83b0da5940c8bed66",
+      "bytes": 18637932
+    },
+    "arch/boot/ppc/initramfs-linux-xenon.img": {
+      "sha256": "4aa814cbffaf6f27d2633584785664c2ae2401b6531c40f69421bea17a5689bc",
+      "bytes": 14681764
+    },
+    "Recovery/kboot-before-obsidian4.conf": {
+      "sha256": "5f906be9d2852690530f2b0c5ab3a3f48240c27c2caaad6b6aaae9b368f21b66",
+      "bytes": 870
+    },
+    "Recovery/kboot-live-before-install.conf": {
+      "sha256": "b7c0323e246f869144cb505cc9a7b8151723f0011c48101ce9520df09953c3e3",
+      "bytes": 709
+    }
+  },
+  "previous_default": "linux_hdd",
+  "new_entry": "obsidian_clock",
+  "entry_bytes": 168,
+  "new_menu_sha256": "f579e15e9a61544a0eae37c5b55b1fd54294a79784abea83413aea2d740bf72a",
+  "image_sha256": "0f2bea5579d397127a75b9daa27aa724a24deb2d2be3984749de64c16e937eef",
+  "success": true,
+  "host_received_utc": "2026-10-02T13:35:57.252203+00:00"
+}

@@ -49,3 +49,7 @@ python3 research/tests/check-clock-analysis.py
 ```
 
 Les chemins de sortie doivent être nouveaux pour préserver les preuves. Les commandes de construction exactes, sources et empreintes sont dans timebase-build/build.json, reconstruction.json et clock-calibration/sources.json. Pour un futur test, garder obsidian4 et linux_hdd comme solutions de retour, puis vérifier l'option effectivement présente dans /proc/cmdline et la fréquence retenue dans le journal du noyau.
+
+## Préparation ultérieure E71
+
+Le candidat est désormais préparé sur le disque et la clé avec initramfs vérifié et entrée distincte **obsidian_clock**. Aucun démarrage encore constaté ; voir [TIMEBASE-BOOT.md](TIMEBASE-BOOT.md) pour les preuves, le test demandé et le retour à obsidian4.

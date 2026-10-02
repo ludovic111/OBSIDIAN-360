@@ -1,10 +1,14 @@
 # État courant — 2 octobre 2026
 
+## Candidat horloge prêt au démarrage — E71
+
+E71 : obsidian-clock possède maintenant son initramfs vérifié (43 modules), ses 65 modules installés dans une version distincte et l’entrée USB **obsidian_clock** avec xenon_tb_hz=49875000. Défaut linux_hdd conservé ; obsidian4 et récupération inchangés, menu précédent sauvegardé. Relecture après remontage en lecture seule réussie. SSH confirme encore obsidian4 et aucun service en échec à 13:38:34 UTC hôte. Aucun redémarrage envoyé, essai physique demandé ; correction effective non validée. Voir `docs/TIMEBASE-BOOT.md`.
+
 ## Horloge à corriger — E69/E70 ; protocole audio — E67/E68
 
 Mesure SSH de 60 s : l'horloge brute de la Xbox avance environ 0,25 % moins vite que celle du Mac. Device tree vivant à 50 MHz ; fréquence effective relative encadrée entre 49,8734 et 49,8759 MHz, compatible avec 49,875 MHz de LibXenon. Écart de date d'environ 44,28 s au relevé ; horodatages historiques console non corrigés rétroactivement.
 
-Correctif 0016 optionnel et noyau obsidian-clock construits depuis obsidian4 : image et 65 modules vérifiés, aucun avertissement. Pas d'installation, d'initramfs ni de démarrage du candidat ; mesure après correction encore requise. Voir `docs/TIMEBASE-CALIBRATION.md`.
+Correctif 0016 optionnel et noyau obsidian-clock construits depuis obsidian4 : image et 65 modules vérifiés, aucun avertissement. Lors d’E70, pas encore installé ; E71 prépare ensuite initramfs/modules/entrée USB. Démarrage et mesure après correction encore requis. Voir `docs/TIMEBASE-CALIBRATION.md`.
 
 E67 : acquittements séparés des bits analogiques 2–4 observés, 0x1d → 0x19 → 0x11 → 0x01. E68 : demande de reset depuis l'arrêt, retour 0x01 compatible avec auto-effacement mais effets internes non démontrés. Numérique inchangé ; aucun START ni son. Voir `docs/AUDIO-ACK-RESET.md`.
 
@@ -215,3 +219,5 @@ Publication E62 vérifiée à 2026-10-02T11:15:01.783984+00:00 : commit public `
 Publication E63/E64 vérifiée à 2026-10-02T12:11:33.298267+00:00 : commit public `962219272919b6446c7593b5fd5ced9f9fce8656`, 396 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/control-publication.json`. Contrôle audio testé sous modèle ; trois observations matérielles sans écriture, aucun son activé.
 
 Publication E65/E66 vérifiée à 2026-10-02T12:57:15.785188+00:00 : commit public `6d597f74c644f253f889d7c78e3f05f3113af2c9`, 410 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/stop-publication.json`. STOP analogique observé ; contrat mémoire ALSA testé, aucun son activé.
+
+Publication E67–E70 vérifiée à 2026-10-02T13:27:32.850304+00:00 : commit public `db44cdd3e537a6d0a2dd13ac565a939f9b90e043`, 442 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/timebase-publication.json`. Acquittements analogiques observés ; cadence mesurée et noyau de correction compilé, non installé.

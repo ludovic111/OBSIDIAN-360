@@ -285,3 +285,18 @@ Publication E65/E66 vérifiée à 2026-10-02T12:57:15.785188+00:00 : commit publ
 - E70 : patch 0016 indépendant, option précoce xenon_tb_hz limitée à 49 875 000 ou 50 000 000 Hz. Sans option, configuration firmware conservée. Conversion logicielle seulement ; aucune programmation PLL/alimentation. Une mesure sur cet exemplaire ne justifie pas de forcer toutes les révisions.
 - Construction distincte depuis obsidian4, sans les patches audio : vmlinux, modules et zImage.xenon codes zéro sans avertissement. obsidian-clock, 65 modules ELF/vermagic et six sections de charge utile vérifiés ; symbole du parseur et option présents, patch reconstruit identiquement.
 - Limites : correction non installée/non démarrée. Initramfs et entrée USB encore à préparer, mesure après reboot indispensable. Ne pas transformer la compilation en amélioration de cadence déjà obtenue ; conserver les horodatages historiques et signaler leur origine.
+
+Publication E67–E70 vérifiée à 2026-10-02T13:27:32.850304+00:00 : commit public `db44cdd3e537a6d0a2dd13ac565a939f9b90e043`, 442 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/timebase-publication.json`. Acquittements analogiques observés ; cadence mesurée et noyau de correction compilé, non installé.
+
+Confirmation complémentaire E69 : /proc/cpuinfo annonce effectivement timebase=50000000 et aucune propriété ibm,extended-timebase-frequency prioritaire n’est présente. Lecture seule ; preuve clock-calibration/effective-timebase.json, conservée pour la prochaine publication.
+
+## 2026-10-02 — E71 — ensemble de démarrage obsidian_clock préparé
+
+- Objectif : rendre le candidat E70 testable sans remplacer obsidian4 ni modifier le défaut.
+- Précontrôle vivant : SSH sous obsidian4, racine interne ext4, clé ARCH vfat séparée et non montée, aucun service en échec listé.
+- Archive de 65 modules et noyau vérifiée avant transfert puis après réception. Nouveau répertoire /var/tmp ; depmod avec Module.symvers sans diagnostic. mkinitcpio limité à cette version et --nopost, aucun preset rejoué.
+- Initramfs 16 171 806 octets ; extraction puis comparaison des 43 modules inclus, vérification ELF32 PowerPC de six exécutables et confinement des chemins résolus. La commande lsinitcpio d’analyse émet un avertissement TERM sans effet sur le build ; TERM=dumb pour la suite.
+- Neuf fichiers USB relevés en lecture seule. Ajout de l’entrée obsidian_clock (168 octets) avec même racine et xenon_tb_hz=49875000. 65 modules dans un répertoire distinct ; fichiers USB nouveaux contrôlés avant remplacement du menu. Ancien menu sauvegardé ; huit autres fichiers aux mêmes empreintes.
+- Synchronisation, démontage, remontage en lecture seule et relecture du candidat/anciens fichiers : contrôles conformes. Copie Mac de l’initramfs vérifiée également. SSH final sous obsidian4, aucun service en échec, clé démontée ; horodatage hôte 13:38:34 UTC.
+- Aucun redémarrage demandé par script, aucune NAND ni opération audio. Action physique proposée à l’utilisateur : Rock Band Blitz/USB, entrée obsidian_clock, Ethernet après le bureau. Résultat de démarrage encore inconnu.
+- Preuves dans timebase-boot/ ; procédures archivées en texte, pas des étapes à rejouer aveuglément. Suite : vérifier le nouveau noyau puis refaire E69 et comparer les intervalles de cadence.

@@ -1,0 +1,10 @@
+{
+  "console_observed_utc": "2026-10-02T13:37:45.167301+00:00",
+  "running_release": "6.18.11-xenon-obsidian4",
+  "failed_units": "",
+  "read_only_remount_verified": true,
+  "usb_unmounted": true,
+  "candidate_not_booted": true,
+  "success": true,
+  "host_received_utc": "2026-10-02T13:38:34.213234+00:00"
+}

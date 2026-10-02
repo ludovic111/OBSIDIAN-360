@@ -4,7 +4,7 @@ Le 2 octobre, l’utilisateur est de retour après son absence temporaire. E65 c
 
 | Action pour le prochain créneau disponible | Pourquoi elle est nécessaire | Travail indépendant possible |
 |---|---|---|
-| Démarrer l’entrée obsidian-clock après préparation et vérification de son initramfs/menu | Mesurer la correction de cadence sur ce matériel ; candidat seulement construit pour l’instant | Préparer et vérifier les fichiers, poursuivre les analyses audio |
+| Démarrer l’entrée **obsidian_clock**, prête et vérifiée par E71 ; demande envoyée à l’utilisateur | Mesurer la correction de cadence sur ce matériel ; candidat préparé mais non démarré | Documenter les preuves, poursuivre les analyses hors console |
 | Tester le bouton Éteindre depuis le lanceur démarré normalement | Autorisations du vrai PID vérifiées, extinction non déclenchée pendant l’absence | Analyse des sessions et tests hors console |
 | Identifier visuellement carte mère et marquages des puces | La signature PCI ne suffit pas à établir chaque révision | Analyse des pilotes et cartographie logicielle |
 | Tester Big Order sur un autre lecteur connu fonctionnel | CD lu, jeu et DVD vidéo absents sous Linux ; absence également rapportée dans le tableau de bord stock (E50) | Analyse du pilote SCSI et des erreurs historiques |

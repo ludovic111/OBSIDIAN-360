@@ -97,6 +97,7 @@
 | E68 | Écrire reset depuis le statut arrêté analogique | 0x02000000 écrit, lecture 0x00000001 ; index zéro, numérique inchangé ; audio-ack/reset-stopped.json | Une écriture, huit lectures ; auto-effacement compatible, effets internes non démontrés car état observé inchangé |
 | E69 | Comparer sept horodatages console/Mac en SSH persistant et lire le device tree | Environ −0,25 % sur 60 s ; 50 MHz déclarés, 49,8734–49,8759 MHz compatibles avec la mesure relative ; clock-calibration/ | Mac non étalonné, aucune reconfiguration ; horodatages console décalés et durée historique à interpréter |
 | E70 | Ajouter une conversion timebase optionnelle et construire un noyau distinct | obsidian-clock + image + 65 modules sans avertissement, ELF/sections/vermagic vérifiés ; timebase-build/ | Aucune installation/initramfs ni validation après boot ; correction limitée à cette piste mesurée |
+| E71 | Préparer initramfs, modules et entrée USB distincte pour obsidian-clock | Image 16 171 806 octets, 43 modules extraits conformes, 65 installés ; entrée obsidian_clock, défaut linux_hdd et secours préservés ; relecture après remontage réussie ; timebase-boot/ | Aucun reboot ni validation de cadence ; essai physique demandé, horodatages console non corrigés |
 
 ## Analyse de l’incident E10
 

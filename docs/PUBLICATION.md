@@ -45,3 +45,5 @@ Publication E62 vérifiée à 2026-10-02T11:15:01.783984+00:00 : commit public `
 Publication E63/E64 vérifiée à 2026-10-02T12:11:33.298267+00:00 : commit public `962219272919b6446c7593b5fd5ced9f9fce8656`, 396 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/control-publication.json`. Contrôle audio testé sous modèle ; trois observations matérielles sans écriture, aucun son activé.
 
 Publication E65/E66 vérifiée à 2026-10-02T12:57:15.785188+00:00 : commit public `6d597f74c644f253f889d7c78e3f05f3113af2c9`, 410 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/stop-publication.json`. STOP analogique observé ; contrat mémoire ALSA testé, aucun son activé.
+
+Publication E67–E70 vérifiée à 2026-10-02T13:27:32.850304+00:00 : commit public `db44cdd3e537a6d0a2dd13ac565a939f9b90e043`, 442 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/timebase-publication.json`. Acquittements analogiques observés ; cadence mesurée et noyau de correction compilé, non installé.

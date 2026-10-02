@@ -1,0 +1,52 @@
+{
+  "console_started_utc": "2026-10-02T13:33:37.672024+00:00",
+  "clock_note": "Console wall clock is not calibrated; use host collection bracket.",
+  "release": "6.18.11-xenon-obsidian-clock",
+  "steps": [
+    {
+      "command": [
+        "depmod",
+        "-b",
+        "/var/tmp/obsidian-clock-preflight-20261002/root",
+        "-e",
+        "-E",
+        "/var/tmp/obsidian-clock-preflight-20261002/Module.symvers",
+        "6.18.11-xenon-obsidian-clock"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "mkinitcpio",
+        "-r",
+        "/var/tmp/obsidian-clock-preflight-20261002/root",
+        "-k",
+        "6.18.11-xenon-obsidian-clock",
+        "--nopost",
+        "-g",
+        "/var/tmp/obsidian-clock-preflight-20261002/initramfs.img"
+      ],
+      "returncode": 0,
+      "stdout": "==> Starting build: '6.18.11-xenon-obsidian-clock'\n  -> Running build hook: [base]\n  -> Running build hook: [udev]\n  -> Running build hook: [modconf]\n  -> Running build hook: [block]\n  -> Running build hook: [filesystems]\n  -> Running build hook: [keyboard]\n  -> Running build hook: [fsck]\n==> Generating module dependencies\n==> Creating zstd-compressed initcpio image: '/var/tmp/obsidian-clock-preflight-20261002/initramfs.img'\n  -> Early uncompressed CPIO image generation successful\n==> Initcpio image generation successful\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "lsinitcpio",
+        "-a",
+        "/var/tmp/obsidian-clock-preflight-20261002/initramfs.img"
+      ],
+      "returncode": 0,
+      "stdout": "==> Image: /var/tmp/obsidian-clock-preflight-20261002/initramfs.img\n==> Created with mkinitcpio 40\n==> Kernel: 6.18.11-xenon-obsidian-clock\n==> Early CPIO: 10 KiB\n==> Size: 15.41 MiB\n==> Compressed with: zstd\n  -> Uncompressed size: 36.35 MiB (.424 ratio)\n  -> Estimated decompression time: 1.554s\n\n==> Included modules (43):\n  842_compress\t\t  hfs\t\t\t  netfs\n  842_decompress\t  hfsplus\t\t  nfsd\n  asn1_decoder\t\t  hid-a4tech\t\t  nls_ucs2_utils\n  autofs4\t\t  hid-cherry\t\t  ntfs3\n  blake2b_generic\t  hid-gyration\t\t  raid6_pq\n  btrfs\t\t\t  hid-nintendo\t\t  sha256\n  ccm\t\t\t  hid-wiimote\t\t  sha512\n  cifs\t\t\t  hmac\t\t\t  udf\n  cifs_md4\t\t  isofs\t\t\t  xfs\n  cmac\t\t\t  ksmbd\t\t\t  xor\n  crc-itu-t\t\t  libarc4\t\t  xxhash_generic\n  crc32c-cryptoapi\t  libsha512\t\t  zram\n  exfat\t\t\t  lz4_compress\t\t  zstd_compress\n  fuse\t\t\t  lz4hc_compress\n  gcm\t\t\t  nbd\n\n==> Included binaries (22):\n  blkid\t\t\t  fsck.minix\t\t  switch_root\n  busybox\t\t  fsck.xfs\t\t  systemd-mstack\n  e2fsck\t\t  kmod\t\t\t  systemd-tmpfiles\n  fsck\t\t\t  lowntfs-3g\t\t  udevadm\n  fsck.btrfs\t\t  mount\t\t\t  umount\n  fsck.cramfs\t\t  mount.nfs\t\t  xfs_repair\n  fsck.exfat\t\t  mount.nilfs2\n  fsck.fat\t\t  ntfs-3g\n\n==> Early hook run order:\n  udev\n\n==> Hook run order:\n  udev\n\n==> Cleanup hook run order:\n  udev\n\n",
+      "stderr": "tput: No value for $TERM and no -T specified\n"
+    }
+  ],
+  "image": {
+    "bytes": 16171806,
+    "sha256": "0f2bea5579d397127a75b9daa27aa724a24deb2d2be3984749de64c16e937eef"
+  },
+  "console_finished_utc": "2026-10-02T13:34:14.319122+00:00",
+  "success": true
+}

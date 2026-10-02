@@ -2,7 +2,7 @@
 
 Priorités issues de l'analyse approfondie :
 
-- Préparer initramfs et entrée USB optionnelle pour obsidian-clock avec xenon_tb_hz=49875000, préserver obsidian4/linux_hdd, puis coordonner le démarrage et comparer la cadence mesurée (E69/E70). Le nouveau noyau est compilé mais non installé. Distinguer les horodatages Mac et console dans les futures preuves.
+- E71 terminé : initramfs, modules et entrée USB **obsidian_clock** vérifiés, obsidian4/linux_hdd préservés. Essai physique demandé à l’utilisateur. Au retour SSH, vérifier version/options/calibration et comparer la cadence sur 60 s ; ne pas confondre présence des fichiers et démarrage validé. Distinguer les horodatages Mac et console dans les preuves.
 
 - obsidian4 est désormais confirmé en SSH avec bureau actif et framebuffer corrigé. Priorité : stabilité sous charge mesurée et validation des commandes physiques ; répéter ensuite les démarrages avec sélection explicite. Conserver linux_hdd et la récupération ; la cause de l'écran bloqué précédent reste inconnue.
 - Lecteur : CD audio partiellement lu ; Just Cause 2 et DVD Big Order répondent support absent sous Linux, avec rotation brève puis arrêt rapportés. Absence également rapportée sous tableau de bord stock ; comparer Big Order sur un autre lecteur ; région de la console et santé des DVD non confirmées. Pas de diagnostic définitif du laser.
