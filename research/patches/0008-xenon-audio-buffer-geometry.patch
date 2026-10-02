@@ -1,0 +1,35 @@
+--- a/sound/pci/snd-xenon.c
++++ b/sound/pci/snd-xenon.c
+@@ -97,7 +97,7 @@
+ static void cache_flush(void *addr, int size)
+ {
+     void *p = addr;
+-    while (size) {
++    while (size > 0) {
+ 	__asm__ __volatile__ ("dcbst 0,%0" :: "r" (p));
+ 	p += 128;
+ 	size -= 128;
+@@ -282,6 +282,10 @@
+ 				    struct snd_pcm_hw_params *hw_params)
+ {
+ 	int bytes = params_buffer_bytes(hw_params);
++
++	/* 32 descriptors, each containing complete four-byte stereo frames. */
++	if (bytes < 128 || bytes > 64 * 1024 || bytes % 128)
++		return -EINVAL;
+ 	return snd_pcm_lib_malloc_pages(substream, bytes);
+ }
+ 
+@@ -296,6 +300,12 @@
+ 	struct snd_pcm_runtime *runtime = substream->runtime;
+ 	struct playback_device *device = &chip->devices[0];
+ 	int i , dev_id = 0;
++
++	/* Reject invalid geometry before mapping memory or touching registers. */
++	if (runtime->dma_bytes != snd_pcm_lib_buffer_bytes(substream) ||
++	    runtime->dma_bytes < 128 || runtime->dma_bytes > 64 * 1024 ||
++	    runtime->dma_bytes % 128)
++		return -EINVAL;
+ 
+ 	if (device->playback_substream != substream) {
+ 		dev_id = 1;

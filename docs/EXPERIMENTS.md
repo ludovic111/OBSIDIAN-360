@@ -63,6 +63,12 @@
 
 | E48 | Remplacer le jeu par le DVD vidéo Big Order et contrôler deux fois la disponibilité | Même sense 02/3a/00 aux deux relevés espacés ; optical-video/ | Deux DVD non reconnus contre CD lisible ; origine exacte et état indépendant des médias non confirmés |
 
+| E49 | Diagnostiquer le refus du bouton Éteindre et demander un arrêt normal administrateur | CanPowerOff challenge, aucun inhibiteur ; timer systemctl poweroff accepté ; poweroff/request.json | Extinction physique non observée directement, bouton graphique non corrigé |
+| E50 | Comparer Big Order sous le tableau de bord Xbox à la demande de l’agent | Utilisateur rapporte aucune détection ; stock-dvd/observation.json | Cause exclusivement Linux moins probable ; libellé exact et état indépendant du DVD inconnus |
+
+| E51 | Compiler l’audio original et tester les vrais calculs C avec interfaces simulées | Build échoué : 8 erreurs, 1 avertissement ; 98 géométries hors tampon, 5 boucles dépassant le span ; correctif partiel 0008 passe ; audio-buffers/ | Aucun son activé ; cycle de vie, API, DMA/SMC et négociation ALSA encore à traiter |
+| E52 | Vérifier le retour Linux et les permissions du processus graphique réel | obsidian4 vivant, XRandR répond, réglages conservés ; pkcheck autorise les deux arrêts pour le PID du lanceur ; return-linux/ | Correction de portée du challenge mesuré via SSH ; bouton non déclenché, utilisateur absent |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.

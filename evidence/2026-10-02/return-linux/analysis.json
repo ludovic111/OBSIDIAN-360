@@ -1,0 +1,22 @@
+{
+  "kernel": "6.18.11-xenon-obsidian4",
+  "uptime_seconds": 201.58,
+  "failed_units": 0,
+  "display_query_returned": true,
+  "resolution": [
+    1280,
+    720
+  ],
+  "opaque_move": 1,
+  "opaque_resize": 1,
+  "launcher_pid": 429,
+  "launcher_session": "c1",
+  "shutdown_authorization_for_actual_launcher": {
+    "power_off": true,
+    "multiple_sessions": true,
+    "ignore_inhibit": false
+  },
+  "correction": "The earlier CanPowerOff query came from a runuser process in an administrative SSH session; it does not establish the authorization of the graphical launcher. Current actual launcher checks pass after normal boot.",
+  "remaining_uncertainty": "The earlier recovered launcher belonged to a root SSH session, consistent with the failed request, but an end-to-end shutdown from the actual launcher has not been tested. No shutdown during user absence.",
+  "changes": "No policy or launcher modification in this experiment."
+}

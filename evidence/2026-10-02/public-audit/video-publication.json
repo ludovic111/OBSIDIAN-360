@@ -1,0 +1,17 @@
+{
+  "verified_utc": "2026-10-02T08:03:48.586991+00:00",
+  "repository": "https://github.com/ludovic111/OBSIDIAN-360",
+  "commit": "b4b49e2b2fdcc42f522fbc6cd4b74b1b96202632",
+  "parents": [
+    "a67d28f83a160fde6048efc74a9824c808745f74"
+  ],
+  "files": 234,
+  "tree_matches": true,
+  "private_history_pushed": false,
+  "audit": {
+    "selected_files": 234,
+    "reachable_text_objects": 277,
+    "history_commits": 6,
+    "passed": true
+  }
+}

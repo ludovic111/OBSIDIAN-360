@@ -1,0 +1,14 @@
+{
+  "captured_utc": "2026-10-02T08:05:45.232733+00:00",
+  "action": "Schedule ordinary systemctl poweroff in four seconds for user-requested stock dashboard DVD test",
+  "code": 0,
+  "stdout": "",
+  "stderr": "Running timer as unit: obsidian-stock-dvd-poweroff.timer\nWill run service as unit: obsidian-stock-dvd-poweroff.service\n",
+  "precheck": {
+    "desktop_user_can_poweroff": "challenge",
+    "inhibitors": "none",
+    "kernel_last_observed": "6.18.11-xenon-obsidian4"
+  },
+  "physical_poweroff_confirmed": false,
+  "later_user_report": "User subsequently reports no DVD detection during requested stock dashboard test; exact shutdown sequence not directly observed."
+}

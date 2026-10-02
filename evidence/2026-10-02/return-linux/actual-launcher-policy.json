@@ -1,0 +1,6 @@
+{
+  "captured_utc": "2026-10-02T08:19:37.510524+00:00",
+  "code": 0,
+  "stdout": "{\"rules\": \"polkit.addRule(function(action, subject) {\\n    if (subject.user === \\\"xbox\\\" && subject.local && subject.active &&\\n        (action.id === \\\"org.freedesktop.login1.power-off\\\" ||\\n         action.id === \\\"org.freedesktop.login1.power-off-multiple-sessions\\\")) {\\n        return polkit.Result.YES;\\n    }\\n});\\n\", \"subjects\": [{\"pid\": 429, \"checks\": [{\"action\": \"power-off\", \"code\": 0, \"stderr\": \"\"}, {\"action\": \"power-off-multiple-sessions\", \"code\": 0, \"stderr\": \"\"}, {\"action\": \"power-off-ignore-inhibit\", \"code\": 2, \"stderr\": \"Authorization requires authentication and -u wasn't passed.\\n\"}], \"cgroup\": \"0::/user.slice/user-1000.slice/session-c1.scope\\n\"}]}\n",
+  "stderr": ""
+}

@@ -1,5 +1,17 @@
 # État courant — 2 octobre 2026
 
+## Dernier contrôle vivant et audit audio
+
+E52 : retour sous obsidian4 confirmé le 2 octobre à 08:17:42 UTC, uptime 201,58 s, zéro unité en échec, XRandR répond en 720p. OpaqueMove/Resize restent à 1. Le lanceur appartient à la session locale active et ses deux autorisations d’arrêt passent. **Correction E49 :** le « challenge » mesuré via runuser dans SSH ne caractérisait pas le vrai lanceur ; bouton à essayer au retour de l’utilisateur, aucune nouvelle règle installée. Utilisateur absent temporairement, aucun arrêt/redémarrage volontaire.
+
+E51 : compilation audio originale échouée (huit erreurs, un avertissement). Fonctions C réelles testées hors console : dépassements de géométrie et boucle de cache reproduits ; correctif partiel 0008 validé sur 16 369 tailles synthétiques. Audio toujours désactivé, portage complet et matériel non validés. Voir `docs/AUDIO-BUFFER-AUDIT.md`.
+
+## Dernier retour utilisateur : DVD absent sous le système d’origine
+
+E50 : après le contrôle demandé dans le tableau de bord Xbox, l’utilisateur rapporte que rien n’est détecté. Ce retour rend une cause exclusivement Linux moins probable ; aucun composant fautif identifié, état du DVD sur un autre lecteur toujours inconnu. Retour vers obsidian4 demandé, état Linux actuel non revérifié.
+
+E49 : arrêt depuis le bureau refusé ; CanPowerOff renvoie « challenge », aucun inhibiteur. Demande d’arrêt normal administrateur acceptée. Contournement ponctuel effectué, permissions du bouton graphique non corrigées ; extinction physique non observée directement.
+
 ## Régression graphique reproduite hors console
 
 E47 : deux affichages Xvfb isolés, IceWM 4.0.0 recompilé, lanceur réel du dépôt. Le redimensionnement en mode contour bloque le client XTest et un observateur indépendant ; en mode direct, la taille diminue de 1240 × 640 à 1180 × 600 et les deux clients répondent. Cause reproduite au niveau X11, pas une validation PowerPC/GPU ni un essai physique de manette. Voir `docs/DESKTOP-TESTING.md`.
@@ -115,3 +127,5 @@ Les sauvegardes historiques sont des régions du disque interne, pas une sauvega
 Publication E43–E46 vérifiée à 2026-10-02T07:41:15.538940+00:00 : commit public `ec431c9c7e114e11074628d0fb95358d1128a752`, 221 fichiers, arbre distant identique ; preuve `public-audit/optical-publication.json`. Validation manuelle du redimensionnement encore attendue.
 
 Publication E47 et piste PAL vérifiée à 2026-10-02T07:57:41.408927+00:00 : commit public `a67d28f83a160fde6048efc74a9824c808745f74`, 230 fichiers, arbre GitHub identique ; preuve `evidence/2026-10-02/public-audit/resize-publication.json`.
+
+Publication E48 vérifiée à 2026-10-02T08:03:48.586991+00:00 : commit public `b4b49e2b2fdcc42f522fbc6cd4b74b1b96202632`, 234 fichiers et arbre distant conforme ; preuve `evidence/2026-10-02/public-audit/video-publication.json`. Résultat du contrôle sous tableau de bord stock encore attendu.

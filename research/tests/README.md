@@ -56,3 +56,5 @@ Le fichier C réel est compilé avec ASan/UBSan et des modèles de ressources/FI
 `python3 research/tests/check-public-audit.py` utilise un Git temporaire avec données fictives. Il vérifie contenu non audité, empreinte modifiée, motif de jeton factice et persistance du motif dans un ancien commit après nettoyage du fichier courant. Il n'accède à aucune vraie clé.
 
 Le parseur Rust et les neuf essais de sa CLI sont décrits dans `game-analysis/xex-inspect/README.md`. Les échantillons synthétiques sont construits pendant les tests ; aucun fichier XEX commercial n'est nécessaire.
+
+- `check-audio-buffers.py` : extrait cache_flush, hw_params et prepare du pilote audio ; cache/MMIO simulés, 16 369 tailles et huit cas de boucle. Compare original et correctif partiel 0008 sous ASan/UBSan. Voir `docs/AUDIO-BUFFER-AUDIT.md`.

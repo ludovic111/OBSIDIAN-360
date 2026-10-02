@@ -1,11 +1,12 @@
 # Actions physiques différées
 
-Le 2 octobre au matin, l’utilisateur est réveillé et disponible pour les manipulations demandées. Un CD musical a été inséré et ses premiers tests de lecture ont réussi (E44). Le travail autonome continue entre les actions physiques ; coordonner tout redémarrage avec l’utilisateur.
+Le 2 octobre, après les essais CD/DVD et le retour sous obsidian4, l’utilisateur annonce partir un moment et demande de poursuivre en autonomie. Aucun redémarrage volontaire pendant cette absence ; différer les manipulations physiques et poursuivre les tests hors console ou les contrôles réversibles.
 
 | Action pour le prochain créneau disponible | Pourquoi elle est nécessaire | Travail indépendant possible |
 |---|---|---|
+| Tester le bouton Éteindre depuis le lanceur démarré normalement | Autorisations du vrai PID vérifiées, extinction non déclenchée pendant l’absence | Analyse des sessions et tests hors console |
 | Identifier visuellement carte mère et marquages des puces | La signature PCI ne suffit pas à établir chaque révision | Analyse des pilotes et cartographie logicielle |
-| Comparer Big Order dans le tableau de bord Xbox d’origine puis sur un lecteur connu fonctionnel | CD lu, jeu et DVD vidéo absents sous Linux ; rotation brève puis arrêt rapportés | Analyse du pilote SCSI et des erreurs historiques |
+| Tester Big Order sur un autre lecteur connu fonctionnel | CD lu, jeu et DVD vidéo absents sous Linux ; absence également rapportée dans le tableau de bord stock (E50) | Analyse du pilote SCSI et des erreurs historiques |
 | Vérifier clavier, pointeur et commandes manette sous obsidian4 | Événements reçus ne prouvent pas toute l'interaction visible | Tests du lanceur et instrumentation |
 | Répéter les démarrages avec choix explicite puis retour au noyau précédent | Un seul démarrage candidat vérifié | Analyse des initramfs et durées de démarrage |
 | Préparer une méthode de récupération NAND adaptée à la carte | Aucune sauvegarde brute restaurable confirmée | Formats, code d'acquisition et validation hors matériel |

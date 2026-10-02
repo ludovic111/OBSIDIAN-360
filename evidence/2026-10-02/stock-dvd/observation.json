@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-10-02T08:13:16.186909+00:00",
+  "experiment": "E50",
+  "kind": "user_report",
+  "context": "Requested Big Order DVD test in original Xbox dashboard after Linux shutdown",
+  "user_text": "ca ne detecte abosulemnt rien je relance linux ou pas",
+  "observation": "No disc detected, reported by user in response to stock dashboard test",
+  "limits": [
+    "No screenshot or exact dashboard label supplied",
+    "DVD readability on another player not confirmed",
+    "No physical component diagnosis proven"
+  ],
+  "inference": "Failure reported outside Linux makes a Linux-only cause less likely",
+  "next": "Return to Linux through Rock Band Blitz and XeLL obsidian4, Ethernet disconnected until desktop"
+}

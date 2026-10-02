@@ -1,0 +1,45 @@
+{
+  "scope": "Actual extracted C; hardware/cache instructions replaced; cache span watchdog; all four-byte frame sizes 64..65536. No ALSA negotiation or hardware validation.",
+  "results": [
+    {
+      "variant": "original",
+      "source_sha256": "4289271b03404f6079b590f696e44625d07c59017f099295833390d38f89a0ac",
+      "returncode": 0,
+      "result": {
+        "tested_sizes": 16369,
+        "accepted": 16369,
+        "rejected": 0,
+        "invalid_descriptor_geometries": 12301,
+        "first_invalid_size": 64,
+        "first_invalid_last_word": 2147483649,
+        "cache_cases": 8,
+        "cache_span_overruns": 5,
+        "descriptor_out_of_span": 98,
+        "split_frame_geometries": 12273,
+        "first_out_of_span_size": 68,
+        "first_out_of_span_last_word": 4294967270
+      },
+      "diagnostics": ""
+    },
+    {
+      "variant": "candidate",
+      "source_sha256": "e0a8a3638802e5cc5d8490e4f331ee1faa4506f7c3d99247af0353582a89e6e5",
+      "returncode": 0,
+      "result": {
+        "tested_sizes": 16369,
+        "accepted": 512,
+        "rejected": 15857,
+        "invalid_descriptor_geometries": 0,
+        "first_invalid_size": 0,
+        "first_invalid_last_word": 0,
+        "cache_cases": 8,
+        "cache_span_overruns": 0,
+        "descriptor_out_of_span": 0,
+        "split_frame_geometries": 0,
+        "first_out_of_span_size": 0,
+        "first_out_of_span_last_word": 0
+      },
+      "diagnostics": ""
+    }
+  ]
+}

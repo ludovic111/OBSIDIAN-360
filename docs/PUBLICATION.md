@@ -25,3 +25,5 @@ Pour chaque mise à jour, `tools/audit-public.py --repo CHEMIN_EXPORT_GIT --poli
 Mise à jour E43–E46 : `ec431c9c7e114e11074628d0fb95358d1128a752`, 221 fichiers, troisième commit public. Audit avant commit puis avant push réussi (240 objets texte), vérification API de l’arbre et du parent réussie. Preuve `evidence/2026-10-02/public-audit/optical-publication.json`.
 
 Publication E47 et piste PAL vérifiée à 2026-10-02T07:57:41.408927+00:00 : commit public `a67d28f83a160fde6048efc74a9824c808745f74`, 230 fichiers, arbre GitHub identique ; preuve `evidence/2026-10-02/public-audit/resize-publication.json`.
+
+Publication E48 vérifiée à 2026-10-02T08:03:48.586991+00:00 : commit public `b4b49e2b2fdcc42f522fbc6cd4b74b1b96202632`, 234 fichiers et arbre distant conforme ; preuve `evidence/2026-10-02/public-audit/video-publication.json`. Résultat du contrôle sous tableau de bord stock encore attendu.

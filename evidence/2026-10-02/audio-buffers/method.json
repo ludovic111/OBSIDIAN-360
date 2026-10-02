@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-10-02T08:21:29.041745+00:00",
+  "source_repository": "https://github.com/techflashYT/linux-custom",
+  "source_commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "driver_path": "sound/pci/snd-xenon.c",
+  "driver_sha256": "4289271b03404f6079b590f696e44625d07c59017f099295833390d38f89a0ac",
+  "source_tree_context": "obsidian4 patches already applied, original audio driver unchanged",
+  "build_image": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "build_target": "sound/pci/snd-xenon.o",
+  "build_returncode": 2,
+  "compiler_diagnostics": {
+    "errors": 8,
+    "warnings": 1
+  },
+  "config_overrides": [
+    "CONFIG_SOUND=m",
+    "CONFIG_SND=m",
+    "CONFIG_SND_PCI=y",
+    "CONFIG_SND_XENON=m"
+  ],
+  "candidate_patch": "research/patches/0008-xenon-audio-buffer-geometry.patch",
+  "host_compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "hardware_access": false,
+  "limitations": [
+    "Actual ALSA constraints negotiation not tested",
+    "Cache instructions and MMIO substituted in host harness",
+    "Only candidate buffer routines tested; whole driver remains unsafe to load",
+    "Source analysis of descriptor word encoding is not a hardware protocol validation"
+  ]
+}

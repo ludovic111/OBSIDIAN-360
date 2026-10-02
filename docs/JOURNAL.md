@@ -107,3 +107,26 @@ Publication E47 et piste PAL vérifiée à 2026-10-02T07:57:41.408927+00:00 : co
 - Suite : retour sur rotation/clics demandé ; comparaison sous système d’origine avant toute ouverture du lecteur.
 
 Retour utilisateur E48 : le DVD tourne brièvement puis s’arrête, comme Just Cause 2. Contrôle sous le tableau de bord Xbox d’origine demandé, avec arrêt propre depuis Linux et sans relancer le jeu de démarrage. Le résultat reste en attente.
+
+Publication E48 vérifiée à 2026-10-02T08:03:48.586991+00:00 : commit public `b4b49e2b2fdcc42f522fbc6cd4b74b1b96202632`, 234 fichiers et arbre distant conforme ; preuve `evidence/2026-10-02/public-audit/video-publication.json`. Résultat du contrôle sous tableau de bord stock encore attendu.
+
+
+## 2026-10-02 — E49/E50 — arrêt et comparaison sous le système d’origine
+
+- Objectif : comparer le comportement de Big Order hors Linux.
+- Observation utilisateur : le bouton d’arrêt du bureau affiche « failed request ». Mesure administrative préalable : CanPowerOff = challenge, aucun inhibiteur.
+- Action : arrêt normal demandé par un timer administrateur, accepté à 08:05:45 UTC ; aucune extinction forcée ni modification de permission. Extinction physique non observée directement.
+- Résultat rapporté ensuite : aucun DVD détecté lors du contrôle stock demandé. Libellé exact non fourni ; pas de capture ni de confirmation de lisibilité du média ailleurs.
+- Interprétation : une cause exclusivement Linux est moins probable ; panne matérielle précise non démontrée. Le défaut du bouton Éteindre reste à corriger après vérification du contexte de session normal.
+- Suite : retour Linux par Rock Band Blitz, choix obsidian4 et Ethernet uniquement après arrivée au bureau. Pas de nouvelle connexion lancée pendant la manipulation utilisateur.
+
+
+## 2026-10-02 — E51/E52 — audio hors matériel et retour Linux
+
+- Objectif : avancer sur le son pendant la manipulation DVD, puis vérifier le retour de la console.
+- Action hors console : nouvelle sortie de build, audio original en module ; reproduction des calculs par extraction du C réel, hooks pour cache/MMIO et ASan/UBSan.
+- Observation : API disparues confirmées par compilation ; 98 tailles produisent un tableau sortant du tampon selon l’encodage du pilote, cinq cas de boucle de cache dépassent le nombre de lignes attendu. Le fractionnement de trames constitue une propriété distincte, pas une panne matérielle prouvée.
+- Résultat : correctif 0008 partiel, 512 tailles acceptées sans géométrie hors tampon sur 16 369 examinées ; portage complet et son toujours non validés.
+- Mesure matérielle : à 08:17:42 UTC obsidian4 répond après 201,58 s, zéro unité en échec, XRandR répond en 720p. Préférences contre le gel conservées.
+- Correction du diagnostic d’arrêt : CanPowerOff depuis runuser dans SSH renvoie encore challenge, mais pkcheck sur le vrai PID 429 du lanceur local autorise power-off et power-off-multiple-sessions. La règle étroite existait déjà. Le contexte du lanceur relancé depuis SSH est une explication cohérente de l’ancien refus, pas une reproduction complète.
+- Suite : utilisateur parti temporairement, travail autonome demandé ; aucun redémarrage volontaire ni test effectif du bouton. Poursuivre le portage audio hors matériel et valider l’arrêt lors d’un créneau physique.

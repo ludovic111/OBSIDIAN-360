@@ -1,0 +1,6 @@
+{
+  "captured_utc": "2026-10-02T08:17:42.013443+00:00",
+  "code": 0,
+  "stdout": "6.18.11-xenon-obsidian4\n201.58 137.69\nUNIT LOAD ACTIVE SUB DESCRIPTION\n\n0 loaded units listed.\nScreen 0: minimum 320 x 200, current 1280 x 720, maximum 4096 x 4096\nNone-1 connected primary 1280x720+0+0 (normal left inverted right x axis y axis) 0mm x 0mm\n   1280x720      60.00*+\nc1 1000 xbox seat0 343 user          tty1 no -\nc2 1000 xbox -     362 manager       -    no -\nc3    0 root -     431 user          -    no -\nc4    0 root -     438 manager-early -    no -\ns \"challenge\"\nWorkspaceNames=\"Bureau\"\nTaskBarShowWorkspaces=0\nTaskBarShowMailboxStatus=0\nTaskBarShowCPUStatus=0\nTaskBarShowNetStatus=0\nTaskBarShowAPMStatus=0\nTaskBarShowClock=1\nOpaqueMove=1\nOpaqueResize=1\nDesktopBackgroundColor=\"#101610\"\nTitleFontNameXft=\"DejaVu Sans:size=14\"\nMenuFontNameXft=\"DejaVu Sans:size=14\"\nTaskBarFontNameXft=\"DejaVu Sans:size=12\"\n",
+  "stderr": ""
+}

@@ -1,6 +1,6 @@
 {
   "scope": "Reviewed public text snapshot; original local history is not included.",
-  "source_commit": "8c17cfb7253e3c2683e7aab1841227376cce0636",
+  "source_commit": "635bb59490321601aba5edc61e71b82e85ab7eca",
   "files": [
     {
       "path": ".gitattributes",
@@ -64,8 +64,8 @@
     },
     {
       "path": "THIRD_PARTY.md",
-      "source_sha256": "a107d6999d4fa155a9469310ced3a47d51d07f198a28e55ecf4187213cc02f13",
-      "public_sha256": "a107d6999d4fa155a9469310ced3a47d51d07f198a28e55ecf4187213cc02f13",
+      "source_sha256": "d31645fe947e745d695829bfe76d328d2ce294ab464e9d805931452cddcfc5db",
+      "public_sha256": "d31645fe947e745d695829bfe76d328d2ce294ab464e9d805931452cddcfc5db",
       "sanitized": false
     },
     {
@@ -99,6 +99,12 @@
       "sanitized": false
     },
     {
+      "path": "docs/AUDIO-BUFFER-AUDIT.md",
+      "source_sha256": "4b2d6ad2eb81aae72f26c159d68693ba17d87745ba00fe83b2236bc9c92b9359",
+      "public_sha256": "4b2d6ad2eb81aae72f26c159d68693ba17d87745ba00fe83b2236bc9c92b9359",
+      "sanitized": false
+    },
+    {
       "path": "docs/BINARY-AUDIT-2026-10-01.md",
       "source_sha256": "851e2179c2b8cf147ea1e887ac486ece98e3ee63956bc69f86ea022ee47ed38c",
       "public_sha256": "851e2179c2b8cf147ea1e887ac486ece98e3ee63956bc69f86ea022ee47ed38c",
@@ -106,8 +112,8 @@
     },
     {
       "path": "docs/BLOCKED.md",
-      "source_sha256": "92cae3624383b7f63909503a8f7b532843cf6df2ce138add38aef5c9c0ad7f26",
-      "public_sha256": "92cae3624383b7f63909503a8f7b532843cf6df2ce138add38aef5c9c0ad7f26",
+      "source_sha256": "6f0d49391287907fe6080cc10daecd784c4a69bfb01071d39bd279ab777c9e82",
+      "public_sha256": "6f0d49391287907fe6080cc10daecd784c4a69bfb01071d39bd279ab777c9e82",
       "sanitized": false
     },
     {
@@ -142,14 +148,14 @@
     },
     {
       "path": "docs/EXPERIMENTS.md",
-      "source_sha256": "8c998c542852466560f74ae42611b7a7dc03fa4c9010365660b5d68a2ad167e1",
-      "public_sha256": "8c998c542852466560f74ae42611b7a7dc03fa4c9010365660b5d68a2ad167e1",
+      "source_sha256": "36ee1b1ad6abcc93495597dd4de18ce2a1a8898b213fcaa50fc70378b94c16a8",
+      "public_sha256": "36ee1b1ad6abcc93495597dd4de18ce2a1a8898b213fcaa50fc70378b94c16a8",
       "sanitized": false
     },
     {
       "path": "docs/JOURNAL.md",
-      "source_sha256": "ffa6cc66d2ddce269e5b6a1080ba7f3335a779484365db77793d7f2f74be9b4f",
-      "public_sha256": "ffa6cc66d2ddce269e5b6a1080ba7f3335a779484365db77793d7f2f74be9b4f",
+      "source_sha256": "e6303d73fac7fb4377cbf865d6f0e3ac098616230f3acd3d8c03305afc9180bd",
+      "public_sha256": "e6303d73fac7fb4377cbf865d6f0e3ac098616230f3acd3d8c03305afc9180bd",
       "sanitized": false
     },
     {
@@ -190,8 +196,8 @@
     },
     {
       "path": "docs/OPTICAL-DRIVE.md",
-      "source_sha256": "dbf32ec9bdd0e07fe5c7b66ffedf007a5e95471e6f46d0c5cc04ffe65584447b",
-      "public_sha256": "dbf32ec9bdd0e07fe5c7b66ffedf007a5e95471e6f46d0c5cc04ffe65584447b",
+      "source_sha256": "88c89782593281ecef08889eff2dab2df7401bb9df29a8118d7ed6f77ee01616",
+      "public_sha256": "88c89782593281ecef08889eff2dab2df7401bb9df29a8118d7ed6f77ee01616",
       "sanitized": false
     },
     {
@@ -208,8 +214,8 @@
     },
     {
       "path": "docs/PUBLICATION.md",
-      "source_sha256": "77d99a8858eefcf2d59acd9b8c198d3e7833b8032c49edf17e84e910f5570bbf",
-      "public_sha256": "77d99a8858eefcf2d59acd9b8c198d3e7833b8032c49edf17e84e910f5570bbf",
+      "source_sha256": "472f727fc032269c72281744cdb8cbaddd15663276cd9183a75cb512f0f514e9",
+      "public_sha256": "472f727fc032269c72281744cdb8cbaddd15663276cd9183a75cb512f0f514e9",
       "sanitized": false
     },
     {
@@ -238,8 +244,8 @@
     },
     {
       "path": "docs/STATE.md",
-      "source_sha256": "00afb8d359241e30c735c18a971715eda1a550b84896ffbf00923e8506625212",
-      "public_sha256": "00afb8d359241e30c735c18a971715eda1a550b84896ffbf00923e8506625212",
+      "source_sha256": "a0fae86156d2d83166ed82f69da0c65f17569f7e516a9097b687eaf2cb518e3c",
+      "public_sha256": "a0fae86156d2d83166ed82f69da0c65f17569f7e516a9097b687eaf2cb518e3c",
       "sanitized": false
     },
     {
@@ -957,6 +963,30 @@
       "sanitized": false
     },
     {
+      "path": "evidence/2026-10-02/audio-buffers/method.json",
+      "source_sha256": "938d5468885a38246fe6b7a04de4609469dc70646138dbc1912f6546a327b9af",
+      "public_sha256": "938d5468885a38246fe6b7a04de4609469dc70646138dbc1912f6546a327b9af",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-buffers/original-build.log",
+      "source_sha256": "064412d805a205d24673657174f9db02519038081d142cd497c8634321aafc5c",
+      "public_sha256": "064412d805a205d24673657174f9db02519038081d142cd497c8634321aafc5c",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-buffers/original.config",
+      "source_sha256": "15639299639b1c4fa77f229835c56625450d37a4e8c830dc3bdad9e3d33ca8b8",
+      "public_sha256": "15639299639b1c4fa77f229835c56625450d37a4e8c830dc3bdad9e3d33ca8b8",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-buffers/validation.json",
+      "source_sha256": "6392f54cc9fa8713f943b0eb7926a8296dd5fc8f3b5314d7652d7efe03787f52",
+      "public_sha256": "6392f54cc9fa8713f943b0eb7926a8296dd5fc8f3b5314d7652d7efe03787f52",
+      "sanitized": false
+    },
+    {
       "path": "evidence/2026-10-02/desktop-recovery/analysis.json",
       "source_sha256": "7d5cf3655de1cfb6f625a1713b0d97fdb69226a00915bedf9264d10eb8245d9e",
       "public_sha256": "7d5cf3655de1cfb6f625a1713b0d97fdb69226a00915bedf9264d10eb8245d9e",
@@ -1071,6 +1101,12 @@
       "sanitized": false
     },
     {
+      "path": "evidence/2026-10-02/poweroff/request.json",
+      "source_sha256": "fe76944155bc57ae927267e1948d379aefcfcc00196f5aaaa1fa2825919730bf",
+      "public_sha256": "fe76944155bc57ae927267e1948d379aefcfcc00196f5aaaa1fa2825919730bf",
+      "sanitized": false
+    },
+    {
       "path": "evidence/2026-10-02/public-audit/optical-publication.json",
       "source_sha256": "3ee635e9d0c3ca6590e2936916a8d63b0675d46a2c8bcc40953586284225935d",
       "public_sha256": "3ee635e9d0c3ca6590e2936916a8d63b0675d46a2c8bcc40953586284225935d",
@@ -1092,6 +1128,42 @@
       "path": "evidence/2026-10-02/public-audit/tests.json",
       "source_sha256": "42dfc4414715204aa2a36bc9717d78799c926b6f2d3b5a2c6a83f2967cbeb178",
       "public_sha256": "42dfc4414715204aa2a36bc9717d78799c926b6f2d3b5a2c6a83f2967cbeb178",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/public-audit/video-publication.json",
+      "source_sha256": "ac328da64b29f48ee95bc32a0934ef500c591a78a00c58d060258a8ee386a2d2",
+      "public_sha256": "ac328da64b29f48ee95bc32a0934ef500c591a78a00c58d060258a8ee386a2d2",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/return-linux/actual-launcher-policy.json",
+      "source_sha256": "b88c8b183fe30388f6de0facb65f1194a8a9ef0318fa6b91a4815715cf88a1af",
+      "public_sha256": "b88c8b183fe30388f6de0facb65f1194a8a9ef0318fa6b91a4815715cf88a1af",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/return-linux/analysis.json",
+      "source_sha256": "46a716e9937919aad7835719e117fd3a0f202fe9e5cae76790981701b7c65d52",
+      "public_sha256": "46a716e9937919aad7835719e117fd3a0f202fe9e5cae76790981701b7c65d52",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/return-linux/health.json",
+      "source_sha256": "fac7cdb21eeeca6dab64e660e81a699b29760bda4819d138604260e93c7f8f5a",
+      "public_sha256": "fac7cdb21eeeca6dab64e660e81a699b29760bda4819d138604260e93c7f8f5a",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/return-linux/shutdown-policy.json",
+      "source_sha256": "99c8ca8d5cd6f9a6cb8b374df184a0ec89d9af483d33cabd6c0adf13ede447c1",
+      "public_sha256": "99c8ca8d5cd6f9a6cb8b374df184a0ec89d9af483d33cabd6c0adf13ede447c1",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/stock-dvd/observation.json",
+      "source_sha256": "7aa2b6d62cb6a88dfe83de80086bbccdf640afc6ef6262a458ab05f2d7921d96",
+      "public_sha256": "7aa2b6d62cb6a88dfe83de80086bbccdf640afc6ef6262a458ab05f2d7921d96",
       "sanitized": false
     },
     {
@@ -1215,15 +1287,27 @@
       "sanitized": false
     },
     {
+      "path": "research/patches/0008-xenon-audio-buffer-geometry.patch",
+      "source_sha256": "ab51fe8f325d0953e217ec99539ac0d514f9ff87d3b9f7789d31e48e94264801",
+      "public_sha256": "ab51fe8f325d0953e217ec99539ac0d514f9ff87d3b9f7789d31e48e94264801",
+      "sanitized": false
+    },
+    {
       "path": "research/patches/README.md",
-      "source_sha256": "16de85b972c7a6b2ba908936da7ca4c06954028ecc725814d2715c0acd265458",
-      "public_sha256": "16de85b972c7a6b2ba908936da7ca4c06954028ecc725814d2715c0acd265458",
+      "source_sha256": "11533a0e37ca0411cb25f6a62104ea352b982cb392f154c8e1e31dc68b2312ea",
+      "public_sha256": "11533a0e37ca0411cb25f6a62104ea352b982cb392f154c8e1e31dc68b2312ea",
       "sanitized": false
     },
     {
       "path": "research/tests/README.md",
-      "source_sha256": "86dd123de988869f645b72499ab4ba44ad761fd700bd7c5fd7662e9bc933d99a",
-      "public_sha256": "86dd123de988869f645b72499ab4ba44ad761fd700bd7c5fd7662e9bc933d99a",
+      "source_sha256": "3b98f31bbcf851c6e93b79905bcb0683f8c3da199f2687f4b6e1d9d04e876655",
+      "public_sha256": "3b98f31bbcf851c6e93b79905bcb0683f8c3da199f2687f4b6e1d9d04e876655",
+      "sanitized": false
+    },
+    {
+      "path": "research/tests/check-audio-buffers.py",
+      "source_sha256": "f9245490930a49c540f7bccae4045880e3f2e54cba28468d5d5441f6d30ad474",
+      "public_sha256": "f9245490930a49c540f7bccae4045880e3f2e54cba28468d5d5441f6d30ad474",
       "sanitized": false
     },
     {
