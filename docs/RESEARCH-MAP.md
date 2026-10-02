@@ -18,6 +18,7 @@ Cette carte organise l'objectif courant ; elle ne remplace pas les preuves daté
 | USB / commandes | Clavier et manette identifiés ; événements observés historiquement | Validation physique sous obsidian4, répétition clavier, cohérence HID et latence |
 | Audio | Source historique examinée ; noyau avec son désactivé | Portage API, revue DMA/IRQ, compilation et test sonore réel |
 | Linux / bureau | obsidian4, Xorg/IceWM et udev vérifiés | Référence CPU/mémoire/démarrage, signatures pacman, coût du lanceur et choix des composants |
-| Rust / remplacements | Liberté de réimplémentation explicitement demandée | Sélection d'un composant, cible PowerPC et ABI vérifiées, bénéfice comparé ; pas de réécriture sans justification |
+| Rust / remplacements | Inspecteur XEX2 original sans unsafe ni dépendances, testé sur l'hôte | Compatibilité réelle, cible PowerPC et ABI, bénéfice comparé ; pas de gain de performance revendiqué |
+| Formats et fonctionnement des jeux | En-têtes XEX2 confrontés aux sources Xenia ; parseur testé sur données synthétiques | Fichiers légitimes, imports, PE, instructions, API, shaders, assets et cycle de frame non analysés sur un vrai titre |
 
 Pour chaque expérience : conserver code exact, versions, commandes, erreurs, empreintes, résultat et limites. Un dump confidentiel reste dans les espaces ignorés ; publier uniquement les métadonnées et analyses partageables. Le lecteur suivant doit pouvoir distinguer observation de la console, simulation locale et hypothèse, et retrouver un chemin de récupération réellement validé.

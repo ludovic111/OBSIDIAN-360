@@ -51,6 +51,9 @@
 | E37 | Exécuter hors console les fonctions vidéo f1/f2 réelles avec MMIO simulée | 26 entrées, 1 846 écritures tracées, ASan/UBSan sans erreur ; 12/13 registres communs HDMI 720p concordent avec la capture ancienne | Aucune programmation matérielle ni horloge validée ; `video-mode-trace/modes.json` |
 | E38 | Utilisateur sélectionne obsidian dans XeLL ; vérification SSH du système démarré | obsidian4 confirmé, racine interne, bureau actif, zéro service en échec, udev settle code 0 ; framebuffer corrigé 0x398000 | `obsidian4-first-boot/` ; un démarrage prouvé, stabilité prolongée et cause de E36 inconnues |
 | E39 | Référence CPU/mémoire/boot via interfaces standard et courts tests userspace | Cible graphique ~34,1 s, 118,5 Mio disponibles au relevé, SHA-256 médian 22,553 Mio/s ; outils et preuve `performance-baseline/` | Deux requêtes systemd expirées ; suivi ciblé réussi ; slabinfo absent, maintenant facultatif ; aucune configuration changée |
+| E40 | Préparer un export public, auditer fichiers et objets Git, créer GitHub et contrôler son arbre | 187 fichiers ; MAC masquée dans deux relevés ; 17 chemins exclus ; commit f9da49e sans parent et arbre distant conforme | Historique local non poussé ; publication/verification.json ; refaire audit pour chaque mise à jour |
+| E41 | Confronter le format XEX2 aux sources primaires et écrire un parseur Rust borné | Dix tests, 10 000 mutations et neuf cas CLI passent ; aucune lecture des zones opaques instrumentées ; evidence/2026-10-02/xex-inspect | Aucun vrai jeu testé ; pas de décryption, authentification ou exécution ; console non sollicitée |
+| E42 | Automatiser le contrôle des fichiers publics et de l'historique Git | Cinq cas synthétiques passent, y compris marqueur retiré du fichier courant mais conservé dans un ancien commit | Audit à exécuter avant commit et push ; scanner de motifs non exhaustif ; export game-analysis désormais inclus |
 
 ## Analyse de l’incident E10
 

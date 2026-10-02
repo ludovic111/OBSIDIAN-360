@@ -7,11 +7,11 @@ from pathlib import Path
 import re
 import subprocess
 
-ROOTS = {'docs', 'tools', 'desktop', 'research', 'evidence', 'LICENSES'}
+ROOTS = {'docs', 'tools', 'desktop', 'research', 'evidence', 'LICENSES', 'game-analysis'}
 TOP = {'README.md', 'AGENTS.md', '.gitignore', '.gitattributes', 'LICENSE',
        'THIRD_PARTY.md', 'CONTRIBUTING.md'}
 SUFFIXES = {'.md', '.py', '.c', '.h', '.patch', '.txt', '.json', '.log', '.config',
-            '.csv', '.asm', '.sh', '.conf', '.hook', '.example', '.sha256'}
+            '.csv', '.asm', '.sh', '.conf', '.hook', '.example', '.sha256', '.rs', '.toml', '.lock'}
 EXCLUDE = {
     'docs/historique-installation.txt', 'docs/rapport-initial.txt',
     'research/metadata/installed-state.json',

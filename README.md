@@ -27,6 +27,7 @@ Laboratoire d’analyse d'une Xbox 360 : matériel, chaîne de démarrage, pilot
 10. [Objectif étendu et critères de preuve](docs/OBJECTIVE.md), [préparation et essai obsidian4](docs/BOOT-PREFLIGHT-2026-10-01.md), [diagnostic initial du lecteur](docs/OPTICAL-DRIVE.md).
 11. [Trace hors console des fonctions vidéo et limites du passage 1080p](docs/VIDEO-MODE-TRACE-2026-10-01.md).
 12. [Première référence de performances](docs/PERFORMANCE-BASELINE-2026-10-01.md) et [carte des inconnues](docs/RESEARCH-MAP.md).
+13. [Analyse structurelle XEX2](docs/XEX2-INSPECTION.md) et [inspecteur Rust](game-analysis/xex-inspect/README.md), validé sur échantillons synthétiques uniquement.
 
 ## Organisation
 

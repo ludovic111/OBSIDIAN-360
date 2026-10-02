@@ -1,0 +1,11 @@
+[package]
+name = "obsidian-xex-inspect"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Bounded read-only XEX2 metadata inspection without image extraction"
+
+[dependencies]
+
+[profile.release]
+overflow-checks = true

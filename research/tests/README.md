@@ -50,3 +50,9 @@ Le fichier C réel est compilé avec ASan/UBSan et des modèles de ressources/FI
 ## Traces vidéo
 
 `tools/trace-video-modes.py` exécute les fonctions C f1/f2 réelles de libxenon sur le Mac sous ASan/UBSan et remplace les accès GPU par une trace bornée. Les tables standard/Corona sont parcourues, puis les valeurs finales sont comparées à une capture ancienne. L'attente LUT est simulée ; aucune validation d'horloge, d'ANA ou de sortie vidéo physique. Commande et limites dans `docs/VIDEO-MODE-TRACE-2026-10-01.md`.
+
+## Publication et exécutables
+
+`python3 research/tests/check-public-audit.py` utilise un Git temporaire avec données fictives. Il vérifie contenu non audité, empreinte modifiée, motif de jeton factice et persistance du motif dans un ancien commit après nettoyage du fichier courant. Il n'accède à aucune vraie clé.
+
+Le parseur Rust et les neuf essais de sa CLI sont décrits dans `game-analysis/xex-inspect/README.md`. Les échantillons synthétiques sont construits pendant les tests ; aucun fichier XEX commercial n'est nécessaire.

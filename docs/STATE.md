@@ -1,10 +1,16 @@
 # État courant — 1 octobre 2026
 
+## Outil d'analyse ajouté le 2 octobre (date locale)
+
+E41 : inspecteur XEX2 Rust en lecture seule, testé sur l'hôte avec dix tests structurels, 10 000 mutations déterministes et neuf cas CLI. Champs sensibles omis, lectures bornées, aucun jeu authentique analysé. Ce travail n'a pas interrogé la console et ne rafraîchit donc pas son dernier état vivant. Voir `docs/XEX2-INSPECTION.md`.
+
 ## Dernier point : obsidian4 démarré et vérifié en SSH
 
 Objectif étendu : démarrage direct sous Linux, bureau, optimisations mesurées et évaluation de Rust, lecteur et jeux sur disque ; voir `docs/OBJECTIVE.md` pour les preuves encore requises.
 
 Objectif courant mis à jour : analyse des jeux légitimes, modernisation, autonomie nocturne et publication GitHub autorisée après audit. Actions physiques différées dans `docs/BLOCKED.md`. Première référence mesurée sous obsidian4 : systemd atteint sa cible graphique à ~34,1 s après l'origine noyau, 118,5 Mio disponibles au relevé et SHA-256 médian 22,553 Mio/s. Aucun gain avant/après revendiqué ; voir `docs/PERFORMANCE-BASELINE-2026-10-01.md`.
+
+Publication initiale vérifiée : `https://github.com/ludovic111/OBSIDIAN-360`, commit public `f9da49e`, 187 fichiers issus d'un export audité, historique public indépendant. La branche de recherche locale reste privée et sans remote. Procédure et preuve dans `docs/PUBLICATION.md`.
 
 Le candidat **6.18.11-xenon-obsidian4** est construit sans avertissement, avec 65 modules et un initramfs vérifié. Les nouveaux fichiers sont présents sur la console et sur la clé ; une entrée optionnelle `obsidian4` est ajoutée. **Le défaut reste `linux_hdd` et les fichiers de récupération sont préservés.**
 

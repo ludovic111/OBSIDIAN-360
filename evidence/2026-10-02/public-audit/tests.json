@@ -1,0 +1,18 @@
+{
+  "recorded_utc": "2026-10-02T07:10:20.726239+00:00",
+  "command": "python3 research/tests/check-public-audit.py",
+  "result": "passed",
+  "cases": [
+    "clean_unborn_checkout",
+    "manifest_detects_content_change",
+    "unreviewed_file_rejected",
+    "synthetic_token_pattern_rejected",
+    "removed_marker_still_detected_in_history"
+  ],
+  "source_sha256": {
+    "tools/audit-public.py": "a77ebab1a804fe3606d874980af60c4e6d9de2ceb8c2d33f5a211214a152cf3e",
+    "tools/export-public.py": "39dc2e1b16eb0d9d4225d542a77a193f269f1b8f649234957dee66dc1d70e11e",
+    "research/tests/check-public-audit.py": "3afdd6ed37653a24847a4d5ba822047211d2ee98161bbfcced28ff7af26650ac"
+  },
+  "limitations": "Synthetic patterns only; not a universal secret detector"
+}

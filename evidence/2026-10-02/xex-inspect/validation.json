@@ -1,0 +1,72 @@
+{
+  "captured_utc": "2026-10-02T07:03:39.314251+00:00",
+  "scope": "Host-only synthetic input; console untouched",
+  "toolchain": "rustc 1.99.0 (b940084d7 2026-09-28)",
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--manifest-path",
+        "game-analysis/xex-inspect/Cargo.toml"
+      ],
+      "code": 0,
+      "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 10 tests\ntest distinguishes_xex1_and_other_input ... ok\ntest never_reads_opaque_security_lan_or_image_bytes ... ok\ntest decodes_inline_fixed_and_variable_headers ... ok\ntest rejects_excessive_count_before_allocation ... ok\ntest rejects_forged_security_alias ... ok\ntest rejects_duplicates_and_overlapping_payloads ... ok\ntest rejects_bad_variable_lengths_and_offsets ... ok\ntest rejects_security_lengths_and_descriptor_overflow ... ok\ntest rejects_every_truncation_before_declared_image ... ok\ntest malformed_mutations_never_panic ... ok\n\ntest result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": "   Compiling obsidian-xex-inspect v0.1.0 (REPOSITORY/game-analysis/xex-inspect)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.13s\n     Running unittests src/lib.rs (game-analysis/xex-inspect/target/debug/deps/obsidian_xex_inspect-8f822db1230362fe)\n     Running unittests src/main.rs (game-analysis/xex-inspect/target/debug/deps/obsidian_xex_inspect-e5a1f5148fa0159e)\n     Running tests/structural.rs (game-analysis/xex-inspect/target/debug/deps/structural-d2ea36b75dbb05e6)\n   Doc-tests obsidian_xex_inspect\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--manifest-path",
+        "game-analysis/xex-inspect/Cargo.toml",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s\n"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--manifest-path",
+        "game-analysis/xex-inspect/Cargo.toml",
+        "--",
+        "--check"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "game-analysis/xex-inspect/tests/check_cli.py",
+        "--binary",
+        "game-analysis/xex-inspect/target/release/obsidian-xex-inspect"
+      ],
+      "code": 0,
+      "stdout": "{\n  \"scope\": \"Synthetic CLI checks only; no authentic XEX file used\",\n  \"results\": [\n    {\n      \"case\": \"valid\",\n      \"code\": 0,\n      \"input_unchanged\": true\n    },\n    {\n      \"case\": \"truncated\",\n      \"code\": 2,\n      \"input_unchanged\": true\n    },\n    {\n      \"case\": \"unsupported_xex1\",\n      \"code\": 2,\n      \"input_unchanged\": true\n    },\n    {\n      \"case\": \"zero_variable_length\",\n      \"code\": 2,\n      \"input_unchanged\": true\n    },\n    {\n      \"case\": \"security_alias\",\n      \"code\": 2,\n      \"input_unchanged\": true\n    },\n    {\n      \"case\": \"directory\",\n      \"code\": 2\n    },\n    {\n      \"case\": \"missing_file\",\n      \"code\": 2\n    },\n    {\n      \"case\": \"missing_argument\",\n      \"code\": 2\n    },\n    {\n      \"case\": \"extra_argument\",\n      \"code\": 2\n    }\n  ]\n}\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "game-analysis/xex-inspect/Cargo.lock": "d3f375f7a52a1b10893e6d4dcab975c2b18bc4c9365e20b2316e476229008295",
+    "game-analysis/xex-inspect/Cargo.toml": "12f3abb7e81bd45f58a145e39e641d62980a09e4cb470b952b4ac8cb11b844da",
+    "game-analysis/xex-inspect/src/lib.rs": "13b96b9fb427be59f83a13f6d61e1dbae7c78d3122df262af90b86fe5c831857",
+    "game-analysis/xex-inspect/src/main.rs": "300ce1486eca7f33e5d65cd3c77beadaf4b04fa5258e52df98d015b68eee87d2",
+    "game-analysis/xex-inspect/tests/check_cli.py": "4aac807ebd9f97036444d222eb197b1d57fdb26132a08c876d17fc57c34de22e",
+    "game-analysis/xex-inspect/tests/structural.rs": "b6a5485ca7841f3a438a6ad434615219e3bec8de0b9068f864599789578831aa"
+  },
+  "limitations": [
+    "No genuine game executable tested",
+    "Not a PowerPC build or performance comparison",
+    "Deterministic mutations are not coverage-guided fuzzing"
+  ]
+}

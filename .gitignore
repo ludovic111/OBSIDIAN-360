@@ -18,6 +18,7 @@ updflash.bin
 updxell.bin
 # Fichiers de travail
 __pycache__/
+**/target/
 *.pyc
 .DS_Store
 *.iso
