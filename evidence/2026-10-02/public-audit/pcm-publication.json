@@ -1,0 +1,24 @@
+{
+  "verified_utc": "2026-10-02T09:45:58.581719+00:00",
+  "repository": "https://github.com/ludovic111/OBSIDIAN-360",
+  "commit": "74ba6693755aaef77e96d016bbcbc6e7cf473713",
+  "parent": "5dd3293b9936669ba7a8e25935de8dd6b918fafc",
+  "files": 287,
+  "remote_tree_matches": true,
+  "precommit_audit": {
+    "passed": true,
+    "selected_files": 287,
+    "reachable_text_objects": 337,
+    "history_commits": 8,
+    "local_private_policy_used": true,
+    "limitations": "Pattern scanning supplements content/provenance review; not a universal secret detector."
+  },
+  "prepush_audit": {
+    "passed": true,
+    "selected_files": 287,
+    "reachable_text_objects": 365,
+    "history_commits": 9,
+    "local_private_policy_used": true,
+    "limitations": "Pattern scanning supplements content/provenance review; not a universal secret detector."
+  }
+}

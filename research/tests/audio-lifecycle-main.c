@@ -19,8 +19,14 @@ int main(int argc,char **argv) {
         CHECK(pci.data);
         if(fail("active_remove")) {
             struct snd_card *card=pci.data;struct snd_xenon *chip=card->private_data;
+            #if HAS_POLL
+            chip->devices[0].state=chip->devices[1].state=3;
+            chip->devices[0].timer.pending=chip->devices[1].timer.pending=1;
+            active_dma=1;active_timer=2;
+#else
             chip->devices[0].state=3;chip->timer_in_use=1;chip->timer.pending=1;
             active_dma=active_timer=1;
+#endif
         }
         snd_xenon_remove(&pci);
     }

@@ -1,0 +1,286 @@
+{
+  "scope": "Actual C resource routines with modeled kernel APIs and serial fault injection; no DMA/cache/IRQ/SMC hardware or concurrent execution.",
+  "variants": [
+    {
+      "variant": "original",
+      "source_sha256": "4289271b03404f6079b590f696e44625d07c59017f099295833390d38f89a0ac",
+      "compile_code": 0,
+      "compile_diagnostics": "",
+      "cases": [
+        {
+          "name": "success",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "success: code=0 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "card",
+          "expected_failure": true,
+          "returncode": 97,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "MODEL_ASSERT:code==want\n"
+        },
+        {
+          "name": "pci_enable",
+          "expected_failure": true,
+          "returncode": 1,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "HOST_TEST/original.c:357:23: runtime error: member access within null pointer of type 'struct snd_xenon'\nSUMMARY: UndefinedBehaviorSanitizer: undefined-behavior HOST_TEST/original.c:357:23 \n"
+        },
+        {
+          "name": "chip_alloc",
+          "expected_failure": true,
+          "returncode": 1,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "HOST_TEST/original.c:357:23: runtime error: member access within null pointer of type 'struct snd_xenon'\nSUMMARY: UndefinedBehaviorSanitizer: undefined-behavior HOST_TEST/original.c:357:23 \n"
+        },
+        {
+          "name": "bar_type",
+          "expected_failure": true,
+          "returncode": 1,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "HOST_TEST/original.c:357:23: runtime error: member access within null pointer of type 'struct snd_xenon'\nSUMMARY: UndefinedBehaviorSanitizer: undefined-behavior HOST_TEST/original.c:357:23 \n"
+        },
+        {
+          "name": "regions",
+          "expected_failure": true,
+          "returncode": 1,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "HOST_TEST/original.c:357:23: runtime error: member access within null pointer of type 'struct snd_xenon'\nSUMMARY: UndefinedBehaviorSanitizer: undefined-behavior HOST_TEST/original.c:357:23 \n"
+        },
+        {
+          "name": "irq",
+          "expected_failure": true,
+          "returncode": 97,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "MODEL_ASSERT:t->initialized\n"
+        },
+        {
+          "name": "pcm0",
+          "expected_failure": true,
+          "returncode": 97,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "MODEL_ASSERT:t->initialized\n"
+        },
+        {
+          "name": "pcm1",
+          "expected_failure": true,
+          "returncode": 97,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "MODEL_ASSERT:t->initialized\n"
+        },
+        {
+          "name": "lowlevel",
+          "expected_failure": true,
+          "returncode": 97,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "MODEL_ASSERT:t->initialized\n"
+        },
+        {
+          "name": "register",
+          "expected_failure": true,
+          "returncode": 1,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "=================================================================\n==76277==ERROR: AddressSanitizer: heap-use-after-free on address 0x611000000050 at pc 0x00010288c254 bp 0x00016d5764b0 sp 0x00016d5764a8\nREAD of size 4 at 0x611000000050 thread T0\n    #0 0x00010288c250 in spin_lock_irq original.c:68\n    #1 0x00010288b50c in snd_xenon_free original.c:357\n    #2 0x000102889228 in snd_xenon_probe original.c:406\n    #3 0x000102889228 in main original.c:424\n    #4 0x00019e763e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\n0x611000000050 is located 16 bytes inside of 232-byte region [0x611000000040,0x611000000128)\nfreed by thread T0 here:\n    #0 0x00010309d368 in free+0x7c (libclang_rt.asan_osx_dynamic.dylib:arm64e+0x41368)\n    #1 0x00010288c044 in snd_xenon_dev_free original.c:351\n    #2 0x00010288b140 in snd_card_free original.c:147\n    #3 0x000102889220 in snd_xenon_probe original.c:405\n    #4 0x000102889220 in main original.c:424\n    #5 0x00019e763e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\npreviously allocated by thread T0 here:\n    #0 0x00010309d560 in calloc+0x80 (libclang_rt.asan_osx_dynamic.dylib:arm64e+0x41560)\n    #1 0x00010288bf60 in alloc original.c:63\n    #2 0x000102888d28 in kzalloc original.c:65\n    #3 0x000102888d28 in snd_xenon_create original.c:280\n    #4 0x000102888d28 in snd_xenon_probe original.c:392\n    #5 0x000102888d28 in main original.c:424\n    #6 0x00019e763e7c in start+0x1a1c (dyld:arm64e+0x31e7c)\n\nSUMMARY: AddressSanitizer: heap-use-after-free original.c:68 in spin_lock_irq\nShadow bytes around the buggy address:\n  0x610ffffffd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x610ffffffe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x610ffffffe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x610fffffff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x610fffffff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n=>0x611000000000: fa fa fa fa fa fa fa fa fd fd[fd]fd fd fd fd fd\n  0x611000000080: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd\n  0x611000000100: fd fd fd fd fd fa fa fa fa fa fa fa fa fa fa fa\n  0x611000000180: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd\n  0x611000000200: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd\n  0x611000000280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==76277==ABORTING\n"
+        },
+        {
+          "name": "dma_handle",
+          "expected_failure": true,
+          "returncode": 97,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "MODEL_ASSERT:handle==allocated_handle\n"
+        },
+        {
+          "name": "active_remove",
+          "expected_failure": true,
+          "returncode": 97,
+          "passed": true,
+          "stdout": "",
+          "diagnostics": "MODEL_ASSERT:!active_dma\n"
+        }
+      ]
+    },
+    {
+      "variant": "candidate",
+      "source_sha256": "7cf21cd6b672518da3c8eff41dc95b708e4d02384702dcf3c9ceee33c7b5f5a9",
+      "compile_code": 0,
+      "compile_diagnostics": "",
+      "cases": [
+        {
+          "name": "success",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "success: code=0 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "card",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "card: code=-28 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "pci_enable",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "pci_enable: code=-16 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "chip_alloc",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "chip_alloc: code=-12 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "bar_type",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "bar_type: code=-19 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "bar_short",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "bar_short: code=-19 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "dma_mask",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "dma_mask: code=-5 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "regions",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "regions: code=-16 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "ioremap",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ioremap: code=-12 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "dma_alloc",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "dma_alloc: code=-12 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "smc_ready",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "smc_ready: code=-517 all resources released; smc_calls=0",
+          "diagnostics": ""
+        },
+        {
+          "name": "smc_send",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "smc_send: code=-5 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "smc_busy",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "smc_busy: code=-16 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "smc_timeout",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "smc_timeout: code=-60 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "pcm0",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "pcm0: code=-12 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "pcm1",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "pcm1: code=-12 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "register",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "register: code=-5 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "active_remove",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "active_remove: code=0 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "buffer0",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "buffer0: code=-12 all resources released; smc_calls=1",
+          "diagnostics": ""
+        },
+        {
+          "name": "buffer1",
+          "expected_failure": false,
+          "returncode": 0,
+          "passed": true,
+          "stdout": "buffer1: code=-12 all resources released; smc_calls=1",
+          "diagnostics": ""
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

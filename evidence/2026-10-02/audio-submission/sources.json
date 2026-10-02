@@ -1,0 +1,23 @@
+{
+  "kernel_commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "kernel_files": {
+    "include/sound/pcm.h": "c5c2197f4dea13eaed7c9f10c83889a1b228c892c8bb918cda077201bb53e889",
+    "sound/core/pcm_lib.c": "9cea91e8f6f5b9b465357cd4fa0e41ebc16c2b14a65baae739d03a685bed0991",
+    "sound/core/pcm_native.c": "8c0d15c8edb8ee6ac77cfe2193c0f425e4768b133edd637a95822add9436fc9b",
+    "sound/core/pcm_compat.c": "7748aed03691c13f479df2b0a25082c8c98a66daa28a93550dc34da8927c5dd6",
+    "Documentation/sound/kernel-api/writing-an-alsa-driver.rst": "65c67ee22158fa58491ccce9df896b379ca54613c657cbfa2e04dfec3a932394"
+  },
+  "libxenon_commit": "a333adef440f28b436a667be0a4f014afce6349d",
+  "libxenon_sound_sha256": "00c0e8add9358dc1a919fea9c268b4468ad74cab23b4c06feec5f212dddf9f83",
+  "emulator": {
+    "repository": "https://github.com/xenon-emu/xenon",
+    "commit": "0284bbe6c8125935d97bf54ab3132089c6c65c8b",
+    "retrieved_utc": "2026-10-02T10:13:18.943345+00:00",
+    "files": {
+      "AudioController.cpp": "18308dfcb55e07f85fc71803b7d708cb34ad2210016fb904fcf745d3805158cb",
+      "AudioController.h": "3c7e714e98bbf75511e34dd34f8c27dd86216e6f3b3f7356a57bcae6180d837b",
+      "LICENSE": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+    },
+    "finding": "AudioController Write only logs; no descriptor consumption or playback is implemented in these files. Cannot validate audio DMA protocol."
+  }
+}

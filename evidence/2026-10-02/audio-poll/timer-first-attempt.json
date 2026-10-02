@@ -1,0 +1,27 @@
+{
+  "scope": "Extracted C; register/time/ALSA/timer models with one deterministic pthread interleaving; no real hardware, real-time guarantees or general SMP proof.",
+  "variants": [
+    {
+      "variant": "previous",
+      "source_sha256": "5f8af47e2ae28674c2b22258a9754aad59095508d852df43cd773ad72d6f7482",
+      "compile_code": 0,
+      "diagnostics": "",
+      "cases": [
+        {
+          "name": "missing_start_false_notifications",
+          "code": 0,
+          "stdout": "reproduced: START does not arm timer; unchanged zero status yields two false notifications",
+          "diagnostics": ""
+        }
+      ]
+    },
+    {
+      "variant": "candidate",
+      "source_sha256": "0100c42f81baf2ea09b67aae8b7a31e9957ef214bda07d26c8fcdabc14bbaccf",
+      "compile_code": 1,
+      "diagnostics": "HOST_TEST/candidate.c:184:53: error: comparison of integers of different signs: 'int64_t' (aka 'long long') and 'u64' (aka 'unsigned long long') [-Werror,-Wsign-compare]\n  184 |         if (ktime_to_ns(ktime_sub(now, device->last_poll)) >= ring_ns) {\n      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~\nHOST_TEST/candidate.c:196:31: error: comparison of integers of different signs: 'unsigned int' and 'int' [-Werror,-Wsign-compare]\n  196 |                 if (device->period_progress >= device->period_bytes) {\n      |                     ~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~~~\n2 errors generated.\n",
+      "cases": []
+    }
+  ],
+  "passed": false
+}

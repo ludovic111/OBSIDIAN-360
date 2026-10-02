@@ -1,0 +1,350 @@
+--- a/sound/pci/snd-xenon.c
++++ b/sound/pci/snd-xenon.c
+@@ -20,6 +20,8 @@
+ 
+ // #include <sound/driver.h>
+ #include <linux/delay.h>
++#include <linux/hrtimer.h>
++#include <linux/math64.h>
+ #include <linux/init.h>
+ #include <linux/moduleparam.h>
+ #include <linux/pci.h>
+@@ -40,7 +42,8 @@
+ #include <sound/asoundef.h>
+ 
+ #define DESCRIPTOR_BUFFER_SIZE (32 * sizeof(u32) * 2)
+-#define CACHELINE_SIZE 128
++#define XENON_POLL_NS 200000
++#define XENON_BYTES_PER_SECOND (48000 * 2 * 2)
+ 
+ #define IRQ_DISABLE             0
+ #define IRQ_ENABLE              1
+@@ -57,7 +60,15 @@
+ static int enable[SNDRV_CARDS] = SNDRV_DEFAULT_ENABLE_PNP;
+ 
+ 
++struct snd_xenon;
++
+ struct playback_device {
++	struct snd_xenon *chip;
++	struct hrtimer timer;
++	unsigned int dev_id;
++	unsigned int last_position;
++	unsigned int period_progress;
++	ktime_t last_poll;
+ 	struct snd_pcm_substream *playback_substream;
+ 
+ 	int state;
+@@ -92,8 +103,7 @@
+ 	unsigned int dig_status;
+ 	unsigned int dig_pcm_status;
+ 
+-	struct timer_list timer;
+-	int timer_in_use;
++	bool shutting_down;
+ };
+ 
+ static inline u32 bswap32(u32 t)
+@@ -101,50 +111,95 @@
+ 	return ((t & 0xFF) << 24) | ((t & 0xFF00) << 8) | ((t & 0xFF0000) >> 8) | ((t & 0xFF000000) >> 24);
+ }
+ 
+-static void snd_xenon_timer_fn(struct timer_list * t)
+-{
+-	struct snd_xenon *chip = timer_container_of(chip, t, timer);
+-
+-	u32 reg;
+-	int rptr_descr, wptr_descr, cur_len, size;
+-
++/* All callers hold chip->lock. Keep the historical descriptor-level position
++ * until the residual-byte register semantics have been verified on hardware.
++ */
++static unsigned int snd_xenon_position(struct playback_device *device)
++{
++	u32 reg = readl(device->chip->iobase_virt + 0x04 + device->dev_id * 0x10);
++
++	return (reg & 0x1f) * device->descr_bytes;
++}
++
++static enum hrtimer_restart snd_xenon_timer_fn(struct hrtimer *timer)
++{
++	struct playback_device *device = container_of(timer, struct playback_device, timer);
++	struct snd_xenon *chip = device->chip;
++	struct snd_pcm_substream *substream;
++	unsigned long flags;
++	unsigned int position, delta;
++	ktime_t now;
++	u64 ring_ns;
++	s64 elapsed_ns;
++	bool notify = false, late = false;
++	enum hrtimer_restart restart = HRTIMER_NORESTART;
++
++	spin_lock_irqsave(&chip->lock, flags);
++	if (chip->shutting_down || device->state != 3 ||
++	    !device->playback_substream || !device->buffer_bytes ||
++	    !device->period_bytes)
++		goto unlock;
++	substream = device->playback_substream;
++	now = ktime_get();
++	ring_ns = div_u64((u64)device->buffer_bytes * NSEC_PER_SEC,
++			  XENON_BYTES_PER_SECOND);
++	/* With only a modulo position, a whole unobserved ring is ambiguous. */
++	elapsed_ns = ktime_to_ns(ktime_sub(now, device->last_poll));
++	if (elapsed_ns < 0 || (u64)elapsed_ns >= ring_ns) {
++		device->state = 4;
++		writel(0, chip->iobase_virt + 0x08 + device->dev_id * 0x10);
++		readl(chip->iobase_virt + 0x08 + device->dev_id * 0x10);
++		late = true;
++	} else {
++		position = snd_xenon_position(device);
++		delta = (position + device->buffer_bytes - device->last_position) %
++			device->buffer_bytes;
++		device->last_position = position;
++		device->last_poll = now;
++		device->period_progress += delta;
++		if (device->period_progress >= (unsigned int)device->period_bytes) {
++			device->period_progress %= device->period_bytes;
++			notify = true;
++		}
++	}
++	spin_unlock_irqrestore(&chip->lock, flags);
++
++	/* These acquire the ALSA stream lock and may call .trigger(STOP). */
++	if (late)
++		snd_pcm_stop_xrun(substream);
++	else if (notify)
++		snd_pcm_period_elapsed(substream);
++
++	spin_lock_irqsave(&chip->lock, flags);
++	if (!chip->shutting_down && device->state == 3) {
++		hrtimer_forward_now(timer, ns_to_ktime(XENON_POLL_NS));
++		restart = HRTIMER_RESTART;
++	}
++unlock:
++	spin_unlock_irqrestore(&chip->lock, flags);
++	return restart;
++}
++
++/* ALSA calls this without its stream lock after STOP and before reconfiguration.
++ * Never cancel synchronously from .trigger: the timer may need that same lock.
++ */
++static int snd_xenon_sync_stop(struct snd_pcm_substream *substream)
++{
++	struct snd_xenon *chip = snd_pcm_substream_chip(substream);
+ 	struct playback_device *device = NULL;
+-	int dev_id = 0;
+-
+-	for (dev_id = 0; dev_id < 2; dev_id++) {
+-
+-		device = &chip->devices[dev_id];
+-
+-		spin_lock(&chip->lock);
+-
+-		if (device->state != 3) {
+-			spin_unlock(&chip->lock);
+-			continue;
++	unsigned long flags;
++	int i;
++
++	spin_lock_irqsave(&chip->lock, flags);
++	for (i = 0; i < 2; i++)
++		if (chip->devices[i].playback_substream == substream) {
++			device = &chip->devices[i];
++			break;
+ 		}
+-
+-		reg = readl(chip->iobase_virt + 0x04 + dev_id * 0x10);
+-		rptr_descr = reg & 0x1f;
+-		wptr_descr = (reg & 0x1f00) >> 8;
+-		cur_len = (reg >> 16) & 0xFFFF;
+-
+-		size = wptr_descr - rptr_descr;
+-		if (size < 0) size += 32;
+-		size *= device->descr_bytes;
+-		size += cur_len;
+-		if (wptr_descr < rptr_descr) size -= device->gap;
+-		size = device->buffer_bytes - size;
+-
+-		if (size >= device->period_bytes) {
+-			spin_unlock(&chip->lock);
+-			snd_pcm_period_elapsed(device->playback_substream);
+-		} else
+-			spin_unlock(&chip->lock);
+-	}
+-
+-	if (chip->timer_in_use) {
+-		mod_timer(&chip->timer, jiffies + usecs_to_jiffies(200));
+-	}
+-
++	spin_unlock_irqrestore(&chip->lock, flags);
++	if (device)
++		hrtimer_cancel(&device->timer);
++	return 0;
+ }
+ 
+ static struct snd_pcm_hardware snd_xenon_ana_playback_hw =
+@@ -194,6 +249,9 @@
+ 	struct playback_device *device = &chip->devices[dev_id];
+ 	int err;
+ 
++	/* Polling cannot service the smallest rings with tick-only timers. */
++	if (!hrtimer_is_hres_active(&device->timer))
++		return -ENODEV;
+ 	runtime->hw = *playback_hw;
+ 	err = snd_pcm_hw_constraint_minmax(runtime, SNDRV_PCM_HW_PARAM_BUFFER_BYTES,
+ 					   128, 64 * 1024);
+@@ -206,7 +264,16 @@
+ 
+ 	spin_lock_irq(&chip->lock);
+ 
+-	memset(device, 0, sizeof(struct playback_device));
++	if (chip->shutting_down) {
++		spin_unlock_irq(&chip->lock);
++		return -ENODEV;
++	}
++	/* Timer and channel identity are initialized once in create(). */
++	device->buffer_bytes = 0;
++	device->period_bytes = 0;
++	device->descr_bytes = 0;
++	device->period_progress = 0;
++	device->last_position = 0;
+ 	device->playback_substream = substream;
+ 
+ 	writel(0x2000000, chip->iobase_virt + 0x08 + dev_id * 0x10);
+@@ -281,8 +348,8 @@
+ 		break;
+ 	}
+ 	spin_unlock_irq(&chip->lock);
+-	/* PCM core frees after this callback. Timer synchronization comes next. */
+-	return 0;
++	/* Wait without chip->lock before PCM core can release its allocation. */
++	return snd_xenon_sync_stop(substream);
+ }
+ 
+ static int snd_xenon_playback_prepare(struct snd_pcm_substream *substream)
+@@ -297,6 +364,8 @@
+ 	    runtime->dma_bytes != snd_pcm_lib_buffer_bytes(substream) ||
+ 	    runtime->dma_bytes < 128 || runtime->dma_bytes > 64 * 1024 ||
+ 	    runtime->dma_bytes % 128 ||
++	    !snd_pcm_lib_period_bytes(substream) ||
++	    snd_pcm_lib_period_bytes(substream) > runtime->dma_bytes ||
+ 	    runtime->dma_addr > DMA_BIT_MASK(29) ||
+ 	    runtime->dma_bytes - 1 > DMA_BIT_MASK(29) - runtime->dma_addr)
+ 		return -EINVAL;
+@@ -308,7 +377,7 @@
+ 
+ 	spin_lock_irq(&chip->lock);
+ 
+-	if (device->playback_substream != substream) {
++	if (chip->shutting_down || device->playback_substream != substream) {
+ 		spin_unlock_irq(&chip->lock);
+ 		return -EINVAL;
+ 	}
+@@ -322,6 +391,8 @@
+ 	device->gap = (device->descr_bytes << 5) -
+ 			    device->buffer_bytes;
+ 	device->wptr = -1;
++	device->period_progress = 0;
++	device->last_position = 0;
+ 
+ 
+ 	for (i=0; i < 32; i++) {
+@@ -362,21 +433,28 @@
+ 	}
+ 	switch (cmd) {
+ 	case SNDRV_PCM_TRIGGER_START:
+-		if (device->state != 2 || !device->buffer_bytes) {
++		if (chip->shutting_down || device->state != 2 ||
++		    !device->buffer_bytes || !device->period_bytes) {
+ 			ret = -EINVAL;
+ 			break;
+ 		}
++		device->last_position = snd_xenon_position(device);
++		device->period_progress = 0;
++		device->last_poll = ktime_get();
+ 		dma_wmb();
+ 		device->state = 3;
+ 
+ 		reg = readl(chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 		writel(reg | 0x1000000, chip->iobase_virt + 0x08 + dev_id * 0x10);
++		hrtimer_start(&device->timer, ns_to_ktime(XENON_POLL_NS),
++			      HRTIMER_MODE_REL_SOFT);
+ 		break;
+ 
+ 	case SNDRV_PCM_TRIGGER_STOP:
+ 		device->state = 4;
+ 		reg = readl(chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 		writel(reg & ~0x1000000, chip->iobase_virt + 0x08 + dev_id * 0x10);
++		readl(chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 		break;
+ 
+ 	default:
+@@ -426,9 +504,8 @@
+ 
+ 	writel(app_descr << 8, chip->iobase_virt + 0x04 + dev_id * 0x10);
+ 
++	bytes = (reg & 0x1f) * device->descr_bytes;
+ 	spin_unlock(&chip->lock);
+-
+-	bytes = (reg & 0x1f) * (device->descr_bytes);
+ 	return bytes_to_frames(substream->runtime, bytes);
+ }
+ 
+@@ -439,6 +516,7 @@
+ 	.hw_params =	snd_xenon_pcm_hw_params,
+ 	.hw_free =	snd_xenon_pcm_hw_free,
+ 	.prepare =	snd_xenon_playback_prepare,
++	.sync_stop =	snd_xenon_sync_stop,
+ 	.trigger =	snd_xenon_trigger,
+ 	.pointer =	snd_xenon_pointer,
+ };
+@@ -450,6 +528,7 @@
+ 	.hw_params =    snd_xenon_pcm_hw_params,
+ 	.hw_free =      snd_xenon_pcm_hw_free,
+ 	.prepare =      snd_xenon_playback_prepare,
++	.sync_stop =    snd_xenon_sync_stop,
+ 	.trigger =      snd_xenon_trigger,
+ 	.pointer =      snd_xenon_pointer,
+ };
+@@ -499,7 +578,7 @@
+ 	int i;
+ 
+ 	spin_lock_irqsave(&chip->lock, flags);
+-	chip->timer_in_use = 0;
++	chip->shutting_down = true;
+ 	for (i = 0; i < 2; i++)
+ 		chip->devices[i].state = 0;
+ 	if (chip->hw_initialized) {
+@@ -509,7 +588,8 @@
+ 		chip->hw_initialized = false;
+ 	}
+ 	spin_unlock_irqrestore(&chip->lock, flags);
+-	timer_shutdown_sync(&chip->timer);
++	for (i = 0; i < 2; i++)
++		hrtimer_cancel(&chip->devices[i].timer);
+ 	if (chip->pci_enabled)
+ 		pci_clear_master(chip->pci);
+ }
+@@ -567,7 +647,7 @@
+ 			   struct snd_xenon **rchip)
+ {
+ 	struct snd_xenon *chip;
+-	int err;
++	int err, i;
+ 
+ 	*rchip = NULL;
+ 	chip = kzalloc(sizeof(*chip), GFP_KERNEL);
+@@ -578,7 +658,12 @@
+ 	chip->dig_status = SNDRV_PCM_DEFAULT_CON_SPDIF;
+ 	chip->dig_pcm_status = SNDRV_PCM_DEFAULT_CON_SPDIF;
+ 	spin_lock_init(&chip->lock);
+-	timer_setup(&chip->timer, snd_xenon_timer_fn, 0);
++	for (i = 0; i < 2; i++) {
++		chip->devices[i].chip = chip;
++		chip->devices[i].dev_id = i;
++		hrtimer_setup(&chip->devices[i].timer, snd_xenon_timer_fn,
++			      CLOCK_MONOTONIC, HRTIMER_MODE_REL_SOFT);
++	}
+ 
+ 	/* One owner for all paths, including every partial probe failure. */
+ 	card->private_data = chip;

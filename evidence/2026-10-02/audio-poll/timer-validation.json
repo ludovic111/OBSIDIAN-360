@@ -1,0 +1,118 @@
+{
+  "scope": "Extracted C; register/time/ALSA/timer models with one deterministic pthread interleaving; no real hardware, real-time guarantees or general SMP proof.",
+  "variants": [
+    {
+      "variant": "previous",
+      "source_sha256": "5f8af47e2ae28674c2b22258a9754aad59095508d852df43cd773ad72d6f7482",
+      "compile_code": 0,
+      "diagnostics": "",
+      "cases": [
+        {
+          "name": "missing_start_false_notifications",
+          "code": 0,
+          "stdout": "reproduced: START does not arm timer; unchanged zero status yields two false notifications",
+          "diagnostics": ""
+        }
+      ]
+    },
+    {
+      "variant": "candidate",
+      "source_sha256": "7cf21cd6b672518da3c8eff41dc95b708e4d02384702dcf3c9ceee33c7b5f5a9",
+      "compile_code": 0,
+      "diagnostics": "",
+      "cases": [
+        {
+          "name": "stationary",
+          "code": 0,
+          "stdout": "stationary: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "nonzero_start",
+          "code": 0,
+          "stdout": "nonzero_start: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "progress",
+          "code": 0,
+          "stdout": "progress: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "wrap",
+          "code": 0,
+          "stdout": "wrap: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "remainder",
+          "code": 0,
+          "stdout": "remainder: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "stop_one",
+          "code": 0,
+          "stdout": "stop_one: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "sync_one",
+          "code": 0,
+          "stdout": "sync_one: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "stop_inside_notify",
+          "code": 0,
+          "stdout": "stop_inside_notify: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "late",
+          "code": 0,
+          "stdout": "late: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "late_boundary",
+          "code": 0,
+          "stdout": "late_boundary: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "before_boundary",
+          "code": 0,
+          "stdout": "before_boundary: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "clock_reverse",
+          "code": 0,
+          "stdout": "clock_reverse: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "zero_period",
+          "code": 0,
+          "stdout": "zero_period: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "shutdown",
+          "code": 0,
+          "stdout": "shutdown: passed",
+          "diagnostics": ""
+        },
+        {
+          "name": "free_during_callback",
+          "code": 0,
+          "stdout": "free_during_callback: passed",
+          "diagnostics": ""
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

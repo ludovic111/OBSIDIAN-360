@@ -1,0 +1,5 @@
+{
+  "sha256": "7d0899ec720085292ddbdf7306dd19a6a9616be4187071fc57d710df3b5e7b57",
+  "build_returncode": 0,
+  "note": "Signed comparisons fixed, built with previous low-resolution timer configuration; superseded before any install."
+}

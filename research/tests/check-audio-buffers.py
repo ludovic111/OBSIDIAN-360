@@ -45,8 +45,10 @@ struct playback_device {
     struct snd_pcm_substream *playback_substream;
     void *dma_base_virt; unsigned descr_base_phys; u32 *descr_base_virt;
     int state, period_bytes, buffer_bytes, descr_bytes, gap, wptr;
+    unsigned period_progress, last_position;
 };
-struct snd_xenon { struct playback_device devices[2]; unsigned char *iobase_virt; int lock; };
+struct snd_xenon {
+    int shutting_down; struct playback_device devices[2]; unsigned char *iobase_virt; int lock; };
 static struct snd_xenon chip;
 static struct snd_xenon *snd_pcm_substream_chip(struct snd_pcm_substream *s) { (void)s; return &chip; }
 static int params_buffer_bytes(struct snd_pcm_hw_params *p) { return p->bytes; }

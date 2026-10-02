@@ -13,6 +13,7 @@ Laboratoire d’analyse d'une Xbox 360 : matériel, chaîne de démarrage, pilot
 - Le gel du bureau lors du redimensionnement à la manette est récupéré sans reboot Linux ; le mécanisme X11 est reproduit hors console et corrigé par configuration. Validation physique du redimensionnement encore attendue.
 - Lecteur : secteurs de CD audio lus, mais jeu Just Cause 2 et DVD vidéo Big Order non reconnus sous Linux. Composant fautif et compatibilité régionale non déterminés.
 - L'entrée obsidian4 reste optionnelle ; linux_hdd demeure le choix par défaut. Stabilité prolongée et redémarrages répétés encore à valider.
+- Audio : tampons et suivi par sortie corrigés hors console, noyau candidat haute résolution et 70 modules compilés. Soumission des échantillons et protocole encore incomplets ; aucun son ni chargement du candidat.
 - Ni 1080p, ni démarrage indépendant du système Xbox, ni rétro-ingénierie intégrale réalisés.
 
 ## Lire et continuer
@@ -32,6 +33,8 @@ Laboratoire d’analyse d'une Xbox 360 : matériel, chaîne de démarrage, pilot
 13. [Analyse structurelle XEX2](docs/XEX2-INSPECTION.md) et [inspecteur Rust](game-analysis/xex-inspect/README.md), validé sur échantillons synthétiques uniquement.
 
 14. [Récupération du gel graphique](docs/DESKTOP-RESIZE-RECOVERY.md) et [test reproductible sous Xvfb](docs/DESKTOP-TESTING.md).
+
+15. [Tampons audio ALSA](docs/AUDIO-PCM-DMA.md), [suivi et fermeture des flux](docs/AUDIO-STREAM-POLLING.md), [audit de la soumission](docs/AUDIO-SUBMISSION-AUDIT.md).
 
 ## Organisation
 

@@ -1,5 +1,11 @@
 # État courant — 2 octobre 2026
 
+E58 : 96 cas reproduisent une file modifiée par des demandes de position identiques ; débordement de conversion signé également reproduit avec une valeur synthétique native 64 bits. Aucun défaut vivant revendiqué. Le contrôleur audio de l’émulateur Xenon examiné est un stub et ne valide pas le protocole. Soumission et fin de flux à résoudre avant activation ; voir `docs/AUDIO-SUBMISSION-AUDIT.md`.
+
+## Suivi audio compilé et soumission à corriger — E57/E58
+
+Le correctif 0012 arme un timer par flux, compte la progression réelle entre observations et attend les callbacks avant libération. Quinze scénarios de suivi, vingt de ressources et quinze PCM passent hors console. La variante finale active les timers haute résolution ; noyau et 70 modules compilent sans avertissement, ELF et versions vérifiés. Aucun chargement. Voir `docs/AUDIO-STREAM-POLLING.md`. Dernier état vivant : E56.
+
 ## Tampons audio et retour utilisateur — E55/E56
 
 E55 : le candidat 0011 utilise les tampons cohérents gérés par ALSA, sans remappage ioremap ni boucle de cache privée. Vingt scénarios de ressources et douze de callbacks passent ; noyau audio-pcm et 70 modules compilés sans avertissement. Aucun installé : timer, concurrence et protocole matériel restent à résoudre. Voir `docs/AUDIO-PCM-DMA.md`.
@@ -147,3 +153,5 @@ Publication E48 vérifiée à 2026-10-02T08:03:48.586991+00:00 : commit public `
 Publication E49–E52 vérifiée à 2026-10-02T08:25:04.519035+00:00 : commit public `fd75dd4f20e7d0c0d0fc1475b1423d013d7cfa00`, 248 fichiers, parent et arbre GitHub conformes après audits. Preuve `evidence/2026-10-02/public-audit/audio-publication.json`. Audio non activé ; aucun arrêt depuis le retour Linux.
 
 Publication E53/E54 vérifiée à 2026-10-02T08:57:54.026744+00:00 : commit public `5dd3293b9936669ba7a8e25935de8dd6b918fafc`, 273 fichiers, parent et arbre GitHub conformes après audits. Preuve `evidence/2026-10-02/public-audit/smc-publication.json`. Deux builds audio complets validés, aucun installé.
+
+Publication E55/E56 vérifiée à 2026-10-02T09:45:58.581719+00:00 : commit public `74ba6693755aaef77e96d016bbcbc6e7cf473713`, 287 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/pcm-publication.json`. Candidat audio-pcm non installé.

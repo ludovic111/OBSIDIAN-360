@@ -1,0 +1,19 @@
+{
+  "verified_utc": "2026-10-02T10:13:59.836076+00:00",
+  "build_returncode": 0,
+  "sources": {
+    "sound/pci/snd-xenon.c": "7cf21cd6b672518da3c8eff41dc95b708e4d02384702dcf3c9ceee33c7b5f5a9",
+    "drivers/xenon/smc-core.c": "f0bc8c2fdf3e9acab02575c65ee9285da12b6071b6ebe35e503218bf315a225d",
+    "include/xenon/smc-core.h": "505d65896a94ac76ebec9de2fbf2da946162d6701b5f075b17eb9c72a55bc326"
+  },
+  "config_sha256": "72bb3f2a5397173c772ad04a603950ba8a49cb9f0b2e084e5ca7d319a96cb849",
+  "diagnostics": [],
+  "kernelrelease": "6.18.11-xenon-audio-poll",
+  "command": "make -C /src O=/build ARCH=powerpc LLVM=1 LOCALVERSION=-audio-poll -j2 olddefconfig vmlinux modules",
+  "image": "obsidian360-kernel:llvm16",
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "installed": false,
+  "booted": false,
+  "boot_image_built": false,
+  "scope": "Final high-resolution configuration compiled and linked; no runtime timer or audio validation."
+}

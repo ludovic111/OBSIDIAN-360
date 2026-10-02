@@ -28,6 +28,14 @@ PREFIX=r'''
 #include <errno.h>
 typedef uint32_t u32;typedef uint64_t dma_addr_t;typedef unsigned long snd_pcm_uframes_t;typedef int spinlock_t;
 struct timer_list {int unused;};struct snd_xenon;
+typedef uint64_t u64;typedef int64_t s64;typedef int64_t ktime_t;
+struct hrtimer {int initialized,pending;};
+static int high_resolution=1;
+static int hrtimer_is_hres_active(struct hrtimer *t){(void)t;return high_resolution;}
+#define HRTIMER_MODE_REL_SOFT 1
+#define XENON_POLL_NS 200000
+static ktime_t ktime_get(void){return 0;}
+static ktime_t ns_to_ktime(int64_t ns){return ns;}
 struct snd_pcm_hardware {int token;};
 struct control {unsigned long appl_ptr;};
 struct snd_pcm_runtime {struct snd_pcm_hardware hw;void *dma_area;dma_addr_t dma_addr;unsigned dma_bytes;struct control *control;};
@@ -47,6 +55,10 @@ static void spin_lock_irq(spinlock_t *p){(void)p;CHECK(!locked);locked=1;}
 static void spin_unlock_irq(spinlock_t *p){(void)p;CHECK(locked);locked=0;}
 #define spin_lock spin_lock_irq
 #define spin_unlock spin_unlock_irq
+#define spin_lock_irqsave(p,f) do {(f)=0;spin_lock_irq(p);}while(0)
+#define spin_unlock_irqrestore(p,f) do {(void)(f);spin_unlock_irq(p);}while(0)
+static void hrtimer_start(struct hrtimer *t,ktime_t delay,int mode){(void)delay;(void)mode;CHECK(t->initialized);t->pending=1;}
+static int hrtimer_cancel(struct hrtimer *t){CHECK(!locked && t->initialized);t->pending=0;return 0;}
 static unsigned snd_pcm_lib_buffer_bytes(struct snd_pcm_substream *s){return s->buffer;}
 static unsigned snd_pcm_lib_period_bytes(struct snd_pcm_substream *s){return s->period;}
 static int params_buffer_bytes(struct snd_pcm_hw_params *p){return p->bytes;}
@@ -79,9 +91,14 @@ int main(int argc,char **argv){
     struct snd_pcm_runtime runtime[2]={{.dma_addr=0x10000,.dma_bytes=65536,.control=&controls[0]},{.dma_addr=0x30000,.dma_bytes=128,.control=&controls[1]}};
     struct snd_pcm_substream subs[2]={{.runtime=&runtime[0],.buffer=65536,.period=4096},{.runtime=&runtime[1],.buffer=128,.period=64}};
     struct snd_pcm_hardware hw={.token=42};
+#if HAS_POLL
+    for(unsigned i=0;i<2;i++){chip.devices[i].chip=&chip;chip.devices[i].dev_id=i;chip.devices[i].timer.initialized=1;}
+#endif
+    if(!strcmp(test,"coarse_timer"))high_resolution=0;
     if(!strcmp(test,"constraint_first"))fail_constraint=1;
     if(!strcmp(test,"constraint_second"))fail_constraint=2;
     int code=snd_xenon_playback_open(&subs[0],0,&hw);
+    if(!high_resolution){CHECK(code==-ENODEV && !writes && !constraints);return 0;}
     if(fail_constraint){CHECK(code==-ENOMEM && writes==0 && !chip.devices[0].playback_substream);return 0;}
     CHECK(code==0 && constraints==2 && runtime[0].hw.token==42);
     CHECK(snd_xenon_playback_open(&subs[1],1,&hw)==0 && constraints==4);
@@ -93,6 +110,8 @@ int main(int argc,char **argv){
     }
     unsigned long saved_addr=runtime[0].dma_addr;void *saved_area=runtime[0].dma_area;
     if(!strcmp(test,"no_area"))runtime[0].dma_area=NULL;
+    if(!strcmp(test,"zero_period"))subs[0].period=0;
+    if(!strcmp(test,"large_period"))subs[0].period=65540;
     if(!strcmp(test,"short_buffer")){runtime[0].dma_bytes=64;subs[0].buffer=64;}
     if(!strcmp(test,"unaligned_size")){runtime[0].dma_bytes=132;subs[0].buffer=132;}
     if(!strcmp(test,"mismatched_size"))subs[0].buffer=128;
@@ -136,12 +155,15 @@ int main(int argc,char **argv){
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--source',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     source=a.source.read_text();structs=source[source.index('struct playback_device {'):source.index('static inline u32 bswap32')]
+    poll='struct hrtimer timer;' in source
     names=['bswap32','snd_xenon_playback_open','snd_xenon_pcm_hw_params','snd_xenon_pcm_hw_free','snd_xenon_playback_close','snd_xenon_playback_prepare','snd_xenon_trigger','snd_xenon_pointer']
+    if poll:names=['snd_xenon_position','snd_xenon_sync_stop']+names
     cases=['constraint_first','constraint_second','no_area','short_buffer','unaligned_size','mismatched_size','address_high','address_crossing','address_overflow','unknown_stream','normal','repeat_prepare']
+    if poll:cases+=['zero_period','large_period','coarse_timer']
     report={'scope':'Actual PCM callbacks, coherent CPU area and managed allocation modeled; no real ALSA refinement, DMA/coherency, timers or concurrent callbacks. Descriptor encoding remains the historical Linux model.','source_sha256':hashlib.sha256(a.source.read_bytes()).hexdigest(),'cases':[]}
     with tempfile.TemporaryDirectory(prefix='obsidian-pcm-') as tmp:
-        src=Path(tmp)/'test.c';binary=Path(tmp)/'test';src.write_text(PREFIX+structs+'\n'.join(function(source,n) for n in names)+MAIN)
-        build=subprocess.run(['clang','-std=gnu11','-O1','-g','-Wall','-Wextra','-Werror','-Wno-unused-parameter','-fsanitize=address,undefined',str(src),'-o',str(binary)],capture_output=True,text=True,timeout=30)
+        src=Path(tmp)/'test.c';binary=Path(tmp)/'test';src.write_text('#define HAS_POLL '+str(int(poll))+'\n'+PREFIX+structs+'\n'.join(function(source,n) for n in names)+MAIN)
+        build=subprocess.run(['clang','-std=gnu11','-O1','-g','-Wall','-Wextra','-Werror','-Wno-unused-parameter','-Wno-unused-function','-fsanitize=address,undefined',str(src),'-o',str(binary)],capture_output=True,text=True,timeout=30)
         report['compile']={'code':build.returncode,'diagnostics':build.stderr.replace(tmp,'HOST_TEST')}
         if build.returncode==0:
             for case in cases:

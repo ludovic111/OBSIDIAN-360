@@ -25,3 +25,5 @@ Ne pas appliquer ces diffs aux archives de preuves. Aucun flash NAND requis pour
 `0010-xenon-bounded-smc-post.patch` ajoute une API d’envoi sans attente de verrou, à budget de polling, et l’utilise dans l’audio. Dix-neuf scénarios SMC et dix-huit de ressources passent. Les variantes 0008/0009 puis 0008/0009/0010 compilent noyau + 70 modules sans avertissement. Aucun chargement ; anciens chemins SMC encore non bornés. Voir `docs/SMC-BOUNDED-POST.md`.
 
 `0011-xenon-audio-coherent-pcm.patch` passe aux tampons gérés ALSA et à leur adresse CPU existante, supprime le remappage/cache privés et ajoute contraintes et contrôles défensifs. Vingt scénarios ressources, douze callbacks et régression géométrique passent ; noyau et 70 modules compilés. Timer et protocole restent incomplets, aucun chargement. Voir `docs/AUDIO-PCM-DMA.md`.
+
+`0012-xenon-audio-stream-polling.patch` ajoute le suivi par sortie et la synchronisation avant libération ; 15 scénarios de suivi, 20 ressources et 15 PCM passent hors matériel. Configuration haute résolution activée, noyau final et 70 modules vérifiés sans avertissement, non activé. Voir `docs/AUDIO-STREAM-POLLING.md`.

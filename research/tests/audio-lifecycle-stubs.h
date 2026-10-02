@@ -10,6 +10,11 @@
 typedef uint32_t u32;
 typedef uint64_t dma_addr_t;
 typedef int spinlock_t;
+typedef int64_t ktime_t;
+enum hrtimer_restart { HRTIMER_NORESTART, HRTIMER_RESTART };
+struct hrtimer { int initialized, pending; };
+#define HRTIMER_MODE_REL_SOFT 1
+#define CLOCK_MONOTONIC 1
 struct timer_list { int initialized, pending; };
 struct device { int unused; };
 struct pci_dev { struct device dev; int irq; void *data; };
@@ -71,6 +76,8 @@ static int timer_shutdown_sync(struct timer_list *t) {
     CHECK(t->initialized); CHECK(!locked); t->pending=0; active_timer=0; return 0;
 }
 static int del_timer_sync(struct timer_list *t) { return timer_shutdown_sync(t); }
+static void hrtimer_setup(struct hrtimer *t,enum hrtimer_restart (*fn)(struct hrtimer *),int clock,int mode) { (void)fn;(void)clock;(void)mode;t->initialized=1; }
+static int hrtimer_cancel(struct hrtimer *t) { CHECK(t->initialized);CHECK(!locked);if(t->pending)--active_timer;t->pending=0;return 0; }
 static int pci_enable_device(struct pci_dev *p) { (void)p; if(fail("pci_enable")) return -EBUSY; enabled=1; return 0; }
 static void pci_disable_device(struct pci_dev *p) { (void)p; CHECK(enabled); enabled=0; bus_master=0; }
 static void pci_set_master(struct pci_dev *p) { (void)p; CHECK(enabled); bus_master=1; }

@@ -1,0 +1,36 @@
+{
+  "scope": "Actual pointer and ALSA unit helpers; modeled MMIO, no hardware. Partial-block interpretation conditional on LibXenon last-valid semantics. Overflow uses native signed long width.",
+  "source_sha256": "7cf21cd6b672518da3c8eff41dc95b708e4d02384702dcf3c9ceee33c7b5f5a9",
+  "pcm_header_sha256": "c5c2197f4dea13eaed7c9f10c83889a1b228c892c8bb918cda077201bb53e889",
+  "cases": [
+    {
+      "name": "repeated_query",
+      "code": 0,
+      "expected_failure": false,
+      "passed": true,
+      "stdout": "reproduced: 96 unchanged-application cases alternate advertised descriptor across three identical position queries",
+      "diagnostics": ""
+    },
+    {
+      "name": "partial",
+      "code": 0,
+      "expected_failure": false,
+      "passed": true,
+      "stdout": "conditional: descriptor 0 advertised with 4/128 bytes committed under last-valid interpretation",
+      "diagnostics": ""
+    },
+    {
+      "name": "overflow",
+      "code": -6,
+      "expected_failure": true,
+      "passed": true,
+      "stdout": "",
+      "diagnostics": "HOST_TEST/test.c:49:14: runtime error: signed integer overflow: 288230376151711744 * 32 cannot be represented in type 'snd_pcm_sframes_t' (aka 'long')\nSUMMARY: UndefinedBehaviorSanitizer: undefined-behavior HOST_TEST/test.c:49:14 \n"
+    }
+  ],
+  "compile": {
+    "code": 0,
+    "diagnostics": ""
+  },
+  "passed": true
+}

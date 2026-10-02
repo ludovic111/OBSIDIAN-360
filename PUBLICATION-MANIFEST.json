@@ -1,6 +1,6 @@
 {
   "scope": "Reviewed public text snapshot; original local history is not included.",
-  "source_commit": "cbaf5212fd9881bfdb1ec22ec6d19ed2f69e0782",
+  "source_commit": "be59dc2a04ca1aa63d5544911347495ca7bb5972",
   "files": [
     {
       "path": ".gitattributes",
@@ -58,14 +58,14 @@
     },
     {
       "path": "README.md",
-      "source_sha256": "1b8470c8e62534888588080af7c8aa410f2330459089733df6b1da06bcd1c44a",
-      "public_sha256": "1b8470c8e62534888588080af7c8aa410f2330459089733df6b1da06bcd1c44a",
+      "source_sha256": "197f9d4180e25a862cc9cb9e7af832c5498c4658bd00fff0a1ee64354bd1d0b0",
+      "public_sha256": "197f9d4180e25a862cc9cb9e7af832c5498c4658bd00fff0a1ee64354bd1d0b0",
       "sanitized": false
     },
     {
       "path": "THIRD_PARTY.md",
-      "source_sha256": "33a9fae43882af19d8e1ae6dea576901cf15edc6f3e7052723a8a97e7892d9f7",
-      "public_sha256": "33a9fae43882af19d8e1ae6dea576901cf15edc6f3e7052723a8a97e7892d9f7",
+      "source_sha256": "3f1c4d482ec8a04d768996535881586f9738ad05db452de1fd411bef42f81e44",
+      "public_sha256": "3f1c4d482ec8a04d768996535881586f9738ad05db452de1fd411bef42f81e44",
       "sanitized": false
     },
     {
@@ -112,8 +112,20 @@
     },
     {
       "path": "docs/AUDIO-PCM-DMA.md",
-      "source_sha256": "f2fc55d6482f4e3b9cddc58385803311cf31fb802fd3f8eb3f257eab2c12e48c",
-      "public_sha256": "f2fc55d6482f4e3b9cddc58385803311cf31fb802fd3f8eb3f257eab2c12e48c",
+      "source_sha256": "feb8bdee9af9a2236507fecef6f4570b195fcca09e1021d73fc4cd41af8678c8",
+      "public_sha256": "feb8bdee9af9a2236507fecef6f4570b195fcca09e1021d73fc4cd41af8678c8",
+      "sanitized": false
+    },
+    {
+      "path": "docs/AUDIO-STREAM-POLLING.md",
+      "source_sha256": "ea39b7ac8d3b88a1f13509150f01cf628a6e3133f8dec1e31324d1cef10843b4",
+      "public_sha256": "ea39b7ac8d3b88a1f13509150f01cf628a6e3133f8dec1e31324d1cef10843b4",
+      "sanitized": false
+    },
+    {
+      "path": "docs/AUDIO-SUBMISSION-AUDIT.md",
+      "source_sha256": "6823e06e0c7343f4b120fd2e05e5b7db91d69bff92cce080e176ddada1ad277e",
+      "public_sha256": "6823e06e0c7343f4b120fd2e05e5b7db91d69bff92cce080e176ddada1ad277e",
       "sanitized": false
     },
     {
@@ -160,14 +172,14 @@
     },
     {
       "path": "docs/EXPERIMENTS.md",
-      "source_sha256": "b7b3ca41e4139df15b57d6f018d1c6df8bbc7687c994068d4660b85dfdf15979",
-      "public_sha256": "b7b3ca41e4139df15b57d6f018d1c6df8bbc7687c994068d4660b85dfdf15979",
+      "source_sha256": "2fc48a9d05bc2ce7431ef0873f4b68458e30343d7e86beef49ef51c19b67ba93",
+      "public_sha256": "2fc48a9d05bc2ce7431ef0873f4b68458e30343d7e86beef49ef51c19b67ba93",
       "sanitized": false
     },
     {
       "path": "docs/JOURNAL.md",
-      "source_sha256": "af4dffde804c11e161c4ae21e93d2de0b50aba256d7e4af3b693b6f0b6e8e08b",
-      "public_sha256": "af4dffde804c11e161c4ae21e93d2de0b50aba256d7e4af3b693b6f0b6e8e08b",
+      "source_sha256": "54c5112d512c01ca4628b76d464d2366c3c79b660dfc0f0e6702f256278d02d0",
+      "public_sha256": "54c5112d512c01ca4628b76d464d2366c3c79b660dfc0f0e6702f256278d02d0",
       "sanitized": false
     },
     {
@@ -184,8 +196,8 @@
     },
     {
       "path": "docs/NEXT.md",
-      "source_sha256": "d9aaa737fcef392bc23119418bfa3a685915c84d0bb8828f79a069b03fb23c5a",
-      "public_sha256": "d9aaa737fcef392bc23119418bfa3a685915c84d0bb8828f79a069b03fb23c5a",
+      "source_sha256": "bb73552be4ddf2aceadb85b78e8cb6862fbd79b1e2d8c1ab5b799e4d9bec3e34",
+      "public_sha256": "bb73552be4ddf2aceadb85b78e8cb6862fbd79b1e2d8c1ab5b799e4d9bec3e34",
       "sanitized": false
     },
     {
@@ -226,8 +238,8 @@
     },
     {
       "path": "docs/PUBLICATION.md",
-      "source_sha256": "c5e506d5179e18999586a4233003c32db2dd569f921af7aab513e148eeddc47e",
-      "public_sha256": "c5e506d5179e18999586a4233003c32db2dd569f921af7aab513e148eeddc47e",
+      "source_sha256": "10def11ce0864ea9ebca8aedfb9b26eec27bdc1961dfee480f1310f116eebfc0",
+      "public_sha256": "10def11ce0864ea9ebca8aedfb9b26eec27bdc1961dfee480f1310f116eebfc0",
       "sanitized": false
     },
     {
@@ -262,8 +274,8 @@
     },
     {
       "path": "docs/STATE.md",
-      "source_sha256": "e551df6d62591c59444ba04eaffb1099ba02e60214dc3d795c6d7170c7e224df",
-      "public_sha256": "e551df6d62591c59444ba04eaffb1099ba02e60214dc3d795c6d7170c7e224df",
+      "source_sha256": "a8a557f448fe6ab276b360d1bff19174425b98a94d9f8ab1606b5bfc3b9d3f1a",
+      "public_sha256": "a8a557f448fe6ab276b360d1bff19174425b98a94d9f8ab1606b5bfc3b9d3f1a",
       "sanitized": false
     },
     {
@@ -1119,6 +1131,120 @@
       "sanitized": false
     },
     {
+      "path": "evidence/2026-10-02/audio-poll/buffer-validation.json",
+      "source_sha256": "4286ff199c70bca7a31e1fcfad84749be3b39883d4c22c03abc7ed930aa7ec31",
+      "public_sha256": "4286ff199c70bca7a31e1fcfad84749be3b39883d4c22c03abc7ed930aa7ec31",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/command-error.json",
+      "source_sha256": "ddd5133ba5adf1952c6b66d48a2bc59c4e42cdbffd0e4297fd075afb52e36e03",
+      "public_sha256": "ddd5133ba5adf1952c6b66d48a2bc59c4e42cdbffd0e4297fd075afb52e36e03",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/config-change.diff.txt",
+      "source_sha256": "7cee91af8e6c88ce8067ccc1397af30d46b6134182f1b8651343315521f37188",
+      "public_sha256": "7cee91af8e6c88ce8067ccc1397af30d46b6134182f1b8651343315521f37188",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/final-artifacts.json",
+      "source_sha256": "a77cddd3acd9e8f823051eb11bbdc199d06e4f564f3c1d49df9ee1d210cce5ab",
+      "public_sha256": "a77cddd3acd9e8f823051eb11bbdc199d06e4f564f3c1d49df9ee1d210cce5ab",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/final-build.json",
+      "source_sha256": "e16a3a81789b8918c10a3b052b62f8928d61ca80b6f5a236e7c7a694be4c8bcd",
+      "public_sha256": "e16a3a81789b8918c10a3b052b62f8928d61ca80b6f5a236e7c7a694be4c8bcd",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/final-build.log",
+      "source_sha256": "8da35c1d6e09c595680427205a15cc693efb086f3f639bbffca39b9391f90788",
+      "public_sha256": "8da35c1d6e09c595680427205a15cc693efb086f3f639bbffca39b9391f90788",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/first-build-artifacts.json",
+      "source_sha256": "0441d2230f1461b1ff8182df0da342c11952be9d8f78cc2711591853a0f47abb",
+      "public_sha256": "0441d2230f1461b1ff8182df0da342c11952be9d8f78cc2711591853a0f47abb",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/first-build-source.json",
+      "source_sha256": "53c13bb35e3007dd768b8387644f71716001517c62f8c91218c802cb67f05873",
+      "public_sha256": "53c13bb35e3007dd768b8387644f71716001517c62f8c91218c802cb67f05873",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/first-build.log",
+      "source_sha256": "b5412c4ffaf13cd51d9643002ea35d0df2edcfd34230202f18c627c8455ee8aa",
+      "public_sha256": "b5412c4ffaf13cd51d9643002ea35d0df2edcfd34230202f18c627c8455ee8aa",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/kernel.config",
+      "source_sha256": "72bb3f2a5397173c772ad04a603950ba8a49cb9f0b2e084e5ca7d319a96cb849",
+      "public_sha256": "72bb3f2a5397173c772ad04a603950ba8a49cb9f0b2e084e5ca7d319a96cb849",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/lifecycle-validation.json",
+      "source_sha256": "874f68d42233e3f392dfa9804e662a0c419f33c93ae62365cf2ef90e0353df43",
+      "public_sha256": "874f68d42233e3f392dfa9804e662a0c419f33c93ae62365cf2ef90e0353df43",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/patch-reconstruction.json",
+      "source_sha256": "15dea4a34b11e4d5fa7b773dfc6ec9cde2cb889da93748acd7219cc68b7d3928",
+      "public_sha256": "15dea4a34b11e4d5fa7b773dfc6ec9cde2cb889da93748acd7219cc68b7d3928",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/pcm-validation.json",
+      "source_sha256": "e63da170d2b00257160c9d3c6e94e8bbd18d79969017c25140f1dc229b89fd3c",
+      "public_sha256": "e63da170d2b00257160c9d3c6e94e8bbd18d79969017c25140f1dc229b89fd3c",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/second-build-source.json",
+      "source_sha256": "2f11d79c4d06cdee31b23b2e2d3faafc30c1d2482288e7321fc8ab7e173ede10",
+      "public_sha256": "2f11d79c4d06cdee31b23b2e2d3faafc30c1d2482288e7321fc8ab7e173ede10",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/second-build.log",
+      "source_sha256": "3e3d7cabcac47c8757956a2e2b332d2725255b15bf1cbf7a85c2eca599053679",
+      "public_sha256": "3e3d7cabcac47c8757956a2e2b332d2725255b15bf1cbf7a85c2eca599053679",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/timer-first-attempt.json",
+      "source_sha256": "4292d0ba8b9b9909e3ee35531c3d2a53f8938d67bb6a258a810970d88b1a1ecc",
+      "public_sha256": "4292d0ba8b9b9909e3ee35531c3d2a53f8938d67bb6a258a810970d88b1a1ecc",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-poll/timer-validation.json",
+      "source_sha256": "a3088a9130cdf24c850643112d84d4d64ca327321869792416c07c74282d335b",
+      "public_sha256": "a3088a9130cdf24c850643112d84d4d64ca327321869792416c07c74282d335b",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-submission/sources.json",
+      "source_sha256": "3cdbf11ad3844b9eca8747a9a69263500f930ac40aade9cab7eaba14bc34cff0",
+      "public_sha256": "3cdbf11ad3844b9eca8747a9a69263500f930ac40aade9cab7eaba14bc34cff0",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/audio-submission/validation.json",
+      "source_sha256": "115da7be61c6eb5d3a0e4f3d85bbffe60f11288b9a8a6ff67ad3d11ec91b0225",
+      "public_sha256": "115da7be61c6eb5d3a0e4f3d85bbffe60f11288b9a8a6ff67ad3d11ec91b0225",
+      "sanitized": false
+    },
+    {
       "path": "evidence/2026-10-02/desktop-recovery/analysis.json",
       "source_sha256": "7d5cf3655de1cfb6f625a1713b0d97fdb69226a00915bedf9264d10eb8245d9e",
       "public_sha256": "7d5cf3655de1cfb6f625a1713b0d97fdb69226a00915bedf9264d10eb8245d9e",
@@ -1248,6 +1374,12 @@
       "path": "evidence/2026-10-02/public-audit/optical-publication.json",
       "source_sha256": "3ee635e9d0c3ca6590e2936916a8d63b0675d46a2c8bcc40953586284225935d",
       "public_sha256": "3ee635e9d0c3ca6590e2936916a8d63b0675d46a2c8bcc40953586284225935d",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/public-audit/pcm-publication.json",
+      "source_sha256": "0f1a7cbe7b9dd16fe5d1f069450b2cb82e4bebeda9648c9b2c9c0b8cd2a2762e",
+      "public_sha256": "0f1a7cbe7b9dd16fe5d1f069450b2cb82e4bebeda9648c9b2c9c0b8cd2a2762e",
       "sanitized": false
     },
     {
@@ -1497,45 +1629,63 @@
       "sanitized": false
     },
     {
+      "path": "research/patches/0012-xenon-audio-stream-polling.patch",
+      "source_sha256": "310178cb487d96e43e8a7e6f7a18fd4c6f407aaf9964fc0180ff03f3c0014037",
+      "public_sha256": "310178cb487d96e43e8a7e6f7a18fd4c6f407aaf9964fc0180ff03f3c0014037",
+      "sanitized": false
+    },
+    {
       "path": "research/patches/README.md",
-      "source_sha256": "e607a76f4a121fc45d3261ad924ecd66917438957983f3f15f9b11d9130f4fb9",
-      "public_sha256": "e607a76f4a121fc45d3261ad924ecd66917438957983f3f15f9b11d9130f4fb9",
+      "source_sha256": "36b0d4319e7b0bd69d928adb3cec3e9916315f806a5a7fa44344f6342cedebd5",
+      "public_sha256": "36b0d4319e7b0bd69d928adb3cec3e9916315f806a5a7fa44344f6342cedebd5",
       "sanitized": false
     },
     {
       "path": "research/tests/README.md",
-      "source_sha256": "a23adeed6949103d2da09b407958f76d6a5556f32e1bf139091027b0897f57d7",
-      "public_sha256": "a23adeed6949103d2da09b407958f76d6a5556f32e1bf139091027b0897f57d7",
+      "source_sha256": "5fb021882ba72f90f04310ecec7c8ee1b5e9d8d14fd7528cb8b8c71fd552afc3",
+      "public_sha256": "5fb021882ba72f90f04310ecec7c8ee1b5e9d8d14fd7528cb8b8c71fd552afc3",
       "sanitized": false
     },
     {
       "path": "research/tests/audio-lifecycle-main.c",
-      "source_sha256": "7c6b1d5250bcb7618c3e4969055df525b5b85e111ac569f933bb015f2515b74e",
-      "public_sha256": "7c6b1d5250bcb7618c3e4969055df525b5b85e111ac569f933bb015f2515b74e",
+      "source_sha256": "f1b00afcfeff4e595de7093a39a74e9fedb1efbbd9dbe06af3145a6719481793",
+      "public_sha256": "f1b00afcfeff4e595de7093a39a74e9fedb1efbbd9dbe06af3145a6719481793",
       "sanitized": false
     },
     {
       "path": "research/tests/audio-lifecycle-stubs.h",
-      "source_sha256": "8ab5d7ac10ab36d76df73d0a9c3db6954f78a2b1680b04a168e5222260e5f12a",
-      "public_sha256": "8ab5d7ac10ab36d76df73d0a9c3db6954f78a2b1680b04a168e5222260e5f12a",
+      "source_sha256": "087a36637efc0c0828c28c918ebd5859e4d48398529c49725240a74a17eb5947",
+      "public_sha256": "087a36637efc0c0828c28c918ebd5859e4d48398529c49725240a74a17eb5947",
       "sanitized": false
     },
     {
       "path": "research/tests/check-audio-buffers.py",
-      "source_sha256": "bc05806699688c8461ef5cc61399f5bda8eb415ff2924d014e253ed00d11102a",
-      "public_sha256": "bc05806699688c8461ef5cc61399f5bda8eb415ff2924d014e253ed00d11102a",
+      "source_sha256": "ebb6dca6fde981d23eb4ca54d64c6b9719df2dc47988e9b6f6b3425b80465c4f",
+      "public_sha256": "ebb6dca6fde981d23eb4ca54d64c6b9719df2dc47988e9b6f6b3425b80465c4f",
       "sanitized": false
     },
     {
       "path": "research/tests/check-audio-lifecycle.py",
-      "source_sha256": "62fb086c077cd380c0be29e5fe6d38fa70339835ebbee3d67471e2c26234d841",
-      "public_sha256": "62fb086c077cd380c0be29e5fe6d38fa70339835ebbee3d67471e2c26234d841",
+      "source_sha256": "a568c39367e412a238cc2c6ba91d13c51fd6305f4cd2ffb5ead5b98b690ef0ca",
+      "public_sha256": "a568c39367e412a238cc2c6ba91d13c51fd6305f4cd2ffb5ead5b98b690ef0ca",
       "sanitized": false
     },
     {
       "path": "research/tests/check-audio-pcm.py",
-      "source_sha256": "01b4f12fdb51eab7ebaa1ed33974a70b43553478716c8a14a85488f0d7d59662",
-      "public_sha256": "01b4f12fdb51eab7ebaa1ed33974a70b43553478716c8a14a85488f0d7d59662",
+      "source_sha256": "bb06569a56c868b70c8e3e2cdf5e0a3773740f797d28ac92fe8da1b040581427",
+      "public_sha256": "bb06569a56c868b70c8e3e2cdf5e0a3773740f797d28ac92fe8da1b040581427",
+      "sanitized": false
+    },
+    {
+      "path": "research/tests/check-audio-poll.py",
+      "source_sha256": "0210e28c43c6f7c5e05c07df31d023a12239bb3c256d1eade1d1acf1dd024170",
+      "public_sha256": "0210e28c43c6f7c5e05c07df31d023a12239bb3c256d1eade1d1acf1dd024170",
+      "sanitized": false
+    },
+    {
+      "path": "research/tests/check-audio-submission.py",
+      "source_sha256": "5003a2fbf46ef6c4d5b8ebb3578aba56bd00b044ba6e56b841152a880d4267f0",
+      "public_sha256": "5003a2fbf46ef6c4d5b8ebb3578aba56bd00b044ba6e56b841152a880d4267f0",
       "sanitized": false
     },
     {

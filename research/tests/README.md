@@ -57,8 +57,13 @@ Le fichier C réel est compilé avec ASan/UBSan et des modèles de ressources/FI
 
 Le parseur Rust et les neuf essais de sa CLI sont décrits dans `game-analysis/xex-inspect/README.md`. Les échantillons synthétiques sont construits pendant les tests ; aucun fichier XEX commercial n'est nécessaire.
 
-- `check-audio-buffers.py` : extrait cache_flush, hw_params et prepare du pilote audio ; cache/MMIO simulés, 16 369 tailles et huit cas de boucle. Compare original et correctif partiel 0008 sous ASan/UBSan. Voir `docs/AUDIO-BUFFER-AUDIT.md`.
+## Audio : modèles de fonctions réelles
 
-- `check-audio-lifecycle.py` : fonctions C réelles de ressources/probe/remove avec API simulées, treize scénarios original et seize candidat ; ASan/UBSan et bilan des ressources. Aucune simulation SMP ou validation matérielle.
+- `check-audio-buffers.py` : 16 369 tailles, descripteurs et ancienne boucle de cache. La boucle supprimée après 0011 représente zéro cas candidat, pas une validation du cache réel. Sortie JSON sur stdout.
+- `check-audio-lifecycle.py` : treize scénarios originaux et vingt candidats après 0011/0012, bilan des ressources et injections d’erreurs.
+- `check-smc-post.py` : dix-neuf scénarios SMC avec fonctions et macros iopoll extraites.
+- `check-audio-pcm.py` : quinze scénarios après 0012 ; zones mémoire, contraintes, tailles, adresses, fermeture séquentielle et refus du timer basse résolution.
+- `check-audio-poll.py` : un scénario précédent reproduit deux défauts ; quinze scénarios candidats vérifient progression, arrêt et un entrelacement pthread contrôlé pendant la libération.
+- `check-audio-submission.py` : reproduit 96 cas de publication non idempotente, un débordement signé attendu dans les helpers ALSA et un cas de bloc partiel sous hypothèse de protocole. Il ne valide pas une correction.
 
-- `check-smc-post.py` : dix-neuf scénarios sur post/probe/remove réels et macros iopoll réelles, avec verrous/MMIO/délais simulés. `check-audio-lifecycle.py` couvre désormais dix-huit scénarios candidats, incluant les erreurs de contention et délai SMC.
+Recettes et limites dans `docs/AUDIO-PCM-DMA.md`, `docs/AUDIO-STREAM-POLLING.md` et `docs/AUDIO-SUBMISSION-AUDIT.md`. ASan/UBSan ne remplace ni tests matériels, ni preuves générales de concurrence. `check-kernel-artifacts.py --kernel-only` valide noyau/modules sans exiger d’image de démarrage.

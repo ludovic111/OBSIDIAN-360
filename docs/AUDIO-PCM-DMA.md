@@ -38,7 +38,7 @@ Dans une copie des sources préparées pour obsidian4, appliquer successivement 
 
 ```sh
 python3 research/tests/check-audio-lifecycle.py --original ORIGINAL/sound/pci/snd-xenon.c --candidate CANDIDAT/sound/pci/snd-xenon.c --output lifecycle.json
-python3 research/tests/check-audio-buffers.py --original ORIGINAL/sound/pci/snd-xenon.c --candidate CANDIDAT/sound/pci/snd-xenon.c --output buffers.json
+python3 research/tests/check-audio-buffers.py --original ORIGINAL/sound/pci/snd-xenon.c --candidate CANDIDAT/sound/pci/snd-xenon.c > buffers.json
 python3 research/tests/check-audio-pcm.py --source CANDIDAT/sound/pci/snd-xenon.c --output pcm.json
 make -C CANDIDAT O=BUILD ARCH=powerpc LLVM=1 LOCALVERSION=-audio-pcm -j2 vmlinux modules
 python3 tools/check-kernel-artifacts.py --kernel-only --build BUILD --output artifacts.json

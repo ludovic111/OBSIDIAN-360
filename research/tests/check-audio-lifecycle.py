@@ -24,7 +24,9 @@ def function(source, name):
 def harness(source, base, candidate):
     struct_end = source.index('static void cache_flush(') if 'static void cache_flush(' in source else source.index('static inline u32 bswap32')
     structs = source[source.index('struct playback_device {'):struct_end]
-    prelude = 'static void snd_xenon_timer_fn(struct timer_list *t) { (void)t; }\n'
+    poll = 'struct hrtimer timer;' in source
+    prelude = '#define HAS_POLL '+str(int(poll))+'\n'
+    prelude += ('static enum hrtimer_restart snd_xenon_timer_fn(struct hrtimer *t) { (void)t; return HRTIMER_NORESTART; }\n' if poll else 'static void snd_xenon_timer_fn(struct timer_list *t) { (void)t; }\n')
     if candidate:
         names = ['snd_xenon_new_pcm', 'snd_xenon_quiesce', 'snd_xenon_card_free', 'snd_xenon_init', 'snd_xenon_create', 'snd_xenon_probe', 'snd_xenon_remove']
     else:

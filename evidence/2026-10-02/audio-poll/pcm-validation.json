@@ -1,0 +1,101 @@
+{
+  "scope": "Actual PCM callbacks, coherent CPU area and managed allocation modeled; no real ALSA refinement, DMA/coherency, timers or concurrent callbacks. Descriptor encoding remains the historical Linux model.",
+  "source_sha256": "7cf21cd6b672518da3c8eff41dc95b708e4d02384702dcf3c9ceee33c7b5f5a9",
+  "cases": [
+    {
+      "name": "constraint_first",
+      "code": 0,
+      "stdout": "",
+      "diagnostics": ""
+    },
+    {
+      "name": "constraint_second",
+      "code": 0,
+      "stdout": "",
+      "diagnostics": ""
+    },
+    {
+      "name": "no_area",
+      "code": 0,
+      "stdout": "no_area: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "short_buffer",
+      "code": 0,
+      "stdout": "short_buffer: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "unaligned_size",
+      "code": 0,
+      "stdout": "unaligned_size: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "mismatched_size",
+      "code": 0,
+      "stdout": "mismatched_size: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "address_high",
+      "code": 0,
+      "stdout": "address_high: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "address_crossing",
+      "code": 0,
+      "stdout": "address_crossing: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "address_overflow",
+      "code": 0,
+      "stdout": "address_overflow: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "unknown_stream",
+      "code": 0,
+      "stdout": "unknown_stream: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "normal",
+      "code": 0,
+      "stdout": "normal: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "repeat_prepare",
+      "code": 0,
+      "stdout": "repeat_prepare: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "zero_period",
+      "code": 0,
+      "stdout": "zero_period: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "large_period",
+      "code": 0,
+      "stdout": "large_period: managed CPU mapping, bounds, barriers and serial callback cleanup passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "coarse_timer",
+      "code": 0,
+      "stdout": "",
+      "diagnostics": ""
+    }
+  ],
+  "compile": {
+    "code": 0,
+    "diagnostics": ""
+  },
+  "passed": true
+}

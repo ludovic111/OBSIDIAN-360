@@ -1,0 +1,5 @@
+{
+  "sha256": "0100c42f81baf2ea09b67aae8b7a31e9957ef214bda07d26c8fcdabc14bbaccf",
+  "build_returncode": 0,
+  "note": "Kernel compilation succeeded; stricter host Wextra found two signed comparison warnings before follow-up fix."
+}
