@@ -1,0 +1,19 @@
+{
+  "scope": "Three actual ALSA core C functions, modeled callbacks and allocator. Contract test, not an ALSA bug claim or hardware DMA simulation.",
+  "passed": true,
+  "source_sha256": {
+    "pcm_native.c": "8c0d15c8edb8ee6ac77cfe2193c0f425e4768b133edd637a95822add9436fc9b",
+    "pcm_memory.c": "dfef1409fe10736ad66fb94e43373f06d7757c58f95b27b697a0c125bc4fe25a"
+  },
+  "extracted_function_sha256": {
+    "snd_pcm_sync_stop": "31364f3f2096944c889e9acb0cdd363102610b23f364ab1f863c9b5416f3a8e7",
+    "snd_pcm_lib_free_pages": "b4f5a902175996f47a9040f5eff2cedc2ca70ac4c1a98fb2bc9f01eea758b452",
+    "do_hw_free": "9477522a31c52921720543fa02ef9b39d8944a147302f3db0494aead7908fbb2"
+  },
+  "result": {
+    "cases": 144,
+    "detachments_after_callback_error": 24,
+    "dynamic_releases_after_callback_error": 12
+  },
+  "sanitizers": "ASan/UBSan"
+}

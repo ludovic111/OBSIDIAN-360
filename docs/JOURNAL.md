@@ -245,3 +245,19 @@ Publication E62 vérifiée à 2026-10-02T11:15:01.783984+00:00 : commit public `
 - Mesure MMIO : trois captures réussies de quatre registres, entre 12:05:30 et 12:06:27 UTC. Contrôles 0x1d08001c pour les deux canaux ; index analogique 0x00008000, numérique 0x00009616 ; identiques. Douze lectures au total, aucune écriture ni commande SMC, pas de son lancé. SSH reste accessible, aucune réaction visuelle observée.
 - Limite : la décomposition SiS donne RUN apparent et statut sans halted, malgré des index égaux et résiduel nul. Valeurs stables ne prouvent pas un moteur arrêté ; bit 15 des index inexpliqué. Aucune confirmation de W1C ou fin FIFO. Ne pas transformer le modèle logiciel en identification matérielle.
 - Suite : concevoir arrêt/reset et confirmation bornés avant toute activation audio. Documenter et publier depuis l'export audité ; firmware stock et démarrage existant conservés.
+
+Publication E63/E64 vérifiée à 2026-10-02T12:11:33.298267+00:00 : commit public `962219272919b6446c7593b5fd5ced9f9fce8656`, 396 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/control-publication.json`. Contrôle audio testé sous modèle ; trois observations matérielles sans écriture, aucun son activé.
+
+
+## 2026-10-02T12:48:41Z — E65/E66 — premier STOP audio et contrat mémoire ALSA
+
+- Objectif : établir un indicateur d'arrêt vivant avant de remplacer les descripteurs ou rendre des tampons réutilisables.
+- Analyse : le candidat 0015 demande STOP sans vérifier halted. Le pilote intel8x0 attend ce statut dans une boucle non bornée ; ne pas transposer cette attente. Documentation primaire ICH4 revue, identité Xbox distincte conservée.
+- Outil : stop_analog_once refuse toute variation des deux contrôles E64 ; une seule écriture possible 0x00080000 à +8. Aucun START, reset, PCI ou SMC. Filtre et emprise de l'écriture testés sur mémoire ordinaire, 64 altérations d'un bit refusées, ASan/UBSan. ELF32 vérifié et une stw alignée inspectée avec barrières.
+- Échecs d'outillage : compteur du banc inutilisé sous Werror, puis extraction de désassemblage cherchant sync au lieu du libellé hwsync. Corrigés et conservés avant l'exécution console.
+- Précontrôle : empreinte transférée identique, exécution sans argument code 2, obsidian4 répond. Plan d'essai et récupération documentés avant écriture.
+- Mesure directe : 12:47:31 UTC, STOP analogique exécuté une fois ; contrôle 0x1d08001c → 0x0008001d, index 0x00008000 → 0. Numérique 0x1d08001c / 0x00009616 inchangé. Code 0, six lectures et une écriture.
+- Suivi direct : 12:48:41 UTC, analogique 0x0000001d / 0, numérique inchangé ; quatre lectures et aucune écriture. SSH répond, uptime 16 464,45 s, aucun service en échec listé, framebuffer 720p. Pas de test visuel. Aucun redémarrage.
+- Interprétation : retrait RUN et apparition du bit DCH appuient le découpage ; bits supposés W1C conservés par zéro. Acquittement par un, reset, transactions en vol, FIFO et canal numérique non prouvés. Champ intermédiaire devenu zéro au suivi, délai/rôle précis inconnus. Analogique laissé STOP, aucun retour automatique à RUN.
+- E66, hors console : extraction de snd_pcm_sync_stop, do_hw_free et snd_pcm_lib_free_pages. 144 cas passent ; 24 détachements après erreur d'un callback, dont 12 allocations dynamiques réellement libérées dans le modèle. Préallocations seulement détachées et réutilisables ; pas une revendication de bug ALSA ou de libération physique systématique du tampon du candidat.
+- Décision : ne pas considérer return -ETIMEDOUT comme une protection du tampon géré. La stratégie d'arrêt doit couvrir le contrat de libération/réutilisation et une éventuelle isolation ; prochains essais acquittement/reset ciblés avant intégration.

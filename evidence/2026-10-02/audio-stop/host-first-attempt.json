@@ -1,0 +1,6 @@
+{
+  "stage": "host harness compilation",
+  "passed": false,
+  "diagnostic": "variable 'refusals' set but not used [-Werror,-Wunused-but-set-variable]",
+  "effect": "No test executable or hardware execution; test scaffold corrected to assert count"
+}

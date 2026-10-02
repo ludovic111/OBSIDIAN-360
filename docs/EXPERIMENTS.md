@@ -90,6 +90,9 @@
 | E63 | Séparer contrôle et acquittement sous modèle SiS ; compiler le module | 4 096 transitions par variante : 3 584 pertes simulées avant, zéro après ; 15 callbacks, 20 ressources, 16 384 descripteurs ; audio-control/ | Hypothèse matérielle non validée ; module seul recompilé contre audio-bytes, aucun chargement |
 | E64 | Configuration PCI audio puis trois lectures ciblées de quatre registres | Commande PCI 0x0006, aucun pilote ; contrôles 0x1d08001c et index 0x00008000 / 0x00009616 inchangés ; SSH maintenu ; audio-control/observer-* | Douze lectures, zéro écriture ; calcul de mapping corrigé avant exécution, 31 744 cas ; interprétation SiS, arrêt DMA et sortie sonore non prouvés |
 
+| E65 | Une écriture STOP analogique conditionnée après tests et vérification ELF32 | 0x1d08001c → 0x0008001d puis 0x0000001d, index zéro, numérique inchangé ; SSH répond ; audio-stop/ | Dix lectures au total, une écriture ; indicateur DCH étayé, pas de preuve de fin des transactions/FIFO ; analogique laissé STOP |
+| E66 | Exécuter trois fonctions ALSA réelles avec erreurs de callbacks | 144 cas ASan/UBSan, 24 détachements dont 12 libérations dynamiques malgré une erreur ; audio-stop/free-contract.json | Contrat logiciel, pas bogue ALSA ; un retour erreur seul ne préserve pas le tampon et ne suffit pas pour un arrêt matériel échoué |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.

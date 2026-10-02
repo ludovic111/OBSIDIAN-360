@@ -1,0 +1,6 @@
+{
+  "stage": "post-build disassembly extraction",
+  "passed": false,
+  "diagnostic": "Expected sync mnemonic, objdump renders the same instruction as hwsync",
+  "effect": "Binary was built but no success report saved; explicit review and rebuild follow"
+}

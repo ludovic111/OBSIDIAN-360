@@ -77,3 +77,8 @@ Recettes et limites dans `docs/AUDIO-PCM-DMA.md`, `docs/AUDIO-STREAM-POLLING.md`
 ## Descripteurs et piste de registres audio (E62)
 
 `check-audio-descriptors.py` compare les prepare avant/après 0014 sur 512 tailles et 16 384 entrées par variante. Il compile les définitions de registres SiS réelles et exécute les fonctions LibXenon sur des mots simulés. La concordance de sources ne démontre ni le protocole Xbox ni la fin de sortie sonore. Recette et limites : `docs/AUDIO-REGISTER-HYPOTHESIS.md`.
+
+
+## Arrêt audio et durée de vie ALSA (E65/E66)
+
+`check-audio-stop.py` teste le filtre et l'emprise de l'unique écriture sur mémoire ordinaire, sans matériel. `check-audio-free-contract.py --kernel SOURCE --output RAPPORT` extrait trois fonctions ALSA pour confronter les retours d'erreur à la libération et au détachement des tampons. Le comportement réel du canal analogique et les limites sont dans `docs/AUDIO-STOP-EXPERIMENT.md`. Les tests n'exécutent pas l'outil matériel.

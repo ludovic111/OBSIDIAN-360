@@ -1,6 +1,6 @@
 # Actions physiques différées
 
-Le 2 octobre, l’utilisateur est de retour après son absence temporaire. E56 confirme l’accès SSH sous obsidian4. Les actions physiques restent à coordonner lorsqu’elles deviennent nécessaires ; le travail audio courant se poursuit hors console.
+Le 2 octobre, l’utilisateur est de retour après son absence temporaire. E65 confirme l’accès SSH sous obsidian4 après une écriture STOP analogique ciblée. Les actions physiques restent à coordonner lorsqu’elles deviennent nécessaires ; aucun redémarrage n’a été demandé pour cet essai. Le canal analogique reste arrêté selon le statut étudié, le numérique n’a pas été modifié.
 
 | Action pour le prochain créneau disponible | Pourquoi elle est nécessaire | Travail indépendant possible |
 |---|---|---|

@@ -1,0 +1,11 @@
+{
+  "captured_utc": "2026-10-02T12:46:08.731831+00:00",
+  "path": "/tmp/obsidian-analog-stop-h4fvdq1c",
+  "sha256": "c3aee28684b494aebcdf735e915deb0e733c6b556e6a45dd064286192d3f0942",
+  "usage_code": 2,
+  "stdout": "",
+  "stderr": "Usage: stop_analog_once --stop-analog-once\n",
+  "kernel": "6.18.11-xenon-obsidian4",
+  "uptime": "16311.52 12159.91",
+  "scope": "Binary transfer and no-argument usage only; no hardware access"
+}

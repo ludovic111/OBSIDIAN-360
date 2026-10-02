@@ -1,0 +1,14 @@
+{
+  "scope": "Actual C gate and store on ordinary memory with guards; no hardware semantics validated",
+  "source_sha256": "7359dcc9663c1b4014a05f28dcc66eaeb9ebdf3333feb52e5f5931922d8b495c",
+  "passed": true,
+  "sanitizers": "ASan/UBSan",
+  "result": {
+    "eligible_state": 1,
+    "single_bit_refusals": 64,
+    "write_offset": 8,
+    "write_bytes": 4,
+    "write_value": "0x00080000",
+    "no_argument_code": 2
+  }
+}

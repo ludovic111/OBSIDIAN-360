@@ -1,5 +1,12 @@
 # État courant — 2 octobre 2026
 
+## Arrêt analogique observé — E65 ; contrat ALSA — E66
+
+E65 : écriture STOP analogique unique à 12:47:31 UTC. Contrôle 0x1d08001c → 0x0008001d, puis 0x0000001d au suivi ; index zéro, numérique inchangé. Le bit interprété DCH apparaît et les événements supposés sont conservés. SSH répond à 12:48:41 UTC, aucun service en échec listé, framebuffer 720p. Aucun START/reset ni son ; analogique laissé en STOP. Cela appuie le découpage des registres, sans prouver fin de transactions ni drain sonore.
+
+E66 : 144 tests des fonctions ALSA réelles confirment qu'une erreur hw_free/sync_stop ne protège pas la durée de vie du tampon géré. Le candidat doit assurer l'arrêt ou une isolation réelle avant de rendre la main ; pas de patch de polling simpliste déployé. Voir `docs/AUDIO-STOP-EXPERIMENT.md`.
+
+
 ## Contrôle audio séparé du statut — E63 ; registres observés — E64
 
 Correctif 0015 : sous l'hypothèse SiS, START/STOP préservent les événements en attente et les interruptions restent désactivées pendant le polling. 4 096 transitions simulées passent sans acquittement involontaire ; quinze scénarios de callbacks, vingt de ressources et 16 384 descripteurs restent valides. Module PowerPC compilé contre audio-bytes, aucune installation.
@@ -190,3 +197,5 @@ Publication E59 vérifiée à 2026-10-02T10:36:04.104109+00:00 : commit public `
 Publication E60/E61 vérifiée à 2026-10-02T10:58:31.472464+00:00 : commit public `f8989261de3589ec3b3c3276b9e4ef66646795f3`, 342 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/adapter-publication.json`. Noyau audio-submit compilé, non installé ; fin du dernier descripteur toujours non décodée.
 
 Publication E62 vérifiée à 2026-10-02T11:15:01.783984+00:00 : commit public `cbd5b02b2d87b4dbaddf23ebcfdf91a172e719e7`, 362 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/protocol-publication.json`. Candidat audio-bytes compilé, non installé ; hypothèse SiS et fin de sortie sonore non mesurées.
+
+Publication E63/E64 vérifiée à 2026-10-02T12:11:33.298267+00:00 : commit public `962219272919b6446c7593b5fd5ced9f9fce8656`, 396 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/control-publication.json`. Contrôle audio testé sous modèle ; trois observations matérielles sans écriture, aucun son activé.

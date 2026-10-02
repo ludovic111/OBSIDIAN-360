@@ -1,0 +1,12 @@
+{
+  "captured_utc": "2026-10-02T12:48:41.703083+00:00",
+  "code": 0,
+  "stdout": "{\"analog_index_word\":\"0x00000000\",\"analog_control_word\":\"0x0000001d\",\"digital_index_word\":\"0x00009616\",\"digital_control_word\":\"0x1d08001c\",\"register_reads\":4,\"register_writes\":0}\n",
+  "stderr": "audio BAR0 mapped read-only; performing four status reads\n",
+  "kernel": "6.18.11-xenon-obsidian4",
+  "uptime": "16464.45 12273.67",
+  "framebuffer": "1280,720",
+  "failed_units_code": 0,
+  "failed_units": "",
+  "scope": "Read-only follow-up, four audio reads, no writes; no visual or sound check"
+}

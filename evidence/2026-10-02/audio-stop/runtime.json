@@ -1,0 +1,35 @@
+{
+  "captured_utc": "2026-10-02T12:48:13.261707+00:00",
+  "ssh_code": 0,
+  "binary_sha256": "c3aee28684b494aebcdf735e915deb0e733c6b556e6a45dd064286192d3f0942",
+  "stages": [
+    {
+      "stage": "started",
+      "captured_utc": "2026-10-02T12:47:31.923709+00:00",
+      "kernel": "6.18.11-xenon-obsidian4",
+      "uptime": "16394.67 12221.31"
+    },
+    {
+      "stage": "before",
+      "analog_control": "0x1d08001c",
+      "digital_control": "0x1d08001c",
+      "planned_write": "0x00080000"
+    },
+    {
+      "stage": "after",
+      "analog_control": "0x0008001d",
+      "digital_control": "0x1d08001c",
+      "analog_index": "0x00000000",
+      "digital_index": "0x00009616",
+      "register_reads": 6,
+      "register_writes": 1
+    },
+    {
+      "stage": "finished",
+      "captured_utc": "2026-10-02T12:47:31.941065+00:00",
+      "code": 0,
+      "uptime": "16394.69 12221.31"
+    }
+  ],
+  "scope": "Single gated analog STOP write, never START/reset, no automatic retry"
+}

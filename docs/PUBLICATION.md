@@ -41,3 +41,5 @@ Publication E59 vérifiée à 2026-10-02T10:36:04.104109+00:00 : commit public `
 Publication E60/E61 vérifiée à 2026-10-02T10:58:31.472464+00:00 : commit public `f8989261de3589ec3b3c3276b9e4ef66646795f3`, 342 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/adapter-publication.json`. Noyau audio-submit compilé, non installé ; fin du dernier descripteur toujours non décodée.
 
 Publication E62 vérifiée à 2026-10-02T11:15:01.783984+00:00 : commit public `cbd5b02b2d87b4dbaddf23ebcfdf91a172e719e7`, 362 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/protocol-publication.json`. Candidat audio-bytes compilé, non installé ; hypothèse SiS et fin de sortie sonore non mesurées.
+
+Publication E63/E64 vérifiée à 2026-10-02T12:11:33.298267+00:00 : commit public `962219272919b6446c7593b5fd5ced9f9fce8656`, 396 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/control-publication.json`. Contrôle audio testé sous modèle ; trois observations matérielles sans écriture, aucun son activé.
