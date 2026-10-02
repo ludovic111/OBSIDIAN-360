@@ -6,6 +6,9 @@ E47 : deux affichages Xvfb isolés, IceWM 4.0.0 recompilé, lanceur réel du dé
 
 ## Contrôles vivants du 2 octobre
 
+E48 : DVD vidéo Big Order inséré par l’utilisateur ; deux interrogations espacées renvoient aussi `02/3a/00` (support absent). Le refus dépasse le seul jeu Xbox ; région réelle et composant fautif non identifiés. Utilisateur : rotation brève puis arrêt, comme le jeu. Lisibilité sur un autre lecteur non confirmée ; contrôle dans le tableau de bord d’origine demandé.
+
+
 E45 : Just Cause 2 inséré ; statut « pas de disque », erreur de lecture et réponse SCSI `02/3a/00` (« medium not present »). Contraste CD/DVD constaté, origine matérielle précise inconnue.
 
 E46 : l’utilisateur corrige son premier retour : le bureau était figé depuis un redimensionnement la veille. La présence des processus dans E43 ne démontrait donc pas sa réactivité. Relance du lanceur seule et SIGHUP IceWM insuffisants ; arrêt forcé IceWM suivi de sa relance automatique rétablit XRandR, sans reboot Linux. Réglages `OpaqueMove=1` et `OpaqueResize=1` installés, ancien fichier sauvegardé ; lanceur relancé et état manette rafraîchi. Essai manuel de redimensionnement demandé. Voir `docs/DESKTOP-RESIZE-RECOVERY.md`.
@@ -110,3 +113,5 @@ Configuration d’accès dans `.local/ssh_config`, ignorée. La clé privée res
 Les sauvegardes historiques sont des régions du disque interne, pas une sauvegarde de la NAND. Aucune image de flash restaurable confirmée. N’effacer aucune sauvegarde ni la récupération Linux live de la clé USB.
 
 Publication E43–E46 vérifiée à 2026-10-02T07:41:15.538940+00:00 : commit public `ec431c9c7e114e11074628d0fb95358d1128a752`, 221 fichiers, arbre distant identique ; preuve `public-audit/optical-publication.json`. Validation manuelle du redimensionnement encore attendue.
+
+Publication E47 et piste PAL vérifiée à 2026-10-02T07:57:41.408927+00:00 : commit public `a67d28f83a160fde6048efc74a9824c808745f74`, 230 fichiers, arbre GitHub identique ; preuve `evidence/2026-10-02/public-audit/resize-publication.json`.

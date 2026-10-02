@@ -23,3 +23,5 @@ Le scanner intégré détecte plusieurs motifs évidents et la politique locale 
 Pour chaque mise à jour, `tools/audit-public.py --repo CHEMIN_EXPORT_GIT --policy CHEMIN_POLITIQUE_LOCALE` contrôle la sélection suivie/non ignorée, les empreintes du manifeste et des preuves, puis les blobs, commits et tags atteignables de cet historique public. L'exécuter avant le commit public et après le commit avant le push. Un nouveau répertoire d'export préparé est synchronisé seulement après contrôle du checkout public et de son parent distant. Le programme d'audit ne committe ni ne pousse.
 
 Mise à jour E43–E46 : `ec431c9c7e114e11074628d0fb95358d1128a752`, 221 fichiers, troisième commit public. Audit avant commit puis avant push réussi (240 objets texte), vérification API de l’arbre et du parent réussie. Preuve `evidence/2026-10-02/public-audit/optical-publication.json`.
+
+Publication E47 et piste PAL vérifiée à 2026-10-02T07:57:41.408927+00:00 : commit public `a67d28f83a160fde6048efc74a9824c808745f74`, 230 fichiers, arbre GitHub identique ; preuve `evidence/2026-10-02/public-audit/resize-publication.json`.

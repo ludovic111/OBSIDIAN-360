@@ -1,0 +1,10 @@
+{
+  "media_reported_by_user": "Big Order anime DVD",
+  "prior_readability_on_other_player": "unconfirmed",
+  "observations_gap_host_seconds": 59.223894,
+  "observed_sense": "02/3a/00",
+  "media_data_read": false,
+  "source": "https://www.t10.org/lists/asc-num.txt",
+  "interpretation": "Same medium-not-present sense as game DVD; CD samples previously readable. Does not identify a failed component.",
+  "region_limit": "3a/00 is not an explicit region mismatch; standard DVD-region mismatch code is 6f/04. Xbox game-region enforcement and DVD region management are distinct and neither actual region was measured."
+}

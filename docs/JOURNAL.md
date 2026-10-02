@@ -94,3 +94,16 @@ Publication E43–E46 vérifiée à 2026-10-02T07:41:15.538940+00:00 : commit pu
 - Interprétation : région non vérifiée, marquage des boîtes insuffisant ; erreur mesurée de support absent différente d’un refus explicite de région. Aucune commande matérielle ni modification de région exécutée.
 
 Retour utilisateur : achat simultané de la console et des jeux en magasin d’occasion ; fonctionnement antérieur de cet ensemble inconnu. Compatibilité régionale toujours non confirmée ; disponibilité d’un DVD vidéo demandée.
+
+Publication E47 et piste PAL vérifiée à 2026-10-02T07:57:41.408927+00:00 : commit public `a67d28f83a160fde6048efc74a9824c808745f74`, 230 fichiers, arbre GitHub identique ; preuve `evidence/2026-10-02/public-audit/resize-publication.json`.
+
+## 2026-10-02 — 07:58 UTC Mac — E48
+
+- Objectif : distinguer une restriction propre au jeu Xbox d’un refus plus général de DVD.
+- Action : l’utilisateur insère Big Order ; deux TEST UNIT READY standards, intervalle observé 59.2 s, aucun changement de firmware/région.
+- Observation : 02/3a/00 à chaque fois ; l’observation n’est donc pas limitée à l’instant de l’insertion. Aucun secteur vidéo lu.
+- Résultat : deuxième DVD non reconnu, de catégorie différente du jeu.
+- Interprétation : piste de reconnaissance DVD renforcée ; panne laser non prouvée, état du disque et bruits encore à confirmer.
+- Suite : retour sur rotation/clics demandé ; comparaison sous système d’origine avant toute ouverture du lecteur.
+
+Retour utilisateur E48 : le DVD tourne brièvement puis s’arrête, comme Just Cause 2. Contrôle sous le tableau de bord Xbox d’origine demandé, avec arrêt propre depuis Linux et sans relancer le jeu de démarrage. Le résultat reste en attente.

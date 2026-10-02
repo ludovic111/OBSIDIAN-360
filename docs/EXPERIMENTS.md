@@ -61,6 +61,8 @@
 
 | E47 | Recompiler IceWM 4.0.0 et comparer deux redimensionnements XTest sur Xvfb isolé | Ancien mode : deux clients bloqués ; mode direct : 1240×640 → 1180×600 avec réponses ; desktop-resize-regression/ | Premier essai sans vrai redimensionnement rejeté ; mécanisme reproduit hors console, validation physique encore attendue |
 
+| E48 | Remplacer le jeu par le DVD vidéo Big Order et contrôler deux fois la disponibilité | Même sense 02/3a/00 aux deux relevés espacés ; optical-video/ | Deux DVD non reconnus contre CD lisible ; origine exacte et état indépendant des médias non confirmés |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.
