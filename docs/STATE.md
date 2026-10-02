@@ -1,5 +1,13 @@
 # État courant — 2 octobre 2026
 
+## Envoi SMC borné et builds audio — non installés
+
+E54 : nouvelle voie d’envoi audio avec refus immédiat des verrous occupés et budget de polling ; dix-neuf scénarios SMC et dix-huit scénarios de ressources audio passent hors matériel. Les noyaux audio-lifecycle (0008/0009) et audio-post (0008/0009/0010) compilent avec 70 modules chacun, sans avertissement. Export SMC et vermagic vérifiés. Aucun son ni démarrage de ces variantes ; le dernier état vivant reste E52. Les anciens chemins SMC conservent leurs attentes sans borne. Voir `docs/SMC-BOUNDED-POST.md`.
+
+## Portage audio en cours, hors console
+
+E53 : correctif 0009 après 0008 ; objet PowerPC compilé sans avertissement, douze défaillances attendues reproduites dans treize scénarios originaux, seize scénarios du candidat passent avec contrôle des ressources et ASan/UBSan. La comparaison LibXenon révèle une divergence d’encodage des longueurs et une limite mémoire basse possible ; elles doivent être résolues avant activation. Compilation noyau/modules suivie séparément. Dernier état vivant : E52. Voir `docs/AUDIO-LIFECYCLE-AUDIT.md`.
+
 ## Dernier contrôle vivant et audit audio
 
 E52 : retour sous obsidian4 confirmé le 2 octobre à 08:17:42 UTC, uptime 201,58 s, zéro unité en échec, XRandR répond en 720p. OpaqueMove/Resize restent à 1. Le lanceur appartient à la session locale active et ses deux autorisations d’arrêt passent. **Correction E49 :** le « challenge » mesuré via runuser dans SSH ne caractérisait pas le vrai lanceur ; bouton à essayer au retour de l’utilisateur, aucune nouvelle règle installée. Utilisateur absent temporairement, aucun arrêt/redémarrage volontaire.
@@ -129,3 +137,5 @@ Publication E43–E46 vérifiée à 2026-10-02T07:41:15.538940+00:00 : commit pu
 Publication E47 et piste PAL vérifiée à 2026-10-02T07:57:41.408927+00:00 : commit public `a67d28f83a160fde6048efc74a9824c808745f74`, 230 fichiers, arbre GitHub identique ; preuve `evidence/2026-10-02/public-audit/resize-publication.json`.
 
 Publication E48 vérifiée à 2026-10-02T08:03:48.586991+00:00 : commit public `b4b49e2b2fdcc42f522fbc6cd4b74b1b96202632`, 234 fichiers et arbre distant conforme ; preuve `evidence/2026-10-02/public-audit/video-publication.json`. Résultat du contrôle sous tableau de bord stock encore attendu.
+
+Publication E49–E52 vérifiée à 2026-10-02T08:25:04.519035+00:00 : commit public `fd75dd4f20e7d0c0d0fc1475b1423d013d7cfa00`, 248 fichiers, parent et arbre GitHub conformes après audits. Preuve `evidence/2026-10-02/public-audit/audio-publication.json`. Audio non activé ; aucun arrêt depuis le retour Linux.

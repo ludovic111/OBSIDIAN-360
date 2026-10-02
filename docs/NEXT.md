@@ -3,13 +3,13 @@
 Priorités issues de l'analyse approfondie :
 
 - obsidian4 est désormais confirmé en SSH avec bureau actif et framebuffer corrigé. Priorité : stabilité sous charge mesurée et validation des commandes physiques ; répéter ensuite les démarrages avec sélection explicite. Conserver linux_hdd et la récupération ; la cause de l'écran bloqué précédent reste inconnue.
-- Lecteur : CD audio partiellement lu ; Just Cause 2 et DVD Big Order répondent support absent sous Linux, avec rotation brève puis arrêt rapportés. Comparer Big Order sous tableau de bord stock puis sur autre lecteur ; région de la console et santé des DVD non confirmées. Pas de diagnostic définitif du laser.
+- Lecteur : CD audio partiellement lu ; Just Cause 2 et DVD Big Order répondent support absent sous Linux, avec rotation brève puis arrêt rapportés. Absence également rapportée sous tableau de bord stock ; comparer Big Order sur un autre lecteur ; région de la console et santé des DVD non confirmées. Pas de diagnostic définitif du laser.
 - Référence de performances E39 conservée ; le gel graphique E46 est désormais reproduit hors console par E47, correctif OpaqueMove/Resize installé. Attendre l’essai physique avant de déclarer toute la commande manette validée. Évaluer Rust pour un composant précis au regard de la cible PowerPC. Le périmètre étendu et les critères sont dans `docs/OBJECTIVE.md`.
 - Poursuivre la revue SMC : sérialisation des transactions, propagation des interruptions/délais et contrat du gestionnaire IRQ. Ne pas déclencher de commandes inconnues sur le matériel pour reproduire le défaut de cache.
 - Évaluer la correction du masque IPI dans cette branche, avec compilation puis test ciblé du chemin concerné ; ne pas attribuer au callback dormant les symptômes du chemin SMP ordinaire.
 - Pour une acquisition par XeLL, identifier le binaire réellement utilisé et vérifier/corriger le tampon de page physique HTTP ainsi que les erreurs SFCX. Ne pas assimiler une réponse HTTP complète à une sauvegarde NAND validée.
 - Résoudre l'observation de trousseau pacman manquant avant toute nouvelle installation de paquets ; conserver les signatures activées.
-- Porter le pilote audio vers les API 6.18 et revoir DMA, SMC et interruptions avant son activation.
+- Poursuivre après 0008–0010 : DMA PCM cohérent, timer/notifications et fermeture concurrente, limites d’adresses et encodage des longueurs. Envoi audio SMC borné et noyaux/modules compilés ; vieux chemins SMC encore non bornés. Activation différée tant que le protocole et les PCM restent ouverts.
 
 État des étapes historiques :
 

@@ -19,3 +19,7 @@ Ne pas appliquer ces diffs aux archives de preuves. Aucun flash NAND requis pour
 ## Audio : candidat partiel, non compilé et non activé
 
 `0008-xenon-audio-buffer-geometry.patch` cible le même snd-xenon.c (GPL-2.0-or-later). Il borne les tailles à des multiples de 128 octets et empêche la boucle de cache de continuer pour une taille négative. Tests du C extrait sur hôte : 16 369 tailles, 512 acceptées par le candidat, aucune géométrie hors tampon parmi elles. Ce diff ne constitue pas un pilote utilisable : portage des API, cycle de vie, transport SMC, DMA et notifications ALSA restent à résoudre. Voir `docs/AUDIO-BUFFER-AUDIT.md`.
+
+`0009-xenon-audio-resource-lifecycle.patch` s’applique après 0008 : propriétaire ALSA unique, chemins d’erreur, API DMA/timer, transport SMC partagé, retrait du faux gestionnaire IRQ. Objet PowerPC compilé et seize scénarios de ressources validés dans le modèle ; toujours non activable. Voir `docs/AUDIO-LIFECYCLE-AUDIT.md`.
+
+`0010-xenon-bounded-smc-post.patch` ajoute une API d’envoi sans attente de verrou, à budget de polling, et l’utilise dans l’audio. Dix-neuf scénarios SMC et dix-huit de ressources passent. Les variantes 0008/0009 puis 0008/0009/0010 compilent noyau + 70 modules sans avertissement. Aucun chargement ; anciens chemins SMC encore non bornés. Voir `docs/SMC-BOUNDED-POST.md`.

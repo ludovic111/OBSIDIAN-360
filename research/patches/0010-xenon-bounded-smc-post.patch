@@ -1,0 +1,196 @@
+--- a/drivers/xenon/smc-core.c
++++ b/drivers/xenon/smc-core.c
+@@ -11,6 +11,7 @@
+ #include <linux/init.h>
+ #include <linux/interrupt.h>
+ #include <linux/mutex.h>
++#include <linux/iopoll.h>
+ 
+ #include <xenon/smc-core.h>
+ 
+@@ -32,6 +33,8 @@
+ };
+ 
+ static struct xenon_smc smc;
++/* Protect the new process-context sender against probe/remove. */
++static DEFINE_MUTEX(smc_lifecycle_lock);
+ 
+ static unsigned char smc_reply[][16] = {
+ 	{ 0x01 },	/* power on type */
+@@ -54,6 +57,45 @@
+ }
+ EXPORT_SYMBOL_GPL(xenon_smc_ready);
+ 
++/* Process context only. Busy locks fail immediately; no reply is awaited.
++ * The poll budget assumes every MMIO accessor returns. It cannot bound a
++ * stalled bus transaction, scheduling overhead, or legacy senders.
++ */
++int xenon_smc_post(const unsigned char msg[16], unsigned int timeout_us)
++{
++	unsigned long flags;
++	u32 words[4], status;
++	int ret;
++
++	if (!msg || !(msg[0] & 0x80) || !timeout_us || timeout_us > 1000)
++		return -EINVAL;
++	memcpy(words, msg, sizeof(words));
++	if (!mutex_trylock(&smc_lifecycle_lock))
++		return -EBUSY;
++	if (!smc.base || !smc.send) {
++		ret = -ENODEV;
++		goto out_lifecycle;
++	}
++	if (!spin_trylock_irqsave(&smc.fifo_lock, flags)) {
++		ret = -EBUSY;
++		goto out_lifecycle;
++	}
++
++	ret = readl_poll_timeout_atomic(smc.base + 0x84, status,
++					status & 4, 1, timeout_us);
++	if (!ret) {
++		writel(4, smc.base + 0x84);
++		writesl(smc.base + 0x80, words, 4);
++		writel(0, smc.base + 0x84);
++	}
++	spin_unlock_irqrestore(&smc.fifo_lock, flags);
++out_lifecycle:
++	mutex_unlock(&smc_lifecycle_lock);
++	return ret;
++}
++EXPORT_SYMBOL_GPL(xenon_smc_post);
++
++
+ static void _xenon_smc_send(void *msg)
+ {
+ 	unsigned long flags;
+@@ -227,35 +269,41 @@
+ {
+ 	// static int printed_version;
+ 	int rc;
+-	int pci_dev_busy = 0;
+ 	unsigned long mmio_start;
+ 
+ 	dev_printk(KERN_INFO, &pdev->dev, "version " DRV_VERSION "\n");
+ 
++	mutex_lock(&smc_lifecycle_lock);
++	if (smc.base || smc.send) {
++		rc = -EBUSY;
++		goto out_lifecycle;
++	}
+ 	rc = pci_enable_device(pdev);
+ 	if (rc)
+-		return rc;
++		goto out_lifecycle;
+ 
+ 	rc = pci_request_regions(pdev, DRV_NAME);
+ 	if (rc) {
+-		pci_dev_busy = 1;
+ 		goto err_out;
+ 	}
+ 
+-	pci_intx(pdev, 1);
++	pci_intx(pdev, 0);
+ 
+ 	printk(KERN_INFO "attached to xenon SMC\n");
+ 
+ 	mmio_start = pci_resource_start(pdev, 0);
+ 	smc.base = ioremap(mmio_start, 0x100);
+-	if (!smc.base)
++	if (!smc.base) {
++		rc = -ENOMEM;
+ 		goto err_out_regions;
++	}
+ 
+ 	init_waitqueue_head(&smc.wait_q);
+ 	spin_lock_init(&smc.fifo_lock);
+ 
+-	if (request_irq(pdev->irq, xenon_smc_irq, IRQF_SHARED,
+-		"xenon-smc", pdev)) {
++	rc = request_irq(pdev->irq, xenon_smc_irq, IRQF_SHARED,
++		"xenon-smc", pdev);
++	if (rc) {
+ 		printk(KERN_ERR "xenon-smc: request_irq failed\n");
+ 		goto err_out_ioremap;
+ 	}
+@@ -264,30 +312,39 @@
+ 	smc.wait = _xenon_smc_wait;
+ 	smc.reply = _xenon_smc_reply;
+ 	smc.cached = _xenon_smc_cached_reply;
+-
++	pci_intx(pdev, 1);
++
++	mutex_unlock(&smc_lifecycle_lock);
+ 	return 0;
+ 
+ err_out_ioremap:
+ 	iounmap(smc.base);
++	smc.base = NULL;
+ 
+ err_out_regions:
+ 	pci_release_regions(pdev);
+ 
+ err_out:
+-	if (!pci_dev_busy)
+-		pci_disable_device(pdev);
++	pci_disable_device(pdev);
++out_lifecycle:
++	mutex_unlock(&smc_lifecycle_lock);
+ 	return rc;
+ }
+ 
+ static void xenon_smc_remove(struct pci_dev *pdev)
+ {
++	mutex_lock(&smc_lifecycle_lock);
+ 	smc.send = NULL;
++	smc.wait = NULL;
+ 	smc.reply = NULL;
+-
++	smc.cached = NULL;
++	pci_intx(pdev, 0);
++	free_irq(pdev->irq, pdev);
+ 	iounmap(smc.base);
+-
++	smc.base = NULL;
+ 	pci_release_regions(pdev);
+ 	pci_disable_device(pdev);
++	mutex_unlock(&smc_lifecycle_lock);
+ }
+ 
+ static struct pci_driver xenon_smc_pci_driver = {
+--- a/include/xenon/smc-core.h
++++ b/include/xenon/smc-core.h
+@@ -4,6 +4,10 @@
+ #define _XENON_SMC_CORE_H
+ 
+ int xenon_smc_ready(void);
++/* Process context; 16-byte no-reply message, polling budget 1..1000 us.
++ * Returns -EBUSY on lock contention, -ETIMEDOUT if FIFO stays busy.
++ */
++int xenon_smc_post(const unsigned char msg[16], unsigned int timeout_us);
+ int xenon_smc_message(void *msg);
+ int xenon_smc_message_wait(void *msg);
+ void xenon_smc_restart(void);
+--- a/sound/pci/snd-xenon.c
++++ b/sound/pci/snd-xenon.c
+@@ -508,12 +508,11 @@
+ 
+ 	if (!xenon_smc_ready())
+ 		return -EPROBE_DEFER;
+-	err = xenon_smc_message(smc_snd);
++	err = xenon_smc_post(smc_snd, 1000);
+ 	if (err)
+ 		return err;
+ 
+ 	/* Polling will be used until IRQ ownership/acknowledgement is understood. */
+-	pci_intx(chip->pci, 0);
+ 	writel(0, chip->iobase_virt + 0x08);
+ 	writel(0x2000000, chip->iobase_virt + 0x08);
+ 	writel(chip->descr_base_phys, chip->iobase_virt + 0x00);
+@@ -551,6 +550,7 @@
+ 	if (err)
+ 		return err;
+ 	chip->pci_enabled = true;
++	pci_intx(pci, 0);
+ 
+ 	if (!(pci_resource_flags(pci, 0) & IORESOURCE_MEM) ||
+ 	    pci_resource_len(pci, 0) < 0x20)

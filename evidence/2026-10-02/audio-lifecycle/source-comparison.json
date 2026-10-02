@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-10-02T08:36:17.231913+00:00",
+  "scope": "Source comparison, no console commands",
+  "linux_source_commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "linux_audio_sha256": "4289271b03404f6079b590f696e44625d07c59017f099295833390d38f89a0ac",
+  "libxenon_source_sha256": "00c0e8add9358dc1a919fea9c268b4468ad74cab23b4c06feec5f212dddf9f83",
+  "findings": [
+    {
+      "kind": "source_comment_not_hardware_measurement",
+      "topic": "DMA placement",
+      "libxenon": "Buffers and descriptors apparently need first 32 MiB",
+      "linux": "Original code masks descriptor handle to 29 bits; candidate requests 29-bit DMA mask preserving API handle",
+      "implication": "Address limit unresolved. 29-bit mask is not hardware validation; determine conservative allocation and verify before loading."
+    },
+    {
+      "kind": "source_disagreement",
+      "topic": "Descriptor length word for 64 KiB ring / 32",
+      "libxenon": "0x80000800, literal length 2048",
+      "linux": "0x800007ff, length minus one 2047",
+      "implication": "Resolve controller encoding before playback; buffer tests validate Linux arithmetic model, not silicon interpretation."
+    },
+    {
+      "kind": "source_difference",
+      "topic": "HDMI setup",
+      "libxenon": "GPIO DAC reset plus 11 SMC I2C writes when HDMI",
+      "linux": "Only SMC 8d 01 01 command",
+      "implication": "An ALSA device alone does not establish HDMI audio support; do not replay GPIO/I2C initialization without protocol and recovery review."
+    }
+  ],
+  "libxenon_source_commit": "a333adef440f28b436a667be0a4f014afce6349d",
+  "libxenon_source_clean": true
+}

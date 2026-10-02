@@ -130,3 +130,25 @@ Publication E48 vérifiée à 2026-10-02T08:03:48.586991+00:00 : commit public `
 - Mesure matérielle : à 08:17:42 UTC obsidian4 répond après 201,58 s, zéro unité en échec, XRandR répond en 720p. Préférences contre le gel conservées.
 - Correction du diagnostic d’arrêt : CanPowerOff depuis runuser dans SSH renvoie encore challenge, mais pkcheck sur le vrai PID 429 du lanceur local autorise power-off et power-off-multiple-sessions. La règle étroite existait déjà. Le contexte du lanceur relancé depuis SSH est une explication cohérente de l’ancien refus, pas une reproduction complète.
 - Suite : utilisateur parti temporairement, travail autonome demandé ; aucun redémarrage volontaire ni test effectif du bouton. Poursuivre le portage audio hors matériel et valider l’arrêt lors d’un créneau physique.
+
+Publication E49–E52 vérifiée à 2026-10-02T08:25:04.519035+00:00 : commit public `fd75dd4f20e7d0c0d0fc1475b1423d013d7cfa00`, 248 fichiers, parent et arbre GitHub conformes après audits. Preuve `evidence/2026-10-02/public-audit/audio-publication.json`. Audio non activé ; aucun arrêt depuis le retour Linux.
+
+
+## 2026-10-02 — E53 — cycle de vie audio et divergence de protocole
+
+- Objectif : corriger les ressources du pilote avant activation.
+- Action : propriétaire unique ALSA, nettoyage des acquisitions partielles, arrêt avant destruction des PCM, API DMA/timer modernes, transport SMC partagé. Banc de fonctions C extraites sous ASan/UBSan, hors matériel.
+- Observation : douze échecs attendus dans treize scénarios de l’original ; seize scénarios du candidat passent. Le premier essai du banc ne compilait pas, corrigé et conservé comme échec d’outillage. Régression des tampons inchangée.
+- Résultat : objet PPC compilé sans avertissement ; compilation noyau/modules lancée séparément avec source figée. Aucun fichier installé sur Xbox.
+- Analyse du code : LibXenon mentionne les premiers 32 Mio et encode les longueurs différemment ; HDMI y exige une initialisation absente du pilote Linux. Masque 29 bits et encodage historique non validés sur le matériel. ALSA fournit déjà de la mémoire DMA cohérente, à utiliser directement pour les PCM.
+- Suite : achever et vérifier la compilation complète ; poursuivre contrat DMA, callbacks/timer et protocole. Aucun redémarrage pendant l’absence utilisateur.
+
+
+## 2026-10-02 — E54 — envoi SMC borné et liaison audio
+
+- Objectif : éviter les attentes sans borne sur la nouvelle voie audio et confirmer la liaison des modules.
+- Action : nouvelle API processus avec deux trylocks, budget atomique de polling, message aligné et absence d’écriture en cas d’échec ; protection probe/remove spécifique à cette voie. Les anciens expéditeurs ne sont pas migrés.
+- Observation : dix-neuf scénarios du C réel et des macros iopoll réelles passent ; régression audio étendue à dix-huit scénarios. Premier échec d’outillage sur paramètre inutilisé conservé.
+- Résultat : première compilation complète audio-lifecycle terminée code 0 ; copie indépendante puis compilation audio-post code 0. Soixante-dix modules chacune, aucun avertissement, formats PowerPC et vermagic vérifiés, nouvel export GPL présent.
+- Limites : budget logique, pas borne de transaction MMIO ; tests séquentiels sans validation SMP. Le mutex ne protège pas les anciennes voies. Aucun envoi réel, noyau/image ni module installé.
+- Suite : publication après audit ; contrat DMA PCM, timer/notifications et protocole avant activation.

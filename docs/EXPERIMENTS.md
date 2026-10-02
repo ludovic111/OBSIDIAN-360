@@ -69,6 +69,10 @@
 | E51 | Compiler l’audio original et tester les vrais calculs C avec interfaces simulées | Build échoué : 8 erreurs, 1 avertissement ; 98 géométries hors tampon, 5 boucles dépassant le span ; correctif partiel 0008 passe ; audio-buffers/ | Aucun son activé ; cycle de vie, API, DMA/SMC et négociation ALSA encore à traiter |
 | E52 | Vérifier le retour Linux et les permissions du processus graphique réel | obsidian4 vivant, XRandR répond, réglages conservés ; pkcheck autorise les deux arrêts pour le PID du lanceur ; return-linux/ | Correction de portée du challenge mesuré via SSH ; bouton non déclenché, utilisateur absent |
 
+| E53 | Porter les ressources audio et injecter des échecs dans les fonctions C réelles | Objet PPC compilé ; 12 défauts attendus reproduits, 16 scénarios candidat passent ; audio-lifecycle/ | Compilation complète suivie séparément ; protocole, DMA PCM, timer et concurrence non validés ; aucun chargement |
+
+| E54 | Ajouter et tester un envoi SMC borné, puis lier les variantes audio complètes | 19 scénarios SMC, 18 ressources audio ; audio-lifecycle et audio-post avec 70 modules, zéro avertissement ; smc-post/ | Pas de chargement ; vieux chemins SMC non bornés, protocole audio et DMA PCM à poursuivre |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.

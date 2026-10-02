@@ -1,0 +1,126 @@
+{
+  "scope": "Actual C post/probe/remove and actual Linux atomic poll macros, with serial lock/MMIO/delay model; no hardware timing or concurrent schedule validation. Legacy send/wait paths unchanged and not tested here.",
+  "source_sha256": "f0bc8c2fdf3e9acab02575c65ee9285da12b6071b6ebe35e503218bf315a225d",
+  "iopoll_sha256": "d3a8d46617e0331a96f217e205826608ece559ff61513ac654825f5461a108ff",
+  "cases": [
+    {
+      "name": "enable",
+      "code": 0,
+      "stdout": "enable: partial probe clean, post rejected",
+      "diagnostics": ""
+    },
+    {
+      "name": "regions",
+      "code": 0,
+      "stdout": "regions: partial probe clean, post rejected",
+      "diagnostics": ""
+    },
+    {
+      "name": "map",
+      "code": 0,
+      "stdout": "map: partial probe clean, post rejected",
+      "diagnostics": ""
+    },
+    {
+      "name": "irq",
+      "code": 0,
+      "stdout": "irq: partial probe clean, post rejected",
+      "diagnostics": ""
+    },
+    {
+      "name": "preprobe",
+      "code": 0,
+      "stdout": "",
+      "diagnostics": ""
+    },
+    {
+      "name": "double_probe",
+      "code": 0,
+      "stdout": "",
+      "diagnostics": ""
+    },
+    {
+      "name": "null",
+      "code": 0,
+      "stdout": "null: ret=-22 reads=0 delays=0 writes=0 payloads=0",
+      "diagnostics": ""
+    },
+    {
+      "name": "reply",
+      "code": 0,
+      "stdout": "reply: ret=-22 reads=0 delays=0 writes=0 payloads=0",
+      "diagnostics": ""
+    },
+    {
+      "name": "zero",
+      "code": 0,
+      "stdout": "zero: ret=-22 reads=0 delays=0 writes=0 payloads=0",
+      "diagnostics": ""
+    },
+    {
+      "name": "too_large",
+      "code": 0,
+      "stdout": "too_large: ret=-22 reads=0 delays=0 writes=0 payloads=0",
+      "diagnostics": ""
+    },
+    {
+      "name": "lifecycle_busy",
+      "code": 0,
+      "stdout": "lifecycle_busy: ret=-16 reads=0 delays=0 writes=0 payloads=0",
+      "diagnostics": ""
+    },
+    {
+      "name": "fifo_busy",
+      "code": 0,
+      "stdout": "fifo_busy: ret=-16 reads=0 delays=0 writes=0 payloads=0",
+      "diagnostics": ""
+    },
+    {
+      "name": "ready",
+      "code": 0,
+      "stdout": "ready: ret=0 reads=1 delays=0 writes=2 payloads=1",
+      "diagnostics": ""
+    },
+    {
+      "name": "ready_later",
+      "code": 0,
+      "stdout": "ready_later: ret=0 reads=500 delays=499 writes=2 payloads=1",
+      "diagnostics": ""
+    },
+    {
+      "name": "ready_last",
+      "code": 0,
+      "stdout": "ready_last: ret=0 reads=1001 delays=1000 writes=2 payloads=1",
+      "diagnostics": ""
+    },
+    {
+      "name": "never",
+      "code": 0,
+      "stdout": "never: ret=-60 reads=1001 delays=1000 writes=0 payloads=0",
+      "diagnostics": ""
+    },
+    {
+      "name": "short_never",
+      "code": 0,
+      "stdout": "short_never: ret=-60 reads=2 delays=1 writes=0 payloads=0",
+      "diagnostics": ""
+    },
+    {
+      "name": "short_ready_last",
+      "code": 0,
+      "stdout": "short_ready_last: ret=0 reads=2 delays=1 writes=2 payloads=1",
+      "diagnostics": ""
+    },
+    {
+      "name": "irq_disabled",
+      "code": 0,
+      "stdout": "irq_disabled: ret=0 reads=1 delays=0 writes=2 payloads=1",
+      "diagnostics": ""
+    }
+  ],
+  "compile": {
+    "code": 0,
+    "diagnostics": ""
+  },
+  "passed": true
+}

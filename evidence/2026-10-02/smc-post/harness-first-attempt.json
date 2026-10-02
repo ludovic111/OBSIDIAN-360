@@ -1,0 +1,11 @@
+{
+  "scope": "Actual C post/probe/remove and actual Linux atomic poll macros, with serial lock/MMIO/delay model; no hardware timing or concurrent schedule validation. Legacy send/wait paths unchanged and not tested here.",
+  "source_sha256": "f0bc8c2fdf3e9acab02575c65ee9285da12b6071b6ebe35e503218bf315a225d",
+  "iopoll_sha256": "d3a8d46617e0331a96f217e205826608ece559ff61513ac654825f5461a108ff",
+  "cases": [],
+  "compile": {
+    "code": 1,
+    "diagnostics": "HOST_TEST/test.c:163:82: error: unused parameter 'ent' [-Werror,-Wunused-parameter]\n  163 | static int xenon_smc_init_one (struct pci_dev *pdev, const struct pci_device_id *ent)\n      |                                                                                  ^\n1 error generated.\n"
+  },
+  "passed": false
+}

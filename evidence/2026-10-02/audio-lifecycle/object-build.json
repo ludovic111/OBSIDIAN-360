@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-10-02T08:39:38.708465+00:00",
+  "candidate_source_sha256": "10a5a4da21f4127528fd3e5e0a91ccc931df196cace9b48081947f341fdc8ea9",
+  "object_sha256": "0f5634c0d25acc86dc57bb445446ddaca675b1345d4e341b3fa04c2c8645ec07",
+  "object_format": "ELF64 PowerPC big-endian relocatable",
+  "object_build_returncode": 0,
+  "object_build_warnings": 0,
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "patches": [
+    "0008-xenon-audio-buffer-geometry.patch",
+    "0009-xenon-audio-resource-lifecycle.patch"
+  ],
+  "hardware_access": false,
+  "deployment": false,
+  "limitations": [
+    "Object build is not module linking or playback validation",
+    "Serial ownership model does not prove concurrency correctness",
+    "DMA address limit and descriptor encoding remain unresolved"
+  ]
+}
