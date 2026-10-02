@@ -1,0 +1,14 @@
+{
+  "checked_utc": "2026-10-02T09:40:09.815799+00:00",
+  "ssh_code": 0,
+  "runtime": {
+    "kernel": "6.18.11-xenon-obsidian4",
+    "uptime_seconds": 5139.44,
+    "failed_units": {
+      "code": 0,
+      "stdout": ""
+    },
+    "framebuffer_virtual_size": "1280,720"
+  },
+  "scope": "Read-only standard interfaces; no display responsiveness, load, audio or reboot test"
+}

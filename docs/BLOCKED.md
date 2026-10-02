@@ -1,6 +1,6 @@
 # Actions physiques différées
 
-Le 2 octobre, après les essais CD/DVD et le retour sous obsidian4, l’utilisateur annonce partir un moment et demande de poursuivre en autonomie. Aucun redémarrage volontaire pendant cette absence ; différer les manipulations physiques et poursuivre les tests hors console ou les contrôles réversibles.
+Le 2 octobre, l’utilisateur est de retour après son absence temporaire. E56 confirme l’accès SSH sous obsidian4. Les actions physiques restent à coordonner lorsqu’elles deviennent nécessaires ; le travail audio courant se poursuit hors console.
 
 | Action pour le prochain créneau disponible | Pourquoi elle est nécessaire | Travail indépendant possible |
 |---|---|---|

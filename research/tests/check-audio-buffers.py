@@ -31,14 +31,14 @@ PREFIX = r'''
 #include <errno.h>
 typedef uint32_t u32;
 static jmp_buf escape;
-static unsigned cache_calls, cache_limit, io_calls, allocation_calls;
+static unsigned cache_calls, cache_limit, io_calls, allocation_calls, barriers;
 static unsigned char memory[131072] __attribute__((aligned(128)));
 static void cache_line(void *p) {
     if (++cache_calls > cache_limit) longjmp(escape, 1);
     if ((unsigned char *)p != memory + (cache_calls - 1) * 128) abort();
 }
 static void cache_barrier(void) {}
-struct snd_pcm_runtime { unsigned dma_addr, dma_bytes; };
+struct snd_pcm_runtime { uint64_t dma_addr; unsigned dma_bytes; void *dma_area; };
 struct snd_pcm_substream { struct snd_pcm_runtime *runtime; unsigned buffer, period; };
 struct snd_pcm_hw_params { int bytes; };
 struct playback_device {
@@ -60,7 +60,9 @@ static void spin_unlock_irq(int *lock) { (void)lock; }
 static void *ioremap(unsigned addr, unsigned size) {
     (void)addr; if(size > 65536) abort(); ++io_calls; return memory;
 }
-static void writel(unsigned value, void *addr) { (void)value; (void)addr; ++io_calls; }
+static void writel(unsigned value, void *addr) { (void)value; (void)addr; if(MANAGED && !barriers) abort(); ++io_calls; }
+static void dma_wmb(void) { ++barriers; }
+#define DMA_BIT_MASK(n) ((1ULL<<(n))-1)
 static void simulated_flush(void *addr, int bytes) { (void)addr; (void)bytes; }
 #define DESCRIPTOR_BUFFER_SIZE 256
 '''
@@ -72,6 +74,7 @@ int main(int argc, char **argv) {
     unsigned sizes[] = {64,68,128,132,192,256,65532,65536};
     unsigned cache_failures=0, tested=0, accepted=0, rejected=0, bad=0;
     unsigned first_bad=0, first_bad_word=0, out_of_span=0, split_frames=0, first_out_of_span=0, first_out_word=0;
+#if HAS_CACHE
     for(unsigned i=0;i<sizeof(sizes)/sizeof(*sizes);i++) {
         cache_calls=0; cache_limit=(sizes[i]+127)/128;
         int overrun=setjmp(escape);
@@ -80,15 +83,18 @@ int main(int argc, char **argv) {
         int expected = !candidate && sizes[i]%128;
         if(!!overrun != !!expected || (!overrun && cache_calls != cache_limit)) return 3;
     }
+#else
+    (void)sizes;
+#endif
     unsigned char registers[64]={0}; u32 descriptors[64];
-    struct snd_pcm_runtime runtime={.dma_addr=0x10000};
+    struct snd_pcm_runtime runtime={.dma_addr=0x10000,.dma_area=memory};
     struct snd_pcm_substream sub={.runtime=&runtime};
     for(unsigned size=64;size<=65536;size+=4) {
-        ++tested; io_calls=allocation_calls=0;
+        ++tested; io_calls=allocation_calls=barriers=0;
         struct snd_pcm_hw_params params={.bytes=(int)size};
         int expected_valid=!candidate || (size>=128 && size%128==0);
         int ret=snd_xenon_pcm_hw_params(&sub, &params);
-        if(expected_valid ? ret!=1 || allocation_calls!=1 : ret!=-EINVAL || allocation_calls!=0) return 4;
+        if(expected_valid ? ret!=(MANAGED?0:1) || allocation_calls!=(MANAGED?0:1) : ret!=-EINVAL || allocation_calls!=0) return 4;
         /* Also call prepare directly with rejected sizes, to test its own guard. */
         runtime.dma_bytes=size; sub.buffer=size; sub.period=size;
         memset(&chip,0,sizeof(chip)); memset(descriptors,0,sizeof(descriptors));
@@ -123,23 +129,27 @@ int main(int argc, char **argv) {
     }
     printf("{\"tested_sizes\":%u,\"accepted\":%u,\"rejected\":%u,"
            "\"invalid_descriptor_geometries\":%u,\"first_invalid_size\":%u,"
-           "\"first_invalid_last_word\":%u,\"cache_cases\":8,\"cache_span_overruns\":%u,\"descriptor_out_of_span\":%u,\"split_frame_geometries\":%u,\"first_out_of_span_size\":%u,\"first_out_of_span_last_word\":%u}\n",
-           tested,accepted,rejected,bad,first_bad,first_bad_word,cache_failures,out_of_span,split_frames,first_out_of_span,first_out_word);
+           "\"first_invalid_last_word\":%u,\"cache_cases\":%u,\"cache_span_overruns\":%u,\"descriptor_out_of_span\":%u,\"split_frame_geometries\":%u,\"first_out_of_span_size\":%u,\"first_out_of_span_last_word\":%u}\n",
+           tested,accepted,rejected,bad,first_bad,first_bad_word,HAS_CACHE?8:0,cache_failures,out_of_span,split_frames,first_out_of_span,first_out_word);
     return candidate ? (bad || accepted!=512 || cache_failures) : (!bad || cache_failures!=5);
 }
 '''
 
 
 def harness(source):
-    cache = function(source, 'cache_flush')
+    managed = 'snd_pcm_set_managed_buffer_all' in source
+    has_cache = 'static void cache_flush(' in source
+    if not has_cache and ('cache_flush(' in source or not managed):
+        raise ValueError('Unexpected partial cache removal')
+    cache = function(source, 'cache_flush') if has_cache else ''
     cache, n = re.subn(r'__asm__ __volatile__ \("dcbst 0,%0" :: "r" \(p\)\);', 'cache_line(p);', cache)
-    if n != 1:
+    if has_cache and n != 1:
         raise ValueError('Unexpected cache instruction')
     cache, n = re.subn(r'__asm__ __volatile__ \("sync" ::: "memory"\);', 'cache_barrier();', cache)
-    if n != 1:
+    if has_cache and n != 1:
         raise ValueError('Unexpected barrier')
     prepare = function(source, 'snd_xenon_playback_prepare').replace('cache_flush(', 'simulated_flush(')
-    return PREFIX + cache + '\n' + function(source, 'bswap32') + '\n' + function(source, 'snd_xenon_pcm_hw_params') + '\n' + prepare + MAIN
+    return '#define MANAGED '+str(int(managed))+'\n#define HAS_CACHE '+str(int(has_cache))+'\n' + PREFIX + cache + '\n' + function(source, 'bswap32') + '\n' + function(source, 'snd_xenon_pcm_hw_params') + '\n' + prepare + MAIN
 
 
 def main():
@@ -153,7 +163,7 @@ def main():
             source = Path(tmp) / (name + '.c')
             binary = Path(tmp) / name
             source.write_text(harness(path.read_text()))
-            build = subprocess.run(['clang', '-std=gnu11', '-O0', '-g', '-Wall', '-Wextra', '-Werror', '-fsanitize=address,undefined', str(source), '-o', str(binary)], capture_output=True, text=True, timeout=30)
+            build = subprocess.run(['clang', '-std=gnu11', '-O0', '-g', '-Wall', '-Wextra', '-Werror', '-Wno-unused-function', '-Wno-unused-variable', '-Wno-unused-parameter', '-fsanitize=address,undefined', str(source), '-o', str(binary)], capture_output=True, text=True, timeout=30)
             if build.returncode:
                 raise RuntimeError(build.stderr)
             test = subprocess.run([str(binary), '1' if name == 'candidate' else '0'], capture_output=True, text=True, timeout=30, env=dict(os.environ, ASAN_OPTIONS='detect_leaks=0:halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1'))

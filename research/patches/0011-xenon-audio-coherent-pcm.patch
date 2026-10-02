@@ -1,0 +1,227 @@
+--- a/sound/pci/snd-xenon.c
++++ b/sound/pci/snd-xenon.c
+@@ -61,7 +61,6 @@
+ 	struct snd_pcm_substream *playback_substream;
+ 
+ 	int state;
+-	void *dma_base_virt;
+ 	dma_addr_t descr_base_phys;
+ 	u32 *descr_base_virt;
+ 
+@@ -96,17 +95,6 @@
+ 	struct timer_list timer;
+ 	int timer_in_use;
+ };
+-
+-static void cache_flush(void *addr, int size)
+-{
+-    void *p = addr;
+-    while (size > 0) {
+-	__asm__ __volatile__ ("dcbst 0,%0" :: "r" (p));
+-	p += 128;
+-	size -= 128;
+-    }
+-    __asm__ __volatile__ ("sync" ::: "memory");
+-}
+ 
+ static inline u32 bswap32(u32 t)
+ {
+@@ -204,8 +192,17 @@
+ 	struct snd_xenon *chip = snd_pcm_substream_chip(substream);
+ 	struct snd_pcm_runtime *runtime = substream->runtime;
+ 	struct playback_device *device = &chip->devices[dev_id];
++	int err;
+ 
+ 	runtime->hw = *playback_hw;
++	err = snd_pcm_hw_constraint_minmax(runtime, SNDRV_PCM_HW_PARAM_BUFFER_BYTES,
++					   128, 64 * 1024);
++	if (err < 0)
++		return err;
++	err = snd_pcm_hw_constraint_step(runtime, 0,
++				 SNDRV_PCM_HW_PARAM_BUFFER_BYTES, 128);
++	if (err < 0)
++		return err;
+ 
+ 	spin_lock_irq(&chip->lock);
+ 
+@@ -233,24 +230,23 @@
+ {
+ 	return snd_xenon_playback_open(substream, 1, &snd_xenon_spdif_playback_hw);
+ }
++static int snd_xenon_pcm_hw_free(struct snd_pcm_substream *substream);
++
+ static int snd_xenon_playback_close(struct snd_pcm_substream *substream)
+ {
+ 	struct snd_xenon *chip = snd_pcm_substream_chip(substream);
+ 	struct playback_device *device = &chip->devices[0];
+ 
++	snd_xenon_pcm_hw_free(substream);
++	spin_lock_irq(&chip->lock);
+ 	if (device->playback_substream != substream)
+ 		device = &chip->devices[1];
+-
+-	spin_lock_irq(&chip->lock);
+-	device->state = 0;
++	if (device->playback_substream == substream) {
++		device->state = 0;
++		device->playback_substream = NULL;
++	}
+ 	spin_unlock_irq(&chip->lock);
+-
+-	if (device->dma_base_virt != NULL)
+-	   iounmap(device->dma_base_virt);
+-
+-	device->playback_substream = NULL;
+-	snd_pcm_lib_free_pages(substream);
+-
++	/* PCM core owns and releases the managed allocation. */
+ 	return 0;
+ }
+ 
+@@ -262,12 +258,31 @@
+ 	/* 32 descriptors, each containing complete four-byte stereo frames. */
+ 	if (bytes < 128 || bytes > 64 * 1024 || bytes % 128)
+ 		return -EINVAL;
+-	return snd_pcm_lib_malloc_pages(substream, bytes);
++	return 0; /* PCM core has already allocated the managed buffer. */
+ }
+ 
+ static int snd_xenon_pcm_hw_free(struct snd_pcm_substream *substream)
+ {
+-	return snd_pcm_lib_free_pages(substream);
++	struct snd_xenon *chip = snd_pcm_substream_chip(substream);
++	struct playback_device *device;
++	int i;
++
++	spin_lock_irq(&chip->lock);
++	for (i = 0; i < 2; i++) {
++		device = &chip->devices[i];
++		if (device->playback_substream != substream)
++			continue;
++		writel(0, chip->iobase_virt + 0x08 + i * 0x10);
++		readl(chip->iobase_virt + 0x08 + i * 0x10);
++		device->state = 1;
++		device->buffer_bytes = 0;
++		device->period_bytes = 0;
++		device->descr_bytes = 0;
++		break;
++	}
++	spin_unlock_irq(&chip->lock);
++	/* PCM core frees after this callback. Timer synchronization comes next. */
++	return 0;
+ }
+ 
+ static int snd_xenon_playback_prepare(struct snd_pcm_substream *substream)
+@@ -278,9 +293,12 @@
+ 	int i , dev_id = 0;
+ 
+ 	/* Reject invalid geometry before mapping memory or touching registers. */
+-	if (runtime->dma_bytes != snd_pcm_lib_buffer_bytes(substream) ||
++	if (!runtime->dma_area ||
++	    runtime->dma_bytes != snd_pcm_lib_buffer_bytes(substream) ||
+ 	    runtime->dma_bytes < 128 || runtime->dma_bytes > 64 * 1024 ||
+-	    runtime->dma_bytes % 128)
++	    runtime->dma_bytes % 128 ||
++	    runtime->dma_addr > DMA_BIT_MASK(29) ||
++	    runtime->dma_bytes - 1 > DMA_BIT_MASK(29) - runtime->dma_addr)
+ 		return -EINVAL;
+ 
+ 	if (device->playback_substream != substream) {
+@@ -290,11 +308,12 @@
+ 
+ 	spin_lock_irq(&chip->lock);
+ 
+-	device->dma_base_virt =
+-		ioremap(runtime->dma_addr, runtime->dma_bytes);
+-
+-	memset(device->dma_base_virt, 0, runtime->dma_bytes);
+-	cache_flush(device->dma_base_virt, runtime->dma_bytes);
++	if (device->playback_substream != substream) {
++		spin_unlock_irq(&chip->lock);
++		return -EINVAL;
++	}
++	/* SNDRV_DMA_TYPE_DEV provides the CPU mapping via the DMA API. */
++	memset(runtime->dma_area, 0, runtime->dma_bytes);
+ 
+ 	device->state = 2;
+ 	device->period_bytes = snd_pcm_lib_period_bytes(substream);
+@@ -313,7 +332,8 @@
+ 	}
+ 	device->descr_base_virt[31*2 + 1] =
+ 		bswap32(0x80000000 | (device->descr_bytes - 1 - device->gap));
+-	cache_flush(device->descr_base_virt, DESCRIPTOR_BUFFER_SIZE);
++	/* Publish coherent samples and descriptors before handing them to DMA. */
++	dma_wmb();
+ 
+ 	writel(device->descr_base_phys, chip->iobase_virt + 0x00 + dev_id * 0x10);
+ 	writel(0x1c08001c, chip->iobase_virt + 0x08 + dev_id * 0x10);
+@@ -336,8 +356,17 @@
+ 	}
+ 
+ 	spin_lock(&chip->lock);
++	if (device->playback_substream != substream) {
++		ret = -EINVAL;
++		goto out_unlock;
++	}
+ 	switch (cmd) {
+ 	case SNDRV_PCM_TRIGGER_START:
++		if (device->state != 2 || !device->buffer_bytes) {
++			ret = -EINVAL;
++			break;
++		}
++		dma_wmb();
+ 		device->state = 3;
+ 
+ 		reg = readl(chip->iobase_virt + 0x08 + dev_id * 0x10);
+@@ -353,6 +382,7 @@
+ 	default:
+ 		ret = -EINVAL;
+ 	}
++out_unlock:
+ 	spin_unlock(&chip->lock);
+ 
+ 	return ret;
+@@ -375,11 +405,16 @@
+ 
+ 	spin_lock(&chip->lock);
+ 
++	if (device->playback_substream != substream ||
++	    !device->buffer_bytes || !device->descr_bytes) {
++		spin_unlock(&chip->lock);
++		return 0;
++	}
+ 	app_ptr = frames_to_bytes(runtime, runtime->control->appl_ptr) %
+ 		      device->buffer_bytes;
+ 
+ 	if (app_ptr != device->wptr)
+-		cache_flush(device->dma_base_virt, runtime->dma_bytes);
++		dma_wmb();
+ 
+ 	app_descr = app_ptr / device->descr_bytes;
+ 	reg = readl(chip->iobase_virt + 0x04 + dev_id * 0x10);
+@@ -436,8 +471,10 @@
+ 				&snd_xenon_ana_playback_ops);
+ 
+ 	/* pre-allocation of buffers */
+-	snd_pcm_lib_preallocate_pages_for_all(pcm, SNDRV_DMA_TYPE_DEV,
+-	&chip->pci->dev, 64*1024, 64*1024);
++	err = snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
++		&chip->pci->dev, 64 * 1024, 64 * 1024);
++	if (err < 0)
++		return err;
+ 
+ 	err = snd_pcm_new(chip->card, "Xenon Audio", 1, 1, 0, &pcm);
+ 	if (err < 0)
+@@ -447,8 +484,10 @@
+ 	chip->pcm[1] = pcm;
+ 	snd_pcm_set_ops(pcm, SNDRV_PCM_STREAM_PLAYBACK,
+ 				&snd_xenon_spdif_playback_ops);
+-	snd_pcm_lib_preallocate_pages_for_all(pcm, SNDRV_DMA_TYPE_DEV,
+-	&chip->pci->dev, 64*1024, 64*1024);
++	err = snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
++		&chip->pci->dev, 64 * 1024, 64 * 1024);
++	if (err < 0)
++		return err;
+ 
+ 	return 0;
+ }

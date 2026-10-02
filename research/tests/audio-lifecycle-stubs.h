@@ -18,7 +18,7 @@ struct snd_pcm_substream { int unused; };
 struct snd_device;
 struct snd_device_ops { int (*dev_free)(struct snd_device *); };
 struct snd_device { void *device_data; struct snd_device_ops *ops; };
-struct snd_pcm { void *private_data; char name[32]; };
+struct snd_pcm { void *private_data; char name[32]; int index; void *managed_buffer; };
 struct snd_card {
     void *private_data;
     void (*private_free)(struct snd_card *);
@@ -119,10 +119,15 @@ static int snd_card_new(struct device *d,int index,const char *id,void *module,i
 static int snd_pcm_new(struct snd_card *card,const char *name,int device,int playback,int capture,struct snd_pcm **out) {
     (void)name;(void)playback;(void)capture;
     if((device==0 && fail("pcm0"))||(device==1 && fail("pcm1")))return -ENOMEM;
-    *out=alloc(sizeof(**out));card->pcms[card->pcm_count++]=*out;return 0;
+    *out=alloc(sizeof(**out));(*out)->index=device;card->pcms[card->pcm_count++]=*out;return 0;
 }
 static void snd_pcm_set_ops(struct snd_pcm *p,int stream,void *ops) { (void)p;(void)stream;(void)ops; }
 static void snd_pcm_lib_preallocate_pages_for_all(struct snd_pcm *p,int type,struct device *d,size_t min,size_t max) { (void)p;(void)type;(void)d;(void)min;(void)max; }
+static int snd_pcm_set_managed_buffer_all(struct snd_pcm *p,int type,struct device *d,size_t min,size_t max) {
+    (void)type;(void)d;CHECK(min==65536 && max==65536);
+    if((p->index==0 && fail("buffer0")) || (p->index==1 && fail("buffer1")))return -ENOMEM;
+    p->managed_buffer=alloc(min);return 0;
+}
 static int snd_device_new(struct snd_card *card,int type,void *chip,struct snd_device_ops *ops) {
     (void)type;if(fail("lowlevel"))return -ENOMEM;card->lowlevel=alloc(sizeof(*card->lowlevel));card->lowlevel->device_data=chip;card->lowlevel->ops=ops;return 0;
 }
@@ -131,7 +136,7 @@ static int snd_card_register(struct snd_card *c) { (void)c;return fail("register
 static void snd_card_free(struct snd_card *card) {
     if(!card)return;
     CHECK(!active_dma);CHECK(!active_timer);
-    for(int i=0;i<card->pcm_count;i++)drop(card->pcms[i]);
+    for(int i=0;i<card->pcm_count;i++){drop(card->pcms[i]->managed_buffer);drop(card->pcms[i]);}
     if(card->lowlevel) { card->lowlevel->ops->dev_free(card->lowlevel);drop(card->lowlevel); }
     if(card->private_free)card->private_free(card);
     drop(card);

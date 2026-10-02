@@ -22,7 +22,8 @@ def function(source, name):
 
 
 def harness(source, base, candidate):
-    structs = source[source.index('struct playback_device {'):source.index('static void cache_flush(')]
+    struct_end = source.index('static void cache_flush(') if 'static void cache_flush(' in source else source.index('static inline u32 bswap32')
+    structs = source[source.index('struct playback_device {'):struct_end]
     prelude = 'static void snd_xenon_timer_fn(struct timer_list *t) { (void)t; }\n'
     if candidate:
         names = ['snd_xenon_new_pcm', 'snd_xenon_quiesce', 'snd_xenon_card_free', 'snd_xenon_init', 'snd_xenon_create', 'snd_xenon_probe', 'snd_xenon_remove']
@@ -52,7 +53,8 @@ def main():
             report['variants'].append(record)
             if build.returncode:
                 continue
-            for case in candidate_cases if candidate else original_cases:
+            selected_cases = candidate_cases + (['buffer0', 'buffer1'] if 'snd_pcm_set_managed_buffer_all' in path.read_text() else []) if candidate else original_cases
+            for case in selected_cases:
                 run = subprocess.run([str(binary), case, str(int(candidate))], capture_output=True,text=True,timeout=10,env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1:abort_on_error=0',UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=0'))
                 expected_failure = not candidate and case != 'success'
                 diagnostics = run.stderr.replace(tmp, 'HOST_TEST')

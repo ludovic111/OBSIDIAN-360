@@ -1,0 +1,22 @@
+{
+  "verified_utc": "2026-10-02T08:57:54.026744+00:00",
+  "repository": "https://github.com/ludovic111/OBSIDIAN-360",
+  "branch": "main",
+  "commit": "5dd3293b9936669ba7a8e25935de8dd6b918fafc",
+  "parent": "fd75dd4f20e7d0c0d0fc1475b1423d013d7cfa00",
+  "files": 273,
+  "api_tree_matches_local": true,
+  "audit_before_commit": {
+    "passed": true,
+    "selected_files": 273,
+    "reachable_text_objects": 303,
+    "history_commits": 7
+  },
+  "audit_before_push": {
+    "passed": true,
+    "selected_files": 273,
+    "reachable_text_objects": 337,
+    "history_commits": 8
+  },
+  "scope": "E53/E54 resource ownership, bounded SMC sender and complete PowerPC builds; no deployment"
+}

@@ -1,0 +1,35 @@
+{
+  "patches": [
+    {
+      "patch": "research/patches/0008-xenon-audio-buffer-geometry.patch",
+      "sha256": "ab51fe8f325d0953e217ec99539ac0d514f9ff87d3b9f7789d31e48e94264801",
+      "code": 0,
+      "output": "patching file 'sound/pci/snd-xenon.c'"
+    },
+    {
+      "patch": "research/patches/0009-xenon-audio-resource-lifecycle.patch",
+      "sha256": "f05d7934f71c8c18e638ba897c7777004fb2ba18913fede56fcae0c50459e3d6",
+      "code": 0,
+      "output": "patching file 'sound/pci/snd-xenon.c'"
+    },
+    {
+      "patch": "research/patches/0010-xenon-bounded-smc-post.patch",
+      "sha256": "6322121598a78af507c5a6838faa5b64e15d8ba1ef7d196db9bf3839a26f94a7",
+      "code": 0,
+      "output": "patching file 'drivers/xenon/smc-core.c'\npatching file 'include/xenon/smc-core.h'\npatching file 'sound/pci/snd-xenon.c'"
+    },
+    {
+      "patch": "research/patches/0011-xenon-audio-coherent-pcm.patch",
+      "sha256": "b233cac3b9d790b1adea99c98e722abb166f78d46f541c976e586ac3bd1c6b8d",
+      "code": 0,
+      "output": "patching file 'sound/pci/snd-xenon.c'"
+    }
+  ],
+  "sources": {
+    "sound/pci/snd-xenon.c": "5f8af47e2ae28674c2b22258a9754aad59095508d852df43cd773ad72d6f7482",
+    "drivers/xenon/smc-core.c": "f0bc8c2fdf3e9acab02575c65ee9285da12b6071b6ebe35e503218bf315a225d",
+    "include/xenon/smc-core.h": "505d65896a94ac76ebec9de2fbf2da946162d6701b5f075b17eb9c72a55bc326"
+  },
+  "matches_candidate": true,
+  "base": "obsidian4 working sources based on a293dd19311668900eb1eeb2f6cb01dcac54f330"
+}

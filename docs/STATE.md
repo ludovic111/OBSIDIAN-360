@@ -1,5 +1,11 @@
 # État courant — 2 octobre 2026
 
+## Tampons audio et retour utilisateur — E55/E56
+
+E55 : le candidat 0011 utilise les tampons cohérents gérés par ALSA, sans remappage ioremap ni boucle de cache privée. Vingt scénarios de ressources et douze de callbacks passent ; noyau audio-pcm et 70 modules compilés sans avertissement. Aucun installé : timer, concurrence et protocole matériel restent à résoudre. Voir `docs/AUDIO-PCM-DMA.md`.
+
+E56 : SSH revérifié à 2026-10-02T09:40:09.815799+00:00 : obsidian4, uptime 5 139,44 s, aucun service en échec, framebuffer 1280 × 720. Réactivité visuelle non testée. L’utilisateur est de retour ; aucune manipulation physique requise pour poursuivre ces tests hors console.
+
 ## Envoi SMC borné et builds audio — non installés
 
 E54 : nouvelle voie d’envoi audio avec refus immédiat des verrous occupés et budget de polling ; dix-neuf scénarios SMC et dix-huit scénarios de ressources audio passent hors matériel. Les noyaux audio-lifecycle (0008/0009) et audio-post (0008/0009/0010) compilent avec 70 modules chacun, sans avertissement. Export SMC et vermagic vérifiés. Aucun son ni démarrage de ces variantes ; le dernier état vivant reste E52. Les anciens chemins SMC conservent leurs attentes sans borne. Voir `docs/SMC-BOUNDED-POST.md`.
@@ -10,7 +16,7 @@ E53 : correctif 0009 après 0008 ; objet PowerPC compilé sans avertissement, do
 
 ## Dernier contrôle vivant et audit audio
 
-E52 : retour sous obsidian4 confirmé le 2 octobre à 08:17:42 UTC, uptime 201,58 s, zéro unité en échec, XRandR répond en 720p. OpaqueMove/Resize restent à 1. Le lanceur appartient à la session locale active et ses deux autorisations d’arrêt passent. **Correction E49 :** le « challenge » mesuré via runuser dans SSH ne caractérisait pas le vrai lanceur ; bouton à essayer au retour de l’utilisateur, aucune nouvelle règle installée. Utilisateur absent temporairement, aucun arrêt/redémarrage volontaire.
+E52 : retour sous obsidian4 confirmé le 2 octobre à 08:17:42 UTC, uptime 201,58 s, zéro unité en échec, XRandR répond en 720p. OpaqueMove/Resize restent à 1. Le lanceur appartient à la session locale active et ses deux autorisations d’arrêt passent. **Correction E49 :** le « challenge » mesuré via runuser dans SSH ne caractérisait pas le vrai lanceur ; bouton à essayer au retour de l’utilisateur, aucune nouvelle règle installée. À ce relevé E52, utilisateur absent temporairement ; il est revenu depuis (E56). Aucun arrêt/redémarrage volontaire pendant son absence.
 
 E51 : compilation audio originale échouée (huit erreurs, un avertissement). Fonctions C réelles testées hors console : dépassements de géométrie et boucle de cache reproduits ; correctif partiel 0008 validé sur 16 369 tailles synthétiques. Audio toujours désactivé, portage complet et matériel non validés. Voir `docs/AUDIO-BUFFER-AUDIT.md`.
 
@@ -139,3 +145,5 @@ Publication E47 et piste PAL vérifiée à 2026-10-02T07:57:41.408927+00:00 : co
 Publication E48 vérifiée à 2026-10-02T08:03:48.586991+00:00 : commit public `b4b49e2b2fdcc42f522fbc6cd4b74b1b96202632`, 234 fichiers et arbre distant conforme ; preuve `evidence/2026-10-02/public-audit/video-publication.json`. Résultat du contrôle sous tableau de bord stock encore attendu.
 
 Publication E49–E52 vérifiée à 2026-10-02T08:25:04.519035+00:00 : commit public `fd75dd4f20e7d0c0d0fc1475b1423d013d7cfa00`, 248 fichiers, parent et arbre GitHub conformes après audits. Preuve `evidence/2026-10-02/public-audit/audio-publication.json`. Audio non activé ; aucun arrêt depuis le retour Linux.
+
+Publication E53/E54 vérifiée à 2026-10-02T08:57:54.026744+00:00 : commit public `5dd3293b9936669ba7a8e25935de8dd6b918fafc`, 273 fichiers, parent et arbre GitHub conformes après audits. Preuve `evidence/2026-10-02/public-audit/smc-publication.json`. Deux builds audio complets validés, aucun installé.

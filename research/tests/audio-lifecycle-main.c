@@ -13,6 +13,7 @@ int main(int argc,char **argv) {
     else if(fail("smc_ready"))want=-EPROBE_DEFER;
     else if(fail("smc_busy"))want=-EBUSY;
     else if(fail("smc_timeout"))want=-ETIMEDOUT;
+    else if(fail("buffer0")||fail("buffer1"))want=-ENOMEM;
     CHECK(code==want);
     if(code==0) {
         CHECK(pci.data);

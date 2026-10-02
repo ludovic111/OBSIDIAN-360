@@ -152,3 +152,16 @@ Publication E49–E52 vérifiée à 2026-10-02T08:25:04.519035+00:00 : commit pu
 - Résultat : première compilation complète audio-lifecycle terminée code 0 ; copie indépendante puis compilation audio-post code 0. Soixante-dix modules chacune, aucun avertissement, formats PowerPC et vermagic vérifiés, nouvel export GPL présent.
 - Limites : budget logique, pas borne de transaction MMIO ; tests séquentiels sans validation SMP. Le mutex ne protège pas les anciennes voies. Aucun envoi réel, noyau/image ni module installé.
 - Suite : publication après audit ; contrat DMA PCM, timer/notifications et protocole avant activation.
+
+Publication E53/E54 vérifiée à 2026-10-02T08:57:54.026744+00:00 : commit public `5dd3293b9936669ba7a8e25935de8dd6b918fafc`, 273 fichiers, parent et arbre GitHub conformes après audits. Preuve `evidence/2026-10-02/public-audit/smc-publication.json`. Deux builds audio complets validés, aucun installé.
+
+
+## 2026-10-02T09:43:49.512960+00:00 — E55/E56 — mémoire PCM et contrôle vivant
+
+- Objectif : retirer le remappage CPU erroné des tampons DMA et clarifier leur propriétaire.
+- Action : correctif 0011 après 0008–0010, contraintes ALSA, tampons gérés, barrières, arrêt du canal avant libération et validation des bornes. Aucun chargement.
+- Observation : 20 scénarios ressources et 12 callbacks passent sous ASan/UBSan ; 16 369 tailles examinées, 512 acceptées sans dépassement. Suppression de la fonction privée de cache, pas test matériel de cohérence.
+- Résultat : noyau audio-pcm et 70 modules compilés sans avertissement, ELF/vermagic et reconstruction des patches vérifiés. Outil de contrôle étendu au mode sans image XeLL ; voie complète obsidian4 encore valide.
+- Mesure directe distincte : à 2026-10-02T09:40:09.815799+00:00, SSH répond sous obsidian4, uptime 5 139,44 s, zéro unité en échec, framebuffer 720p. Réactivité visuelle non vérifiée.
+- Retour utilisateur : de nouveau disponible ; aucune action physique nécessaire pour ce travail.
+- Limites : aucun son, aucune validation DMA réelle ; ancien timer non armé, synchronisation des callbacks et protocole à résoudre. Prochaine étape : notifications de progression et durée de vie des flux, hors matériel.

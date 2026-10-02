@@ -1,0 +1,16 @@
+{
+  "verified_utc": "2026-10-02T09:41:21.868406+00:00",
+  "build_returncode": 0,
+  "image": "obsidian360-kernel:llvm16",
+  "image_id": "sha256:3174c3c009b827d6583d46b5d2d26ad9c3f1d71546cb5a3504e72ac45c6d449e",
+  "command": "make -C /src O=/build ARCH=powerpc LLVM=1 LOCALVERSION=-audio-pcm -j2 vmlinux modules",
+  "sources": {
+    "sound/pci/snd-xenon.c": "5f8af47e2ae28674c2b22258a9754aad59095508d852df43cd773ad72d6f7482",
+    "drivers/xenon/smc-core.c": "f0bc8c2fdf3e9acab02575c65ee9285da12b6071b6ebe35e503218bf315a225d",
+    "include/xenon/smc-core.h": "505d65896a94ac76ebec9de2fbf2da946162d6701b5f075b17eb9c72a55bc326"
+  },
+  "diagnostics": [],
+  "installed": false,
+  "boot_image_built": false,
+  "scope": "Compile/link and ELF metadata validation only; no hardware audio test"
+}

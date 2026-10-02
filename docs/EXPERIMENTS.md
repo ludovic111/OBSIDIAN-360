@@ -73,6 +73,9 @@
 
 | E54 | Ajouter et tester un envoi SMC borné, puis lier les variantes audio complètes | 19 scénarios SMC, 18 ressources audio ; audio-lifecycle et audio-post avec 70 modules, zéro avertissement ; smc-post/ | Pas de chargement ; vieux chemins SMC non bornés, protocole audio et DMA PCM à poursuivre |
 
+| E55 | Migrer les PCM vers la mémoire DMA gérée ALSA et tester les callbacks réels | 20 scénarios de ressources, 12 de callbacks, régression de 16 369 tailles ; noyau audio-pcm + 70 modules sans avertissement ; audio-pcm/ | Aucun chargement ; timer/concurrence/protocole non validés |
+| E56 | Reconnexion SSH après le retour de l’utilisateur, interfaces standard en lecture seule | obsidian4, uptime 5 139,44 s, aucun service en échec, framebuffer 1280×720 ; audio-pcm/console-status.json | Pas un test visuel, de charge ou audio |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.
