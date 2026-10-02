@@ -1,0 +1,47 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/build'
+  GEN     Makefile
+  UPD     include/config/kernel.release
+  UPD     include/generated/utsrelease.h
+  UPD     include/generated/compile.h
+  CALL    /src/scripts/checksyscalls.sh
+  CC      init/version.o
+  CC      kernel/sys.o
+  CC      arch/powerpc/platforms/xenon/setup.o
+  AR      init/built-in.a
+  AR      arch/powerpc/platforms/xenon/built-in.a
+  AR      arch/powerpc/platforms/built-in.a
+  AR      arch/powerpc/built-in.a
+  CC      kernel/module/main.o
+  CC      drivers/base/firmware_loader/main.o
+  AR      kernel/module/built-in.a
+  AR      kernel/built-in.a
+  AR      drivers/base/firmware_loader/built-in.a
+  AR      drivers/base/built-in.a
+  AR      drivers/built-in.a
+  AR      built-in.a
+  AR      vmlinux.a
+  LD      vmlinux.o
+  GEN     .vmlinux.objs
+  MODPOST vmlinux.symvers
+  UPD     include/generated/utsversion.h
+  CC      init/version-timestamp.o
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD      .tmp_vmlinux1
+  NM      .tmp_vmlinux1.syms
+  KSYMS   .tmp_vmlinux1.kallsyms.S
+  AS      .tmp_vmlinux1.kallsyms.o
+  LD      .tmp_vmlinux2
+  NM      .tmp_vmlinux2.syms
+  KSYMS   .tmp_vmlinux2.kallsyms.S
+  AS      .tmp_vmlinux2.kallsyms.o
+  LD      vmlinux.unstripped
+  NM      System.map
+  SORTTAB vmlinux.unstripped
+make[4]: Nothing to be done for 'vmlinux.unstripped'.
+  OBJCOPY vmlinux
+  GEN     modules.builtin.modinfo
+  GEN     modules.builtin
+make[1]: Leaving directory '/build'
+make: Leaving directory '/src'

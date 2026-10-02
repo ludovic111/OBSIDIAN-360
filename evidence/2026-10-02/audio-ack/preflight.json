@@ -1,0 +1,10 @@
+{
+  "captured_utc": "2026-10-02T13:01:48.919159+00:00",
+  "path": "/tmp/obsidian-analog-step-lcglujdq",
+  "sha256": "dc7c9ebc46410f6305b24fea897e9b1ac84d8f37bb814a459d620b8955fe6450",
+  "usage_code": 2,
+  "stdout": "",
+  "stderr": "Usage: analog_protocol_step --ack-bit2|--ack-bit3|--ack-bit4|--reset-stopped\n",
+  "kernel": "6.18.11-xenon-obsidian4",
+  "scope": "Transfer and no-argument execution; no hardware access"
+}

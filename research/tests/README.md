@@ -82,3 +82,8 @@ Recettes et limites dans `docs/AUDIO-PCM-DMA.md`, `docs/AUDIO-STREAM-POLLING.md`
 ## Arrêt audio et durée de vie ALSA (E65/E66)
 
 `check-audio-stop.py` teste le filtre et l'emprise de l'unique écriture sur mémoire ordinaire, sans matériel. `check-audio-free-contract.py --kernel SOURCE --output RAPPORT` extrait trois fonctions ALSA pour confronter les retours d'erreur à la libération et au détachement des tampons. Le comportement réel du canal analogique et les limites sont dans `docs/AUDIO-STOP-EXPERIMENT.md`. Les tests n'exécutent pas l'outil matériel.
+
+
+## Protocole analogique et horloges (E67–E70)
+
+`check-audio-protocol-step.py` vérifie le sélecteur, les préconditions et l'emprise des écritures ACK/reset sur mémoire ordinaire. Il ne lance pas les opérations matérielles. `check-clock-analysis.py` teste les bornes temporelles avec un taux connu et des captures invalides. `tools/measure-clock-drift.py --analyze CAPTURE --output NOUVEAU_RAPPORT` reproduit l'analyse sans accès SSH ; sans --analyze, il effectue seulement des lectures standard sur la console. Voir `docs/AUDIO-ACK-RESET.md` et `docs/TIMEBASE-CALIBRATION.md`.

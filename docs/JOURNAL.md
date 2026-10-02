@@ -261,3 +261,27 @@ Publication E63/E64 vérifiée à 2026-10-02T12:11:33.298267+00:00 : commit publ
 - Interprétation : retrait RUN et apparition du bit DCH appuient le découpage ; bits supposés W1C conservés par zéro. Acquittement par un, reset, transactions en vol, FIFO et canal numérique non prouvés. Champ intermédiaire devenu zéro au suivi, délai/rôle précis inconnus. Analogique laissé STOP, aucun retour automatique à RUN.
 - E66, hors console : extraction de snd_pcm_sync_stop, do_hw_free et snd_pcm_lib_free_pages. 144 cas passent ; 24 détachements après erreur d'un callback, dont 12 allocations dynamiques réellement libérées dans le modèle. Préallocations seulement détachées et réutilisables ; pas une revendication de bug ALSA ou de libération physique systématique du tampon du candidat.
 - Décision : ne pas considérer return -ETIMEDOUT comme une protection du tampon géré. La stratégie d'arrêt doit couvrir le contrat de libération/réutilisation et une éventuelle isolation ; prochains essais acquittement/reset ciblés avant intégration.
+
+Publication E65/E66 vérifiée à 2026-10-02T12:57:15.785188+00:00 : commit public `6d597f74c644f253f889d7c78e3f05f3113af2c9`, 410 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/stop-publication.json`. STOP analogique observé ; contrat mémoire ALSA testé, aucun son activé.
+
+
+## 2026-10-02 — E67/E68 — acquittements analogiques et demande de reset
+
+- Objectif : éprouver les bits W1C supposés après le STOP E65, avant activation audio.
+- État initial revérifié : analogique 0x0000001d / index zéro, numérique 0x1d08001c / 0x00009616. Une lecture de quatre mots, sans écriture.
+- Outil original à quatre opérations fixes, jamais enchaînées automatiquement. Filtre exact sur quatre mots, 512 variations d'un bit refusées sous ASan/UBSan, quatre emprises de quatre octets vérifiées. ELF32 compilé, stw alignée et barrières relues ; empreinte transférée identique, test sans argument avant accès.
+- E67 : écritures 4, 8, 16 dans des appels distincts, avec examen du résultat à chaque fois. Statut 0x1d → 0x19 → 0x11 → 0x01, index et canal numérique inchangés. Trois écritures, 24 lectures. Tous les codes zéro ; comportement W1C des trois bits observé au repos. Le sens des événements sous flux n'est pas prouvé.
+- E68 : une écriture reset 0x02000000 depuis le statut arrêté ; lecture suivante 0x01, numérique inchangé. Huit lectures, une écriture, code zéro. Résultat compatible avec auto-effacement ; aucune transition intermédiaire ni effet sur un registre non nul observé, donc reset interne complet non démontré. Aucun START, son ou nouveau descripteur.
+- Suite : conserver l'arrêt et les preuves ; intégrer seulement des conditions d'arrêt/gestion de mémoire justifiées. Les contrôles temporels doivent distinguer les horloges des deux machines.
+
+## 2026-10-02 — E69/E70 — dérive de cadence et noyau de correction optionnelle
+
+- Déclencheur : différence répétée entre horodatages console et Mac dans les preuves audio. Hypothèse de fréquence de conversion incorrecte, à mesurer plutôt qu'ajuster la date.
+- E69 : sept échanges SSH persistants pendant environ 60 s, allers-retours de 1,37–1,94 ms. Lecture des horloges brute, monotone, civile, du clocksource et des trois propriétés DT. Pas de reconfiguration.
+- Mesure : 50 MHz annoncés, clocksource timebase ; 59,8864 s brutes Xbox pour 60,0354–60,0384 s Mac. Rapport 0,9974687–0,9975187, fréquence relative compatible 49,8734–49,8759 MHz. Heure console en retard d'environ 44,28 s en fin de capture. Mac non étalonné ; pas de mesure électrique.
+- Sources : LibXenon fixe 3 192 000 000 / 64 = 49 875 000 ; fichier épinglé vérifié via API GitHub après échec du fetch web brut. DTS noyau/XeLL à 50 MHz, generic_calibrate_decr lit cette propriété. Le simple objcopy zImage.xenon n'incorpore pas automatiquement le DTS local. Une recherche par wildcard inexistant a échoué ; fichiers exacts retrouvés sans interpréter l'échec comme absence de source.
+- Outil reproductible measure-clock-drift.py : capture bornée, analyse hors console, préservation des sorties et diagnostics privés. Sept cas synthétiques/rejets passent ; capture réelle courte de trois points vérifie le collecteur, sans remplacer la référence de 60 s.
+- État NTP : timedatectl rapporte CanNTP/NTP/NTPSynchronized=yes. Cela ne suffit pas à contredire la comparaison directe et la dérive brute ; aucun changement NTP tenté.
+- E70 : patch 0016 indépendant, option précoce xenon_tb_hz limitée à 49 875 000 ou 50 000 000 Hz. Sans option, configuration firmware conservée. Conversion logicielle seulement ; aucune programmation PLL/alimentation. Une mesure sur cet exemplaire ne justifie pas de forcer toutes les révisions.
+- Construction distincte depuis obsidian4, sans les patches audio : vmlinux, modules et zImage.xenon codes zéro sans avertissement. obsidian-clock, 65 modules ELF/vermagic et six sections de charge utile vérifiés ; symbole du parseur et option présents, patch reconstruit identiquement.
+- Limites : correction non installée/non démarrée. Initramfs et entrée USB encore à préparer, mesure après reboot indispensable. Ne pas transformer la compilation en amélioration de cadence déjà obtenue ; conserver les horodatages historiques et signaler leur origine.

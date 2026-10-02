@@ -1,0 +1,95 @@
+{
+  "state": "succeeded",
+  "started_host_utc": "2026-10-02T13:07:18.609168+00:00",
+  "scope": "Read-only persistent SSH clock samples; no clock synchronization or frequency changes",
+  "identity": {
+    "kind": "identity",
+    "kernel": "6.18.11-xenon-obsidian4",
+    "timebase_frequencies": {
+      "Xenon,PPE@1": 50000000,
+      "Xenon,PPE@2": 50000000,
+      "Xenon,PPE@0": 50000000
+    },
+    "clocksource": "timebase"
+  },
+  "samples": [
+    {
+      "host_send_monotonic_ns": 10104749125,
+      "host_receive_monotonic_ns": 10106115750,
+      "host_send_wall_ns": 1790946448694590000,
+      "host_receive_wall_ns": 1790946448695955000,
+      "console": {
+        "raw_ns": 17547315656615,
+        "monotonic_ns": 17547317442599,
+        "wall_ns": 1790946404566375068
+      }
+    },
+    {
+      "host_send_monotonic_ns": 20109062625,
+      "host_receive_monotonic_ns": 20110696500,
+      "host_send_wall_ns": 1790946458698957000,
+      "host_receive_wall_ns": 1790946458700589000,
+      "console": {
+        "raw_ns": 17557295082455,
+        "monotonic_ns": 17557296848257,
+        "wall_ns": 1790946414545779746
+      }
+    },
+    {
+      "host_send_monotonic_ns": 30113607458,
+      "host_receive_monotonic_ns": 30115546250,
+      "host_send_wall_ns": 1790946468703565000,
+      "host_receive_wall_ns": 1790946468705497000,
+      "console": {
+        "raw_ns": 17567274603215,
+        "monotonic_ns": 17567276367955,
+        "wall_ns": 1790946424525298604
+      }
+    },
+    {
+      "host_send_monotonic_ns": 40121431125,
+      "host_receive_monotonic_ns": 40123034958,
+      "host_send_wall_ns": 1790946478711442000,
+      "host_receive_wall_ns": 1790946478713044000,
+      "console": {
+        "raw_ns": 17577257280595,
+        "monotonic_ns": 17577259048013,
+        "wall_ns": 1790946434507977882
+      }
+    },
+    {
+      "host_send_monotonic_ns": 50128697958,
+      "host_receive_monotonic_ns": 50130610416,
+      "host_send_wall_ns": 1790946488718773000,
+      "host_receive_wall_ns": 1790946488720679000,
+      "console": {
+        "raw_ns": 17587239530515,
+        "monotonic_ns": 17587241297771,
+        "wall_ns": 1790946444490227540
+      }
+    },
+    {
+      "host_send_monotonic_ns": 60134289291,
+      "host_receive_monotonic_ns": 60135773750,
+      "host_send_wall_ns": 1790946498724426000,
+      "host_receive_wall_ns": 1790946498725901000,
+      "console": {
+        "raw_ns": 17597219891975,
+        "monotonic_ns": 17597221660529,
+        "wall_ns": 1790946454470590698
+      }
+    },
+    {
+      "host_send_monotonic_ns": 70141485083,
+      "host_receive_monotonic_ns": 70143123166,
+      "host_send_wall_ns": 1790946508731675000,
+      "host_receive_wall_ns": 1790946508733309000,
+      "console": {
+        "raw_ns": 17607202058275,
+        "monotonic_ns": 17607203827327,
+        "wall_ns": 1790946464452757516
+      }
+    }
+  ],
+  "transport_code": 0
+}

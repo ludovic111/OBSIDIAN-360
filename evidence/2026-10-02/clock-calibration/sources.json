@@ -1,0 +1,28 @@
+{
+  "checked_host_utc": "2026-10-02T13:18:30.879136+00:00",
+  "libxenon": {
+    "commit": "a333adef440f28b436a667be0a4f014afce6349d",
+    "url": "https://github.com/Free60Project/libxenon/blob/a333adef440f28b436a667be0a4f014afce6349d/libxenon/drivers/ppc/timebase.h",
+    "sha256": "7177f7371ccff7f8b55317fe13a289bbc59eea46da9fb1b1719d21d719d313ba",
+    "api_matches_local": true,
+    "timebase_formula": "3192000000 / 64 = 49875000"
+  },
+  "kernel": {
+    "commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+    "files": {
+      "arch/powerpc/kernel/time.c": "0fab1297496713f56a0b2ad07775bb4b93cddae57c73f631d72df6f3c6e93715",
+      "arch/powerpc/platforms/xenon/setup.c": "2c1b9e52a1ba190edc84e82045e8cafc6cbf8c4826d1ff2c5ba29f2d7dec4dd2",
+      "arch/powerpc/boot/dts/xenon.dts": "e11b9947a724c1c4975cd50d3ab655423f52004f16f1edef7117e6c1095e1c83",
+      "arch/powerpc/boot/Makefile": "ae319ddfc9a3b8303b8ffd65b16bcec6c810a5591ccbe9e56e4a13d4bef46506",
+      "init/main.c": "64a6b91514fb324ce41e874d7cc8312de9489c6df763873a09168bb222efa91d"
+    }
+  },
+  "xell": {
+    "commit": "a36ed6b7dae940e47e472a20fd14b0616ddc8cef",
+    "dts_sha256": "8cbc32471b2e22db2c4c233833bc0b38cf9e5f67deeb30060251d48b8101de4a"
+  },
+  "scope": "Source correspondence; 60-second rate measurement is separate and relative to the Mac",
+  "initial_web_fetch": "Failed: raw GitHub URL cache miss; API contents verified instead",
+  "collector_source_sha256": "0666d6a0f1827421f4193e840e64d6c8b323220d3b3b648630f1a032779a0ca1",
+  "initial_capture_script_sha256": "4c08ff3885cfff6ab82370091504951430f0cb645f73fa52887b31b462946cdd"
+}

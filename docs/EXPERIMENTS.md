@@ -93,6 +93,11 @@
 | E65 | Une écriture STOP analogique conditionnée après tests et vérification ELF32 | 0x1d08001c → 0x0008001d puis 0x0000001d, index zéro, numérique inchangé ; SSH répond ; audio-stop/ | Dix lectures au total, une écriture ; indicateur DCH étayé, pas de preuve de fin des transactions/FIFO ; analogique laissé STOP |
 | E66 | Exécuter trois fonctions ALSA réelles avec erreurs de callbacks | 144 cas ASan/UBSan, 24 détachements dont 12 libérations dynamiques malgré une erreur ; audio-stop/free-contract.json | Contrat logiciel, pas bogue ALSA ; un retour erreur seul ne préserve pas le tampon et ne suffit pas pour un arrêt matériel échoué |
 
+| E67 | Acquitter séparément trois bits analogiques après tests de 512 refus | 0x1d → 0x19 → 0x11 → 0x01 ; numérique inchangé, SSH répond ; audio-ack/ack-bit*.json | Trois écritures, 24 lectures ; W1C observé au repos, signification des événements sous flux non prouvée |
+| E68 | Écrire reset depuis le statut arrêté analogique | 0x02000000 écrit, lecture 0x00000001 ; index zéro, numérique inchangé ; audio-ack/reset-stopped.json | Une écriture, huit lectures ; auto-effacement compatible, effets internes non démontrés car état observé inchangé |
+| E69 | Comparer sept horodatages console/Mac en SSH persistant et lire le device tree | Environ −0,25 % sur 60 s ; 50 MHz déclarés, 49,8734–49,8759 MHz compatibles avec la mesure relative ; clock-calibration/ | Mac non étalonné, aucune reconfiguration ; horodatages console décalés et durée historique à interpréter |
+| E70 | Ajouter une conversion timebase optionnelle et construire un noyau distinct | obsidian-clock + image + 65 modules sans avertissement, ELF/sections/vermagic vérifiés ; timebase-build/ | Aucune installation/initramfs ni validation après boot ; correction limitée à cette piste mesurée |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.

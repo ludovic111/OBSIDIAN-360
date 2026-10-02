@@ -1,0 +1,52 @@
+{
+  "scope": "Relative to Mac monotonic clock; SSH brackets bound observation times, not absolute oscillator accuracy.",
+  "sample_count": 7,
+  "host_interval_seconds_bounds": [
+    60.035369333,
+    60.038374041
+  ],
+  "clock_rates": {
+    "raw_ns": {
+      "console_seconds": 59.88640166,
+      "ratio_bounds": [
+        0.9974687458908161,
+        0.9975186681675311
+      ],
+      "error_ppm_bounds": [
+        -2531.254109183867,
+        -2481.3318324689026
+      ]
+    },
+    "monotonic_ns": {
+      "console_seconds": 59.886384728,
+      "ratio_bounds": [
+        0.9974684638711867,
+        0.9975183861337868
+      ],
+      "error_ppm_bounds": [
+        -2531.5361288132945,
+        -2481.6138662131502
+      ]
+    },
+    "wall_ns": {
+      "console_seconds": 59.886382448,
+      "ratio_bounds": [
+        0.9974684258954747,
+        0.9975183481561742
+      ],
+      "error_ppm_bounds": [
+        -2531.574104525314,
+        -2481.651843825761
+      ]
+    }
+  },
+  "last_wall_offset_seconds_bounds": [
+    -44.280551484,
+    -44.278917484
+  ],
+  "advertised_timebase_hz": 50000000,
+  "effective_timebase_hz_bounds": [
+    49873437.29454081,
+    49875933.40837655
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "state": "succeeded",
+  "started_host_utc": "2026-10-02T13:17:41.975608+00:00",
+  "scope": "Persistent read-only SSH samples; no clock or hardware changes",
+  "samples": [
+    {
+      "host_send_monotonic_ns": 9230206666,
+      "host_receive_monotonic_ns": 9231469458,
+      "host_send_wall_ns": 1790947071188499000,
+      "host_receive_wall_ns": 1790947071189761000,
+      "console": {
+        "raw_ns": 18168244104635,
+        "monotonic_ns": 18168245953491,
+        "wall_ns": 1790947025494886040
+      }
+    },
+    {
+      "host_send_monotonic_ns": 10236843333,
+      "host_receive_monotonic_ns": 10238160666,
+      "host_send_wall_ns": 1790947072195143000,
+      "host_receive_wall_ns": 1790947072196458000,
+      "console": {
+        "raw_ns": 18169248291075,
+        "monotonic_ns": 18169250119052,
+        "wall_ns": 1790947026499050061
+      }
+    },
+    {
+      "host_send_monotonic_ns": 11241471625,
+      "host_receive_monotonic_ns": 11242796875,
+      "host_send_wall_ns": 1790947073199777000,
+      "host_receive_wall_ns": 1790947073201100000,
+      "console": {
+        "raw_ns": 18170250381815,
+        "monotonic_ns": 18170252207192,
+        "wall_ns": 1790947027501137381
+      }
+    }
+  ],
+  "identity": {
+    "kind": "identity",
+    "kernel": "6.18.11-xenon-obsidian4",
+    "timebase_frequencies": {
+      "Xenon,PPE@1": 50000000,
+      "Xenon,PPE@2": 50000000,
+      "Xenon,PPE@0": 50000000
+    },
+    "clocksource": "timebase"
+  },
+  "transport_code": 0,
+  "analysis": {
+    "scope": "Relative to Mac monotonic clock; SSH brackets bound observation times, not absolute oscillator accuracy.",
+    "sample_count": 3,
+    "host_interval_seconds_bounds": [
+      2.010002167,
+      2.012590209
+    ],
+    "clock_rates": {
+      "raw_ns": {
+        "console_seconds": 2.00627718,
+        "ratio_bounds": [
+          0.9968632317837138,
+          0.9981467746347957
+        ],
+        "error_ppm_bounds": [
+          -3136.7682162861674,
+          -1853.2253652042696
+        ]
+      },
+      "monotonic_ns": {
+        "console_seconds": 2.006253701,
+        "ratio_bounds": [
+          0.9968515657227864,
+          0.9981350935528618
+        ],
+        "error_ppm_bounds": [
+          -3148.4342772135633,
+          -1864.9064471382148
+        ]
+      },
+      "wall_ns": {
+        "console_seconds": 2.006251341,
+        "ratio_bounds": [
+          0.9968503931045408,
+          0.9981339194247745
+        ],
+        "error_ppm_bounds": [
+          -3149.6068954591783,
+          -1866.080575225526
+        ]
+      }
+    },
+    "last_wall_offset_seconds_bounds": [
+      -45.699962619,
+      -45.698639619
+    ],
+    "advertised_timebase_hz": 50000000,
+    "effective_timebase_hz_bounds": [
+      49843161.58918569,
+      49907338.73173979
+    ]
+  }
+}

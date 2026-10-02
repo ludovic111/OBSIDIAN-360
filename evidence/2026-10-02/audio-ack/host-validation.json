@@ -1,0 +1,14 @@
+{
+  "scope": "Actual step selector, preconditions and aligned store on ordinary memory; hardware ACK/reset semantics untested by this harness",
+  "passed": true,
+  "source_sha256": "4cdd38d418b315557b1ed2308c7333f37dc8eea30547e4742c90bf637d6b1bd2",
+  "result": {
+    "steps": 4,
+    "single_bit_refusals": 512,
+    "stores_per_step": 1,
+    "store_offset": 8,
+    "store_bytes": 4,
+    "run_and_irq_bits_never_set": true
+  },
+  "sanitizers": "ASan/UBSan"
+}

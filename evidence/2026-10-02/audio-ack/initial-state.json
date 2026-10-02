@@ -1,0 +1,9 @@
+{
+  "captured_utc": "2026-10-02T12:58:51.816495+00:00",
+  "code": 0,
+  "stdout": "{\"analog_index_word\":\"0x00000000\",\"analog_control_word\":\"0x0000001d\",\"digital_index_word\":\"0x00009616\",\"digital_control_word\":\"0x1d08001c\",\"register_reads\":4,\"register_writes\":0}\n",
+  "stderr": "audio BAR0 mapped read-only; performing four status reads\n",
+  "kernel": "6.18.11-xenon-obsidian4",
+  "uptime": "17074.56 12725.29",
+  "scope": "Four read-only status words before planning ACK; no writes"
+}

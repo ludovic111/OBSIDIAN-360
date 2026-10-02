@@ -1,0 +1,383 @@
+{
+  "release": "6.18.11-xenon-obsidian-clock",
+  "artifacts": {
+    "vmlinux": {
+      "bytes": 23352592,
+      "sha256": "76e59d69478598fb1ba009f0985f6317cf57c1172b136e6cc91866028237f563"
+    },
+    "System.map": {
+      "bytes": 2334451,
+      "sha256": "1190d269d478f324cd09628bb8d054d30fd6ff49e5908df2551c0fe5d1446b95"
+    },
+    "Module.symvers": {
+      "bytes": 530538,
+      "sha256": "44ea6f9c07ed8b8827c0f731be57d1717205d48ebfc1445bbfa1b44d7b1a663d"
+    },
+    ".config": {
+      "bytes": 108443,
+      "sha256": "e9aa296780be69de6e76e39d3fc3036aa84666d545e6572c3a63d6a506c5f4c6"
+    },
+    "arch/powerpc/boot/zImage.xenon": {
+      "bytes": 19420244,
+      "sha256": "85b39fd069950625ad6e6cb8f5c17c71aa2755c7d325d3459cf848b69fa241cb"
+    }
+  },
+  "modules": [
+    {
+      "path": "fs/nls/nls_ucs2_utils.ko",
+      "sha256": "65adf304ade2789e1a86ed4421721b111a9ddebe54fad18f490829a6c6df222b",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/netfs/netfs.ko",
+      "sha256": "0fb5a3fe1185c141a8683ff91ff1b74f6b718e6d9c149b6d3af5d3c6a239233c",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/exfat/exfat.ko",
+      "sha256": "40d976301c58b455d7d854cd0e36f3ad62257e505673f6d883daf0a78884a237",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/isofs/isofs.ko",
+      "sha256": "3422ad8455650a5e4c5795a5ef917991e1d59660cdc3f98bd4c2980d769def85",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/hfsplus/hfsplus.ko",
+      "sha256": "8424314042737db59c7b45943f913a54bd896a85db499973afbab908d0bdd760",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/hfs/hfs.ko",
+      "sha256": "f69946a4b353962aa0f1086f205acc27458e3000c6d3d0e8ddd0481407375f13",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/nfsd/nfsd.ko",
+      "sha256": "1690ca833b48c2902d79d1896aa3c4764e4ed5d13dc3eecdf494a36e30d999e8",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/smb/common/cifs_md4.ko",
+      "sha256": "de3f5abaab4547ec14a0e87610b3747d38e774b5a8409a3d6c5da60306d6d77c",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/smb/client/cifs.ko",
+      "sha256": "0960b0e703f63a6d2a40bd2eb3032c7cef4ee131091ba287c067f8240314ccb5",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/smb/server/ksmbd.ko",
+      "sha256": "c7cfa49895e0a216f1a874c4b40e54dc8f2759b3466cac1cb4310e33764bfd6f",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/ntfs3/ntfs3.ko",
+      "sha256": "e6b297b4f2fe94df8acbb2fba46502f7c45816323152cc15d7b23f6e82a7f7c7",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/autofs/autofs4.ko",
+      "sha256": "54ef2dc5ed5144c2ee2ec338f165a0271770e03009e6affd2b6fa5ce89e6a86b",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/fuse/fuse.ko",
+      "sha256": "c3d508916c753b961b9d93b2bc1e80c785800925ef637fff9a7f0ce076ecce29",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/udf/udf.ko",
+      "sha256": "6359f7ef203b4ef242b418b931aa6c2ce8c6c566bb2b2ab6e0e890110104d272",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/xfs/xfs.ko",
+      "sha256": "ed43f63242c0f9bd9c1f07dd3d3d760a9db117bf5061a9d947192a41b09314ab",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "fs/btrfs/btrfs.ko",
+      "sha256": "5cb52ea4f90b0b8fca4035b1f8fe9db20498589c76f2edd4a7f29a40acd02802",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/geniv.ko",
+      "sha256": "2b94c94d3715488a9cae41fe37ba7537002256eaea445307d681d8dd09aa67ee",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/echainiv.ko",
+      "sha256": "a4b98400a2fb72f335a81a803377f4fae388d7f15aa7521a8a6f9c460ccc582d",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/cmac.ko",
+      "sha256": "65f9d1e0e554646d3fa7dad8cc918da4572b1fe4081eae5eb6d5b3084875dd34",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/hmac.ko",
+      "sha256": "0317d47bfed88e8b1f8cf7509448d366cda7f00ecf40103502d6d2d399f47947",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/sha256.ko",
+      "sha256": "47c439c91a6cc46b53c9f1e999a03a296561579b88bf440363c646a97b94574e",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/sha512.ko",
+      "sha256": "4dfbdc18a42ae5eea15ae04785e5da292a3c5c06ea11b647575b51391facbb9c",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/sha3_generic.ko",
+      "sha256": "bbc548d6a2fc281a5afd151aa355b096c9ef19bc437ebb8eb9f7a86c10ab9744",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/blake2b_generic.ko",
+      "sha256": "2ccffea5259f02441b4d6a91fdbdcfc3946e566d592646aeffb7e0efea4b8ad2",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ctr.ko",
+      "sha256": "5b44519a42d23e6694086755cff08f111611a6f3d57c57dacc842e0486381eed",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/gcm.ko",
+      "sha256": "24b20becc946f6486be307274fcc0ea4cff4e3115c1f75e4dca0e824a574e135",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ccm.ko",
+      "sha256": "b3379c6cc493c678b6621cd9a7d8a0ea56f022c897034fee412fb0b04a80f0bf",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/crc32c-cryptoapi.ko",
+      "sha256": "b2a583e050a1b6c0feff47ff8a36701172051d629adb25792155320dc5b1b617",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/xxhash_generic.ko",
+      "sha256": "9ea1931983e50a11d434466c4f520620e2c48b981d7f6c019980d2b8d09e1fcd",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ansi_cprng.ko",
+      "sha256": "010ff6236d333b26200bb47e92a664e28625ed6d432192b9c1cb9ce4c0762317",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/drbg.ko",
+      "sha256": "004f24b4f71f5feb8cfe48a38f24d101bd8e96d1ac8355d75950147169a5b451",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/jitterentropy_rng.ko",
+      "sha256": "011ea942a158525e163d536ae8516e8e2984452bdafcdc388e9b8f70b0483d5c",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/ghash-generic.ko",
+      "sha256": "7d6cde93786258b9b2780ab60f1ceb6ecde47fcb9825ca26bafa11b2c5530156",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "crypto/xor.ko",
+      "sha256": "2d16ffb6cd0320d0982fa342d0d0f028c16b6a7cf8a82117eb6da782e31e1e4d",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crc/crc-itu-t.ko",
+      "sha256": "0fcabe2595851079de6ee393defd94d84a055b712bcdff272b43d7979d619eb8",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crypto/libarc4.ko",
+      "sha256": "3afe2c3a99319120f1689d808a5ba4e2b2312b261d1e4fb2af7f957641335b18",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crypto/gf128mul.ko",
+      "sha256": "22a943a73e633ddb5d2b3bc021007927dff0e50f0063d931e81861fdcc44bcbd",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/crypto/libsha512.ko",
+      "sha256": "ef5a70e882ba2d8da161b4b83552603d910b03dd6bb078ff27e0e487c720165c",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/lz4/lz4_compress.ko",
+      "sha256": "d23b4c7a23534a78c9d46ab3d45b4ad27a71470fef6928713159fd2bf47b7813",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/lz4/lz4hc_compress.ko",
+      "sha256": "94489a362b437c522d12196b2cd816c8be56a3facf0511953371a477191d39eb",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/zstd/zstd_compress.ko",
+      "sha256": "8aba71dbb8a4f38ca62711fca71b885d28de62262786f774be4fafd67f673b3f",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/842/842_compress.ko",
+      "sha256": "732e304a51614c974937dd8e6751b3cd70549d9c7bdb0c737c2dc79d7ebbbed7",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/842/842_decompress.ko",
+      "sha256": "2e79c6cee41b29962bb7b1b14d06be6599af85d6e38977affa0cfebca6fe1385",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/raid6/raid6_pq.ko",
+      "sha256": "6229bcf380edb1e1fa8c8e8942787f4efea6e2dd80e9b995621eeda4d67bcda7",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "lib/asn1_decoder.ko",
+      "sha256": "6e11308d528108db18f71cebd50629a6e008f90700b8bee125a6c9c2f9ccab7b",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/block/nbd.ko",
+      "sha256": "af981cbb7bf860ac175e1fa47edb04df2fad3630338f96312facf5040fab8cc4",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/block/zram/zram.ko",
+      "sha256": "cd089c5cfa4460e230b699416ce860a22c5394ad833bbc483ec1e6db853e6d39",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/class/cdc-acm.ko",
+      "sha256": "fe8698add222090eba55e802ab275199e3ea15febd972900451bf8fb8209794e",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/serial/usbserial.ko",
+      "sha256": "43be86a64bb350561025bf1cb7a7e932518011bad2369cabe97ea5a0141c7dfe",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/serial/ftdi_sio.ko",
+      "sha256": "409ca8c0242ecfe34d1058b7efbf564fa8b179ed6a294ee58d1d9616d58291ba",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/serial/pl2303.ko",
+      "sha256": "ae63e6f6545e7d3076ca2f798624470e334530fe42e5b046a7acb3cd277decca",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/usbip/usbip-core.ko",
+      "sha256": "01366c4fe65813f436b6bc4eb4fd78911cdc9f58c526ff34fa30c2837f13345a",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/usbip/vhci-hcd.ko",
+      "sha256": "3a9f9eaea6268baaa248bc333713cca9c55e7afc51b4532ddbd8ca11fd6f2fc2",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/usb/usbip/usbip-host.ko",
+      "sha256": "5c344d9016cd72b0cecdc8f0e1cafb56cd1f250ca4ffd8db4392a4eb3fe5b8d4",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/joystick/xpad.ko",
+      "sha256": "b3aab6a64677c05d400371ebf6d0eab49925a0bb2876f715c6266e8322e8df32",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/misc/uinput.ko",
+      "sha256": "17afba9037efe965daeb74b1901542d1ece3d30923648aad0c12d601bdf7ab61",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/joydev.ko",
+      "sha256": "d2e669c61ea042d3fa48a41c8b65154be6cdb766ab9f7505a7bacdd32832d750",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/input/evdev.ko",
+      "sha256": "2fc59da776cb6b294e71bf1fe3a2237fa7c1ffc674ec7ff03e2db8980a6905b7",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/i2c/busses/i2c-sis96x.ko",
+      "sha256": "a7442bdf371d12a75341fb2e882e52fa453e132663d61967f323d5d3728d9f58",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-a4tech.ko",
+      "sha256": "3966f70da16303aae80b446e19ae227887d2eea294549834faddf9016a544bff",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-cherry.ko",
+      "sha256": "b30f5b18b107a947e6362da64cbf25ea993ab84beb8832739ce0f6b7cd3ec332",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-gyration.ko",
+      "sha256": "7f97331564d1cb0747dc3432ee752105e8a8c264bb6ce86a075b134a9deb768d",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-nintendo.ko",
+      "sha256": "a12616847fce5ee37547619fd8d2181e7d4864dace19a89a519583c6d7bc2b01",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/hid/hid-wiimote.ko",
+      "sha256": "6830a7a399fea2905c89c54c7cdc3804bdc93d7991a2333bfe59e66e4228d94c",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    },
+    {
+      "path": "drivers/connector/cn.ko",
+      "sha256": "cbd180784ab46ea15964c17cbdfaf007c4e4ad8f18b8988135c4f65ce7f546b7",
+      "vermagic": "6.18.11-xenon-obsidian-clock SMP mod_unload modversions "
+    }
+  ],
+  "booted": false,
+  "deployed": false,
+  "boot_image_checked": true,
+  "payload_sections": {
+    ".head.text": {
+      "bytes": 28672,
+      "sha256": "ed6fd240b60ac2369f55d95a3ab76a28fa565777eda357d38cba3b1da51e3822"
+    },
+    ".text": {
+      "bytes": 11792468,
+      "sha256": "9f14b26c97bad431e20f35fee01fa88e458aebdac803417ae0a8dbe5d460f490"
+    },
+    ".rodata": {
+      "bytes": 2263976,
+      "sha256": "e4ee5d7ab9a22d7a2649b15da875573790694eb3e4f5c9fe12d60daedb8e9d19"
+    },
+    ".init.text": {
+      "bytes": 393216,
+      "sha256": "714b8908cd38f58515bc0bf05171d525614ada9114c1c3017923e42ec5e590df"
+    },
+    ".data": {
+      "bytes": 732856,
+      "sha256": "e8d77b7ada240bd8c2edf0c9c08f6fba8a0867efbcbe382cfff10a360cbede61"
+    },
+    ".notes": {
+      "bytes": 108,
+      "sha256": "879d281ea2f36747367e23165054b6d6700eb1302c8d1a51cb7915e0006b8134"
+    }
+  },
+  "module_count": 65,
+  "verified": true
+}

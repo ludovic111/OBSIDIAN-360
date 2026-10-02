@@ -1,0 +1,22 @@
+{
+  "logs": {
+    "vmlinux.log": {
+      "sha256": "da566b8df020032b860d5a9a6a6909edcc4b5e34362b1105b81628f28f77c91c",
+      "diagnostics": []
+    },
+    "zImage.xenon.log": {
+      "sha256": "c9a553ec7a17dd6961ed0efd81e8ed0b6d02442c6ca628d4902afafcfd8d1497",
+      "diagnostics": []
+    },
+    "modules.log": {
+      "sha256": "9b91c76ee709280998d0371724281c4bf2d7f9e4f6ffda58b4137415bac465e3",
+      "diagnostics": []
+    }
+  },
+  "early_option_string_in_kernel": true,
+  "calibrator_and_parser_symbols_present": true,
+  "firmware_tree_unmodified": true,
+  "audio_patches_included": false,
+  "booted": false,
+  "deployed": false
+}

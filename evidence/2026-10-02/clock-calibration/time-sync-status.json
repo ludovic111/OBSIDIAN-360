@@ -1,0 +1,7 @@
+{
+  "console_reported_utc": "2026-10-02T13:18:51.532720+00:00",
+  "code": 0,
+  "stdout": "CanNTP=yes\nNTP=yes\nNTPSynchronized=yes\n",
+  "stderr": "",
+  "scope": "Read-only systemd time synchronization properties; no configuration change"
+}

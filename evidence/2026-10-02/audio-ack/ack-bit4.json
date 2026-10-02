@@ -1,0 +1,36 @@
+{
+  "captured_utc": "2026-10-02T13:04:07.405447+00:00",
+  "option": "--ack-bit4",
+  "ssh_code": 0,
+  "binary_sha256": "dc7c9ebc46410f6305b24fea897e9b1ac84d8f37bb814a459d620b8955fe6450",
+  "stages": [
+    {
+      "stage": "started",
+      "captured_utc": "2026-10-02T13:03:23.656080+00:00",
+      "kernel": "6.18.11-xenon-obsidian4",
+      "uptime": "17346.40 12924.34"
+    },
+    {
+      "stage": "before",
+      "analog_control": "0x00000011",
+      "digital_control": "0x1d08001c",
+      "planned_write": "0x00000010"
+    },
+    {
+      "stage": "after",
+      "analog_control": "0x00000001",
+      "digital_control": "0x1d08001c",
+      "analog_index": "0x00000000",
+      "digital_index": "0x00009616",
+      "register_reads": 8,
+      "register_writes": 1
+    },
+    {
+      "stage": "finished",
+      "captured_utc": "2026-10-02T13:03:23.664275+00:00",
+      "code": 0,
+      "uptime": "17346.41 12924.34"
+    }
+  ],
+  "scope": "One gated analog operation; no automatic retry or next step"
+}

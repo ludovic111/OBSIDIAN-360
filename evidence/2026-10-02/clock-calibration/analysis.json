@@ -1,0 +1,28 @@
+{
+  "scope": "Observed console CLOCK_MONOTONIC_RAW rate relative to Mac monotonic clock; SSH brackets bound observation times, not absolute oscillator accuracy",
+  "sample_count": 7,
+  "host_interval_seconds_bounds": [
+    60.035369333,
+    60.038374041
+  ],
+  "console_raw_interval_seconds": 59.88640166,
+  "rate_ratio_bounds": [
+    0.9974687458908161,
+    0.9975186681675311
+  ],
+  "rate_error_ppm_bounds": [
+    -2531.254109183867,
+    -2481.3318324689026
+  ],
+  "effective_timebase_hz_bounds": [
+    49873437.29454081,
+    49875933.40837655
+  ],
+  "assumed_timebase_hz_from_live_dt": 50000000,
+  "libxenon_timebase_hz": 49875000.0,
+  "offset_wall_last_seconds_bounds": [
+    -44.280551484,
+    -44.278917484
+  ],
+  "interpretation": "Compatible with 49.875 MHz hardware counted as 50 MHz; no frequency or system-clock change performed"
+}
