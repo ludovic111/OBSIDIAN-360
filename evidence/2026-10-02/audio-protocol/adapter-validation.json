@@ -1,0 +1,109 @@
+{
+  "scope": "Extracted candidate callbacks plus actual pinned pcm_lib_apply_appl_ptr; modeled registers/time/reset/ALSA services. No audio hardware or general concurrency proof. Final descriptor may stall and is explicitly expected to fail via XRUN.",
+  "driver_sha256": "85406d130aa047b9ae06f4cab8b3fd244c959431b040acd9b503e3a52bc84087",
+  "pcm_lib_sha256": "9cea91e8f6f5b9b465357cd4fa0e41ebc16c2b14a65baae739d03a685bed0991",
+  "cases": [
+    {
+      "name": "partial_drain",
+      "code": 0,
+      "stdout": "partial_drain: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "deferred_start",
+      "code": 0,
+      "stdout": "deferred_start: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "bad_start_position",
+      "code": 0,
+      "stdout": "bad_start_position: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "full_ring",
+      "code": 0,
+      "stdout": "full_ring: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "rewind_boundary_overflow",
+      "code": 0,
+      "stdout": "rewind_boundary_overflow: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "reset_prepare",
+      "code": 0,
+      "stdout": "reset_prepare: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "invalid_completion",
+      "code": 0,
+      "stdout": "invalid_completion: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "stalled_final",
+      "code": 0,
+      "stdout": "stalled_final: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "two_channels",
+      "code": 0,
+      "stdout": "two_channels: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "all_geometries",
+      "code": 0,
+      "stdout": "all_geometries: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "shutdown",
+      "code": 0,
+      "stdout": "shutdown: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "free_during_callback",
+      "code": 0,
+      "stdout": "free_during_callback: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "stop_in_notification",
+      "code": 0,
+      "stdout": "stop_in_notification: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "late_poll",
+      "code": 0,
+      "stdout": "late_poll: passed",
+      "diagnostics": ""
+    },
+    {
+      "name": "control_mmap",
+      "code": 0,
+      "stdout": "control_mmap: passed",
+      "diagnostics": ""
+    }
+  ],
+  "wiring": {
+    "SNDRV_PCM_INFO_NO_REWINDS": true,
+    "SNDRV_PCM_INFO_DRAIN_TRIGGER": true,
+    "SNDRV_PCM_INFO_SYNC_APPLPTR": true,
+    "both_ack": true,
+    "both_ioctl": true
+  },
+  "compile": {
+    "code": 0,
+    "diagnostics": ""
+  },
+  "passed": true
+}

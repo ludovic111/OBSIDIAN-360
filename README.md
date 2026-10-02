@@ -61,3 +61,5 @@ Chaque expérience doit préciser : objectif, état initial, action, preuve, ré
 L'export public exclut les données privées et les binaires non redistribuables ; certaines preuves restent locales. Lire [la procédure de publication](docs/PUBLICATION.md) et [les licences](THIRD_PARTY.md). La recherche est incomplète et aucun installateur universel n'est fourni.
 
 Adaptateur audio E60 : [soumission ALSA, tests et limite du dernier bloc](docs/AUDIO-ALSA-ADAPTER.md). Candidat non installé ; aucune lecture sonore validée.
+
+Audio E62 : [longueurs de blocs et hypothèse de registres SiS](docs/AUDIO-REGISTER-HYPOTHESIS.md), avec référence distinguant fin DMA et sortie sonore ; candidat toujours non installé.

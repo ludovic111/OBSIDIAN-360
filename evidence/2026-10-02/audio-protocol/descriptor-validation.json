@@ -1,0 +1,49 @@
+{
+  "scope": "Actual candidate/previous prepare callbacks; literal byte count interpretation from source/history, not observed hardware. LibXenon helpers run on modeled raw words; no proof of FIFO empty or audible playback.",
+  "libxenon_sha256": "00c0e8add9358dc1a919fea9c268b4468ad74cab23b4c06feec5f212dddf9f83",
+  "intel8x0_sha256": "b62134d0f8daa98e2e37b623b1e111a1eec8107acddce2faa44c0b9d92fd2098",
+  "register_layout_scope": "Actual SiS reference defines and Xenon prepare constant agree on ten offset/mask comparisons; device identity unproven.",
+  "variants": [
+    {
+      "variant": "previous",
+      "source_sha256": "a39bd72c3c1f79c91bc81a24a1dccbe4173b36d34ceb9f8a5cee768c93007b35",
+      "compile": {
+        "code": 0,
+        "diagnostics": ""
+      },
+      "run": {
+        "code": 0,
+        "diagnostics": "",
+        "stdout": "{\"sizes\":512,\"descriptors\":16384,\"counts_not_frame_aligned\":16384,\"aggregate_shortfall_bytes_under_literal_count_model\":16384,\"zero_residual_ambiguity_cases\":32}",
+        "result": {
+          "sizes": 512,
+          "descriptors": 16384,
+          "counts_not_frame_aligned": 16384,
+          "aggregate_shortfall_bytes_under_literal_count_model": 16384,
+          "zero_residual_ambiguity_cases": 32
+        }
+      }
+    },
+    {
+      "variant": "candidate",
+      "source_sha256": "85406d130aa047b9ae06f4cab8b3fd244c959431b040acd9b503e3a52bc84087",
+      "compile": {
+        "code": 0,
+        "diagnostics": ""
+      },
+      "run": {
+        "code": 0,
+        "diagnostics": "",
+        "stdout": "{\"sizes\":512,\"descriptors\":16384,\"counts_not_frame_aligned\":0,\"aggregate_shortfall_bytes_under_literal_count_model\":0,\"zero_residual_ambiguity_cases\":32}",
+        "result": {
+          "sizes": 512,
+          "descriptors": 16384,
+          "counts_not_frame_aligned": 0,
+          "aggregate_shortfall_bytes_under_literal_count_model": 0,
+          "zero_residual_ambiguity_cases": 32
+        }
+      }
+    }
+  ],
+  "passed": true
+}

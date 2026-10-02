@@ -73,3 +73,7 @@ Recettes et limites dans `docs/AUDIO-PCM-DMA.md`, `docs/AUDIO-STREAM-POLLING.md`
 ## Adaptateur ALSA (E60)
 
 `check-audio-adapter.py --source CANDIDAT --kernel SOURCE_LINUX --output RAPPORT` extrait les callbacks du correctif 0013, le rollback applicatif réel et les gardes mmap ALSA. Quinze scénarios, dont les 512 tailles et une fermeture concurrente contrôlée. Les registres et achèvements DMA sont simulés ; la stagnation du dernier bloc doit produire une erreur, pas un succès. Voir `docs/AUDIO-ALSA-ADAPTER.md`.
+
+## Descripteurs et piste de registres audio (E62)
+
+`check-audio-descriptors.py` compare les prepare avant/après 0014 sur 512 tailles et 16 384 entrées par variante. Il compile les définitions de registres SiS réelles et exécute les fonctions LibXenon sur des mots simulés. La concordance de sources ne démontre ni le protocole Xbox ni la fin de sortie sonore. Recette et limites : `docs/AUDIO-REGISTER-HYPOTHESIS.md`.

@@ -215,3 +215,17 @@ Publication E59 vérifiée à 2026-10-02T10:36:04.104109+00:00 : commit public `
 - Limite : fin du dernier descripteur non décodée ; un résiduel nul inchangé ne vaut pas preuve de lecture. Stagnation simulée se termine volontairement en XRUN. Drain sonore, longueur/adresses DMA, prélecture, initialisation HDMI et comportement réel restent ouverts. Aucun chargement ni démarrage de cette variante.
 - Mesure E61 distincte : SSH à 10:49:58 UTC, obsidian4, uptime 9 327,35 s, aucune unité en échec listée, framebuffer 720p. Pas de test visuel ; configuration console inchangée.
 - Suite : résoudre le dernier bloc et confronter le protocole aux références avant toute activation. Publication uniquement depuis l'export audité.
+
+Publication E60/E61 vérifiée à 2026-10-02T10:58:31.472464+00:00 : commit public `f8989261de3589ec3b3c3276b9e4ef66646795f3`, 342 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/adapter-publication.json`. Noyau audio-submit compilé, non installé ; fin du dernier descripteur toujours non décodée.
+
+
+## 2026-10-02T11:13:34.630501+00:00 — E62 — historique, longueurs et piste SiS
+
+- Objectif : avancer sur la fin de lecture matérielle et les divergences de format audio.
+- Analyse primaire : historique LibXenon retrouvé par API, dont correction explicite taille−1 vers taille en 2010 et index de dernier bloc complet en 2011. Comparaison des définitions SiS7012 de Linux et des mots Xenon : dix correspondances d'offset/masque dans le banc.
+- Résultat de recherche : LVBCI/PICB de la référence ICH4 concernent le transfert mémoire, pas une preuve de FIFO audio vide. Application à Xbox non validée ; read-modify-write du contrôle peut acquitter des statuts sous cette hypothèse. Ne pas annoncer un drain résolu.
+- Action : correctif 0014 à longueur littérale et géométrie exacte. Test du prepare réel avant/après sur 512 tailles, 16 384 entrées par variante : tous les comptes candidats sont alignés sur quatre octets ; sous cette interprétation, l'ancien code omet 32 octets par anneau. Aucune perte réelle mesurée.
+- Régression : quinze callbacks, vingt ressources passent sous ASan/UBSan ; fonctions LibXenon réelles ambiguës pour les 32 mots synthétiques à résiduel nul. Première extraction des macros mal séparée par un saut de ligne, échec conservé puis corrigé.
+- Construction : deux codes zéro avec avertissements réels de clock skew sous partage Mac/Linux. Troisième construction sur volume Linux dédiée terminée 2026-10-02T11:09:56.522693+00:00, zéro avertissement. Export après fin du processus ; noyau et 70 modules ELF/vermagic vérifiés. Contrôle intermédiaire explicitement marqué provisoire, pas preuve de fin du deuxième build.
+- Limites : aucune interaction console, état vivant toujours E61. Ni son, ni décodeur de fin activé. Correspondance source/registre et FIFO à tester séparément ; aucune identification définitive du contrôleur comme SiS7012.
+- Suite : séparer contrôle et acquittement ; préparer une observation ciblée réversible avant la progression DMA et l'audio réel. Publication après audit.

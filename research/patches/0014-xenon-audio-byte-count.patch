@@ -1,0 +1,42 @@
+--- a/sound/pci/snd-xenon.c
++++ b/sound/pci/snd-xenon.c
+@@ -85,7 +85,6 @@
+ 	int buffer_bytes;
+ 	int period_bytes;
+ 	int descr_bytes;
+-	int gap;
+ };
+ 
+ struct snd_xenon {
+@@ -417,9 +416,8 @@
+ 	device->state = 2;
+ 	device->period_bytes = snd_pcm_lib_period_bytes(substream);
+ 	device->buffer_bytes = snd_pcm_lib_buffer_bytes(substream);
+-	device->descr_bytes = (device->buffer_bytes + 31 ) / 32;
+-	device->gap = (device->descr_bytes << 5) -
+-			    device->buffer_bytes;
++	/* Validated buffer geometry divides into 32 whole stereo-frame blocks. */
++	device->descr_bytes = device->buffer_bytes / 32;
+ 	obs_audio_queue_init(&device->queue, device->buffer_bytes);
+ 	/* prepare precedes the core RESET/post_prepare that rebases appl_ptr. */
+ 	device->appl_ptr = 0;
+@@ -428,14 +426,15 @@
+ 	device->last_position = 0;
+ 
+ 
++	/* LibXenon 30966e0 corrected this field from bytes-1 to bytes.
++	 * SiS7012 in intel8x0 likewise uses literal byte counts. This remains
++	 * source evidence, not a hardware measurement on this console. */
+ 	for (i=0; i < 32; i++) {
+ 		device->descr_base_virt[i*2] =
+ 			bswap32(runtime->dma_addr + device->descr_bytes * i);
+ 		device->descr_base_virt[i*2 + 1] =
+-			bswap32(0x80000000 | (device->descr_bytes - 1));
+-	}
+-	device->descr_base_virt[31*2 + 1] =
+-		bswap32(0x80000000 | (device->descr_bytes - 1 - device->gap));
++			bswap32(0x80000000 | device->descr_bytes);
++	}
+ 	/* Publish coherent samples and descriptors before handing them to DMA. */
+ 	dma_wmb();
+ 

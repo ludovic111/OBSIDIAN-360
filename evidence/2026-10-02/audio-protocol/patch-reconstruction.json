@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "apply_code": 0,
+  "driver_sha256": "85406d130aa047b9ae06f4cab8b3fd244c959431b040acd9b503e3a52bc84087",
+  "stdout": "patching file 'sound/pci/snd-xenon.c'\n"
+}

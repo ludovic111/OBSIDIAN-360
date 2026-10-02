@@ -1,0 +1,44 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/build'
+  GEN     Makefile
+#
+# No change to .config
+#
+  GEN     Makefile
+  UPD     include/generated/compile.h
+  CALL    /src/scripts/checksyscalls.sh
+  CC      init/version.o
+  AR      init/built-in.a
+  AR      built-in.a
+  AR      vmlinux.a
+  LD      vmlinux.o
+make[4]: Warning: File 'vmlinux.o' has modification time 0.00046 s in the future
+  GEN     .vmlinux.objs
+  MODPOST vmlinux.symvers
+make[4]: warning:  Clock skew detected.  Your build may be incomplete.
+  UPD     include/generated/utsversion.h
+  CC      init/version-timestamp.o
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD      .tmp_vmlinux1
+  NM      .tmp_vmlinux1.syms
+  KSYMS   .tmp_vmlinux1.kallsyms.S
+  AS      .tmp_vmlinux1.kallsyms.o
+  LD      .tmp_vmlinux2
+  NM      .tmp_vmlinux2.syms
+  KSYMS   .tmp_vmlinux2.kallsyms.S
+  AS      .tmp_vmlinux2.kallsyms.o
+  LD      vmlinux.unstripped
+  NM      System.map
+  SORTTAB vmlinux.unstripped
+make[5]: Nothing to be done for 'vmlinux.unstripped'.
+make[5]: Warning: File 'vmlinux.unstripped' has modification time 0.0026 s in the future
+make[5]: warning:  Clock skew detected.  Your build may be incomplete.
+  OBJCOPY vmlinux
+  GEN     modules.builtin.modinfo
+  GEN     modules.builtin
+  GEN     Makefile
+  CALL    /src/scripts/checksyscalls.sh
+  MODPOST Module.symvers
+make[1]: Leaving directory '/build'
+make: Leaving directory '/src'

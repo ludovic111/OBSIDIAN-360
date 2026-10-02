@@ -1,5 +1,12 @@
 # État courant — 2 octobre 2026
 
+## Longueurs audio corrigées et protocole à vérifier — E62
+
+Le correctif 0014 adopte les longueurs en octets exacts, appuyées par un correctif LibXenon de 2010 et le pilote SiS ALSA. Les 16 384 descripteurs testés sur 512 tailles ont des longueurs alignées ; quinze scénarios de l'adaptateur et vingt de ressources repassent. Noyau audio-bytes + 70 modules vérifiés, construction finale sans avertissement sur un volume Linux après deux incidents d'horodatage Mac/Linux.
+
+La correspondance de registres SiS est une hypothèse étayée par le code, pas une mesure Xbox. La référence distingue fin d'accès mémoire et fin de sortie sonore ; statut mémorisé/acquittement et FIFO restent à résoudre avant activation. Voir `docs/AUDIO-REGISTER-HYPOTHESIS.md`. Dernier état vivant inchangé : E61.
+
+
 ## Adaptateur audio candidat — E60 ; contrôle vivant E61
 
 Le correctif 0013 relie la file aux engagements ALSA, au drain et aux resets ; `.pointer` ne touche plus aux registres. Quinze scénarios de callbacks, vingt de ressources et la régression complète de la file passent hors console. La fin du dernier descripteur reste non décodée : le test de stagnation produit un XRUN, aucun succès audio revendiqué. Voir `docs/AUDIO-ALSA-ADAPTER.md` ; aucun chargement.
@@ -172,3 +179,5 @@ Publication E55/E56 vérifiée à 2026-10-02T09:45:58.581719+00:00 : commit publ
 Publication E57/E58 vérifiée à 2026-10-02T10:19:25.216637+00:00 : commit public `987fea14abdeb6059b4b8d4a6b1215345cefabbe`, 312 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/poll-publication.json`. Noyau audio-poll compilé, non installé ; soumission encore à corriger.
 
 Publication E59 vérifiée à 2026-10-02T10:36:04.104109+00:00 : commit public `3a98dcf5b0977a33251748255f186c25cfcf2da0`, 324 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/queue-publication.json`. File PCM testée et liée pour PowerPC, non intégrée au pilote et non chargée.
+
+Publication E60/E61 vérifiée à 2026-10-02T10:58:31.472464+00:00 : commit public `f8989261de3589ec3b3c3276b9e4ef66646795f3`, 342 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/adapter-publication.json`. Noyau audio-submit compilé, non installé ; fin du dernier descripteur toujours non décodée.

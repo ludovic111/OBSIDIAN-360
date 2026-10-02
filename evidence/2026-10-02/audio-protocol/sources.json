@@ -1,0 +1,104 @@
+{
+  "recorded_at": "2026-10-02T11:11:48.184623+00:00",
+  "libxenon_current": "a333adef440f28b436a667be0a4f014afce6349d",
+  "kernel": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "history": [
+    {
+      "commit": "11190513a471c1a833ed797e92b67c770a7dc75f",
+      "date": "2009-08-28T17:24:12Z",
+      "summary": "add sound driver",
+      "url": "https://github.com/Free60Project/libxenon/commit/11190513a471c1a833ed797e92b67c770a7dc75f",
+      "patches": [
+        {
+          "path": "libxenon/drivers/xenon_sound/sound.c",
+          "patch_sha256": "9543b36a0ef298c156d49a0a717a1fe47b52e9b941231d62d609420d84d3d9e8"
+        },
+        {
+          "path": "libxenon/drivers/xenon_sound/sound.h",
+          "patch_sha256": "b7a780e9f12e4f44d3b1be4594334a890844a8a8d9e09a2af276eef39ea21120"
+        }
+      ]
+    },
+    {
+      "commit": "30966e043f4b1e488967142bafb680286552d77f",
+      "date": "2010-12-15T20:02:27Z",
+      "summary": "sound: fixed a glitch that generated some noise",
+      "url": "https://github.com/Free60Project/libxenon/commit/30966e043f4b1e488967142bafb680286552d77f",
+      "patches": [
+        {
+          "path": "libxenon/drivers/xenon_sound/sound.c",
+          "patch_sha256": "600ace3e80941c46b3d92719345d77638f66b11d3e83700ff1b389224a7308aa"
+        }
+      ]
+    },
+    {
+      "commit": "34dd21465b6b9ee7ac747bb2723d8a402d299a03",
+      "date": "2012-08-29T19:28:32Z",
+      "summary": "sound: working around an odd buffer problem + cleanups",
+      "url": "https://github.com/Free60Project/libxenon/commit/34dd21465b6b9ee7ac747bb2723d8a402d299a03",
+      "patches": [
+        {
+          "path": "libxenon/drivers/xenon_sound/sound.c",
+          "patch_sha256": "9d6f389330c2e70413353c940dcdd412f1c95a2e80f0b773cfc1bb303fc2698c"
+        }
+      ]
+    },
+    {
+      "commit": "465b7e0e97de9947576f8e7a2e24242f0b687684",
+      "date": "2009-08-31T22:18:18Z",
+      "summary": "add xenon_sound_get_unplayed",
+      "url": "https://github.com/Free60Project/libxenon/commit/465b7e0e97de9947576f8e7a2e24242f0b687684",
+      "patches": [
+        {
+          "path": "libxenon/drivers/xenon_sound/sound.c",
+          "patch_sha256": "996cc72f718774f4665f88380c6c2331940ca481595b99818dd514e96cb94a99"
+        },
+        {
+          "path": "libxenon/drivers/xenon_sound/sound.h",
+          "patch_sha256": "3ef048b3234f129d5db0b8692d30128f5773ac0dc308ff6a9ef651e4d2efb05f"
+        }
+      ]
+    },
+    {
+      "commit": "80cc0f2bcaac4827152eb4dd323cbd34cbeaeb39",
+      "date": "2011-06-25T20:43:35Z",
+      "summary": "sound: fixed a glitch",
+      "url": "https://github.com/Free60Project/libxenon/commit/80cc0f2bcaac4827152eb4dd323cbd34cbeaeb39",
+      "patches": [
+        {
+          "path": "libxenon/drivers/xenon_sound/sound.c",
+          "patch_sha256": "de0f36026dbb8f1c30d51f7c1460793f70d9cefd09280c401325efebd617cf12"
+        }
+      ]
+    },
+    {
+      "commit": "db3e1530313a255d47f0066e92f90dd35f38a3e4",
+      "date": "2012-06-24T12:49:44Z",
+      "summary": "fix some sound issues",
+      "url": "https://github.com/Free60Project/libxenon/commit/db3e1530313a255d47f0066e92f90dd35f38a3e4",
+      "patches": [
+        {
+          "path": "libxenon/drivers/xenon_sound/sound.c",
+          "patch_sha256": "91135bdb7b8614e6f021a4239287d436bc8581f3b1558c5fa072e64044545ea5"
+        }
+      ]
+    }
+  ],
+  "intel_reference": {
+    "url": "https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/82801db-io-controller-hub-4-datasheet.pdf",
+    "sections": [
+      "14.2.4",
+      "14.2.5",
+      "14.2.7"
+    ],
+    "rendered_pdf_pages_zero_based": [
+      483,
+      485
+    ],
+    "scope": "Reference family, not evidence of actual Xbox register behavior."
+  },
+  "sources": {
+    "research/patches/0014-xenon-audio-byte-count.patch": "97a7a69cec279c6cb9be8229af50f0c631f5a77adede7c0fc6501cff9435f1e1",
+    "research/tests/check-audio-descriptors.py": "159b2614fffd3b934a6dba6e7420aa3246aa26087168ac73b2bda332c24a81e8"
+  }
+}

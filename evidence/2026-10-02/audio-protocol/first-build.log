@@ -1,0 +1,125 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/build'
+  GEN     Makefile
+#
+# No change to .config
+#
+  GEN     Makefile
+  UPD     include/config/kernel.release
+  UPD     include/generated/compile.h
+  UPD     include/generated/utsrelease.h
+  CALL    /src/scripts/checksyscalls.sh
+  CC      init/version.o
+  AR      init/built-in.a
+  CC      kernel/sys.o
+  CC      kernel/module/main.o
+  AR      kernel/module/built-in.a
+  AR      kernel/built-in.a
+  CC      drivers/base/firmware_loader/main.o
+  AR      drivers/base/firmware_loader/built-in.a
+  AR      drivers/base/built-in.a
+  AR      drivers/built-in.a
+  AR      built-in.a
+  AR      vmlinux.a
+  LD      vmlinux.o
+  GEN     .vmlinux.objs
+  MODPOST vmlinux.symvers
+  UPD     include/generated/utsversion.h
+  CC      init/version-timestamp.o
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD      .tmp_vmlinux1
+  NM      .tmp_vmlinux1.syms
+  KSYMS   .tmp_vmlinux1.kallsyms.S
+  AS      .tmp_vmlinux1.kallsyms.o
+  LD      .tmp_vmlinux2
+  NM      .tmp_vmlinux2.syms
+  KSYMS   .tmp_vmlinux2.kallsyms.S
+  AS      .tmp_vmlinux2.kallsyms.o
+  LD      vmlinux.unstripped
+  NM      System.map
+  SORTTAB vmlinux.unstripped
+make[5]: Nothing to be done for 'vmlinux.unstripped'.
+make[5]: Warning: File 'vmlinux.unstripped' has modification time 0.0016 s in the future
+make[5]: warning:  Clock skew detected.  Your build may be incomplete.
+  OBJCOPY vmlinux
+  GEN     modules.builtin.modinfo
+  GEN     modules.builtin
+  GEN     Makefile
+  CALL    /src/scripts/checksyscalls.sh
+  CC [M]  sound/pci/snd-xenon.o
+  MODPOST Module.symvers
+  CC [M]  .module-common.o
+  CC [M]  sound/pci/snd-xenon.mod.o
+  LD [M]  fs/nls/nls_ucs2_utils.ko
+  LD [M]  fs/netfs/netfs.ko
+  LD [M]  fs/exfat/exfat.ko
+  LD [M]  fs/isofs/isofs.ko
+  LD [M]  fs/hfsplus/hfsplus.ko
+  LD [M]  fs/hfs/hfs.ko
+  LD [M]  fs/nfsd/nfsd.ko
+  LD [M]  fs/smb/common/cifs_md4.ko
+  LD [M]  fs/smb/client/cifs.ko
+  LD [M]  fs/smb/server/ksmbd.ko
+  LD [M]  fs/ntfs3/ntfs3.ko
+  LD [M]  fs/autofs/autofs4.ko
+  LD [M]  fs/fuse/fuse.ko
+  LD [M]  fs/udf/udf.ko
+  LD [M]  fs/xfs/xfs.ko
+  LD [M]  fs/btrfs/btrfs.ko
+  LD [M]  crypto/geniv.ko
+  LD [M]  crypto/echainiv.ko
+  LD [M]  crypto/cmac.ko
+  LD [M]  crypto/hmac.ko
+  LD [M]  crypto/sha256.ko
+  LD [M]  crypto/sha512.ko
+  LD [M]  crypto/sha3_generic.ko
+  LD [M]  crypto/blake2b_generic.ko
+  LD [M]  crypto/ctr.ko
+  LD [M]  crypto/gcm.ko
+  LD [M]  crypto/ccm.ko
+  LD [M]  crypto/crc32c-cryptoapi.ko
+  LD [M]  crypto/xxhash_generic.ko
+  LD [M]  crypto/ansi_cprng.ko
+  LD [M]  crypto/drbg.ko
+  LD [M]  crypto/jitterentropy_rng.ko
+  LD [M]  crypto/ghash-generic.ko
+  LD [M]  crypto/xor.ko
+  LD [M]  lib/crc/crc-itu-t.ko
+  LD [M]  lib/crypto/libarc4.ko
+  LD [M]  lib/crypto/gf128mul.ko
+  LD [M]  lib/crypto/libsha512.ko
+  LD [M]  lib/lz4/lz4_compress.ko
+  LD [M]  lib/lz4/lz4hc_compress.ko
+  LD [M]  lib/zstd/zstd_compress.ko
+  LD [M]  lib/842/842_compress.ko
+  LD [M]  lib/842/842_decompress.ko
+  LD [M]  lib/raid6/raid6_pq.ko
+  LD [M]  lib/asn1_decoder.ko
+  LD [M]  drivers/block/nbd.ko
+  LD [M]  drivers/block/zram/zram.ko
+  LD [M]  drivers/usb/class/cdc-acm.ko
+  LD [M]  drivers/usb/serial/usbserial.ko
+  LD [M]  drivers/usb/serial/ftdi_sio.ko
+  LD [M]  drivers/usb/serial/pl2303.ko
+  LD [M]  drivers/usb/usbip/usbip-core.ko
+  LD [M]  drivers/usb/usbip/vhci-hcd.ko
+  LD [M]  drivers/usb/usbip/usbip-host.ko
+  LD [M]  drivers/input/joystick/xpad.ko
+  LD [M]  drivers/input/misc/uinput.ko
+  LD [M]  drivers/input/joydev.ko
+  LD [M]  drivers/input/evdev.ko
+  LD [M]  drivers/i2c/busses/i2c-sis96x.ko
+  LD [M]  drivers/hid/hid-a4tech.ko
+  LD [M]  drivers/hid/hid-cherry.ko
+  LD [M]  drivers/hid/hid-gyration.ko
+  LD [M]  drivers/hid/hid-nintendo.ko
+  LD [M]  drivers/hid/hid-wiimote.ko
+  LD [M]  drivers/connector/cn.ko
+  LD [M]  sound/soundcore.ko
+  LD [M]  sound/core/snd.ko
+  LD [M]  sound/core/snd-timer.ko
+  LD [M]  sound/core/snd-pcm.ko
+  LD [M]  sound/pci/snd-xenon.ko
+make[1]: Leaving directory '/build'
+make: Leaving directory '/src'
