@@ -1,0 +1,72 @@
+{
+  "utc": "2026-10-02T07:47:08.956266+00:00",
+  "scope": "Native host architecture, isolated Xvfb, IceWM 4.0.0, actual launcher/XTest class",
+  "version": {
+    "code": 0,
+    "stdout": "IceWM 4.0.0, Copyright 1997-2012 Marko Macek, 2001 Mathias Hasselmann.\n",
+    "stderr": ""
+  },
+  "cases": [
+    {
+      "opaque": 0,
+      "before": {
+        "WINDOW": 4194353,
+        "X": 26,
+        "Y": 46,
+        "WIDTH": 1240,
+        "HEIGHT": 640,
+        "SCREEN": 0
+      },
+      "after": {
+        "WINDOW": 4194353,
+        "X": 26,
+        "Y": 46,
+        "WIDTH": 1240,
+        "HEIGHT": 640,
+        "SCREEN": 0
+      },
+      "injection": {
+        "code": 0,
+        "stdout": "{\"pressed\": true}\n{\"release_request_sent\": true}\n{\"roundtrip_after_release\": true}\n",
+        "stderr": ""
+      },
+      "observer_responsive": true,
+      "observer_timeout": false,
+      "launcher_running": true,
+      "wm_running": true,
+      "state_present": true,
+      "process_log": "IceWM: Warning: Failed to load theme icedesert/default.theme: No such file or directory\nIceWM: Warning: Failed to load theme icedesert/default.theme: No such file or directory\nIceWM: Warning: Could not load font \"Sans Mono:monospace:size=12DejaVu Sans:size=12\".\n"
+    },
+    {
+      "opaque": 1,
+      "before": {
+        "WINDOW": 4194353,
+        "X": 26,
+        "Y": 46,
+        "WIDTH": 1240,
+        "HEIGHT": 640,
+        "SCREEN": 0
+      },
+      "after": {
+        "WINDOW": 4194353,
+        "X": 26,
+        "Y": 46,
+        "WIDTH": 1240,
+        "HEIGHT": 640,
+        "SCREEN": 0
+      },
+      "injection": {
+        "code": 0,
+        "stdout": "{\"pressed\": true}\n{\"release_request_sent\": true}\n{\"roundtrip_after_release\": true}\n",
+        "stderr": ""
+      },
+      "observer_responsive": true,
+      "observer_timeout": false,
+      "launcher_running": true,
+      "wm_running": true,
+      "state_present": true,
+      "process_log": "IceWM: Warning: Failed to load theme icedesert/default.theme: No such file or directory\nIceWM: Warning: Failed to load theme icedesert/default.theme: No such file or directory\nIceWM: Warning: Could not load font \"Sans Mono:monospace:size=12DejaVu Sans:size=12\".\n"
+    }
+  ],
+  "passed": false
+}

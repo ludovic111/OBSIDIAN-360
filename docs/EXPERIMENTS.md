@@ -54,12 +54,12 @@
 | E40 | Préparer un export public, auditer fichiers et objets Git, créer GitHub et contrôler son arbre | 187 fichiers ; MAC masquée dans deux relevés ; 17 chemins exclus ; commit f9da49e sans parent et arbre distant conforme | Historique local non poussé ; publication/verification.json ; refaire audit pour chaque mise à jour |
 | E41 | Confronter le format XEX2 aux sources primaires et écrire un parseur Rust borné | Dix tests, 10 000 mutations et neuf cas CLI passent ; aucune lecture des zones opaques instrumentées ; evidence/2026-10-02/xex-inspect | Aucun vrai jeu testé ; pas de décryption, authentification ou exécution ; console non sollicitée |
 | E42 | Automatiser le contrôle des fichiers publics et de l'historique Git | Cinq cas synthétiques passent, y compris marqueur retiré du fichier courant mais conservé dans un ancien commit | Audit à exécuter avant commit et push ; scanner de motifs non exhaustif ; export game-analysis désormais inclus |
-
 | E43 | Contrôle vivant après neuf heures et observation du lanceur pendant douze secondes | obsidian4, IceWM, zéro unité en échec ; compteurs E/S et fichier manette inchangés | Fonctionnement prolongé, pas test de charge ; aucune économie d’écriture mesurée ; état du lanceur à diagnostiquer |
 | E44 | CD musical inséré par utilisateur ; ioctl CDROM standard et échantillons audio | 20 pistes ; trois secteurs éloignés lus et premier relu avec SHA-256 identique ; optical-cd/ | CD partiellement lisible démontré ; DVD/jeux, lecture intégrale et sortie audio non vérifiés |
-
 | E45 | Just Cause 2 inséré ; lecture standard puis TEST UNIT READY borné | Statut 1, EIO ; CHECK CONDITION, sense 02/3a/00 ; optical-game/ | Aucun support reconnu ; CD lisible mais DVD/jeu non lu ; pas de diagnostic définitif du laser |
 | E46 | Diagnostiquer le gel signalé lors du redimensionnement et récupérer les processus graphiques | Relance IceWM forcée rétablit XRandR ; OpaqueMove/Resize à 1, lanceur relancé sans reboot ; desktop-recovery/ | Cause cohérente avec XGrabServer dans le code ; nouvel essai manette demandé, pas encore validé |
+
+| E47 | Recompiler IceWM 4.0.0 et comparer deux redimensionnements XTest sur Xvfb isolé | Ancien mode : deux clients bloqués ; mode direct : 1240×640 → 1180×600 avec réponses ; desktop-resize-regression/ | Premier essai sans vrai redimensionnement rejeté ; mécanisme reproduit hors console, validation physique encore attendue |
 
 ## Analyse de l’incident E10
 

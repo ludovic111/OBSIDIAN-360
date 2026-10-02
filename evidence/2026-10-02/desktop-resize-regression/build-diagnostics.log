@@ -1,0 +1,105 @@
+Setting up libimlib2-dev (1.10.0-4+deb12u1) ...
+Processing triggers for libc-bin (2.36-9+deb12u14) ...
+Processing triggers for libgdk-pixbuf-2.0-0:arm64 (2.42.10+dfsg-1+deb12u4) ...
+ ---> Removed intermediate container 6328f96fca54
+ ---> 48de7c201f25
+Step 3/5 : COPY icewm-source.tar.gz /tmp/icewm-source.tar.gz
+ ---> ba897cf8a257
+Step 4/5 : RUN echo 'bf5bae7f4a00bd3a561507a5de34b95d45dd28a17f04fa6cdfee17d331a3ad43  /tmp/icewm-source.tar.gz' | sha256sum -c -     && mkdir /src && tar -xzf /tmp/icewm-source.tar.gz -C /src --strip-components=1     && cmake -S /src -B /build -DCMAKE_BUILD_TYPE=Release -DENABLE_NLS=OFF     && cmake --build /build --target icewm -j4     && mkdir -p /opt/icewm && cp /build/icewm /opt/icewm/icewm     && dpkg-query -W > /opt/icewm/packages.txt
+ ---> Running in 98fa77a11a7c
+/tmp/icewm-source.tar.gz: OK
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Could NOT find Git (missing: GIT_EXECUTABLE) 
+-- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") 
+-- Performing Test CXX_VHI
+-- Performing Test CXX_VHI - Success
+-- Performing Test CXX_VIHI
+-- Performing Test CXX_VIHI - Success
+-- Performing Test HAS_FALLTHROUGH_OPTION
+-- Performing Test HAS_FALLTHROUGH_OPTION - Success
+-- Found Intl: built in to C library  
+-- Looking for backtrace_symbols_fd
+-- Looking for backtrace_symbols_fd - found
+-- Looking for memrchr
+-- Looking for memrchr - found
+-- Looking for strlcat
+-- Looking for strlcat - not found
+-- Looking for strlcpy
+-- Looking for strlcpy - not found
+-- Looking for sysctl
+-- Looking for sysctl - not found
+-- Looking for sysctlbyname
+-- Looking for sysctlbyname - not found
+-- Looking for arc4random_uniform
+-- Looking for arc4random_uniform - found
+-- Looking for C++ include execinfo.h
+-- Looking for C++ include execinfo.h - found
+-- Looking for C++ include sched.h
+-- Looking for C++ include sched.h - found
+-- Looking for C++ include sys/sched.h
+-- Looking for C++ include sys/sched.h - not found
+-- Looking for C++ include sys/sysctl.h
+-- Looking for C++ include sys/sysctl.h - not found
+-- Looking for C++ include uvm/uvm_param.h
+-- Looking for C++ include uvm/uvm_param.h - not found
+-- Checking for module 'fontconfig'
+--   Found fontconfig, version 2.14.1
+-- Checking for module 'xrender'
+--   Found xrender, version 0.9.10
+-- Checking for module 'xcomposite'
+--   Found xcomposite, version 0.4.5
+-- Checking for module 'xcursor'
+--   Found xcursor, version 1.2.1
+-- Checking for module 'xdamage'
+--   Found xdamage, version 1.1.6
+-- Checking for module 'xfixes'
+--   Found xfixes, version 6.0.0
+[ 34%] Building CXX object src/CMakeFiles/itk.dir/wpixres.cc.o
+[ 34%] Building CXX object src/CMakeFiles/ice.dir/yimage_gdk.cc.o
+[ 37%] Building CXX object src/CMakeFiles/ice.dir/yximage.cc.o
+[ 37%] Building CXX object src/CMakeFiles/ice.dir/ycolor.cc.o
+[ 37%] Building CXX object src/CMakeFiles/ice.dir/ytooltip.cc.o
+[ 40%] Building CXX object src/CMakeFiles/ice.dir/ylocale.cc.o
+[ 40%] Building CXX object src/CMakeFiles/ice.dir/yarray.cc.o
+[ 40%] Building CXX object src/CMakeFiles/ice.dir/yfileio.cc.o
+[ 43%] Building CXX object src/CMakeFiles/ice.dir/ytime.cc.o
+[ 43%] Building CXX object src/CMakeFiles/ice.dir/ystring.cc.o
+[ 43%] Building CXX object src/CMakeFiles/ice.dir/mstring.cc.o
+[ 46%] Building CXX object src/CMakeFiles/ice.dir/ref.cc.o
+[ 46%] Building CXX object src/CMakeFiles/ice.dir/keysyms.cc.o
+[ 46%] Building CXX object src/CMakeFiles/ice.dir/wmkey.cc.o
+[ 50%] Building CXX object src/CMakeFiles/ice.dir/logevent.cc.o
+[ 50%] Building CXX object src/CMakeFiles/ice.dir/misc.cc.o
+[ 50%] Building CXX object src/CMakeFiles/ice.dir/yfontxft.cc.o
+[ 50%] Linking CXX static library ../libitk.a
+[ 50%] Built target itk
+[ 53%] Linking CXX static library ../libice.a
+[ 53%] Built target ice
+[ 53%] Building CXX object src/CMakeFiles/icewm.dir/ydialog.cc.o
+[ 56%] Building CXX object src/CMakeFiles/icewm.dir/yurl.cc.o
+[ 56%] Building CXX object src/CMakeFiles/icewm.dir/wmsession.cc.o
+[ 56%] Building CXX object src/CMakeFiles/icewm.dir/ymsgbox.cc.o
+[ 56%] Building CXX object src/CMakeFiles/icewm.dir/wmwinlist.cc.o
+[ 59%] Building CXX object src/CMakeFiles/icewm.dir/wmtaskbar.cc.o
+[ 59%] Building CXX object src/CMakeFiles/icewm.dir/wmwinmenu.cc.o
+[ 59%] Building CXX object src/CMakeFiles/icewm.dir/wmdialog.cc.o
+[ 62%] Building CXX object src/CMakeFiles/icewm.dir/wmabout.cc.o
+[ 62%] Building CXX object src/CMakeFiles/icewm.dir/wmswitch.cc.o
+[ 62%] Building CXX object src/CMakeFiles/icewm.dir/wmstatus.cc.o
+[ 65%] Building CXX object src/CMakeFiles/icewm.dir/wmoption.cc.o
+[ 65%] Building CXX object src/CMakeFiles/icewm.dir/wmcontainer.cc.o
+[ 65%] Building CXX object src/CMakeFiles/icewm.dir/wmclient.cc.o
+[ 68%] Building CXX object src/CMakeFiles/icewm.dir/wmmgr.cc.o
+[ 68%] Building CXX object src/CMakeFiles/icewm.dir/wmapp.cc.o
+[ 68%] Building CXX object src/CMakeFiles/icewm.dir/wmframe.cc.o
+[ 71%] Building CXX object src/CMakeFiles/icewm.dir/wmbutton.cc.o
+[ 71%] Building CXX object src/CMakeFiles/icewm.dir/wmminiicon.cc.o
+[ 71%] Building CXX object src/CMakeFiles/icewm.dir/wmtitle.cc.o
+[ 71%] Building CXX object src/CMakeFiles/icewm.dir/movesize.cc.o
+[ 75%] Building CXX object src/CMakeFiles/icewm.dir/themes.cc.o
+[ 75%] Building CXX object src/CMakeFiles/icewm.dir/theminst.cc.o

@@ -1,6 +1,6 @@
 {
   "scope": "Reviewed public text snapshot; original local history is not included.",
-  "source_commit": "2f64de1b4eb66dbd3b9229c38481e9761822e45e",
+  "source_commit": "9ef3bc9494093eaf3c2cc30e3434b89396c9ae87",
   "files": [
     {
       "path": ".gitattributes",
@@ -124,20 +124,26 @@
     },
     {
       "path": "docs/DESKTOP-RESIZE-RECOVERY.md",
-      "source_sha256": "1cedf2b5628ade44693b9a0b34d6d10f25f1c8c4c51366fecdd5c7e4528fec03",
-      "public_sha256": "1cedf2b5628ade44693b9a0b34d6d10f25f1c8c4c51366fecdd5c7e4528fec03",
+      "source_sha256": "e8b8c43fc1a7a135583590f54dc551c70ff6cb10fa03d71f53bb3d1b76f25851",
+      "public_sha256": "e8b8c43fc1a7a135583590f54dc551c70ff6cb10fa03d71f53bb3d1b76f25851",
+      "sanitized": false
+    },
+    {
+      "path": "docs/DESKTOP-TESTING.md",
+      "source_sha256": "1b4653e689775a5710a24379557fd0baaae68c4661194935099bf594c31b1652",
+      "public_sha256": "1b4653e689775a5710a24379557fd0baaae68c4661194935099bf594c31b1652",
       "sanitized": false
     },
     {
       "path": "docs/EXPERIMENTS.md",
-      "source_sha256": "5305e18d3a009718e503ca52ee9d99ee644e283b32368d1692da06d5343cbd0e",
-      "public_sha256": "5305e18d3a009718e503ca52ee9d99ee644e283b32368d1692da06d5343cbd0e",
+      "source_sha256": "29b4499d7d6f8bbdc277374f6c3ec87c452fd9035be224434d9cf44af4afa545",
+      "public_sha256": "29b4499d7d6f8bbdc277374f6c3ec87c452fd9035be224434d9cf44af4afa545",
       "sanitized": false
     },
     {
       "path": "docs/JOURNAL.md",
-      "source_sha256": "3b18c0fda71efb0833a2b3c0c5c2b4bc6e89805af195f588cf5c76cf7cbc524b",
-      "public_sha256": "3b18c0fda71efb0833a2b3c0c5c2b4bc6e89805af195f588cf5c76cf7cbc524b",
+      "source_sha256": "f2b75d774e4419bdaa5f5dc9a2132e52a1757b5b7ed25ce5f1acfb0c65302a9b",
+      "public_sha256": "f2b75d774e4419bdaa5f5dc9a2132e52a1757b5b7ed25ce5f1acfb0c65302a9b",
       "sanitized": false
     },
     {
@@ -196,8 +202,8 @@
     },
     {
       "path": "docs/PUBLICATION.md",
-      "source_sha256": "bccb993321a0f34af0d8bc220fbd03b7faf67a9eb4cb5a4effaefbe9ce96fa6d",
-      "public_sha256": "bccb993321a0f34af0d8bc220fbd03b7faf67a9eb4cb5a4effaefbe9ce96fa6d",
+      "source_sha256": "08511ad69325d83570e7ada8f6c8ffe143784d6ea21fc366e038e17f131c1232",
+      "public_sha256": "08511ad69325d83570e7ada8f6c8ffe143784d6ea21fc366e038e17f131c1232",
       "sanitized": false
     },
     {
@@ -226,8 +232,8 @@
     },
     {
       "path": "docs/STATE.md",
-      "source_sha256": "b8d38d91be472ebe9d121ea7d2c6b2bb86065aab383b1fac66fd19149949a50a",
-      "public_sha256": "b8d38d91be472ebe9d121ea7d2c6b2bb86065aab383b1fac66fd19149949a50a",
+      "source_sha256": "941420038834ff1971e372712eaef583943cb1e8b46813c680f7208b8d3084f0",
+      "public_sha256": "941420038834ff1971e372712eaef583943cb1e8b46813c680f7208b8d3084f0",
       "sanitized": false
     },
     {
@@ -975,6 +981,30 @@
       "sanitized": false
     },
     {
+      "path": "evidence/2026-10-02/desktop-resize-regression/build-diagnostics.log",
+      "source_sha256": "766f6b1a9f4b7ca903b31001270bfb655c83af2b5a36c51c8409a20dd5816946",
+      "public_sha256": "766f6b1a9f4b7ca903b31001270bfb655c83af2b5a36c51c8409a20dd5816946",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/desktop-resize-regression/environment.json",
+      "source_sha256": "b7d1800d1743a9abb48df55122a74950018d7db0143a109117f8a439ee6dc02b",
+      "public_sha256": "b7d1800d1743a9abb48df55122a74950018d7db0143a109117f8a439ee6dc02b",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/desktop-resize-regression/first-attempt.json",
+      "source_sha256": "c1bdf806a53dba4ff0b188aa916f14561c292dd486094d5be14b5a3181794897",
+      "public_sha256": "c1bdf806a53dba4ff0b188aa916f14561c292dd486094d5be14b5a3181794897",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/desktop-resize-regression/validation.json",
+      "source_sha256": "3152d717e8ac1554fd4cf6a8d95ec504f62fae28878538df283e2898e32c4f46",
+      "public_sha256": "3152d717e8ac1554fd4cf6a8d95ec504f62fae28878538df283e2898e32c4f46",
+      "sanitized": false
+    },
+    {
       "path": "evidence/2026-10-02/long-run/health.json",
       "source_sha256": "d9005641e2bcb60adf3ddd6e7d1ab6572c84154c85586b2e2ccebf4af6234113",
       "public_sha256": "d9005641e2bcb60adf3ddd6e7d1ab6572c84154c85586b2e2ccebf4af6234113",
@@ -1014,6 +1044,12 @@
       "path": "evidence/2026-10-02/optical-game/method.json",
       "source_sha256": "89c3bc14cdd16c06af27eb8ce4f7fd4ae784ae0e135b87ed537eec3612373e28",
       "public_sha256": "89c3bc14cdd16c06af27eb8ce4f7fd4ae784ae0e135b87ed537eec3612373e28",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/public-audit/optical-publication.json",
+      "source_sha256": "3ee635e9d0c3ca6590e2936916a8d63b0675d46a2c8bcc40953586284225935d",
+      "public_sha256": "3ee635e9d0c3ca6590e2936916a8d63b0675d46a2c8bcc40953586284225935d",
       "sanitized": false
     },
     {
@@ -1080,6 +1116,12 @@
       "path": "game-analysis/xex-inspect/tests/structural.rs",
       "source_sha256": "b6a5485ca7841f3a438a6ad434615219e3bec8de0b9068f864599789578831aa",
       "public_sha256": "b6a5485ca7841f3a438a6ad434615219e3bec8de0b9068f864599789578831aa",
+      "sanitized": false
+    },
+    {
+      "path": "research/Dockerfile.desktop-test",
+      "source_sha256": "3ee1d164d5c61389ab07f1c6c2a641aebfe91d1917ba0e9c5953eef37ffbdf52",
+      "public_sha256": "3ee1d164d5c61389ab07f1c6c2a641aebfe91d1917ba0e9c5953eef37ffbdf52",
       "sanitized": false
     },
     {
@@ -1152,6 +1194,12 @@
       "path": "research/tests/README.md",
       "source_sha256": "86dd123de988869f645b72499ab4ba44ad761fd700bd7c5fd7662e9bc933d99a",
       "public_sha256": "86dd123de988869f645b72499ab4ba44ad761fd700bd7c5fd7662e9bc933d99a",
+      "sanitized": false
+    },
+    {
+      "path": "research/tests/check-desktop-resize.py",
+      "source_sha256": "1fd24a9c84b7e5bffec8f856f81b405247397d7de32ced227ff7fef805c4db21",
+      "public_sha256": "1fd24a9c84b7e5bffec8f856f81b405247397d7de32ced227ff7fef805c4db21",
       "sanitized": false
     },
     {

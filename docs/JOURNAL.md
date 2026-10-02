@@ -75,3 +75,14 @@ Publication E41/E42 vérifiée à 2026-10-02T07:14:53.060765+00:00 : commit publ
 - Résultat : OpaqueMove/Resize activés avec sauvegarde des préférences ; manette rouverte par le lanceur. Cinq tests synthétiques de sense passent.
 - Interprétation : mécanisme XGrabServer cohérent avec le code et les symptômes ; pas encore reproduction contrôlée ni confirmation manuelle du correctif. Différence CD/DVD réelle, pièce fautive encore inconnue.
 - Suite : utilisateur invité à redimensionner de nouveau ; besoin d’un DVD vidéo connu fonctionnel pour distinguer panne DVD et disque particulier.
+
+Publication E43–E46 vérifiée à 2026-10-02T07:41:15.538940+00:00 : commit public `ec431c9c7e114e11074628d0fb95358d1128a752`, 221 fichiers, arbre distant identique ; preuve `public-audit/optical-publication.json`. Validation manuelle du redimensionnement encore attendue.
+
+## 2026-10-02 — 07:42–07:49 UTC — E47
+
+- Objectif : dépasser l’hypothèse de blocage au redimensionnement en reproduisant le mécanisme indépendamment du matériel Xbox.
+- Action : service Docker initialement arrêté, redémarré après vérification de son état ; source IceWM 4.0.0 figée et contrôlée, compilation aarch64, deux serveurs Xvfb privés sans réseau ni socket graphique hôte.
+- Observation : l’ancien mode empêche la fin d’une requête XTest et la réponse d’un autre client. Le nouveau mode redimensionne réellement et les deux clients répondent. Le premier test, qui manquait le bord du thème, n’avait rien redimensionné et est conservé comme échec.
+- Résultat : test automatisé discriminant réussi ; aucune interaction Xbox pendant cette expérience.
+- Interprétation : preuve du mécanisme X11 et de la correction de configuration dans cet environnement. Pas une preuve de toutes les fonctions de la manette, du pilote graphique ou de la stabilité prolongée sur Xbox.
+- Suite : confirmation manuelle sur Xbox ; garder les avertissements de compilation de l’applet réseau amont comme piste distincte, sans les attribuer au gel.

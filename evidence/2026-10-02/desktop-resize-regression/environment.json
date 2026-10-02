@@ -1,0 +1,26 @@
+{
+  "captured_utc": "2026-10-02T07:51:21.042306+00:00",
+  "image": "sha256:a197a1b9fdc4c5a0990a17e9ebad3224f9cec670661cbcd26ba890468e4e19dc",
+  "base_digest": "debian@sha256:3783cc01769c7b2b1b83a5c5ad96c815348e28ed7da68e2e3687004faa906251",
+  "architecture": "aarch64",
+  "source": {
+    "commit": "5ebafddba37de22fc115d6cde43cb01cfc9ef263",
+    "archive_sha256": "bf5bae7f4a00bd3a561507a5de34b95d45dd28a17f04fa6cdfee17d331a3ad43",
+    "url": "https://codeload.github.com/ice-wm/icewm/tar.gz/5ebafddba37de22fc115d6cde43cb01cfc9ef263"
+  },
+  "packages": "cmake\t3.25.1-1\ng++\t4:12.2.0-3\nlibx11-6:arm64\t2:1.8.4-2+deb12u2\nlibxft2:arm64\t2.3.6-1\nlibxtst6:arm64\t2:1.2.3-1.1\npython3\t3.11.2-1+b1\npython3-tk:arm64\t3.11.2-3\nxvfb\t2:21.1.7-3+deb12u13\n",
+  "files_sha256": {
+    "research/Dockerfile.desktop-test": "3ee1d164d5c61389ab07f1c6c2a641aebfe91d1917ba0e9c5953eef37ffbdf52",
+    "research/tests/check-desktop-resize.py": "1fd24a9c84b7e5bffec8f856f81b405247397d7de32ced227ff7fef805c4db21",
+    "desktop/xbox_desktop.py": "7ef1a83fc6140393bd992f4cfafe121fa14f9af35c179ef8d86653ba0950dd7e"
+  },
+  "limitations": [
+    "Not PowerPC or Xbox GPU; Xvfb 21.1.7 versus console Xorg 21.1.24",
+    "EWMH bottom-right resize initiated synthetically; no physical joystick input",
+    "First attempt missed theme border and exercised no resize; rejected by size-change checks",
+    "Optional Xres, FriBidi and HTML generation unavailable in test build",
+    "Two GCC use-after-free warnings in upstream network applet string handling, not investigated; no safety conclusion",
+    "Fallback theme/font warnings retained; no claim of warning-free upstream build",
+    "APT versions recorded, not locked to a snapshot; no bit-identical build guarantee"
+  ]
+}

@@ -1,5 +1,9 @@
 # État courant — 2 octobre 2026
 
+## Régression graphique reproduite hors console
+
+E47 : deux affichages Xvfb isolés, IceWM 4.0.0 recompilé, lanceur réel du dépôt. Le redimensionnement en mode contour bloque le client XTest et un observateur indépendant ; en mode direct, la taille diminue de 1240 × 640 à 1180 × 600 et les deux clients répondent. Cause reproduite au niveau X11, pas une validation PowerPC/GPU ni un essai physique de manette. Voir `docs/DESKTOP-TESTING.md`.
+
 ## Contrôles vivants du 2 octobre
 
 E45 : Just Cause 2 inséré ; statut « pas de disque », erreur de lecture et réponse SCSI `02/3a/00` (« medium not present »). Contraste CD/DVD constaté, origine matérielle précise inconnue.
@@ -104,3 +108,5 @@ Aucun candidat installé ou démarré ; l'initramfs et l'ensemble de démarrage 
 Configuration d’accès dans `.local/ssh_config`, ignorée. La clé privée reste à son emplacement original hors dépôt. Accès root par clé uniquement.
 
 Les sauvegardes historiques sont des régions du disque interne, pas une sauvegarde de la NAND. Aucune image de flash restaurable confirmée. N’effacer aucune sauvegarde ni la récupération Linux live de la clé USB.
+
+Publication E43–E46 vérifiée à 2026-10-02T07:41:15.538940+00:00 : commit public `ec431c9c7e114e11074628d0fb95358d1128a752`, 221 fichiers, arbre distant identique ; preuve `public-audit/optical-publication.json`. Validation manuelle du redimensionnement encore attendue.
