@@ -1,0 +1,52 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--platform",
+    "linux/amd64",
+    "--network",
+    "none",
+    "-v",
+    "REPO/research/audio:/src:ro",
+    "-v",
+    "REPO/.local/audio-build/observer-output:/out",
+    "obsidian360-audio-observer:ppc32",
+    "powerpc-linux-gnu-gcc",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-static",
+    "-fno-pie",
+    "-no-pie",
+    "/src/read_status_once.c",
+    "-o",
+    "/out/read_status_once"
+  ],
+  "code": 0,
+  "stdout": "",
+  "stderr": "",
+  "captured_utc": "2026-10-02T12:03:37.476088+00:00",
+  "source_sha256": "3b72a9b59b792f8fe675d61306be61ec3983a4afc0bcfa81770b9987b84cc728",
+  "binary_sha256": "ed32405f8c7cca514a30302bfbc273597f6abd5d51dfd88e221390c2886dbb48",
+  "elf_class": 32,
+  "byte_order": "big",
+  "machine": 20,
+  "image_id": "sha256:973a53239724ae227c631b34d9dbffe231a8c07de3d3fc08fadcc686a3613f8c",
+  "main_eieio_count": 8,
+  "main_lwbrx_count": 0,
+  "reviewed_mmio_loads": {
+    "instruction": "lwz",
+    "offsets_decimal": [
+      4,
+      8,
+      20,
+      24
+    ],
+    "barriers": 8,
+    "mmio_stores": 0,
+    "endianness_conversion": "rotlwi/rlwimi after each load"
+  }
+}

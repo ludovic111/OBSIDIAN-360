@@ -1,0 +1,48 @@
+{
+  "scope": "Actual prepare, ack, START and STOP; assumed SiS W1C/RO/CR behavior with injected status, not measured Xenon behavior. No DMA, FIFO drain, electrical or hardware validation.",
+  "variants": [
+    {
+      "variant": "previous",
+      "source_sha256": "85406d130aa047b9ae06f4cab8b3fd244c959431b040acd9b503e3a52bc84087",
+      "compile": {
+        "code": 0,
+        "diagnostics": ""
+      },
+      "run": {
+        "code": 0,
+        "diagnostics": "",
+        "stdout": "{\"channels\":2,\"prefetch_values\":32,\"status_values\":32,\"transitions\":4096,\"transitions_clearing_pending_status\":3584,\"transitions_with_interrupts_enabled\":4096}",
+        "result": {
+          "channels": 2,
+          "prefetch_values": 32,
+          "status_values": 32,
+          "transitions": 4096,
+          "transitions_clearing_pending_status": 3584,
+          "transitions_with_interrupts_enabled": 4096
+        }
+      }
+    },
+    {
+      "variant": "candidate",
+      "source_sha256": "0b3630f061438991dea3bc47ecf52b661e823ffe118bd5ad77e3e28427c9de1b",
+      "compile": {
+        "code": 0,
+        "diagnostics": ""
+      },
+      "run": {
+        "code": 0,
+        "diagnostics": "",
+        "stdout": "{\"channels\":2,\"prefetch_values\":32,\"status_values\":32,\"transitions\":4096,\"transitions_clearing_pending_status\":0,\"transitions_with_interrupts_enabled\":0}",
+        "result": {
+          "channels": 2,
+          "prefetch_values": 32,
+          "status_values": 32,
+          "transitions": 4096,
+          "transitions_clearing_pending_status": 0,
+          "transitions_with_interrupts_enabled": 0
+        }
+      }
+    }
+  ],
+  "passed": true
+}

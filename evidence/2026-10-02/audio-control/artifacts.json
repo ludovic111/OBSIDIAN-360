@@ -1,0 +1,11 @@
+{
+  "scope": "New snd-xenon module only, built against existing audio-bytes kernel; not installed",
+  "sha256": "9ed4c723f68556c47e70c6c9f0f0f419cb1275685f7109c19963b52583738edb",
+  "elf_class": 64,
+  "byte_order": "big",
+  "machine": 21,
+  "vermagic": [
+    "vermagic=6.18.11-xenon-audio-bytes SMP mod_unload modversions "
+  ],
+  "build_diagnostics": []
+}

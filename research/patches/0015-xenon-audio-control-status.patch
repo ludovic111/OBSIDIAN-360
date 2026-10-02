@@ -1,0 +1,62 @@
+--- a/sound/pci/snd-xenon.c
++++ b/sound/pci/snd-xenon.c
+@@ -47,6 +47,9 @@
+ #define DESCRIPTOR_BUFFER_SIZE (32 * sizeof(u32) * 2)
+ #define XENON_POLL_NS 200000
+ #define XENON_BYTES_PER_SECOND (48000 * 2 * 2)
++#define XENON_CTL_RUN 0x01000000U
++#define XENON_CTL_IRQS 0x1c000000U
++#define XENON_STATUS_W1C 0x0000001cU
+ 
+ #define IRQ_DISABLE             0
+ #define IRQ_ENABLE              1
+@@ -114,6 +117,17 @@
+ static inline u32 bswap32(u32 t)
+ {
+ 	return ((t & 0xFF) << 24) | ((t & 0xFF00) << 8) | ((t & 0xFF0000) >> 8) | ((t & 0xFF000000) >> 24);
++}
++
++/* Under the SiS register hypothesis, SR and CR share this 32-bit word.
++ * Never echo write-one-to-clear status bits when changing RUN. Interrupt
++ * enables remain off because this candidate services streams by polling.
++ * Keep the other fields unchanged until their Xenon semantics are measured.
++ */
++static u32 snd_xenon_control_word(u32 observed, bool run)
++{
++	return (observed & ~(XENON_CTL_RUN | XENON_CTL_IRQS | XENON_STATUS_W1C)) |
++	       (run ? XENON_CTL_RUN : 0);
+ }
+ 
+ /* All callers hold chip->lock. Keep the historical descriptor-level position
+@@ -441,7 +455,10 @@
+ 	/* Rewind the channel for every prepare, not just the first open. */
+ 	writel(0x2000000, chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 	writel(device->descr_base_phys, chip->iobase_virt + 0x00 + dev_id * 0x10);
+-	writel(0x1c08001c, chip->iobase_virt + 0x08 + dev_id * 0x10);
++	/* Explicit status acknowledgement only while preparing a stopped ring.
++	 * Retain the historical middle byte; its meaning is not validated. */
++	writel(0x00080000 | XENON_STATUS_W1C,
++	       chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 	writel((dev_id==0)?0x1c:0x02009902, chip->iobase_virt + 0x0c + dev_id * 0x10);
+ 
+ 	spin_unlock_irq(&chip->lock);
+@@ -481,7 +498,8 @@
+ 	device->last_poll = device->last_progress = ktime_get();
+ 	dma_wmb();
+ 	reg = readl(chip->iobase_virt + 0x08 + device->dev_id * 0x10);
+-	writel(reg | 0x1000000, chip->iobase_virt + 0x08 + device->dev_id * 0x10);
++	writel(snd_xenon_control_word(reg, true),
++	       chip->iobase_virt + 0x08 + device->dev_id * 0x10);
+ 	device->dma_started = true;
+ }
+ 
+@@ -614,7 +632,8 @@
+ 		device->state = 4;
+ 		device->dma_started = false;
+ 		reg = readl(chip->iobase_virt + 0x08 + dev_id * 0x10);
+-		writel(reg & ~0x1000000, chip->iobase_virt + 0x08 + dev_id * 0x10);
++		writel(snd_xenon_control_word(reg, false),
++		       chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 		readl(chip->iobase_virt + 0x08 + dev_id * 0x10);
+ 		break;
+ 

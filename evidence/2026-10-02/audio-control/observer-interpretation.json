@@ -1,0 +1,40 @@
+{
+  "scope": "Three bounded observations, twelve reads total and no register writes. Decode is hypothetical; no DMA-idle, W1C or audible-drain proof.",
+  "samples_identical": true,
+  "first_utc": "2026-10-02T12:05:30.002727+00:00",
+  "last_utc": "2026-10-02T12:06:27.219473+00:00",
+  "channels": {
+    "analog": {
+      "raw_index": "0x00008000",
+      "raw_control": "0x1d08001c",
+      "under_unvalidated_sis_model": {
+        "current_index": 0,
+        "last_valid_index": 0,
+        "residual": 0,
+        "run_bit": true,
+        "irq_mask": "0x1c000000",
+        "status_low_byte": "0x1c",
+        "halt_bit": false,
+        "last_valid_status_bit": false,
+        "w1c_candidate_mask": "0x1c"
+      },
+      "unexplained_index_bit_15": true
+    },
+    "digital": {
+      "raw_index": "0x00009616",
+      "raw_control": "0x1d08001c",
+      "under_unvalidated_sis_model": {
+        "current_index": 22,
+        "last_valid_index": 22,
+        "residual": 0,
+        "run_bit": true,
+        "irq_mask": "0x1c000000",
+        "status_low_byte": "0x1c",
+        "halt_bit": false,
+        "last_valid_status_bit": false,
+        "w1c_candidate_mask": "0x1c"
+      },
+      "unexplained_index_bit_15": true
+    }
+  }
+}

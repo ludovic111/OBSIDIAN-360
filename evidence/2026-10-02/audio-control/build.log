@@ -1,0 +1,16 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/build'
+  GEN     Makefile
+  UPD     include/generated/compile.h
+  CALL    /src/scripts/checksyscalls.sh
+  CC      init/version.o
+  AR      init/built-in.a
+  AR      built-in.a
+  AR      vmlinux.a
+  LD      vmlinux.o
+  GEN     .vmlinux.objs
+  MODPOST Module.symvers
+  CC [M]  sound/pci/snd-xenon.mod.o
+  LD [M]  sound/pci/snd-xenon.ko
+make[1]: Leaving directory '/build'
+make: Leaving directory '/src'

@@ -1,0 +1,18 @@
+{
+  "state": "failed",
+  "started_at": "2026-10-02T12:00:19.538612+00:00",
+  "command": [
+    "docker",
+    "build",
+    "--platform",
+    "linux/amd64",
+    "-f",
+    "research/Dockerfile.audio-observer",
+    "-t",
+    "obsidian360-audio-observer:ppc32",
+    "research"
+  ],
+  "scope": "Cross compiler image only",
+  "code": 100,
+  "finished_at": "2026-10-02T12:00:24.620031+00:00"
+}

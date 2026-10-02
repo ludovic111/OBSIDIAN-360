@@ -1,5 +1,12 @@
 # État courant — 2 octobre 2026
 
+## Contrôle audio séparé du statut — E63 ; registres observés — E64
+
+Correctif 0015 : sous l'hypothèse SiS, START/STOP préservent les événements en attente et les interruptions restent désactivées pendant le polling. 4 096 transitions simulées passent sans acquittement involontaire ; quinze scénarios de callbacks, vingt de ressources et 16 384 descripteurs restent valides. Module PowerPC compilé contre audio-bytes, aucune installation.
+
+E64 : configuration PCI relevée à 11:22:10 UTC : aucun pilote audio attaché, compteur enable=0 mais PCI command=0x0006. Cela autorise mémoire et bus mastering sans prouver une activité DMA. SSH revérifié après 3 h 44 sous obsidian4. Trois relevés ciblés entre 12:05:30 et 12:06:27 UTC ont réussi : mots de contrôle 0x1d08001c sur les deux canaux, index 0x00008000 / 0x00009616, inchangés. Douze lectures alignées au total, aucune écriture ; SSH reste opérationnel. Décalage de BAR dans une page de 64 Kio corrigé et testé avant exécution. L'interprétation SiS reste hypothétique : ni moteur arrêté, ni fin DMA, ni son prouvés. Voir `docs/AUDIO-CONTROL-STATUS.md`.
+
+
 ## Longueurs audio corrigées et protocole à vérifier — E62
 
 Le correctif 0014 adopte les longueurs en octets exacts, appuyées par un correctif LibXenon de 2010 et le pilote SiS ALSA. Les 16 384 descripteurs testés sur 512 tailles ont des longueurs alignées ; quinze scénarios de l'adaptateur et vingt de ressources repassent. Noyau audio-bytes + 70 modules vérifiés, construction finale sans avertissement sur un volume Linux après deux incidents d'horodatage Mac/Linux.
@@ -181,3 +188,5 @@ Publication E57/E58 vérifiée à 2026-10-02T10:19:25.216637+00:00 : commit publ
 Publication E59 vérifiée à 2026-10-02T10:36:04.104109+00:00 : commit public `3a98dcf5b0977a33251748255f186c25cfcf2da0`, 324 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/queue-publication.json`. File PCM testée et liée pour PowerPC, non intégrée au pilote et non chargée.
 
 Publication E60/E61 vérifiée à 2026-10-02T10:58:31.472464+00:00 : commit public `f8989261de3589ec3b3c3276b9e4ef66646795f3`, 342 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/adapter-publication.json`. Noyau audio-submit compilé, non installé ; fin du dernier descripteur toujours non décodée.
+
+Publication E62 vérifiée à 2026-10-02T11:15:01.783984+00:00 : commit public `cbd5b02b2d87b4dbaddf23ebcfdf91a172e719e7`, 362 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/protocol-publication.json`. Candidat audio-bytes compilé, non installé ; hypothèse SiS et fin de sortie sonore non mesurées.

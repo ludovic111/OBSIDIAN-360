@@ -199,6 +199,9 @@ def harness(source, core, native):
     memcpy(registers+off,&value,4);''')
     structs=source[source.index('struct playback_device {'):source.index('static inline u32 bswap32')]
     names=['bswap32','snd_xenon_position','snd_xenon_timer_fn','snd_xenon_sync_stop','snd_xenon_pcm_hw_free','snd_xenon_playback_prepare','snd_xenon_publish','snd_xenon_start_position_ok','snd_xenon_start_dma','snd_xenon_ack','snd_xenon_ioctl','snd_xenon_trigger','snd_xenon_pointer']
+    if 'snd_xenon_control_word' in source:
+        prefix+='\n'+'\n'.join(re.findall(r'^#define XENON_(?:CTL_RUN|CTL_IRQS|STATUS_W1C) .+$',source,re.M))+'\n'
+        names.insert(0,'snd_xenon_control_word')
     m=re.search(r'^int pcm_lib_apply_appl_ptr\([^;]*?\n\{',core,re.M)
     apply=core[m.start():core.index('\n}',m.end())+2]
     return '#include "pcm_queue.h"\n'+prefix+EXTRA+structs+'\n'.join(pcm.function(source,n) for n in names)+'\n#pragma clang diagnostic push\n#pragma clang diagnostic ignored "-Wsign-compare"\n'+apply+'\n#pragma clang diagnostic pop\n'+pcm.function(native,'pcm_control_mmap_allowed')+pcm.function(native,'pcm_status_mmap_allowed')+MAIN

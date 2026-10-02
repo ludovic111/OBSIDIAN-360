@@ -1,0 +1,6 @@
+# Tooling only: static PowerPC32 observer, no packages on the console.
+# Debian provides this cross compiler on amd64; Docker emulates it on ARM hosts.
+FROM amd64/debian:bookworm-slim
+RUN test "$(dpkg --print-architecture)" = amd64 && apt-get update && apt-get install -y --no-install-recommends \
+    gcc-powerpc-linux-gnu binutils-powerpc-linux-gnu libc6-dev-powerpc-cross \
+    && rm -rf /var/lib/apt/lists/*

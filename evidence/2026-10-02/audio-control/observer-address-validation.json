@@ -1,0 +1,10 @@
+{
+  "scope": "Actual pure address calculation, no hardware access; ASan/UBSan",
+  "source_sha256": "3b72a9b59b792f8fe675d61306be61ec3983a4afc0bcfa81770b9987b84cc728",
+  "result": {
+    "aligned_geometry_cases": 31744,
+    "invalid_cases": 7,
+    "console_offset": 5632
+  },
+  "stderr": ""
+}

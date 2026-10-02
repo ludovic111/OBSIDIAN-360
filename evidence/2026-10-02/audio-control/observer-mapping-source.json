@@ -1,0 +1,11 @@
+{
+  "scope": "Pinned kernel source confirms generic PCI mmap page-floor address; no hardware observation",
+  "source_commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "files": {
+    "drivers/pci/mmap.c": "81e7ead21ca7f927261c79bb4c4c8b4fbf44b44b76ba5e8fc005137202bfbe89",
+    "drivers/pci/pci-sysfs.c": "488e6f970becba1dcdbfd982c976c19cb9d136cfe03179603f1032626cfa1d78",
+    "arch/powerpc/include/asm/pci.h": "82761b834254e2cbece9a2809372cd83d7f4dfcbebe1c63f4f4a65f22a46cf51"
+  },
+  "bar_low_page_offset_hex": "0x1600",
+  "page_size": 65536
+}

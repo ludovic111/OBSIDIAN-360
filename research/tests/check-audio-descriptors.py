@@ -40,7 +40,7 @@ int main(void){
         runtime.dma_bytes=sub.buffer=bytes;sub.period=bytes/2;
         CHECK(snd_xenon_playback_prepare(&sub)==0);unsigned total=0;
         u32 init;memcpy(&init,registers+8,4);
-        CHECK((init>>24)==(ICH_IOCE|ICH_FEIE|ICH_LVBIE));
+        CHECK((init>>24)==(HAS_STATUS_SPLIT?0:(ICH_IOCE|ICH_FEIE|ICH_LVBIE)));
         CHECK((init&0xffff)==(ICH_FIFOE|ICH_BCIS|ICH_LVBCI));
         for(unsigned i=0;i<32;i++){
             u32 address=bswap32(descriptors[2*i]),word=bswap32(descriptors[2*i+1]);
@@ -92,11 +92,11 @@ def main():
     core=(a.kernel/'sound/core/pcm_lib.c').read_text();native=(a.kernel/'sound/core/pcm_native.c').read_text()
     intel=(a.kernel/'sound/pci/intel8x0.c').read_text()
     layout=intel[intel.index('#define DEFINE_REGSET'):intel.index('/* global block */')]
-    report={'scope':'Actual candidate/previous prepare callbacks; literal byte count interpretation from source/history, not observed hardware. LibXenon helpers run on modeled raw words; no proof of FIFO empty or audible playback.','libxenon_sha256':hashlib.sha256(lib.read_bytes()).hexdigest(),'intel8x0_sha256':hashlib.sha256(intel.encode()).hexdigest(),'register_layout_scope':'Actual SiS reference defines and Xenon prepare constant agree on ten offset/mask comparisons; device identity unproven.','variants':[]}
+    report={'scope':'Actual candidate/previous prepare callbacks; literal byte count interpretation from source/history, not observed hardware. LibXenon helpers run on modeled raw words; no proof of FIFO empty or audible playback.','libxenon_sha256':hashlib.sha256(lib.read_bytes()).hexdigest(),'intel8x0_sha256':hashlib.sha256(intel.encode()).hexdigest(),'register_layout_scope':'SiS reference offsets/masks and the variant-specific prepare interrupt mask are checked; device identity unproven.','variants':[]}
     with tempfile.TemporaryDirectory(prefix='obsidian-descriptors-') as tmp:
         for label,path,previous in [('previous',a.previous,1),('candidate',a.candidate,0)]:
             source=path.read_text();prefix=adapter.harness(source,core,native);assert prefix.endswith(adapter.MAIN);prefix=prefix[:-len(adapter.MAIN)]
-            src=Path(tmp)/(label+'.c');binary=Path(tmp)/label;src.write_text('#define PREVIOUS '+str(previous)+'\n'+prefix+'\n'+layout+'\n'+reference(lib.read_text())+MAIN)
+            src=Path(tmp)/(label+'.c');binary=Path(tmp)/label;src.write_text('#define HAS_STATUS_SPLIT '+str(int('snd_xenon_control_word' in source))+'\n#define PREVIOUS '+str(previous)+'\n'+prefix+'\n'+layout+'\n'+reference(lib.read_text())+MAIN)
             cmd=['clang','-std=gnu11','-O1','-g','-Wall','-Wextra','-Werror','-Wno-unused-function','-Wno-unused-variable','-Wno-unused-parameter','-fsanitize=address,undefined','-pthread','-I',str(root/'research/audio'),str(root/'research/audio/pcm_queue.c'),str(src),'-o',str(binary)]
             r=subprocess.run(cmd,capture_output=True,text=True,timeout=30);scrub=lambda s:s.replace(str(root),'REPO').replace(tmp,'HOST_TEST')
             row={'variant':label,'source_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'compile':{'code':r.returncode,'diagnostics':scrub(r.stderr)}};report['variants'].append(row)

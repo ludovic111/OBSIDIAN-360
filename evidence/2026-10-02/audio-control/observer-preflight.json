@@ -1,0 +1,10 @@
+{
+  "captured_utc": "2026-10-02T12:03:43.802505+00:00",
+  "path": "/tmp/obsidian-audio-status-gbj8ph65",
+  "sha256": "ed32405f8c7cca514a30302bfbc273597f6abd5d51dfd88e221390c2886dbb48",
+  "usage_code": 2,
+  "stdout": "",
+  "stderr": "Usage: read_status_once --read-audio-status\n",
+  "kernel": "6.18.11-xenon-obsidian4",
+  "scope": "Binary transfer and no-argument usage only; no hardware registers read"
+}

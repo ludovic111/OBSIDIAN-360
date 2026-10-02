@@ -1,0 +1,20 @@
+{
+  "samples": [
+    {
+      "captured_utc": "2026-10-02T12:06:27.111764+00:00",
+      "code": 0,
+      "stdout": "{\"analog_index_word\":\"0x00008000\",\"analog_control_word\":\"0x1d08001c\",\"digital_index_word\":\"0x00009616\",\"digital_control_word\":\"0x1d08001c\",\"register_reads\":4,\"register_writes\":0}\n",
+      "stderr": "audio BAR0 mapped read-only; performing four status reads\n",
+      "uptime": "13929.86 10378.50"
+    },
+    {
+      "captured_utc": "2026-10-02T12:06:27.219473+00:00",
+      "code": 0,
+      "stdout": "{\"analog_index_word\":\"0x00008000\",\"analog_control_word\":\"0x1d08001c\",\"digital_index_word\":\"0x00009616\",\"digital_control_word\":\"0x1d08001c\",\"register_reads\":4,\"register_writes\":0}\n",
+      "stderr": "audio BAR0 mapped read-only; performing four status reads\n",
+      "uptime": "13929.97 10378.61"
+    }
+  ],
+  "kernel": "6.18.11-xenon-obsidian4",
+  "scope": "Two bounded follow-up snapshots; eight status reads total, no writes; equality does not prove DMA idle"
+}

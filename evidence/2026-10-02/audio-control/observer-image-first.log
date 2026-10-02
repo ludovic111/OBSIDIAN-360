@@ -1,0 +1,27 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  330.2kB
+Step 1/2 : FROM obsidian360-kernel:llvm16
+ ---> 3174c3c009b8
+Step 2/2 : RUN apt-get update && apt-get install -y --no-install-recommends     gcc-powerpc-linux-gnu binutils-powerpc-linux-gnu libc6-dev-powerpc-cross     && rm -rf /var/lib/apt/lists/*
+ ---> Running in 7dfa1e74ae61
+Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [34.8 kB]
+Get:4 http://deb.debian.org/debian bookworm/main arm64 Packages [8689 kB]
+Get:5 http://deb.debian.org/debian bookworm-updates/main arm64 Packages [6936 B]
+Get:6 http://deb.debian.org/debian-security bookworm-security/main arm64 Packages [343 kB]
+Fetched 9280 kB in 1s (9903 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package gcc-powerpc-linux-gnu is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+[91mE: Package 'gcc-powerpc-linux-gnu' has no installation candidate
+E: Unable to locate package binutils-powerpc-linux-gnu
+[0mThe command '/bin/sh -c apt-get update && apt-get install -y --no-install-recommends     gcc-powerpc-linux-gnu binutils-powerpc-linux-gnu libc6-dev-powerpc-cross     && rm -rf /var/lib/apt/lists/*' returned a non-zero code: 100

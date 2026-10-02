@@ -1,0 +1,24 @@
+make: Entering directory '/src'
+make[1]: Entering directory '/build'
+  GEN     Makefile
+  UPD     include/generated/compile.h
+  CALL    /src/scripts/checksyscalls.sh
+  CC [M]  sound/pci/snd-xenon.o
+  MODPOST Module.symvers
+ERROR: modpost: "snd_card_new" [sound/pci/snd-xenon.ko] undefined!
+ERROR: modpost: "snd_card_register" [sound/pci/snd-xenon.ko] undefined!
+ERROR: modpost: "snd_card_free" [sound/pci/snd-xenon.ko] undefined!
+ERROR: modpost: "snd_pcm_stop_xrun" [sound/pci/snd-xenon.ko] undefined!
+ERROR: modpost: "snd_pcm_period_elapsed" [sound/pci/snd-xenon.ko] undefined!
+ERROR: modpost: "snd_pcm_new" [sound/pci/snd-xenon.ko] undefined!
+ERROR: modpost: "snd_pcm_set_ops" [sound/pci/snd-xenon.ko] undefined!
+ERROR: modpost: "snd_pcm_set_managed_buffer_all" [sound/pci/snd-xenon.ko] undefined!
+ERROR: modpost: "snd_pcm_lib_ioctl" [sound/pci/snd-xenon.ko] undefined!
+ERROR: modpost: "_snd_pcm_stream_lock_irqsave" [sound/pci/snd-xenon.ko] undefined!
+WARNING: modpost: suppressed 3 unresolved symbol warnings because there were too many)
+make[3]: *** [/src/scripts/Makefile.modpost:147: Module.symvers] Error 1
+make[2]: *** [/src/Makefile:1991: single_modules] Error 2
+make[1]: Leaving directory '/build'
+make[1]: *** [/src/Makefile:248: __sub-make] Error 2
+make: Leaving directory '/src'
+make: *** [Makefile:248: __sub-make] Error 2

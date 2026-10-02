@@ -87,6 +87,9 @@
 
 | E62 | Examiner l'historique audio, comparer les registres SiS et corriger les longueurs | 16 384 descripteurs par variante, 15 callbacks et 20 ressources ; noyau audio-bytes + 70 modules, volume Linux sans avertissement ; audio-protocol/ | Correspondance matérielle non mesurée ; fin DMA distincte de sortie audio, statuts/FIFO ouverts |
 
+| E63 | Séparer contrôle et acquittement sous modèle SiS ; compiler le module | 4 096 transitions par variante : 3 584 pertes simulées avant, zéro après ; 15 callbacks, 20 ressources, 16 384 descripteurs ; audio-control/ | Hypothèse matérielle non validée ; module seul recompilé contre audio-bytes, aucun chargement |
+| E64 | Configuration PCI audio puis trois lectures ciblées de quatre registres | Commande PCI 0x0006, aucun pilote ; contrôles 0x1d08001c et index 0x00008000 / 0x00009616 inchangés ; SSH maintenu ; audio-control/observer-* | Douze lectures, zéro écriture ; calcul de mapping corrigé avant exécution, 31 744 cas ; interprétation SiS, arrêt DMA et sortie sonore non prouvés |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.

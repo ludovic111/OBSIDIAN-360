@@ -229,3 +229,19 @@ Publication E60/E61 vérifiée à 2026-10-02T10:58:31.472464+00:00 : commit publ
 - Construction : deux codes zéro avec avertissements réels de clock skew sous partage Mac/Linux. Troisième construction sur volume Linux dédiée terminée 2026-10-02T11:09:56.522693+00:00, zéro avertissement. Export après fin du processus ; noyau et 70 modules ELF/vermagic vérifiés. Contrôle intermédiaire explicitement marqué provisoire, pas preuve de fin du deuxième build.
 - Limites : aucune interaction console, état vivant toujours E61. Ni son, ni décodeur de fin activé. Correspondance source/registre et FIFO à tester séparément ; aucune identification définitive du contrôleur comme SiS7012.
 - Suite : séparer contrôle et acquittement ; préparer une observation ciblée réversible avant la progression DMA et l'audio réel. Publication après audit.
+
+Publication E62 vérifiée à 2026-10-02T11:15:01.783984+00:00 : commit public `cbd5b02b2d87b4dbaddf23ebcfdf91a172e719e7`, 362 fichiers, parent et arbre GitHub conformes après audits. Preuve : `evidence/2026-10-02/public-audit/protocol-publication.json`. Candidat audio-bytes compilé, non installé ; hypothèse SiS et fin de sortie sonore non mesurées.
+
+
+## 2026-10-02T12:06:27Z — E63/E64 — contrôle audio et première observation des registres
+
+- Objectif : éviter les acquittements involontaires et distinguer absence de pilote Linux d'un état matériel réellement arrêté.
+- E63, code/modèle : correctif 0015. START/STOP masquent les statuts W1C supposés et les IRQ ; prepare acquitte explicitement. 4 096 transitions par variante : 3 584 pertes modélisées avant, zéro après ; quinze callbacks, vingt ressources et 16 384 descripteurs passent. Aucun fait W1C vivant revendiqué.
+- Compilation : module PowerPC64 big-endian, vermagic audio-bytes, sans avertissement. La cible isolée avait échoué faute de dépendances ALSA ; cible modules complète réussie, échec conservé. Aucun nouveau vmlinux ni chargement.
+- E64, mesure standard : PCI 1414:580c, aucun pilote, enable=0 mais command=0x0006. Accès SSH vérifié sous obsidian4 ; pages de 64 Kio.
+- Revue de la sonde avant MMIO : sysfs mappe la page contenant le BAR. Correction du décalage 0x1600, test de 31 744 géométries et sept cas invalides. Le binaire antérieur n'a pas accédé au matériel. Compilation C d'origine avait nécessité _Noreturn pour lever une erreur de flot d'initialisation ; conservée.
+- Outillage : deux tentatives de compilateur croisé ont échoué ; le constructeur Docker historique avait conservé ARM malgré --platform. Base amd64 explicite et assertion d'architecture réussissent. Une relance du test descripteur utilisait un ancien nom de dossier inexistant ; chemin réel submission identifié, test final réussi. Un processus d'outil local a refusé sa création ; shell absolu sans login fonctionne, dépôt accessible par son chemin de projet et son chemin résolu my_repos. Aucun de ces échecs n'est un résultat matériel.
+- Binaire ELF32 statique vérifié, quatre lwz et huit eieio dans la séquence ; empreinte distante identique. Exécution sans argument confirme l'usage avant accès matériel.
+- Mesure MMIO : trois captures réussies de quatre registres, entre 12:05:30 et 12:06:27 UTC. Contrôles 0x1d08001c pour les deux canaux ; index analogique 0x00008000, numérique 0x00009616 ; identiques. Douze lectures au total, aucune écriture ni commande SMC, pas de son lancé. SSH reste accessible, aucune réaction visuelle observée.
+- Limite : la décomposition SiS donne RUN apparent et statut sans halted, malgré des index égaux et résiduel nul. Valeurs stables ne prouvent pas un moteur arrêté ; bit 15 des index inexpliqué. Aucune confirmation de W1C ou fin FIFO. Ne pas transformer le modèle logiciel en identification matérielle.
+- Suite : concevoir arrêt/reset et confirmation bornés avant toute activation audio. Documenter et publier depuis l'export audité ; firmware stock et démarrage existant conservés.
