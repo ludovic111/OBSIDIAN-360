@@ -1,6 +1,6 @@
 {
   "scope": "Reviewed public text snapshot; original local history is not included.",
-  "source_commit": "9ef3bc9494093eaf3c2cc30e3434b89396c9ae87",
+  "source_commit": "a902a28b586604cd30e92f79357e946be3caeb43",
   "files": [
     {
       "path": ".gitattributes",
@@ -39,6 +39,12 @@
       "sanitized": false
     },
     {
+      "path": "LICENSES/icewm-LGPL-2.0.txt",
+      "source_sha256": "a2601b779a5776a50483eddef093223593d1115833c49529c7335e27a758696f",
+      "public_sha256": "a2601b779a5776a50483eddef093223593d1115833c49529c7335e27a758696f",
+      "sanitized": false
+    },
+    {
       "path": "LICENSES/libxenon-BSD.txt",
       "source_sha256": "efd117aa0eb8ed521eb3de7f371e541d7816c85144bfa6d6e08cbc508d24c3e8",
       "public_sha256": "efd117aa0eb8ed521eb3de7f371e541d7816c85144bfa6d6e08cbc508d24c3e8",
@@ -58,8 +64,8 @@
     },
     {
       "path": "THIRD_PARTY.md",
-      "source_sha256": "244afccb31aae52eb6ebcf7de1a40f62dbc32c694e6de0fa2fca95f72e781f2e",
-      "public_sha256": "244afccb31aae52eb6ebcf7de1a40f62dbc32c694e6de0fa2fca95f72e781f2e",
+      "source_sha256": "a107d6999d4fa155a9469310ced3a47d51d07f198a28e55ecf4187213cc02f13",
+      "public_sha256": "a107d6999d4fa155a9469310ced3a47d51d07f198a28e55ecf4187213cc02f13",
       "sanitized": false
     },
     {
@@ -142,8 +148,8 @@
     },
     {
       "path": "docs/JOURNAL.md",
-      "source_sha256": "f2b75d774e4419bdaa5f5dc9a2132e52a1757b5b7ed25ce5f1acfb0c65302a9b",
-      "public_sha256": "f2b75d774e4419bdaa5f5dc9a2132e52a1757b5b7ed25ce5f1acfb0c65302a9b",
+      "source_sha256": "ec9d398cadafaafee09a2e718a68887a8886df765a679a038aac0f05bb670218",
+      "public_sha256": "ec9d398cadafaafee09a2e718a68887a8886df765a679a038aac0f05bb670218",
       "sanitized": false
     },
     {
@@ -184,8 +190,8 @@
     },
     {
       "path": "docs/OPTICAL-DRIVE.md",
-      "source_sha256": "c581c086730f6b726ac68c0a6bd861c7d756c2c2823c05ed20d452616efdfb71",
-      "public_sha256": "c581c086730f6b726ac68c0a6bd861c7d756c2c2823c05ed20d452616efdfb71",
+      "source_sha256": "5087ea483efc161564fbfb1c82a58260df4d25daaa6b15ba44d657f326c26b30",
+      "public_sha256": "5087ea483efc161564fbfb1c82a58260df4d25daaa6b15ba44d657f326c26b30",
       "sanitized": false
     },
     {

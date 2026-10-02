@@ -86,3 +86,11 @@ Publication E43–E46 vérifiée à 2026-10-02T07:41:15.538940+00:00 : commit pu
 - Résultat : test automatisé discriminant réussi ; aucune interaction Xbox pendant cette expérience.
 - Interprétation : preuve du mécanisme X11 et de la correction de configuration dans cet environnement. Pas une preuve de toutes les fonctions de la manette, du pilote graphique ou de la stabilité prolongée sur Xbox.
 - Suite : confirmation manuelle sur Xbox ; garder les avertissements de compilation de l’applet réseau amont comme piste distincte, sans les attribuer au gel.
+
+## 2026-10-02 — piste utilisateur PAL/NTSC
+
+- Observation rapportée : Just Cause 2 et les autres boîtes de jeux portent PAL.
+- Action : vérifier la documentation Microsoft archivée sur les régions et la signification T10 du code 3a/00 ; demander si ces jeux fonctionnaient auparavant sur cette console.
+- Interprétation : région non vérifiée, marquage des boîtes insuffisant ; erreur mesurée de support absent différente d’un refus explicite de région. Aucune commande matérielle ni modification de région exécutée.
+
+Retour utilisateur : achat simultané de la console et des jeux en magasin d’occasion ; fonctionnement antérieur de cet ensemble inconnu. Compatibilité régionale toujours non confirmée ; disponibilité d’un DVD vidéo demandée.
