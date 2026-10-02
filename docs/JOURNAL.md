@@ -55,3 +55,23 @@ Horodatages en UTC. Les expériences antérieures E01–E38 sont décrites dans 
 - Résultat : cinq cas aux résultats attendus ; historique public existant audité sans anomalie détectée.
 - Interprétation : contrôle de motifs et provenance, avec limites explicites ; ne démontre pas l'absence de tout secret arbitraire.
 - Suite : exporter les sources Rust et leurs preuves, auditer avant commit puis avant push, vérifier le SHA distant.
+
+Publication E41/E42 vérifiée à 2026-10-02T07:14:53.060765+00:00 : commit public `2d31efbd2230c28dfd23ad199ffab231c7a12b12`, 203 fichiers, arbre GitHub identique à l'export audité. Dix tests Rust passent aussi après compilation dans le checkout public. Historique local privé non poussé.
+
+## 2026-10-02 — matin — E43/E44
+
+- Objectif : vérifier le fonctionnement prolongé, puis profiter du retour de l’utilisateur pour diagnostiquer le lecteur.
+- Action : interfaces Linux standards ; observation douze secondes du lanceur ; CD musical inséré par l’utilisateur, lecture TOC et quatre secteurs audio.
+- Observation : obsidian4 actif après neuf heures, aucun service en échec ; aucune écriture observée du lanceur pendant la fenêtre. Le CD présente 20 pistes ; trois positions audio lisibles, relecture de la première identique.
+- Résultat : première preuve de lecture effective du lecteur, limitée au CD et aux secteurs échantillonnés. Métadonnées et empreintes conservées, pas le contenu audio.
+- Interprétation : la piste initiale de réécritures inutiles du lanceur vient du code, mais n’est pas confirmée sur le processus vivant ; ne pas revendiquer un gain. La panne DVD n’est ni identifiée ni réparée.
+- Suite : comparaison avec DVD demandée ; diagnostic du lanceur et mesures avant tout changement. Pas de redémarrage ni commande firmware.
+
+## 2026-10-02 — 07:30–07:37 UTC Mac — E45/E46
+
+- Objectif : comparer CD/DVD et rétablir le bureau figé.
+- Action : disque Just Cause 2 inséré par l’utilisateur ; lecture et statut SCSI standards. Diagnostic graphique et relances ciblées, sans redémarrage Linux.
+- Observation : le lecteur renvoie « medium not present » pour le jeu. L’utilisateur corrige son premier retour : redimensionnement la veille suivi d’un gel. L’arrêt forcé du gestionnaire, contrairement à celui du lanceur et au SIGHUP, rétablit les requêtes X11.
+- Résultat : OpaqueMove/Resize activés avec sauvegarde des préférences ; manette rouverte par le lanceur. Cinq tests synthétiques de sense passent.
+- Interprétation : mécanisme XGrabServer cohérent avec le code et les symptômes ; pas encore reproduction contrôlée ni confirmation manuelle du correctif. Différence CD/DVD réelle, pièce fautive encore inconnue.
+- Suite : utilisateur invité à redimensionner de nouveau ; besoin d’un DVD vidéo connu fonctionnel pour distinguer panne DVD et disque particulier.

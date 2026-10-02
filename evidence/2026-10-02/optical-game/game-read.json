@@ -1,0 +1,25 @@
+{
+  "captured_utc": "2026-10-02T07:30:03.052040+00:00",
+  "user_media": "Just Cause 2 for Xbox 360; prior readability not confirmed",
+  "code": 0,
+  "events": [
+    {
+      "event": "start",
+      "kernel": "6.18.11-xenon-obsidian4",
+      "timestamp": 1790926113.4322577,
+      "size_512_sectors": "1055736"
+    },
+    {
+      "event": "status",
+      "value": 1
+    },
+    {
+      "event": "read_error",
+      "lba_2048": 0,
+      "errno": 5,
+      "message": "Input/output error",
+      "seconds": 0.26354494700353825
+    }
+  ],
+  "stderr": ""
+}

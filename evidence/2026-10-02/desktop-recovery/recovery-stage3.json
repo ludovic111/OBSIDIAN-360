@@ -1,0 +1,6 @@
+{
+  "captured_utc": "2026-10-02T07:34:23.106821+00:00",
+  "code": 0,
+  "stdout": "{\"icewm\": \"431 icewm-session\\n4381 icewm --notify\\n\"}\n{\"xrandr_code\": 0, \"stdout\": \"Screen 0: minimum 320 x 200, current 1280 x 720, maximum 4096 x 4096\\nNone-1 connected primary 1280x720+0+0 (normal left inverted right x axis y axis) 0mm x 0mm\\n   1280x720      60.00*+\\n\", \"stderr\": \"\"}\n",
+  "stderr": ""
+}

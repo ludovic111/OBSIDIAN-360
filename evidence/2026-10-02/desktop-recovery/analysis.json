@@ -1,0 +1,30 @@
+{
+  "captured_utc": "2026-10-02T07:39:20.980710+00:00",
+  "user_observation": "Correction: desktop frozen since previous evening after resizing, not responsive; controller connected, keyboard unavailable concurrently.",
+  "references": [
+    {
+      "url": "https://raw.githubusercontent.com/ice-wm/icewm/4.0.0/src/movesize.cc",
+      "sha256": "96de6a1e083798952842fd4381df37f17d5baf029947a6a021532f5c3d19be6d",
+      "lines": "498-552 and 940-946",
+      "finding": "outlineResize grabs X server while waiting for input; OpaqueResize avoids this branch"
+    },
+    {
+      "url": "https://ice-wm.org/man/icewm.html",
+      "finding": "SIGHUP documented restart; did not recover observed blocked instance"
+    },
+    {
+      "url": "https://ice-wm.org/man/icewm-session.html",
+      "finding": "Session manager restarts crashed window manager; observed replacement after SIGKILL"
+    }
+  ],
+  "change": {
+    "OpaqueMove": 1,
+    "OpaqueResize": 1
+  },
+  "limits": [
+    "Original block not reproduced under controlled conditions",
+    "Recovery required forced stop of launcher and window manager, not Linux reboot",
+    "Live source version identified as IceWM 4.0.0; no binary equivalence audit",
+    "Manual resize validation pending"
+  ]
+}

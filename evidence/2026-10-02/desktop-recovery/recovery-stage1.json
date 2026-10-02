@@ -1,0 +1,6 @@
+{
+  "captured_utc": "2026-10-02T07:32:32.139825+00:00",
+  "code": 0,
+  "stdout": "{\"launcher_terminated\": true, \"forced\": true}\n{\"xrandr_timeout\": true}\n",
+  "stderr": ""
+}

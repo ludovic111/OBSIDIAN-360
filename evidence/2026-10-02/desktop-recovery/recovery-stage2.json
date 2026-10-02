@@ -1,0 +1,6 @@
+{
+  "captured_utc": "2026-10-02T07:33:33.802809+00:00",
+  "code": 0,
+  "stdout": "{\"xrandr_timeout\": true}\n{\"icewm\": \"431 icewm-session\\n432 icewm --notify\\n\"}\n",
+  "stderr": ""
+}

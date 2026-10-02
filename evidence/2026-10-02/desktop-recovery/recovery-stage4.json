@@ -1,0 +1,6 @@
+{
+  "captured_utc": "2026-10-02T07:36:40.803477+00:00",
+  "code": 0,
+  "stdout": "{\"reset_input_code\": 0, \"stderr\": \"\"}\n{\"preferences\": \"WorkspaceNames=\\\"Bureau\\\"\\nTaskBarShowWorkspaces=0\\nTaskBarShowMailboxStatus=0\\nTaskBarShowCPUStatus=0\\nTaskBarShowNetStatus=0\\nTaskBarShowAPMStatus=0\\nTaskBarShowClock=1\\nOpaqueMove=1\\nOpaqueResize=1\\nDesktopBackgroundColor=\\\"#101610\\\"\\nTitleFontNameXft=\\\"DejaVu Sans:size=14\\\"\\nMenuFontNameXft=\\\"DejaVu Sans:size=14\\\"\\nTaskBarFontNameXft=\\\"DejaVu Sans:size=12\\\"\\n\", \"launcher_wrapper_pid\": 4473, \"launcher_exit\": null, \"uptime\": \"35496.18 26382.94\\n\", \"input_state\": \"{\\\"device_open\\\": true, \\\"events\\\": 0, \\\"last_event\\\": null}\"}\n",
+  "stderr": ""
+}

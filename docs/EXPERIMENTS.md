@@ -55,6 +55,12 @@
 | E41 | Confronter le format XEX2 aux sources primaires et écrire un parseur Rust borné | Dix tests, 10 000 mutations et neuf cas CLI passent ; aucune lecture des zones opaques instrumentées ; evidence/2026-10-02/xex-inspect | Aucun vrai jeu testé ; pas de décryption, authentification ou exécution ; console non sollicitée |
 | E42 | Automatiser le contrôle des fichiers publics et de l'historique Git | Cinq cas synthétiques passent, y compris marqueur retiré du fichier courant mais conservé dans un ancien commit | Audit à exécuter avant commit et push ; scanner de motifs non exhaustif ; export game-analysis désormais inclus |
 
+| E43 | Contrôle vivant après neuf heures et observation du lanceur pendant douze secondes | obsidian4, IceWM, zéro unité en échec ; compteurs E/S et fichier manette inchangés | Fonctionnement prolongé, pas test de charge ; aucune économie d’écriture mesurée ; état du lanceur à diagnostiquer |
+| E44 | CD musical inséré par utilisateur ; ioctl CDROM standard et échantillons audio | 20 pistes ; trois secteurs éloignés lus et premier relu avec SHA-256 identique ; optical-cd/ | CD partiellement lisible démontré ; DVD/jeux, lecture intégrale et sortie audio non vérifiés |
+
+| E45 | Just Cause 2 inséré ; lecture standard puis TEST UNIT READY borné | Statut 1, EIO ; CHECK CONDITION, sense 02/3a/00 ; optical-game/ | Aucun support reconnu ; CD lisible mais DVD/jeu non lu ; pas de diagnostic définitif du laser |
+| E46 | Diagnostiquer le gel signalé lors du redimensionnement et récupérer les processus graphiques | Relance IceWM forcée rétablit XRandR ; OpaqueMove/Resize à 1, lanceur relancé sans reboot ; desktop-recovery/ | Cause cohérente avec XGrabServer dans le code ; nouvel essai manette demandé, pas encore validé |
+
 ## Analyse de l’incident E10
 
 La documentation décrit une fenêtre flash en lecture seule, sans ECC. Cela ne garantissait pas que la méthode de lecture large employée fonctionnerait sur cette combinaison matériel/noyau. Le programme a ouvert `resource1` avec O_RDONLY, utilisé PROT_READ, et ne contenait aucune commande d’effacement ou de programmation. Le gel est corrélé à cette lecture ; son mécanisme exact n’a pas été établi.

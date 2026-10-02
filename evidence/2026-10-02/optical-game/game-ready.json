@@ -1,0 +1,23 @@
+{
+  "captured_utc": "2026-10-02T07:31:37.837114+00:00",
+  "media": "Just Cause 2 Xbox 360",
+  "code": 0,
+  "result": {
+    "utc": "2026-10-02T07:30:09.195050+00:00",
+    "kernel": "6.18.11-xenon-obsidian4",
+    "abi_bytes": 64,
+    "command": "TEST UNIT READY",
+    "status": 2,
+    "host_status": 0,
+    "driver_status": 8,
+    "duration_ms": 74,
+    "sense_hex": "700002000000000a000000003a0000000000",
+    "sense": {
+      "response": 112,
+      "key": 2,
+      "asc": 58,
+      "ascq": 0
+    }
+  },
+  "stderr": ""
+}

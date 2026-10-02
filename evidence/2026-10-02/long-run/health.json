@@ -1,0 +1,37 @@
+{
+  "captured_utc": "2026-10-02T07:16:53.982994+00:00",
+  "kernel": "6.18.11-xenon-obsidian4",
+  "uptime": "34398.79 25583.34",
+  "memory": "MemTotal:         469568 kB\nMemFree:            5184 kB\nMemAvailable:     163520 kB\nBuffers:           19072 kB\nCached:           159360 kB\nSwapCached:        10176 kB\nActive:            66944 kB\nInactive:         187648 kB\nActive(anon):      19264 kB\nInactive(anon):    86656 kB\nActive(file):      47680 kB\nInactive(file):   100992 kB\nUnevictable:        7296 kB\nMlocked:               0 kB\nSwapTotal:       2097088 kB\nSwapFree:        1997568 kB\nZswap:             42880 kB\nZswapped:          87872 kB\nDirty:               512 kB\nWriteback:             0 kB\nAnonPages:         76928 kB\nMapped:            32448 kB\nShmem:             28736 kB\nKReclaimable:      24384 kB\nSlab:              99840 kB\nSReclaimable:      24384 kB\nSUnreclaim:        75456 kB\nKernelStack:        4480 kB\nPageTables:         4160 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     2331840 kB\nCommitted_AS:     254912 kB\nVmallocTotal:   549755813888 kB\nVmallocUsed:        4480 kB\nVmallocChunk:          0 kB\nPercpu:             4096 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:      16384 kB\nHugetlb:               0 kB",
+  "failed_units": {
+    "code": 0,
+    "stdout": "  UNIT LOAD ACTIVE SUB DESCRIPTION\n\n0 loaded units listed.\n",
+    "stderr": ""
+  },
+  "desktop": {
+    "code": 0,
+    "stdout": "431 icewm-session\n432 icewm --notify\n",
+    "stderr": ""
+  },
+  "temperatures": {
+    "/sys/class/hwmon/hwmon0/temp3_input": "51820",
+    "/sys/class/hwmon/hwmon0/temp4_input": "26843",
+    "/sys/class/hwmon/hwmon0/temp1_input": "53621",
+    "/sys/class/hwmon/hwmon0/temp2_input": "48058"
+  },
+  "warnings": {
+    "code": 0,
+    "stdout": "[    0.000000] ioremap() called early from udbg_init_xenon_virtual+0x24/0x68. Use early_ioremap() instead\n[    0.273643] xenon_early_init\n[    2.927511] xenon_rtc_probe((____ptrval____)) = (____ptrval____)\n[    2.935943] xenon_rtc_init() = 0\n[    2.945782] xenon_hwmon_init() = 0\n[    3.153598] Warning: Unable to mark rodata read only on this CPU.\n[   28.365656] sis190 0000:01:07.0 enp1s7: auto-negotiating...\n",
+    "stderr": ""
+  },
+  "interval_seconds": 12.001934799998708,
+  "launcher_observation": {
+    "pid": [
+      436
+    ],
+    "before_io": "rchar: 4670817\nwchar: 86099\nsyscr: 10408\nsyscw: 6702\nread_bytes: 34770944\nwrite_bytes: 2818048\ncancelled_write_bytes: 0",
+    "after_io": "rchar: 4670817\nwchar: 86099\nsyscr: 10408\nsyscw: 6702\nread_bytes: 34770944\nwrite_bytes: 2818048\ncancelled_write_bytes: 0",
+    "state_unchanged": true,
+    "limitation": "Process existence and unchanged counters do not prove input loop responsiveness; no write reduction measured."
+  }
+}

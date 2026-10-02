@@ -1,0 +1,7 @@
+{
+  "captured_utc": "2026-10-02T07:23:52.245764+00:00",
+  "user_media": "music CD inserted; prior readability not yet confirmed",
+  "returncode": 0,
+  "stdout": "{\"kernel\": \"6.18.11-xenon-obsidian4\", \"timestamp\": 1790925743.9480715, \"drive_status\": 4}\n{\"kernel\": \"6.18.11-xenon-obsidian4\", \"timestamp\": 1790925743.9480715, \"drive_status\": 4, \"toc\": {\"first_track\": 1, \"last_track\": 20}}\n",
+  "stderr": ""
+}

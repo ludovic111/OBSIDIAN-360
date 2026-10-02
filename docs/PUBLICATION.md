@@ -2,6 +2,8 @@
 
 ## Publication vérifiée
 
+Mise à jour du 2 octobre : commit public `2d31efbd2230c28dfd23ad199ffab231c7a12b12`, enfant direct de f9da49e, 203 fichiers. Inspecteur XEX2, tests et outil d'audit de l'historique inclus ; vérification API du commit et de l'arbre réussie. L'audit avant push a couvert les deux commits et 213 objets texte atteignables. Voir `evidence/2026-10-02/public-audit/publication.json`.
+
 Le dépôt public [ludovic111/OBSIDIAN-360](https://github.com/ludovic111/OBSIDIAN-360) est créé. Premier commit : `f9da49e7cc39a3bf06983e97b9fffe73a8e63606`, sans parent, 187 fichiers. L'API GitHub confirme visibilité publique, branche main, SHA du commit et égalité de l'arbre distant avec l'export audité. Preuve : `evidence/2026-10-01/publication/verification.json`.
 
 Deux relevés ont été dérivés pour masquer l'adresse MAC. Dix-sept chemins ont été exclus de la sélection initiale, dont le manifeste SHA original (remplacé par celui des dérivés), les acquisitions binaires, les archives et les extraits tiers retenus localement. Les attributions publiques amont restent conservées ; aucune identité Git privée de l'opérateur n'est dans le nouvel historique.

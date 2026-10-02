@@ -1,0 +1,166 @@
+{
+  "captured_utc": "2026-10-02T07:25:35.066694+00:00",
+  "returncode": 0,
+  "events": [
+    {
+      "event": "start",
+      "utc": "2026-10-02T07:24:06.046062+00:00",
+      "kernel": "6.18.11-xenon-obsidian4",
+      "pointer_bytes": 4,
+      "audio_request_bytes": 16
+    },
+    {
+      "event": "drive_status",
+      "value": 4
+    },
+    {
+      "event": "toc",
+      "entries": [
+        {
+          "track": 1,
+          "lba": 0,
+          "data_track": false
+        },
+        {
+          "track": 2,
+          "lba": 7823,
+          "data_track": false
+        },
+        {
+          "track": 3,
+          "lba": 17521,
+          "data_track": false
+        },
+        {
+          "track": 4,
+          "lba": 29031,
+          "data_track": false
+        },
+        {
+          "track": 5,
+          "lba": 39478,
+          "data_track": false
+        },
+        {
+          "track": 6,
+          "lba": 52724,
+          "data_track": false
+        },
+        {
+          "track": 7,
+          "lba": 67955,
+          "data_track": false
+        },
+        {
+          "track": 8,
+          "lba": 78534,
+          "data_track": false
+        },
+        {
+          "track": 9,
+          "lba": 97115,
+          "data_track": false
+        },
+        {
+          "track": 10,
+          "lba": 109241,
+          "data_track": false
+        },
+        {
+          "track": 11,
+          "lba": 123643,
+          "data_track": false
+        },
+        {
+          "track": 12,
+          "lba": 136571,
+          "data_track": false
+        },
+        {
+          "track": 13,
+          "lba": 153686,
+          "data_track": false
+        },
+        {
+          "track": 14,
+          "lba": 166362,
+          "data_track": false
+        },
+        {
+          "track": 15,
+          "lba": 176026,
+          "data_track": false
+        },
+        {
+          "track": 16,
+          "lba": 183916,
+          "data_track": false
+        },
+        {
+          "track": 17,
+          "lba": 198312,
+          "data_track": false
+        },
+        {
+          "track": 18,
+          "lba": 215004,
+          "data_track": false
+        },
+        {
+          "track": 19,
+          "lba": 236139,
+          "data_track": false
+        },
+        {
+          "track": 20,
+          "lba": 249085,
+          "data_track": false
+        }
+      ],
+      "leadout": {
+        "track": 170,
+        "lba": 263934,
+        "data_track": false
+      }
+    },
+    {
+      "event": "sample",
+      "lba": 150,
+      "bytes": 2352,
+      "sha256": "c4f2a15b5f2b19107754d6cdd514f95714ddf27fd7fcfe7491a2b3864225d3b9",
+      "all_zero": false,
+      "seconds": 0.0910528090025764
+    },
+    {
+      "event": "sample",
+      "lba": 123793,
+      "bytes": 2352,
+      "sha256": "b5bca6fcb684837a7da92f1c9cc91d8d7b143593ca5d59f998ddbabcf696673d",
+      "all_zero": false,
+      "seconds": 0.14347529499355005
+    },
+    {
+      "event": "sample",
+      "lba": 249235,
+      "bytes": 2352,
+      "sha256": "38f8acb617394ff8b3ed7a28e8bdf471008c5ff943d0945150f963abc4ae2de3",
+      "all_zero": false,
+      "seconds": 0.12411559199972544
+    },
+    {
+      "event": "repeat",
+      "lba": 150,
+      "bytes": 2352,
+      "sha256": "c4f2a15b5f2b19107754d6cdd514f95714ddf27fd7fcfe7491a2b3864225d3b9",
+      "all_zero": false,
+      "seconds": 0.2073975609964691,
+      "matches_first": true
+    },
+    {
+      "event": "complete",
+      "sampled_positions": 3,
+      "full_disc_verified": false
+    }
+  ],
+  "stderr": ""
+}

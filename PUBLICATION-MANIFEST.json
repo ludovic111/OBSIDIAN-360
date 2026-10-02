@@ -1,6 +1,6 @@
 {
   "scope": "Reviewed public text snapshot; original local history is not included.",
-  "source_commit": "e4168cb648ac8eea31f4dd1ce2725dbe889a99b8",
+  "source_commit": "2f64de1b4eb66dbd3b9229c38481e9761822e45e",
   "files": [
     {
       "path": ".gitattributes",
@@ -75,6 +75,12 @@
       "sanitized": false
     },
     {
+      "path": "desktop/icewm-controller.conf",
+      "source_sha256": "85c3133385991b82ac5232b7ab18b8a8cf1b13229e967240577791865dbb6c90",
+      "public_sha256": "85c3133385991b82ac5232b7ab18b8a8cf1b13229e967240577791865dbb6c90",
+      "sanitized": false
+    },
+    {
       "path": "desktop/xbox_desktop.py",
       "source_sha256": "7ef1a83fc6140393bd992f4cfafe121fa14f9af35c179ef8d86653ba0950dd7e",
       "public_sha256": "7ef1a83fc6140393bd992f4cfafe121fa14f9af35c179ef8d86653ba0950dd7e",
@@ -94,8 +100,8 @@
     },
     {
       "path": "docs/BLOCKED.md",
-      "source_sha256": "9d496b9be44fffd0c86d0d01883aa4b7367510751162c3c6e21a94177440fcd1",
-      "public_sha256": "9d496b9be44fffd0c86d0d01883aa4b7367510751162c3c6e21a94177440fcd1",
+      "source_sha256": "49696c352391d9b7c94a7da2729dcb7cd8f70b8e00396946ac1721f8f7b6e167",
+      "public_sha256": "49696c352391d9b7c94a7da2729dcb7cd8f70b8e00396946ac1721f8f7b6e167",
       "sanitized": false
     },
     {
@@ -117,15 +123,21 @@
       "sanitized": false
     },
     {
+      "path": "docs/DESKTOP-RESIZE-RECOVERY.md",
+      "source_sha256": "1cedf2b5628ade44693b9a0b34d6d10f25f1c8c4c51366fecdd5c7e4528fec03",
+      "public_sha256": "1cedf2b5628ade44693b9a0b34d6d10f25f1c8c4c51366fecdd5c7e4528fec03",
+      "sanitized": false
+    },
+    {
       "path": "docs/EXPERIMENTS.md",
-      "source_sha256": "c441ab2a14081f2f82760999f5662fb42c6b0d12e600ab32b6076acdbd8cded0",
-      "public_sha256": "c441ab2a14081f2f82760999f5662fb42c6b0d12e600ab32b6076acdbd8cded0",
+      "source_sha256": "5305e18d3a009718e503ca52ee9d99ee644e283b32368d1692da06d5343cbd0e",
+      "public_sha256": "5305e18d3a009718e503ca52ee9d99ee644e283b32368d1692da06d5343cbd0e",
       "sanitized": false
     },
     {
       "path": "docs/JOURNAL.md",
-      "source_sha256": "6a75dee7c991e4696cd981d148edd247d25b499e3898f2ae38373e7f16042f25",
-      "public_sha256": "6a75dee7c991e4696cd981d148edd247d25b499e3898f2ae38373e7f16042f25",
+      "source_sha256": "3b18c0fda71efb0833a2b3c0c5c2b4bc6e89805af195f588cf5c76cf7cbc524b",
+      "public_sha256": "3b18c0fda71efb0833a2b3c0c5c2b4bc6e89805af195f588cf5c76cf7cbc524b",
       "sanitized": false
     },
     {
@@ -166,8 +178,8 @@
     },
     {
       "path": "docs/OPTICAL-DRIVE.md",
-      "source_sha256": "b032a37c93e57649deeca157d847f85a165757fe9da1121c002d6a6b3b099c45",
-      "public_sha256": "b032a37c93e57649deeca157d847f85a165757fe9da1121c002d6a6b3b099c45",
+      "source_sha256": "c581c086730f6b726ac68c0a6bd861c7d756c2c2823c05ed20d452616efdfb71",
+      "public_sha256": "c581c086730f6b726ac68c0a6bd861c7d756c2c2823c05ed20d452616efdfb71",
       "sanitized": false
     },
     {
@@ -184,8 +196,8 @@
     },
     {
       "path": "docs/PUBLICATION.md",
-      "source_sha256": "7d0466ee206d420832b18e265909ff47847ce1dc3812849b0cd8446eb34f2ff4",
-      "public_sha256": "7d0466ee206d420832b18e265909ff47847ce1dc3812849b0cd8446eb34f2ff4",
+      "source_sha256": "bccb993321a0f34af0d8bc220fbd03b7faf67a9eb4cb5a4effaefbe9ce96fa6d",
+      "public_sha256": "bccb993321a0f34af0d8bc220fbd03b7faf67a9eb4cb5a4effaefbe9ce96fa6d",
       "sanitized": false
     },
     {
@@ -214,8 +226,8 @@
     },
     {
       "path": "docs/STATE.md",
-      "source_sha256": "0d786074d26f89deded7df3af26192440dfe264e0996aa633dcdf11fd6e3ae16",
-      "public_sha256": "0d786074d26f89deded7df3af26192440dfe264e0996aa633dcdf11fd6e3ae16",
+      "source_sha256": "b8d38d91be472ebe9d121ea7d2c6b2bb86065aab383b1fac66fd19149949a50a",
+      "public_sha256": "b8d38d91be472ebe9d121ea7d2c6b2bb86065aab383b1fac66fd19149949a50a",
       "sanitized": false
     },
     {
@@ -933,6 +945,84 @@
       "sanitized": false
     },
     {
+      "path": "evidence/2026-10-02/desktop-recovery/analysis.json",
+      "source_sha256": "7d5cf3655de1cfb6f625a1713b0d97fdb69226a00915bedf9264d10eb8245d9e",
+      "public_sha256": "7d5cf3655de1cfb6f625a1713b0d97fdb69226a00915bedf9264d10eb8245d9e",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/desktop-recovery/recovery-stage1.json",
+      "source_sha256": "c57bdfef0bad24934510b8459767d4ee1d804f1db28c37e169dd7226d3716537",
+      "public_sha256": "c57bdfef0bad24934510b8459767d4ee1d804f1db28c37e169dd7226d3716537",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/desktop-recovery/recovery-stage2.json",
+      "source_sha256": "e7777dd6d44257851fe2f95aba9457242f7e81c4b2791cad8cf13e99dbda8a66",
+      "public_sha256": "e7777dd6d44257851fe2f95aba9457242f7e81c4b2791cad8cf13e99dbda8a66",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/desktop-recovery/recovery-stage3.json",
+      "source_sha256": "b74a1464f2578b7e831c3a65f744f27d25802b0c3960554f808d2f48245b03cb",
+      "public_sha256": "b74a1464f2578b7e831c3a65f744f27d25802b0c3960554f808d2f48245b03cb",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/desktop-recovery/recovery-stage4.json",
+      "source_sha256": "e249af38ca59d1ab28cf09e01b721b3d254a181f31043e9728372c2aab735cc5",
+      "public_sha256": "e249af38ca59d1ab28cf09e01b721b3d254a181f31043e9728372c2aab735cc5",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/long-run/health.json",
+      "source_sha256": "d9005641e2bcb60adf3ddd6e7d1ab6572c84154c85586b2e2ccebf4af6234113",
+      "public_sha256": "d9005641e2bcb60adf3ddd6e7d1ab6572c84154c85586b2e2ccebf4af6234113",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/optical-cd/audio-read.json",
+      "source_sha256": "b5e9fb3d3ef08bf4e0d20b0f90e1f3150086408a12be07e01d9c6376021aa11a",
+      "public_sha256": "b5e9fb3d3ef08bf4e0d20b0f90e1f3150086408a12be07e01d9c6376021aa11a",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/optical-cd/cdrom-ioctl.json",
+      "source_sha256": "764c23d43966fc6c1ac1f21d4d6f1e0f78a50f4723843de09e630833e9394a59",
+      "public_sha256": "764c23d43966fc6c1ac1f21d4d6f1e0f78a50f4723843de09e630833e9394a59",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/optical-cd/method.json",
+      "source_sha256": "b4e348abd2dcedae0ca537c444880ad049c290da313fe3a3a98a5b1d821f53e8",
+      "public_sha256": "b4e348abd2dcedae0ca537c444880ad049c290da313fe3a3a98a5b1d821f53e8",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/optical-game/game-read.json",
+      "source_sha256": "43c63bca5f0b0915ac3a4856026bd0a33b6712b3c702a3e1de3766a278f2c35b",
+      "public_sha256": "43c63bca5f0b0915ac3a4856026bd0a33b6712b3c702a3e1de3766a278f2c35b",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/optical-game/game-ready.json",
+      "source_sha256": "757987830d651b6131b3e2688555916d94a19ee9ae19912ef1393513271f7a46",
+      "public_sha256": "757987830d651b6131b3e2688555916d94a19ee9ae19912ef1393513271f7a46",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/optical-game/method.json",
+      "source_sha256": "89c3bc14cdd16c06af27eb8ce4f7fd4ae784ae0e135b87ed537eec3612373e28",
+      "public_sha256": "89c3bc14cdd16c06af27eb8ce4f7fd4ae784ae0e135b87ed537eec3612373e28",
+      "sanitized": false
+    },
+    {
+      "path": "evidence/2026-10-02/public-audit/publication.json",
+      "source_sha256": "bba64f17d87fc0c20642957314a7a8dc8d2a45468cf4b95c34f76c51e9d64834",
+      "public_sha256": "bba64f17d87fc0c20642957314a7a8dc8d2a45468cf4b95c34f76c51e9d64834",
+      "sanitized": false
+    },
+    {
       "path": "evidence/2026-10-02/public-audit/tests.json",
       "source_sha256": "42dfc4414715204aa2a36bc9717d78799c926b6f2d3b5a2c6a83f2967cbeb178",
       "public_sha256": "42dfc4414715204aa2a36bc9717d78799c926b6f2d3b5a2c6a83f2967cbeb178",
@@ -1083,6 +1173,12 @@
       "sanitized": false
     },
     {
+      "path": "research/tests/check-optical-sense.py",
+      "source_sha256": "13bf873a16c72786f0eec4a178a2092ba0a07982021cde8235318eb6695f52d5",
+      "public_sha256": "13bf873a16c72786f0eec4a178a2092ba0a07982021cde8235318eb6695f52d5",
+      "sanitized": false
+    },
+    {
       "path": "research/tests/check-public-audit.py",
       "source_sha256": "3afdd6ed37653a24847a4d5ba822047211d2ee98161bbfcced28ff7af26650ac",
       "public_sha256": "3afdd6ed37653a24847a4d5ba822047211d2ee98161bbfcced28ff7af26650ac",
@@ -1170,6 +1266,18 @@
       "path": "tools/export-public.py",
       "source_sha256": "39dc2e1b16eb0d9d4225d542a77a193f269f1b8f649234957dee66dc1d70e11e",
       "public_sha256": "39dc2e1b16eb0d9d4225d542a77a193f269f1b8f649234957dee66dc1d70e11e",
+      "sanitized": false
+    },
+    {
+      "path": "tools/inspect-audio-cd.py",
+      "source_sha256": "c616c799482749ee3dc87bd70a6e3547d9b7531d5ff50c40ab3419659680b3f8",
+      "public_sha256": "c616c799482749ee3dc87bd70a6e3547d9b7531d5ff50c40ab3419659680b3f8",
+      "sanitized": false
+    },
+    {
+      "path": "tools/optical-ready.py",
+      "source_sha256": "83a10ef31073df9515136f7ebe06988b56e705f5f62f4d2f58b276179b8b9191",
+      "public_sha256": "83a10ef31073df9515136f7ebe06988b56e705f5f62f4d2f58b276179b8b9191",
       "sanitized": false
     },
     {

@@ -1,0 +1,8 @@
+{
+  "kernel_source_commit": "a293dd19311668900eb1eeb2f6cb01dcac54f330",
+  "sense_reference": "drivers/scsi/sense_codes.h:461",
+  "sense_interpretation": "NOT READY / MEDIUM NOT PRESENT (02/3a/00)",
+  "transport_host_status": 0,
+  "limitation": "Reports media recognition failure; not proof of optical component failure. Previous sysfs size can be stale after media swap. Block pread may trigger kernel read-ahead; not a claim of exactly one hardware sector command.",
+  "tests": "Five synthetic decoder tests pass, including 13 fixed-format truncations; no hardware access during tests."
+}
